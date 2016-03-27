@@ -1,0 +1,23 @@
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:[11pt,oneside]
+#+LATEX_HEADER: \usepackage{article}
+
+
+#+TITLE: heapq模块
+#+AUTHOR: 万泽(德山书生)
+#+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
+#+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
+
+
+heapq模块提供了堆队列算法
+
+简单来说就是一个二叉树，数值最小的元素总在根上。比如asyncio里面的call_at用到一个timer计时，就是使用得这么一个数据结构，保证总是最小的next_time的那个item第一个被弹出来。
+
+
+
+
+
+
+
+
+
