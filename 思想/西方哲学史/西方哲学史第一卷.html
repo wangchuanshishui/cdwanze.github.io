@@ -1,173 +1,133 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-<title>西方哲学史第一卷</title>
-<!-- 2015-11-14 21:58 -->
+<!-- 2016-03-28 一 12:12 -->
 <meta  charset="utf-8">
+<meta  name="viewport" content="width=device-width, initial-scale=1">
+<title>西方哲学史第一卷</title>
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="伯特兰·罗素">
 <meta  name="description" content="制作者邮箱：a358003542@gmail.com"
 >
-<style type="text/css"> /*
- * with_bootstrap.css
- *
- * Copyright 2015 wanze <a358003542@gmail.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
- *
- *
- */
-
-@import url("http://getbootstrap.com/dist/css/bootstrap.min.css");
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    position: relative;
-    min-height: 100%;
-    margin: 0px;
-}
+<style type="text/css">
 body {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
-}
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 60px;
-    background-color: #f5f5f5;
-}
 
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-.container {
-  width: auto;
-  max-width: 750px;
-  padding: 0 15px;
 }
-.container .text-muted {
-  margin: 20px 0;
-}
-
-/* background-color: #f8f8f8; */
-.navbar-default{
-    background-color: #fff;
-}
-/*--------------------*/
-
-#content{
-    margin: 0 auto;
-    max-width: 750px;
-    padding: 17px;
-    line-height:160%;
-    font-size:16px;
-}
-
-h1,h2,h3,h4,h5,h6 {
-    font-family: 'PT Sans Narrow', sans-serif;
-    font-weight: 700;
-    margin-bottom: 1em;
-    margin-top: 1em;
-}
-
-
-pre{line-height:180%;font-size:90%;}
-code,kbd,pre,samp {
-  font-family: monospace, serif;
-}
-
-code{  padding: 2px;}
-p{
-    text-indent:2em;/*段落缩进*/
-    line-height:180%;/*行间距*/
-    }
-
-.title{
-    text-align: center;
-}
-.org-ol li , .org-ul li , org-dl dt{
-    margin-top: 0.5em; /*增大li之间的垂直space*/
-    margin-bottom: 0.5em; /*增大li之间的垂直space*/
-}
-p.verse{
-    margin-left: 3%;
-    text-indent:0em;
-}
-
-.right{
-    margin-left: auto;
-    margin-right: 0px;
-    text-align: right;
-}
-.left{
-    margin-left: 0px;
+@media (min-width: 768px) {
+  body {
+    width: 732px;
+    padding-right: 20px;
+    padding-left: 20px;
     margin-right: auto;
-    text-align: left;
+    margin-left: auto;
+  }
 }
-.center{
+@media (min-width: 992px) {
+  body {
+    width: 880px;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    width: 750px;
+    padding-right: 200px;
+    padding-left: 200px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.title {
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+.center-block {
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
 }
 
 .underline{
     text-decoration: underline;
 }
+   #content {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+code {
+    padding: 2px 4px;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+
+pre {
+    max-width: 100%;
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow : auto;
+}
+
+
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-left: 5px solid #eee;
+}
+
+
+p{
+    text-indent:2em;
+    line-height:150%;
+}
+
+li, dt{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
 
 video{
-    width: 750px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 figure p{
-    text-indent:0em;/*段落缩进*/
+    text-indent:0em;
 }
 img{
-    max-width: 700px;
+    max-width: 100%;
+}
+
+embed{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 figure{
     text-align: center;
 }
 
-table, th, td
-{
-    margin:0 auto;
-    min-width:2em;
-    text-align:center ;
-    padding: 5px;
-}
-
-table{
-    border-top: 2px solid ;
-    border-bottom: 2px solid ;
-}
-thead{
-    border-bottom: 1px solid ;
-}
-
 /*  class  */
-.framed{
-    max-width:700px;
+.FRAMED{
+    max-width:100%;
     border:1px solid ;
     padding: 1em;
     -webkit-box-sizing: border-box;
@@ -175,10 +135,10 @@ thead{
     box-sizing: border-box;
 }
 
-.notecard{
-    width: 320px;
+.NOTECARD{
+    width: 30%;
     position:relative;
-    right: -215px;
+    right: -30%;
     padding: 1em;
     margin:0 auto;
     border: solid 1px;
@@ -188,185 +148,102 @@ thead{
 }
 
 /*
-http://thomasf.github.io/solarized-css/
+table
 */
-
-dfn {
-  font-style: italic;
-}
-dd{
-    margin-left:2em;
-}
-mark {
-  background: #ff0;
-  color: #000;
-}
-
-q {
-  quotes: "\201C" "\201D" "\2018" "\2019";
-}
-small {
-  font-size: 80%;
-}
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sup {
-  top: -0.5em;
-}
-sub {
-  bottom: -0.25em;
-}
-
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 16px 0;
+    empty-cells: show;
+    border: 1px solid #ccc;
+    width: 100%;
+    display: table;
 }
 
-
-
-.tag {
-  background-color: #eee8d5;
-  color: #d33682;
-  padding: 0 0.2em;
+table tr {
+    border-bottom: 1px solid #ddd;
+}
+table th,table td{
+    padding:8px;
 }
 
-
-.todo,
-.next,
-.done {
-  color: #fdf6e3;
-  background-color: #dc322f;
-  padding: 0 0.2em;
+table tr:nth-child(even) {
+    background-color: #f1f1f1;
 }
-.tag {
-  -webkit-border-radius: 0.35em;
-  -moz-border-radius: 0.35em;
-  border-radius: 0.35em;
-}
-.TODO {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #2aa198;
-}
-.NEXT {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #268bd2;
-}
-.ACTIVE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #268bd2;
-}
-.DONE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #859900;
-}
-.WAITING {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #cb4b16;
-}
-.HOLD {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #d33682;
-}
-.NOTE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #d33682;
-}
-.CANCELLED {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #859900;
-}
-
-
-/*
-pygmentize -f html -S colorful -a .highlight
-*/
-
 .highlight .hll { background-color: #ffffcc }
-.highlight  { background: #ffffff; }
-.highlight .c { color: #888888 } /* Comment */
-.highlight .err { color: #FF0000; background-color: #FFAAAA } /* Error */
-.highlight .k { color: #008800; font-weight: bold } /* Keyword */
-.highlight .o { color: #333333 } /* Operator */
-.highlight .cm { color: #888888 } /* Comment.Multiline */
-.highlight .cp { color: #557799 } /* Comment.Preproc */
-.highlight .c1 { color: #888888 } /* Comment.Single */
-.highlight .cs { color: #cc0000; font-weight: bold } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #8f5902; font-style: italic } /* Comment */
+.highlight .err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.highlight .g { color: #000000 } /* Generic */
+.highlight .k { color: #204a87; font-weight: bold } /* Keyword */
+.highlight .l { color: #000000 } /* Literal */
+.highlight .n { color: #000000 } /* Name */
+.highlight .o { color: #ce5c00; font-weight: bold } /* Operator */
+.highlight .x { color: #000000 } /* Other */
+.highlight .p { color: #000000; font-weight: bold } /* Punctuation */
+.highlight .ch { color: #8f5902; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: #8f5902; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #a40000 } /* Generic.Deleted */
+.highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #ef2929 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .go { color: #000000; font-style: italic } /* Generic.Output */
+.highlight .gp { color: #8f5902 } /* Generic.Prompt */
+.highlight .gs { color: #000000; font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #008800; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #008800; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #008800; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #003388; font-weight: bold } /* Keyword.Pseudo */
-.highlight .kr { color: #008800; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #333399; font-weight: bold } /* Keyword.Type */
-.highlight .m { color: #6600EE; font-weight: bold } /* Literal.Number */
-.highlight .s { background-color: #fff0f0 } /* Literal.String */
-.highlight .na { color: #0000CC } /* Name.Attribute */
-.highlight .nb { color: #007020 } /* Name.Builtin */
-.highlight .nc { color: #BB0066; font-weight: bold } /* Name.Class */
-.highlight .no { color: #003366; font-weight: bold } /* Name.Constant */
-.highlight .nd { color: #555555; font-weight: bold } /* Name.Decorator */
-.highlight .ni { color: #880000; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #FF0000; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0066BB; font-weight: bold } /* Name.Function */
-.highlight .nl { color: #997700; font-weight: bold } /* Name.Label */
-.highlight .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #007700 } /* Name.Tag */
-.highlight .nv { color: #996633 } /* Name.Variable */
-.highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #6600EE; font-weight: bold } /* Literal.Number.Bin */
-.highlight .mf { color: #6600EE; font-weight: bold } /* Literal.Number.Float */
-.highlight .mh { color: #005588; font-weight: bold } /* Literal.Number.Hex */
-.highlight .mi { color: #0000DD; font-weight: bold } /* Literal.Number.Integer */
-.highlight .mo { color: #4400EE; font-weight: bold } /* Literal.Number.Oct */
-.highlight .sb { background-color: #fff0f0 } /* Literal.String.Backtick */
-.highlight .sc { color: #0044DD } /* Literal.String.Char */
-.highlight .sd { color: #DD4422 } /* Literal.String.Doc */
-.highlight .s2 { background-color: #fff0f0 } /* Literal.String.Double */
-.highlight .se { color: #666666; font-weight: bold; background-color: #fff0f0 } /* Literal.String.Escape */
-.highlight .sh { background-color: #fff0f0 } /* Literal.String.Heredoc */
-.highlight .si { background-color: #eeeeee } /* Literal.String.Interpol */
-.highlight .sx { color: #DD2200; background-color: #fff0f0 } /* Literal.String.Other */
-.highlight .sr { color: #000000; background-color: #fff0ff } /* Literal.String.Regex */
-.highlight .s1 { background-color: #fff0f0 } /* Literal.String.Single */
-.highlight .ss { color: #AA6600 } /* Literal.String.Symbol */
-.highlight .bp { color: #007020 } /* Name.Builtin.Pseudo */
-.highlight .vc { color: #336699 } /* Name.Variable.Class */
-.highlight .vg { color: #dd7700; font-weight: bold } /* Name.Variable.Global */
-.highlight .vi { color: #3333BB } /* Name.Variable.Instance */
-.highlight .il { color: #0000DD; font-weight: bold } /* Literal.Number.Integer.Long */
-
- </style>
+.highlight .gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.highlight .kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.highlight .ld { color: #000000 } /* Literal.Date */
+.highlight .m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.highlight .s { color: #4e9a06 } /* Literal.String */
+.highlight .na { color: #c4a000 } /* Name.Attribute */
+.highlight .nb { color: #204a87 } /* Name.Builtin */
+.highlight .nc { color: #000000 } /* Name.Class */
+.highlight .no { color: #000000 } /* Name.Constant */
+.highlight .nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.highlight .ni { color: #ce5c00 } /* Name.Entity */
+.highlight .ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #000000 } /* Name.Function */
+.highlight .nl { color: #f57900 } /* Name.Label */
+.highlight .nn { color: #000000 } /* Name.Namespace */
+.highlight .nx { color: #000000 } /* Name.Other */
+.highlight .py { color: #000000 } /* Name.Property */
+.highlight .nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #000000 } /* Name.Variable */
+.highlight .ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.highlight .mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.highlight .mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.highlight .mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.highlight .mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.highlight .mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.highlight .sb { color: #4e9a06 } /* Literal.String.Backtick */
+.highlight .sc { color: #4e9a06 } /* Literal.String.Char */
+.highlight .sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #4e9a06 } /* Literal.String.Double */
+.highlight .se { color: #4e9a06 } /* Literal.String.Escape */
+.highlight .sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.highlight .si { color: #4e9a06 } /* Literal.String.Interpol */
+.highlight .sx { color: #4e9a06 } /* Literal.String.Other */
+.highlight .sr { color: #4e9a06 } /* Literal.String.Regex */
+.highlight .s1 { color: #4e9a06 } /* Literal.String.Single */
+.highlight .ss { color: #4e9a06 } /* Literal.String.Symbol */
+.highlight .bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #000000 } /* Name.Variable.Class */
+.highlight .vg { color: #000000 } /* Name.Variable.Global */
+.highlight .vi { color: #000000 } /* Name.Variable.Instance */
+.highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
+</style>
 
 <script type="text/javascript" src="http://orgmode.org/org-info.js">
 /**
@@ -427,7 +304,7 @@ for the JavaScript code in this tag.
 */
 
 <!--/*--><![CDATA[/*><!--*/
-org_html_manager.set("TOC_DEPTH", "5");
+org_html_manager.set("TOC_DEPTH", "6");
 org_html_manager.set("LINK_HOME", "");
 org_html_manager.set("LINK_UP", "");
 org_html_manager.set("LOCAL_TOC", "1");
@@ -439,117 +316,91 @@ org_html_manager.set("VIEW", "showall");
 org_html_manager.setup();  // activate after the parameters are set
 /*]]>*///-->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-<script type="text/javascript">
-<!--/*--><![CDATA[/*><!--*/
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js","TeX/mhchem.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
         displayAlign: "center",
-        displayIndent: "2em",
+        displayIndent: "0em",
 
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
              }
-        },
-    });
-/*]]>*///-->
+});
 </script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<header class="header">
-<nav class="navbar navbar-default navbar-static-top"><div class="container">
-<div class="navbar-header">
-<a class="navbar-brand" href="http://www.cdwanze.org"><img style="max-width:50px; margin-top: -15px;" src="/templates/images/logo.svg" /></a></div>
-<div id="navbar">
-<ul class="nav navbar-nav"><li class="active"><a href="http://blog.cdwanze.org">博客</a><li><a href="http://blog.cdwanze.org/about.html">关于</a><li><a href="http://blog.cdwanze.org/donate.html">支持</a></div>
-</div>
-</nav></header><div id="content">
+<div id="content">
+<header>
 <h1 class="title">西方哲学史第一卷</h1>
-<nav id="table-of-contents">
+</header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 前言</a>
+<li><a href="#orgheadline3">1. 前言</a>
 <ul>
-<li><a href="#sec-1-1">1.1. 美国版序言</a></li>
-<li><a href="#sec-1-2">1.2. 绪论</a></li>
+<li><a href="#orgheadline1">1.1. 美国版序言</a></li>
+<li><a href="#orgheadline2">1.2. 绪论</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2. 前苏格拉底哲学家</a>
+<li><a href="#orgheadline34">2. 前苏格拉底哲学家</a>
 <ul>
-<li><a href="#sec-2-1">2.1. 希腊文明的兴起</a></li>
-<li><a href="#sec-2-2">2.2. 米利都学派</a></li>
-<li><a href="#sec-2-3">2.3. 毕达哥拉斯</a></li>
-<li><a href="#sec-2-4">2.4. 赫拉克利特</a></li>
-<li><a href="#sec-2-5">2.5. 巴门尼德</a></li>
-<li><a href="#sec-2-6">2.6. 恩培多克勒</a></li>
-<li><a href="#sec-2-7">2.7. 雅典与文化的关系</a></li>
-<li><a href="#sec-2-8">2.8. 阿那克萨哥拉</a></li>
-<li><a href="#sec-2-9">2.9. 原子论者</a></li>
-<li><a href="#sec-2-10">2.10. 普罗泰戈拉</a></li>
-<li><a href="#sec-2-11">2.11. 苏格拉底</a></li>
-<li><a href="#sec-2-12">2.12. 斯巴达的影响</a></li>
-<li><a href="#sec-2-13">2.13. 柏拉图见解的来源</a></li>
-<li><a href="#sec-2-14">2.14. 柏拉图的乌托邦</a></li>
-<li><a href="#sec-2-15">2.15. 理念论</a></li>
-<li><a href="#sec-2-16">2.16. 柏拉图的不朽论</a></li>
-<li><a href="#sec-2-17">2.17. 柏拉图的宇宙生成论</a></li>
-<li><a href="#sec-2-18">2.18. 柏拉图哲学中的知识与知觉</a></li>
-<li><a href="#sec-2-19">2.19. 亚里士多德的形而上学</a></li>
-<li><a href="#sec-2-20">2.20. 亚里士多德的伦理学</a></li>
-<li><a href="#sec-2-21">2.21. 亚里士多德的政治学</a></li>
-<li><a href="#sec-2-22">2.22. 亚里士多德的逻辑</a></li>
-<li><a href="#sec-2-23">2.23. 亚里士多德的物理学</a></li>
-<li><a href="#sec-2-24">2.24. 希腊早期的数学与天文学</a></li>
-<li><a href="#sec-2-25">2.25. 希腊化世界</a></li>
-<li><a href="#sec-2-26">2.26. 犬儒学派与怀疑派</a></li>
-<li><a href="#sec-2-27">2.27. 伊壁鸠鲁派</a></li>
-<li><a href="#sec-2-28">2.28. 斯多葛主义</a></li>
-<li><a href="#sec-2-29">2.29. 罗马帝国与文化的关系</a></li>
-<li><a href="#sec-2-30">2.30. 普罗提诺</a></li>
+<li><a href="#orgheadline4">2.1. 希腊文明的兴起</a></li>
+<li><a href="#orgheadline5">2.2. 米利都学派</a></li>
+<li><a href="#orgheadline6">2.3. 毕达哥拉斯</a></li>
+<li><a href="#orgheadline7">2.4. 赫拉克利特</a></li>
+<li><a href="#orgheadline8">2.5. 巴门尼德</a></li>
+<li><a href="#orgheadline9">2.6. 恩培多克勒</a></li>
+<li><a href="#orgheadline10">2.7. 雅典与文化的关系</a></li>
+<li><a href="#orgheadline11">2.8. 阿那克萨哥拉</a></li>
+<li><a href="#orgheadline12">2.9. 原子论者</a></li>
+<li><a href="#orgheadline13">2.10. 普罗泰戈拉</a></li>
+<li><a href="#orgheadline14">2.11. 苏格拉底</a></li>
+<li><a href="#orgheadline15">2.12. 斯巴达的影响</a></li>
+<li><a href="#orgheadline16">2.13. 柏拉图见解的来源</a></li>
+<li><a href="#orgheadline17">2.14. 柏拉图的乌托邦</a></li>
+<li><a href="#orgheadline18">2.15. 理念论</a></li>
+<li><a href="#orgheadline19">2.16. 柏拉图的不朽论</a></li>
+<li><a href="#orgheadline20">2.17. 柏拉图的宇宙生成论</a></li>
+<li><a href="#orgheadline21">2.18. 柏拉图哲学中的知识与知觉</a></li>
+<li><a href="#orgheadline22">2.19. 亚里士多德的形而上学</a></li>
+<li><a href="#orgheadline23">2.20. 亚里士多德的伦理学</a></li>
+<li><a href="#orgheadline24">2.21. 亚里士多德的政治学</a></li>
+<li><a href="#orgheadline25">2.22. 亚里士多德的逻辑</a></li>
+<li><a href="#orgheadline26">2.23. 亚里士多德的物理学</a></li>
+<li><a href="#orgheadline27">2.24. 希腊早期的数学与天文学</a></li>
+<li><a href="#orgheadline28">2.25. 希腊化世界</a></li>
+<li><a href="#orgheadline29">2.26. 犬儒学派与怀疑派</a></li>
+<li><a href="#orgheadline30">2.27. 伊壁鸠鲁派</a></li>
+<li><a href="#orgheadline31">2.28. 斯多葛主义</a></li>
+<li><a href="#orgheadline32">2.29. 罗马帝国与文化的关系</a></li>
+<li><a href="#orgheadline33">2.30. 普罗提诺</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3. 附录</a>
+<li><a href="#orgheadline36">3. 附录</a>
 <ul>
-<li><a href="#sec-3-1">3.1. 参考资料</a></li>
+<li><a href="#orgheadline35">3.1. 参考资料</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 前言</h2>
+<div class="outline-2">
+<h2 id="orgheadline3">前言</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 美国版序言</h3>
+</div><div class="outline-3">
+<h3 id="orgheadline1">美国版序言</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 目前已经有不少部哲学史了，我的目的并不是要仅仅在他们之中再加上一部。我的目的是要揭示，哲学乃是社会生活与政治生活的一个组成部分: 他【这里使用他和他们是故意为之，我们约定一般情况“人”使用他或她，但某些事物我们如同人一样看待以示尊敬看重同样可以使用他或她，如此加入了额外的感情。有时我们对于某些人加上厌恶表达，会使用它。】并不是卓越的个人所做出的孤立的思考，二是曾经有各种体系盛行过的各种社会性格的产物与成因。这一目的就要求我们对于一般历史的叙述，比通常哲学史家所做的为多。我还发觉这一点对于一般读者未必是很熟悉的那几段时期，尤其必要。经院哲学的大时代乃是十一世纪改革的产物，而这些改革又是对于前一时期的颓废腐化的反作用。如果对于罗马罗马灭亡与中古政权兴起之间的那几个世纪没有一些知识的话，就会难于理解十二、三世纪知识界的气氛。在处理这段时期时，正如处理其他时期一样，我的目的是在必要的对于那些哲学家的同情和理解之下，如此多的一般历史时期之下，那些哲学家是如何和那些形成他们的时代相连，同时他们又是如何帮助构建那些时代的。【In dealing with this period, as with others, I have aimed at giving only so much general history as I thought necessary for the sympathetic comprehension of philosophers in relation to the times that formed them and the times that they helped to form.】
@@ -581,8 +432,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 绪论</h3>
+<div class="outline-3">
+<h3 id="orgheadline2">绪论</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 我们所说的“哲学的”人生观与世界观乃是两种因素的产物：一种是传统的宗教与伦理观念，另一种是可以称之为“科学的”那种研究，这是就科学这个词的最广泛的意义而言的。至于这两种因素在哲学家的体系中所占的比例如何，则各个哲学家大不相同；但是唯有这两者在某种程度上同时存在，才能构成哲学的特征。
@@ -706,14 +557,14 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 前苏格拉底哲学家</h2>
+<div class="outline-2">
+<h2 id="orgheadline34">前苏格拉底哲学家</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 希腊文明的兴起</h3>
+</div><div class="outline-3">
+<h3 id="orgheadline4">希腊文明的兴起</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-在全部的历史里，最使人感到惊异或难于解说的莫过于希腊文明的突然兴起了。构成文明的大部分东西已经在埃及和美索不达米亚存在了好几千年，又从那里传播到了四邻的国家。但是其中却始终缺少着某些因素，直等到希腊人才把它们提供出来。希腊人在文学艺术上的成就是大家熟知的，但是他们在纯粹知识的领域上所做出的贡献还要更加不平凡。他们首创了数学<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>、科学和哲学；他们最先写出了有别于纯粹编年表的历史书；他们自由地思考着世界的性质和生活的目的，而不为任何因袭的正统观念的枷琐所束缚。所发生的一切都是如此之令人惊异，以至于直到最近的时代，人们还满足于惊叹并神秘地谈论着希腊的天才。然而现在已经有可能用科学的观念来了解希腊的发展了，而且的确也值得我们这样去做。
+在全部的历史里，最使人感到惊异或难于解说的莫过于希腊文明的突然兴起了。构成文明的大部分东西已经在埃及和美索不达米亚存在了好几千年，又从那里传播到了四邻的国家。但是其中却始终缺少着某些因素，直等到希腊人才把它们提供出来。希腊人在文学艺术上的成就是大家熟知的，但是他们在纯粹知识的领域上所做出的贡献还要更加不平凡。他们首创了数学<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>、科学和哲学；他们最先写出了有别于纯粹编年表的历史书；他们自由地思考着世界的性质和生活的目的，而不为任何因袭的正统观念的枷琐所束缚。所发生的一切都是如此之令人惊异，以至于直到最近的时代，人们还满足于惊叹并神秘地谈论着希腊的天才。然而现在已经有可能用科学的观念来了解希腊的发展了，而且的确也值得我们这样去做。
 </p>
 
 <p>
@@ -737,7 +588,7 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-埃及与巴比伦的宗教正像其他古代的宗教一样，本来都是一种生殖崇拜(fertility cults)。大地是阴性的，而太阳是阳性的。公牛通常被认为是阳性生殖能力的化身，牛神是非常普遍的。在巴比伦，大地女神伊什塔尔(Ishtar)在众女神之中是至高无上的。这位“伟大的母亲”在整个西亚以各种不同的名称而受人崇拜。当希腊殖民者在小亚细亚为她建筑神殿的时候，他们就称她为阿尔蒂米斯，并且把原有的礼拜仪式接受过来。这就是“以弗所人的狄阿娜”<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>的起源。基督教又把她转化成为童贞女玛利亚，但是到了以弗所宗教大会上才规定把“圣母”这个头衔加给我们的教母。
+埃及与巴比伦的宗教正像其他古代的宗教一样，本来都是一种生殖崇拜(fertility cults)。大地是阴性的，而太阳是阳性的。公牛通常被认为是阳性生殖能力的化身，牛神是非常普遍的。在巴比伦，大地女神伊什塔尔(Ishtar)在众女神之中是至高无上的。这位“伟大的母亲”在整个西亚以各种不同的名称而受人崇拜。当希腊殖民者在小亚细亚为她建筑神殿的时候，他们就称她为阿尔蒂米斯，并且把原有的礼拜仪式接受过来。这就是“以弗所人的狄阿娜”<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>的起源。基督教又把她转化成为童贞女玛利亚，但是到了以弗所宗教大会上才规定把“圣母”这个头衔加给我们的教母。
 </p>
 
 <p>
@@ -761,7 +612,7 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-克里特人崇拜一个女神，也许是几个女神。最为明确无疑的女神就是“动物的女主人”，她是一个女猎人，或许就是古典的阿尔蒂米斯的起源<sup><a id="fnr.3" name="fnr.3" class="footref" href="#fn.3">3</a></sup>。她或者另一女神，也是一位母亲；除了“动物的男主人”而外，唯一的男神就是她的少子。有证据可以说明克里特人是信仰死后的生命的，正如埃及的信仰一样，认为人死之后，生前的作为就要受到赏罚。但是总的说来，从克里特的艺术上看，似乎他们是欢愉的民族，并没有受到阴沉的迷信的很大压迫。他们喜欢斗牛，斗牛时女斗士和男斗士一样地表演出惊人的绝技。斗牛是宗教仪式，阿瑟·伊万斯爵士以为斗牛者属于最高的贵族。传下来的图画都是非常生动而逼真的。
+克里特人崇拜一个女神，也许是几个女神。最为明确无疑的女神就是“动物的女主人”，她是一个女猎人，或许就是古典的阿尔蒂米斯的起源<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>。她或者另一女神，也是一位母亲；除了“动物的男主人”而外，唯一的男神就是她的少子。有证据可以说明克里特人是信仰死后的生命的，正如埃及的信仰一样，认为人死之后，生前的作为就要受到赏罚。但是总的说来，从克里特的艺术上看，似乎他们是欢愉的民族，并没有受到阴沉的迷信的很大压迫。他们喜欢斗牛，斗牛时女斗士和男斗士一样地表演出惊人的绝技。斗牛是宗教仪式，阿瑟·伊万斯爵士以为斗牛者属于最高的贵族。传下来的图画都是非常生动而逼真的。
 </p>
 
 <p>
@@ -773,7 +624,7 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-关于迈锡尼人还有许多不清楚的地方。他们的文明是他们被克里特人所征服的结果吗？他们说希腊语呢，抑或他们是一种较早的土著种族呢？对于这些问题还不可能有确切的答案，但是总的说来，他们很可能是说希腊语的征服者，并且至少贵族是来自北方的头发漂亮的侵入者，这些人带来了希腊的语言<sup><a id="fnr.4" name="fnr.4" class="footref" href="#fn.4">4</a></sup>。希腊人前后以三次连续的浪潮进入希腊，最初是伊奥尼亚人，然后是亚该亚人，最后是多利亚人。伊奥尼亚人虽然是征服者，但似乎相当完整地采纳了克里特的文明，正象后来罗马人采纳了希腊的文明一样。但是伊奥尼亚人被他们的后继者亚该亚人所侵扰，并且大部分被赶走了。从波伽兹－科易所发掘出来的喜特人的书版里，我们可以知道亚该亚人在公元前十四世纪曾有过一个庞大的有组织的帝国。迈锡尼文明已经被伊奥尼亚和亚该亚人的战争所削弱，实际上就被最后的希腊侵略者多利亚人所毁灭了。以前的侵入者大部分采纳了米诺的宗教，但是多利亚人却保存了他们祖先的原始的印度－欧罗巴宗教。然而迈锡尼时代的宗教却仍然不绝如缕，尤其是在下层阶级之中；而古典时代希腊的宗教就是这两种宗教的混合物。
+关于迈锡尼人还有许多不清楚的地方。他们的文明是他们被克里特人所征服的结果吗？他们说希腊语呢，抑或他们是一种较早的土著种族呢？对于这些问题还不可能有确切的答案，但是总的说来，他们很可能是说希腊语的征服者，并且至少贵族是来自北方的头发漂亮的侵入者，这些人带来了希腊的语言<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>。希腊人前后以三次连续的浪潮进入希腊，最初是伊奥尼亚人，然后是亚该亚人，最后是多利亚人。伊奥尼亚人虽然是征服者，但似乎相当完整地采纳了克里特的文明，正象后来罗马人采纳了希腊的文明一样。但是伊奥尼亚人被他们的后继者亚该亚人所侵扰，并且大部分被赶走了。从波伽兹－科易所发掘出来的喜特人的书版里，我们可以知道亚该亚人在公元前十四世纪曾有过一个庞大的有组织的帝国。迈锡尼文明已经被伊奥尼亚和亚该亚人的战争所削弱，实际上就被最后的希腊侵略者多利亚人所毁灭了。以前的侵入者大部分采纳了米诺的宗教，但是多利亚人却保存了他们祖先的原始的印度－欧罗巴宗教。然而迈锡尼时代的宗教却仍然不绝如缕，尤其是在下层阶级之中；而古典时代希腊的宗教就是这两种宗教的混合物。
 </p>
 
 <p>
@@ -793,15 +644,15 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-一般的发展情况是最初由君主制过渡到贵族制，然后又过渡到僭主制与民主制的交替出现。国王们并不象埃及的和巴比伦的国王那样具有绝对的权力，他们须听从元老会议的劝告，他们违背了习俗便不会不受惩罚。“僭主制”并不必然地意味着坏政府，而仅仅指一个不是由世袭而掌权的人的统治。“民主制”即指全体公民的政府，但其中不包括奴隶与女人。早期的僭主正象梅狄奇家族那样，乃是由于他们是财阀政治中最富有的成员而获得权力的。他们的财富来源往往是占有金银矿，并且由于伊奥尼亚附近吕底亚王国传来了新的铸币制度而大发其财。铸币似乎是公元前700年以前不久被人发明的<sup><a id="fnr.5" name="fnr.5" class="footref" href="#fn.5">5</a></sup>。
+一般的发展情况是最初由君主制过渡到贵族制，然后又过渡到僭主制与民主制的交替出现。国王们并不象埃及的和巴比伦的国王那样具有绝对的权力，他们须听从元老会议的劝告，他们违背了习俗便不会不受惩罚。“僭主制”并不必然地意味着坏政府，而仅仅指一个不是由世袭而掌权的人的统治。“民主制”即指全体公民的政府，但其中不包括奴隶与女人。早期的僭主正象梅狄奇家族那样，乃是由于他们是财阀政治中最富有的成员而获得权力的。他们的财富来源往往是占有金银矿，并且由于伊奥尼亚附近吕底亚王国传来了新的铸币制度而大发其财。铸币似乎是公元前700年以前不久被人发明的<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>。
 </p>
 
 <p>
-商业或海盗掠夺——起初这两者是很难分别的——对于希腊人最重要的结果之一，就是使他们学会了书写的艺术。虽然书写在埃及和巴比伦已经存在过几千年了，而且米诺的克里特人也曾有过一种文字（这种文字还没有人能识别），然而并没有任何决定性的证据可以证明希腊人在公元前十世纪左右以前是会写字的。他们从腓尼基人那里学到书写的技术；腓尼基人正像其他叙利亚的居民一样，受着埃及和巴比伦两方面的影响，而且在伊奥尼亚、意大利和西西里的希腊城市兴起之前，他们一直握有海上商业的霸权。公元前十四世纪时，叙利亚人给伊克纳顿（埃及的异端国王）写信仍然使用巴比伦的楔形文字；但是推罗的西拉姆（公元前969-936年）已经用腓尼基字母了，腓尼基字母或许就是从埃及文字中发展出来的。最初埃及人使用一种纯粹的图画文字；这些图画日益通行以后就逐渐地代表音节（即图形所代表的事物的名字的第一个音节），终于根据“A是一个射青蛙的射手”<sup><a id="fnr.6" name="fnr.6" class="footref" href="#fn.6">6</a></sup>的原则而代表单独的字母了。最后的这一步埃及人自己并没有完成，而是由腓尼基人完成的，而这就给了字母以一切的便利。希腊人又从腓尼基人那里借来这种字母加以改变以适合他们自己的语言，并且加入了母音而不是象以往那样仅有子音，从而就作出了重要的创造。毫无疑问，获得了这种便利的书写方法就大大促进了希腊文明的兴起。
+商业或海盗掠夺——起初这两者是很难分别的——对于希腊人最重要的结果之一，就是使他们学会了书写的艺术。虽然书写在埃及和巴比伦已经存在过几千年了，而且米诺的克里特人也曾有过一种文字（这种文字还没有人能识别），然而并没有任何决定性的证据可以证明希腊人在公元前十世纪左右以前是会写字的。他们从腓尼基人那里学到书写的技术；腓尼基人正像其他叙利亚的居民一样，受着埃及和巴比伦两方面的影响，而且在伊奥尼亚、意大利和西西里的希腊城市兴起之前，他们一直握有海上商业的霸权。公元前十四世纪时，叙利亚人给伊克纳顿（埃及的异端国王）写信仍然使用巴比伦的楔形文字；但是推罗的西拉姆（公元前969-936年）已经用腓尼基字母了，腓尼基字母或许就是从埃及文字中发展出来的。最初埃及人使用一种纯粹的图画文字；这些图画日益通行以后就逐渐地代表音节（即图形所代表的事物的名字的第一个音节），终于根据“A是一个射青蛙的射手”<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>的原则而代表单独的字母了。最后的这一步埃及人自己并没有完成，而是由腓尼基人完成的，而这就给了字母以一切的便利。希腊人又从腓尼基人那里借来这种字母加以改变以适合他们自己的语言，并且加入了母音而不是象以往那样仅有子音，从而就作出了重要的创造。毫无疑问，获得了这种便利的书写方法就大大促进了希腊文明的兴起。
 </p>
 
 <p>
-希腊文明第一个有名的产儿就是荷马。关于荷马的一切全都是推测，但是最好的意见似乎是认为，他是一系列的诗人而并不是一个诗人。或许依里亚特和奥德赛两书完成的期间约占200年的光景，有人说是从公元前750-550年，<sup><a id="fnr.7" name="fnr.7" class="footref" href="#fn.7">7</a></sup>而另有人认为《荷马》在公元前八世纪末就差不多已经写成了<sup><a id="fnr.8" name="fnr.8" class="footref" href="#fn.8">8</a></sup>。荷马诗现存的形式是被比西斯垂塔斯带给雅典的，他在公元前560至527年（包括间断期）执政。从他那时以后，雅典的青年就背诵着荷马，而这就成为他们教育中最重要的部分。但在希腊的某些地区，特别是在斯巴达，荷马直到较晚的时期，才享有同样的声望。
+希腊文明第一个有名的产儿就是荷马。关于荷马的一切全都是推测，但是最好的意见似乎是认为，他是一系列的诗人而并不是一个诗人。或许依里亚特和奥德赛两书完成的期间约占200年的光景，有人说是从公元前750-550年，<sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup>而另有人认为《荷马》在公元前八世纪末就差不多已经写成了<sup><a id="fnr.8" class="footref" href="#fn.8">8</a></sup>。荷马诗现存的形式是被比西斯垂塔斯带给雅典的，他在公元前560至527年（包括间断期）执政。从他那时以后，雅典的青年就背诵着荷马，而这就成为他们教育中最重要的部分。但在希腊的某些地区，特别是在斯巴达，荷马直到较晚的时期，才享有同样的声望。
 </p>
 
 <p>
@@ -817,7 +668,7 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-荷马的神祇们乃是征服者的贵族阶级的神祇，而不是那些实际在耕种土地的人们的有用的丰产之神。正如吉尔伯特·穆莱所说的<sup><a id="fnr.9" name="fnr.9" class="footref" href="#fn.9">9</a></sup>：“大多数民族的神都自命曾经创造过世界，奥林匹克的神并不自命如此。他们所做的，主要是征服世界。 \(\cdots \cdots\) 当他们已经征服了王国之后，它们又干什么呢？他们关心政治吗？他们促进农业吗？他们从事商业和工业吗？一点都不。他们为什么要从事任何老实的工作呢？依靠租税并对不纳税的人大发雷霆，在他们看来倒是更为舒适的生活。他们都是些嗜好征服的首领，是些海盗之王。他们既打仗，又宴饮，又游玩，又作乐；他们开怀痛饮，并大声嘲笑那伺候着他们的瘸铁匠。他们只知怕自己的王，从来不知惧怕别的。除了在恋爱和战争中而外，他们从来不说谎。”
+荷马的神祇们乃是征服者的贵族阶级的神祇，而不是那些实际在耕种土地的人们的有用的丰产之神。正如吉尔伯特·穆莱所说的<sup><a id="fnr.9" class="footref" href="#fn.9">9</a></sup>：“大多数民族的神都自命曾经创造过世界，奥林匹克的神并不自命如此。他们所做的，主要是征服世界。 \(\cdots \cdots\) 当他们已经征服了王国之后，它们又干什么呢？他们关心政治吗？他们促进农业吗？他们从事商业和工业吗？一点都不。他们为什么要从事任何老实的工作呢？依靠租税并对不纳税的人大发雷霆，在他们看来倒是更为舒适的生活。他们都是些嗜好征服的首领，是些海盗之王。他们既打仗，又宴饮，又游玩，又作乐；他们开怀痛饮，并大声嘲笑那伺候着他们的瘸铁匠。他们只知怕自己的王，从来不知惧怕别的。除了在恋爱和战争中而外，他们从来不说谎。”
 </p>
 
 <p>
@@ -1076,132 +927,132 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 米利都学派</h3>
+<div class="outline-3">
+<h3 id="orgheadline5">米利都学派</h3>
 </div>
 
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 毕达哥拉斯</h3>
+<div class="outline-3">
+<h3 id="orgheadline6">毕达哥拉斯</h3>
 </div>
 
-<div id="outline-container-sec-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 赫拉克利特</h3>
+<div class="outline-3">
+<h3 id="orgheadline7">赫拉克利特</h3>
 </div>
 
-<div id="outline-container-sec-2-5" class="outline-3">
-<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 巴门尼德</h3>
+<div class="outline-3">
+<h3 id="orgheadline8">巴门尼德</h3>
 </div>
 
-<div id="outline-container-sec-2-6" class="outline-3">
-<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 恩培多克勒</h3>
+<div class="outline-3">
+<h3 id="orgheadline9">恩培多克勒</h3>
 </div>
 
-<div id="outline-container-sec-2-7" class="outline-3">
-<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 雅典与文化的关系</h3>
+<div class="outline-3">
+<h3 id="orgheadline10">雅典与文化的关系</h3>
 </div>
 
-<div id="outline-container-sec-2-8" class="outline-3">
-<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 阿那克萨哥拉</h3>
+<div class="outline-3">
+<h3 id="orgheadline11">阿那克萨哥拉</h3>
 </div>
 
-<div id="outline-container-sec-2-9" class="outline-3">
-<h3 id="sec-2-9"><span class="section-number-3">2.9</span> 原子论者</h3>
+<div class="outline-3">
+<h3 id="orgheadline12">原子论者</h3>
 </div>
 
-<div id="outline-container-sec-2-10" class="outline-3">
-<h3 id="sec-2-10"><span class="section-number-3">2.10</span> 普罗泰戈拉</h3>
+<div class="outline-3">
+<h3 id="orgheadline13">普罗泰戈拉</h3>
 </div>
 
-<div id="outline-container-sec-2-11" class="outline-3">
-<h3 id="sec-2-11"><span class="section-number-3">2.11</span> 苏格拉底</h3>
+<div class="outline-3">
+<h3 id="orgheadline14">苏格拉底</h3>
 </div>
 
-<div id="outline-container-sec-2-12" class="outline-3">
-<h3 id="sec-2-12"><span class="section-number-3">2.12</span> 斯巴达的影响</h3>
+<div class="outline-3">
+<h3 id="orgheadline15">斯巴达的影响</h3>
 </div>
 
-<div id="outline-container-sec-2-13" class="outline-3">
-<h3 id="sec-2-13"><span class="section-number-3">2.13</span> 柏拉图见解的来源</h3>
+<div class="outline-3">
+<h3 id="orgheadline16">柏拉图见解的来源</h3>
 </div>
 
-<div id="outline-container-sec-2-14" class="outline-3">
-<h3 id="sec-2-14"><span class="section-number-3">2.14</span> 柏拉图的乌托邦</h3>
+<div class="outline-3">
+<h3 id="orgheadline17">柏拉图的乌托邦</h3>
 </div>
 
-<div id="outline-container-sec-2-15" class="outline-3">
-<h3 id="sec-2-15"><span class="section-number-3">2.15</span> 理念论</h3>
+<div class="outline-3">
+<h3 id="orgheadline18">理念论</h3>
 </div>
 
-<div id="outline-container-sec-2-16" class="outline-3">
-<h3 id="sec-2-16"><span class="section-number-3">2.16</span> 柏拉图的不朽论</h3>
+<div class="outline-3">
+<h3 id="orgheadline19">柏拉图的不朽论</h3>
 </div>
 
-<div id="outline-container-sec-2-17" class="outline-3">
-<h3 id="sec-2-17"><span class="section-number-3">2.17</span> 柏拉图的宇宙生成论</h3>
+<div class="outline-3">
+<h3 id="orgheadline20">柏拉图的宇宙生成论</h3>
 </div>
 
-<div id="outline-container-sec-2-18" class="outline-3">
-<h3 id="sec-2-18"><span class="section-number-3">2.18</span> 柏拉图哲学中的知识与知觉</h3>
+<div class="outline-3">
+<h3 id="orgheadline21">柏拉图哲学中的知识与知觉</h3>
 </div>
 
-<div id="outline-container-sec-2-19" class="outline-3">
-<h3 id="sec-2-19"><span class="section-number-3">2.19</span> 亚里士多德的形而上学</h3>
+<div class="outline-3">
+<h3 id="orgheadline22">亚里士多德的形而上学</h3>
 </div>
 
-<div id="outline-container-sec-2-20" class="outline-3">
-<h3 id="sec-2-20"><span class="section-number-3">2.20</span> 亚里士多德的伦理学</h3>
+<div class="outline-3">
+<h3 id="orgheadline23">亚里士多德的伦理学</h3>
 </div>
 
-<div id="outline-container-sec-2-21" class="outline-3">
-<h3 id="sec-2-21"><span class="section-number-3">2.21</span> 亚里士多德的政治学</h3>
+<div class="outline-3">
+<h3 id="orgheadline24">亚里士多德的政治学</h3>
 </div>
 
-<div id="outline-container-sec-2-22" class="outline-3">
-<h3 id="sec-2-22"><span class="section-number-3">2.22</span> 亚里士多德的逻辑</h3>
+<div class="outline-3">
+<h3 id="orgheadline25">亚里士多德的逻辑</h3>
 </div>
 
-<div id="outline-container-sec-2-23" class="outline-3">
-<h3 id="sec-2-23"><span class="section-number-3">2.23</span> 亚里士多德的物理学</h3>
+<div class="outline-3">
+<h3 id="orgheadline26">亚里士多德的物理学</h3>
 </div>
 
-<div id="outline-container-sec-2-24" class="outline-3">
-<h3 id="sec-2-24"><span class="section-number-3">2.24</span> 希腊早期的数学与天文学</h3>
+<div class="outline-3">
+<h3 id="orgheadline27">希腊早期的数学与天文学</h3>
 </div>
 
-<div id="outline-container-sec-2-25" class="outline-3">
-<h3 id="sec-2-25"><span class="section-number-3">2.25</span> 希腊化世界</h3>
+<div class="outline-3">
+<h3 id="orgheadline28">希腊化世界</h3>
 </div>
 
-<div id="outline-container-sec-2-26" class="outline-3">
-<h3 id="sec-2-26"><span class="section-number-3">2.26</span> 犬儒学派与怀疑派</h3>
+<div class="outline-3">
+<h3 id="orgheadline29">犬儒学派与怀疑派</h3>
 </div>
 
-<div id="outline-container-sec-2-27" class="outline-3">
-<h3 id="sec-2-27"><span class="section-number-3">2.27</span> 伊壁鸠鲁派</h3>
+<div class="outline-3">
+<h3 id="orgheadline30">伊壁鸠鲁派</h3>
 </div>
 
-<div id="outline-container-sec-2-28" class="outline-3">
-<h3 id="sec-2-28"><span class="section-number-3">2.28</span> 斯多葛主义</h3>
+<div class="outline-3">
+<h3 id="orgheadline31">斯多葛主义</h3>
 </div>
 
-<div id="outline-container-sec-2-29" class="outline-3">
-<h3 id="sec-2-29"><span class="section-number-3">2.29</span> 罗马帝国与文化的关系</h3>
+<div class="outline-3">
+<h3 id="orgheadline32">罗马帝国与文化的关系</h3>
 </div>
 
-<div id="outline-container-sec-2-30" class="outline-3">
-<h3 id="sec-2-30"><span class="section-number-3">2.30</span> 普罗提诺</h3>
+<div class="outline-3">
+<h3 id="orgheadline33">普罗提诺</h3>
 <div class="outline-text-3" id="text-2-30">
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 附录</h2>
+<div class="outline-2">
+<h2 id="orgheadline36">附录</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 参考资料</h3>
+<div class="outline-3">
+<h3 id="orgheadline35">参考资料</h3>
 <div class="outline-text-3" id="text-3-1">
 <ol class="org-ol">
 <li></li>
@@ -1213,29 +1064,26 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p>埃及和巴比伦人已经有了算术和几何学了，但主要地是凭经验。从一般的前提来进行演绎的推理，这是希腊人的贡献。</p></div>
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">埃及和巴比伦人已经有了算术和几何学了，但主要地是凭经验。从一般的前提来进行演绎的推理，这是希腊人的贡献。</div></div>
 
-<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p>狄阿娜是阿尔蒂米斯的拉丁文的对称。在希腊文的圣经里提到的是阿尔蒂米斯，而英译本则称为狄阿娜。</p></div>
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara">狄阿娜是阿尔蒂米斯的拉丁文的对称。在希腊文的圣经里提到的是阿尔蒂米斯，而英译本则称为狄阿娜。</div></div>
 
-<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p>她有一个孪生弟兄或配偶，就是“动物的男主人”。但是他比较不重要。把阿尔蒂米斯与小亚细亚的伟大的母亲当成一个人，乃是后来的事。</p></div>
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara">她有一个孪生弟兄或配偶，就是“动物的男主人”。但是他比较不重要。把阿尔蒂米斯与小亚细亚的伟大的母亲当成一个人，乃是后来的事。</div></div>
 
-<div class="footdef"><sup><a id="fn.4" name="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p>见尼尔逊（MartinP．Nilsson）：《米诺－迈锡尼宗教极其在希腊宗教中的残余》，第11页以下。</p></div>
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara">见尼尔逊（MartinP．Nilsson）：《米诺－迈锡尼宗教极其在希腊宗教中的残余》，第11页以下。</div></div>
 
-<div class="footdef"><sup><a id="fn.5" name="fn.5" class="footnum" href="#fnr.5">5</a></sup> <p>见乌雷（P．N．Ure）：《僭主制的起源》。</p></div>
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara">见乌雷（P．N．Ure）：《僭主制的起源》。</div></div>
 
-<div class="footdef"><sup><a id="fn.6" name="fn.6" class="footnum" href="#fnr.6">6</a></sup> <p>例如希伯来字母的第三个字“gimel”指“骆驼”，而这个字的符号就是一幅约定俗成的骆驼图形。</p></div>
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara">例如希伯来字母的第三个字“gimel”指“骆驼”，而这个字的符号就是一幅约定俗成的骆驼图形。</div></div>
 
-<div class="footdef"><sup><a id="fn.7" name="fn.7" class="footnum" href="#fnr.7">7</a></sup> <p>贝洛赫：《希腊史》第12章。</p></div>
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara">贝洛赫：《希腊史》第12章。</div></div>
 
-<div class="footdef"><sup><a id="fn.8" name="fn.8" class="footnum" href="#fnr.8">8</a></sup> <p>罗斯多夫采夫：《古代世界史》卷一，第399页。</p></div>
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8">8</a></sup> <div class="footpara">罗斯多夫采夫：《古代世界史》卷一，第399页。</div></div>
 
-<div class="footdef"><sup><a id="fn.9" name="fn.9" class="footnum" href="#fnr.9">9</a></sup> <p>罗斯多夫采夫：《古代世界史》卷一，第399页。</p></div>
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9">9</a></sup> <div class="footpara">罗斯多夫采夫：《古代世界史》卷一，第399页。</div></div>
 
 
 </div>
 </div></div>
-<footer class="footer">
-<div class="container">
-<p class="text-muted">作者: 伯特兰·罗素; 编者: wanze(<a href="mailto:a358003542@163.com">a358003542@163.com</a>); 最后修改时间: 2015-11-14 21:58.</p></div>
 </body>
 </html>

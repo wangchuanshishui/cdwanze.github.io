@@ -1,173 +1,133 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-<title>新阶级——对共产主义制度的分析</title>
-<!-- 2015-11-02 17:38 -->
+<!-- 2016-03-28 一 12:13 -->
 <meta  charset="utf-8">
+<meta  name="viewport" content="width=device-width, initial-scale=1">
+<title>新阶级——对共产主义制度的分析</title>
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="吉拉斯（陈逸 译）">
 <meta  name="description" content="制作者邮箱：a358003542@gmail.com"
 >
-<style type="text/css"> /*
- * with_bootstrap.css
- *
- * Copyright 2015 wanze <a358003542@gmail.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
- *
- *
- */
-
-@import url("http://getbootstrap.com/dist/css/bootstrap.min.css");
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    position: relative;
-    min-height: 100%;
-    margin: 0px;
-}
+<style type="text/css">
 body {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
-}
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 60px;
-    background-color: #f5f5f5;
-}
 
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-.container {
-  width: auto;
-  max-width: 750px;
-  padding: 0 15px;
 }
-.container .text-muted {
-  margin: 20px 0;
-}
-
-/* background-color: #f8f8f8; */
-.navbar-default{
-    background-color: #fff;
-}
-/*--------------------*/
-
-#content{
-    margin: 0 auto;
-    max-width: 750px;
-    padding: 17px;
-    line-height:160%;
-    font-size:16px;
-}
-
-h1,h2,h3,h4,h5,h6 {
-    font-family: 'PT Sans Narrow', sans-serif;
-    font-weight: 700;
-    margin-bottom: 1em;
-    margin-top: 1em;
-}
-
-
-pre{line-height:180%;font-size:90%;}
-code,kbd,pre,samp {
-  font-family: monospace, serif;
-}
-
-code{  padding: 2px;}
-p{
-    text-indent:2em;/*段落缩进*/
-    line-height:180%;/*行间距*/
-    }
-
-.title{
-    text-align: center;
-}
-.org-ol li , .org-ul li , org-dl dt{
-    margin-top: 0.5em; /*增大li之间的垂直space*/
-    margin-bottom: 0.5em; /*增大li之间的垂直space*/
-}
-p.verse{
-    margin-left: 3%;
-    text-indent:0em;
-}
-
-.right{
-    margin-left: auto;
-    margin-right: 0px;
-    text-align: right;
-}
-.left{
-    margin-left: 0px;
+@media (min-width: 768px) {
+  body {
+    width: 732px;
+    padding-right: 20px;
+    padding-left: 20px;
     margin-right: auto;
-    text-align: left;
+    margin-left: auto;
+  }
 }
-.center{
+@media (min-width: 992px) {
+  body {
+    width: 880px;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    width: 750px;
+    padding-right: 200px;
+    padding-left: 200px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.title {
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+.center-block {
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
 }
 
 .underline{
     text-decoration: underline;
 }
+   #content {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+code {
+    padding: 2px 4px;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+
+pre {
+    max-width: 100%;
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow : auto;
+}
+
+
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-left: 5px solid #eee;
+}
+
+
+p{
+    text-indent:2em;
+    line-height:150%;
+}
+
+li, dt{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
 
 video{
-    width: 750px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 figure p{
-    text-indent:0em;/*段落缩进*/
+    text-indent:0em;
 }
 img{
-    max-width: 700px;
+    max-width: 100%;
+}
+
+embed{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 figure{
     text-align: center;
 }
 
-table, th, td
-{
-    margin:0 auto;
-    min-width:2em;
-    text-align:center ;
-    padding: 5px;
-}
-
-table{
-    border-top: 2px solid ;
-    border-bottom: 2px solid ;
-}
-thead{
-    border-bottom: 1px solid ;
-}
-
 /*  class  */
-.framed{
-    max-width:700px;
+.FRAMED{
+    max-width:100%;
     border:1px solid ;
     padding: 1em;
     -webkit-box-sizing: border-box;
@@ -175,10 +135,10 @@ thead{
     box-sizing: border-box;
 }
 
-.notecard{
-    width: 320px;
+.NOTECARD{
+    width: 30%;
     position:relative;
-    right: -215px;
+    right: -30%;
     padding: 1em;
     margin:0 auto;
     border: solid 1px;
@@ -188,226 +148,137 @@ thead{
 }
 
 /*
-http://thomasf.github.io/solarized-css/
+table
 */
-
-dfn {
-  font-style: italic;
-}
-dd{
-    margin-left:2em;
-}
-mark {
-  background: #ff0;
-  color: #000;
-}
-
-q {
-  quotes: "\201C" "\201D" "\2018" "\2019";
-}
-small {
-  font-size: 80%;
-}
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sup {
-  top: -0.5em;
-}
-sub {
-  bottom: -0.25em;
-}
-
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 16px 0;
+    empty-cells: show;
+    border: 1px solid #ccc;
+    width: 100%;
+    display: table;
 }
 
-
-
-.tag {
-  background-color: #eee8d5;
-  color: #d33682;
-  padding: 0 0.2em;
+table tr {
+    border-bottom: 1px solid #ddd;
+}
+table th,table td{
+    padding:8px;
 }
 
-
-.todo,
-.next,
-.done {
-  color: #fdf6e3;
-  background-color: #dc322f;
-  padding: 0 0.2em;
+table tr:nth-child(even) {
+    background-color: #f1f1f1;
 }
-.tag {
-  -webkit-border-radius: 0.35em;
-  -moz-border-radius: 0.35em;
-  border-radius: 0.35em;
-}
-.TODO {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #2aa198;
-}
-.NEXT {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #268bd2;
-}
-.ACTIVE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #268bd2;
-}
-.DONE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #859900;
-}
-.WAITING {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #cb4b16;
-}
-.HOLD {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #d33682;
-}
-.NOTE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #d33682;
-}
-.CANCELLED {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #859900;
-}
-
-
-/*
-pygmentize -f html -S colorful -a .highlight
-*/
-
 .highlight .hll { background-color: #ffffcc }
-.highlight  { background: #ffffff; }
-.highlight .c { color: #888888 } /* Comment */
-.highlight .err { color: #FF0000; background-color: #FFAAAA } /* Error */
-.highlight .k { color: #008800; font-weight: bold } /* Keyword */
-.highlight .o { color: #333333 } /* Operator */
-.highlight .cm { color: #888888 } /* Comment.Multiline */
-.highlight .cp { color: #557799 } /* Comment.Preproc */
-.highlight .c1 { color: #888888 } /* Comment.Single */
-.highlight .cs { color: #cc0000; font-weight: bold } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #8f5902; font-style: italic } /* Comment */
+.highlight .err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.highlight .g { color: #000000 } /* Generic */
+.highlight .k { color: #204a87; font-weight: bold } /* Keyword */
+.highlight .l { color: #000000 } /* Literal */
+.highlight .n { color: #000000 } /* Name */
+.highlight .o { color: #ce5c00; font-weight: bold } /* Operator */
+.highlight .x { color: #000000 } /* Other */
+.highlight .p { color: #000000; font-weight: bold } /* Punctuation */
+.highlight .ch { color: #8f5902; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: #8f5902; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #a40000 } /* Generic.Deleted */
+.highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #ef2929 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .go { color: #000000; font-style: italic } /* Generic.Output */
+.highlight .gp { color: #8f5902 } /* Generic.Prompt */
+.highlight .gs { color: #000000; font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #008800; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #008800; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #008800; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #003388; font-weight: bold } /* Keyword.Pseudo */
-.highlight .kr { color: #008800; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #333399; font-weight: bold } /* Keyword.Type */
-.highlight .m { color: #6600EE; font-weight: bold } /* Literal.Number */
-.highlight .s { background-color: #fff0f0 } /* Literal.String */
-.highlight .na { color: #0000CC } /* Name.Attribute */
-.highlight .nb { color: #007020 } /* Name.Builtin */
-.highlight .nc { color: #BB0066; font-weight: bold } /* Name.Class */
-.highlight .no { color: #003366; font-weight: bold } /* Name.Constant */
-.highlight .nd { color: #555555; font-weight: bold } /* Name.Decorator */
-.highlight .ni { color: #880000; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #FF0000; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0066BB; font-weight: bold } /* Name.Function */
-.highlight .nl { color: #997700; font-weight: bold } /* Name.Label */
-.highlight .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #007700 } /* Name.Tag */
-.highlight .nv { color: #996633 } /* Name.Variable */
-.highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #6600EE; font-weight: bold } /* Literal.Number.Bin */
-.highlight .mf { color: #6600EE; font-weight: bold } /* Literal.Number.Float */
-.highlight .mh { color: #005588; font-weight: bold } /* Literal.Number.Hex */
-.highlight .mi { color: #0000DD; font-weight: bold } /* Literal.Number.Integer */
-.highlight .mo { color: #4400EE; font-weight: bold } /* Literal.Number.Oct */
-.highlight .sb { background-color: #fff0f0 } /* Literal.String.Backtick */
-.highlight .sc { color: #0044DD } /* Literal.String.Char */
-.highlight .sd { color: #DD4422 } /* Literal.String.Doc */
-.highlight .s2 { background-color: #fff0f0 } /* Literal.String.Double */
-.highlight .se { color: #666666; font-weight: bold; background-color: #fff0f0 } /* Literal.String.Escape */
-.highlight .sh { background-color: #fff0f0 } /* Literal.String.Heredoc */
-.highlight .si { background-color: #eeeeee } /* Literal.String.Interpol */
-.highlight .sx { color: #DD2200; background-color: #fff0f0 } /* Literal.String.Other */
-.highlight .sr { color: #000000; background-color: #fff0ff } /* Literal.String.Regex */
-.highlight .s1 { background-color: #fff0f0 } /* Literal.String.Single */
-.highlight .ss { color: #AA6600 } /* Literal.String.Symbol */
-.highlight .bp { color: #007020 } /* Name.Builtin.Pseudo */
-.highlight .vc { color: #336699 } /* Name.Variable.Class */
-.highlight .vg { color: #dd7700; font-weight: bold } /* Name.Variable.Global */
-.highlight .vi { color: #3333BB } /* Name.Variable.Instance */
-.highlight .il { color: #0000DD; font-weight: bold } /* Literal.Number.Integer.Long */
-
- </style>
+.highlight .gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.highlight .kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.highlight .ld { color: #000000 } /* Literal.Date */
+.highlight .m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.highlight .s { color: #4e9a06 } /* Literal.String */
+.highlight .na { color: #c4a000 } /* Name.Attribute */
+.highlight .nb { color: #204a87 } /* Name.Builtin */
+.highlight .nc { color: #000000 } /* Name.Class */
+.highlight .no { color: #000000 } /* Name.Constant */
+.highlight .nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.highlight .ni { color: #ce5c00 } /* Name.Entity */
+.highlight .ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #000000 } /* Name.Function */
+.highlight .nl { color: #f57900 } /* Name.Label */
+.highlight .nn { color: #000000 } /* Name.Namespace */
+.highlight .nx { color: #000000 } /* Name.Other */
+.highlight .py { color: #000000 } /* Name.Property */
+.highlight .nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #000000 } /* Name.Variable */
+.highlight .ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.highlight .mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.highlight .mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.highlight .mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.highlight .mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.highlight .mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.highlight .sb { color: #4e9a06 } /* Literal.String.Backtick */
+.highlight .sc { color: #4e9a06 } /* Literal.String.Char */
+.highlight .sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #4e9a06 } /* Literal.String.Double */
+.highlight .se { color: #4e9a06 } /* Literal.String.Escape */
+.highlight .sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.highlight .si { color: #4e9a06 } /* Literal.String.Interpol */
+.highlight .sx { color: #4e9a06 } /* Literal.String.Other */
+.highlight .sr { color: #4e9a06 } /* Literal.String.Regex */
+.highlight .s1 { color: #4e9a06 } /* Literal.String.Single */
+.highlight .ss { color: #4e9a06 } /* Literal.String.Symbol */
+.highlight .bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #000000 } /* Name.Variable.Class */
+.highlight .vg { color: #000000 } /* Name.Variable.Global */
+.highlight .vi { color: #000000 } /* Name.Variable.Instance */
+.highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
+</style>
 </head>
 <body>
-<header class="header">
-<nav class="navbar navbar-default navbar-static-top"><div class="container">
-<div class="navbar-header">
-<a class="navbar-brand" href="http://www.cdwanze.org"><img style="max-width:50px; margin-top: -15px;" src="/templates/images/logo.svg" /></a></div>
-<div id="navbar">
-<ul class="nav navbar-nav"><li class="active"><a href="http://blog.cdwanze.org">博客</a><li><a href="http://blog.cdwanze.org/about.html">关于</a><li><a href="http://blog.cdwanze.org/donate.html">支持</a></div>
-</div>
-</nav></header><div id="content">
+<div id="content">
+<header>
 <h1 class="title">新阶级——对共产主义制度的分析</h1>
-<nav id="table-of-contents">
+</header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 前言</a>
+<li><a href="#orgheadline3">1. 前言</a>
 <ul>
-<li><a href="#sec-1-1">1.1. 作者简介</a></li>
-<li><a href="#sec-1-2">1.2. 序言</a></li>
+<li><a href="#orgheadline1">1.1. 作者简介</a></li>
+<li><a href="#orgheadline2">1.2. 序言</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2. 起源</a>
+<li><a href="#orgheadline7">2. 起源</a>
 <ul>
-<li><a href="#sec-2-1">2.1. 一</a></li>
-<li><a href="#sec-2-2">2.2. 二</a></li>
-<li><a href="#sec-2-3">2.3. 三</a></li>
+<li><a href="#orgheadline4">2.1. 一</a></li>
+<li><a href="#orgheadline5">2.2. 二</a></li>
+<li><a href="#orgheadline6">2.3. 三</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3. 革命的性质</a>
+<li><a href="#orgheadline14">3. 革命的性质</a>
 <ul>
-<li><a href="#sec-3-1">3.1. 一</a></li>
-<li><a href="#sec-3-2">3.2. 二</a></li>
-<li><a href="#sec-3-3">3.3. 三</a></li>
-<li><a href="#sec-3-4">3.4. 四</a></li>
-<li><a href="#sec-3-5">3.5. 五</a></li>
-<li><a href="#sec-3-6">3.6. 六</a></li>
+<li><a href="#orgheadline8">3.1. 一</a></li>
+<li><a href="#orgheadline9">3.2. 二</a></li>
+<li><a href="#orgheadline10">3.3. 三</a></li>
+<li><a href="#orgheadline11">3.4. 四</a></li>
+<li><a href="#orgheadline12">3.5. 五</a></li>
+<li><a href="#orgheadline13">3.6. 六</a></li>
 </ul>
 </li>
-<li><a href="#sec-4">4. 新阶级</a>
+<li><a href="#orgheadline16">4. 新阶级</a>
 <ul>
-<li><a href="#sec-4-1">4.1. 一</a></li>
+<li><a href="#orgheadline15">4.1. 一</a></li>
 </ul>
 </li>
 </ul>
@@ -416,11 +287,11 @@ pygmentize -f html -S colorful -a .highlight
 
 
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 前言</h2>
+<div class="outline-2">
+<h2 id="orgheadline3">前言</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 作者简介</h3>
+</div><div class="outline-3">
+<h3 id="orgheadline1">作者简介</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 作者：吉拉斯（又称作密洛凡•德热拉斯）：生于黑山科拉欣附近的一个农民家庭，早年曾在贝尔格莱德大学攻读哲学和法律。他曾担任过南共联盟中央执委、中央书记、国民议会议长、副总统。他公开主张把南共联盟变成一个议会民主政党，实行多党制和西方式的民主。1954年，南共联盟中央决定将其开除出中央委员会，解除其党内外的一切职务，给予最后警告处分。之后，又把他开除出南共联盟，并逮捕判刑。1961年，当局提前释放了吉拉斯。1995年去世。【来自维基百科】
@@ -428,8 +299,8 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 </div>
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 序言</h3>
+<div class="outline-3">
+<h3 id="orgheadline2">序言</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 书中所叙述的一切本是可以用其他方式表达的；这一切可以写成一本当代革命史，一本专提意见的文献，或者一个革命家的自供。上述内容已经在本书中略为提到。不过，纵或这里的有关历史、意见和回忆的综合并不完全，总能反映出我是如何努力以尽可能简短的文字对当代共产主义作尽可能周全的描绘。有些特殊的或涉及技术方面的问题可能被忽略了，但我相信，这反使主要部分更简单，更完全。
@@ -487,11 +358,11 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 起源</h2>
+<div class="outline-2">
+<h2 id="orgheadline7">起源</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 一</h3>
+</div><div class="outline-3">
+<h3 id="orgheadline4">一</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 虽然在西欧近代工业发展以前，现代共产主义还处于潜伏未动状态，但推溯其根源，却由来已久。共产主义的两个基本观念为“物质的第一性”和“变化的实在性”，这两个观念借自现代共产主义萌芽前不久的思想家们。但随着共产主义的日渐得势，这两个基本观念却反而愈来愈不占重要地位。这是可以了解的，因为共产主义已经得势，现在要想按照它自己的观念来改造世界，而且渐渐不想改变它自己了。
@@ -536,8 +407,8 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 
 
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 二</h3>
+<div class="outline-3">
+<h3 id="orgheadline5">二</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 黑格尔大概曾为从他的发现所可能得出的结论而感到不安。举例说，如果一切事物都是在不断地变化着的，那么他自己的思想以及他所要求保存的社会又将怎样呢？因为他是一个由皇室任命的教授，自然不敢公开主张应该根据他的哲学来改造社会了。
@@ -589,8 +460,8 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 </div>
 
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 三</h3>
+<div class="outline-3">
+<h3 id="orgheadline6">三</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 马克思认为，通过过两个基本阶级，即资产阶级和无产阶级的革命斗争，无产阶级可以取资本主义社会而代之。他之所以认为有此可能，显然是因为在当时的资本主义制度之下，贫富的悬殊日甚，形成社会上相互对立的两极，而这个社会又常常发生周期性的经济危机。
@@ -649,7 +520,7 @@ pygmentize -f html -S colorful -a .highlight
 </p>
 
 <p>
-马克思关于工人阶级日趋贫困的理论，本是根据上面这些国家的社会现象所作的推论，但日后并未实现。不过正如塞东－华生(Hugh Seton-Watson)在他所著《从列宁到马林科夫》<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup> 一书中所说，这种贫困现象，在东欧农业国家却大体无误。因此，马克思在西方的地位至多不过是一个历史学家和学者，而在东欧却等于一个新时代的先知。他的学说具有动人的力量， <span class="underline">仿佛一种新的宗教</span> 。
+马克思关于工人阶级日趋贫困的理论，本是根据上面这些国家的社会现象所作的推论，但日后并未实现。不过正如塞东－华生(Hugh Seton-Watson)在他所著《从列宁到马林科夫》<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> 一书中所说，这种贫困现象，在东欧农业国家却大体无误。因此，马克思在西方的地位至多不过是一个历史学家和学者，而在东欧却等于一个新时代的先知。他的学说具有动人的力量， <span class="underline">仿佛一种新的宗教</span> 。
 </p>
 
 <p>
@@ -726,11 +597,11 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 革命的性质</h2>
+<div class="outline-2">
+<h2 id="orgheadline14">革命的性质</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 一</h3>
+</div><div class="outline-3">
+<h3 id="orgheadline8">一</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 历史告诉我们，在发生共产主义革命的国家中，其他政党也都不满现状，最显著的例子是俄国，除共产党外，使共产主义革命成功的还有其他政党。
@@ -786,8 +657,8 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 </div>
 
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 二</h3>
+<div class="outline-3">
+<h3 id="orgheadline9">二</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 所有历史上的革命都是在新的经济或社会关系已开始抬头、而旧有的政治制度已成为进一步发展的唯一障碍时才发生的。
@@ -863,8 +734,8 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 </div>
 
-<div id="outline-container-sec-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 三</h3>
+<div class="outline-3">
+<h3 id="orgheadline10">三</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 在共产主义革命和以前的革命之间还有其他的基本差别以前的革命虽然在经济上和社会上已达到准备就绪的阶段，但如果没有有利条件，是不会爆发的。我们现在都知道一个革命爆发和成功所必需的一般条件。然而，除了这些一股条件之外，每次革命都还得有些特殊的条件才能使其计划和实行成为可能。
@@ -965,8 +836,8 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 </div>
 
-<div id="outline-container-sec-3-4" class="outline-3">
-<h3 id="sec-3-4"><span class="section-number-3">3.4</span> 四</h3>
+<div class="outline-3">
+<h3 id="orgheadline11">四</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 共产主义革命为它的真正目标所制造的幻想，比以前历次命所制造的幻想更加经久而广泛，因为共产主义革命以一种新的方式解决各种关系，并且带来一种新的所有权形式。以前的革命当然也不免带来或大或小的财产关系的变动。不过，那只是在一种私有财产制之下的所有权的更迭。而共产主义革命所带来的变动则不是这样，变动是彻底的、根本的，这是集体所有权代替了私人所有权。
@@ -1010,8 +881,8 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 </div>
 
-<div id="outline-container-sec-3-5" class="outline-3">
-<h3 id="sec-3-5"><span class="section-number-3">3.5</span> 五</h3>
+<div class="outline-3">
+<h3 id="orgheadline12">五</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 共产主义革命可能看来大部分都历史上的骗局和偶然发生的事故。就某种意义来说，这是事实，其他任何革命都没有需要这么多的例外条件，也没有其他任何革命许诺得如此之多完成得如此之少。在共产党领袖的言论中都必然有煽惑与欺蒙之词，因为他们迫不得已而许诺一个最理想的社会，而且答应“废除一切剥削”。
@@ -1051,8 +922,8 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 </div>
 
-<div id="outline-container-sec-3-6" class="outline-3">
-<h3 id="sec-3-6"><span class="section-number-3">3.6</span> 六</h3>
+<div class="outline-3">
+<h3 id="orgheadline13">六</h3>
 <div class="outline-text-3" id="text-3-6">
 <p>
 用抽象的逻辑可以推出，当共产主义革命在不同的条件下以政府的强制力得到西方工业革命和资本主义所得到的同样东西时，共产主义革命无非是国家资本主义革命的一种形式。革命的胜利所创造的关系乃是国家资本主义的关系。当我们发现新政府还管理一切政治、劳工等及其他关系时，更使我们相信这一点。而更重要的是，新政权还负责分配国家总收入、利润以及实际已变为国家的财产的物资。
@@ -1098,11 +969,11 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> 新阶级</h2>
+<div class="outline-2">
+<h2 id="orgheadline16">新阶级</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 一</h3>
+</div><div class="outline-3">
+<h3 id="orgheadline15">一</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 在苏联和其他共产主义国家所发生的每一件事情，都与那  些领导人物（甚至列宁、斯大林、托洛茨基和布哈林等卓越的领导人物）所预料的不同。他们预料国家将迅速消灭，而民主将会加强。然而，发生的事恰恰相反。他们预料生活水平将迅速提高——事实上在这方面却很少变动。而在东欧卫星国家中甚至比过去还低。从一切事例看来，生活水平的提高并没有能与工业化的速度相称，工业化的速度要快得多。他们相信，城市和乡村的差别以及脑力劳动和体力劳动的差别将逐渐消失；可是，这差别却在增加。  共产党人对其他地区的顶测，包括对非共产主义世界发展的预测在内，也都未能突现。
@@ -3843,13 +3714,10 @@ pygmentize -f html -S colorful -a .highlight
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p>弗雷德里克•阿•普雷格出版公司，纽约1953年版。</p></div>
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">弗雷德里克•阿•普雷格出版公司，纽约1953年版。</div></div>
 
 
 </div>
 </div></div>
-<footer class="footer">
-<div class="container">
-<p class="text-muted">作者: 吉拉斯（陈逸 译）; 编者: 编者:万泽(德山书生); 最后修改时间: 2015-10-17 01:50.</p></div>
 </body>
 </html>

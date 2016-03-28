@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-03-28 一 10:10 -->
+<!-- 2016-03-28 一 12:13 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>我的网站</title>
@@ -11,24 +11,33 @@
 >
 <style type="text/css">
 body {
-  padding-right: 30px;
-  padding-left: 30px;
-  margin-right: auto;
-  margin-left: auto;
+
 }
 @media (min-width: 768px) {
   body {
     width: 732px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 @media (min-width: 992px) {
   body {
-    width: 948px;
+    width: 880px;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 @media (min-width: 1200px) {
   body {
-    width: 1140px;
+    width: 750px;
+    padding-right: 200px;
+    padding-left: 200px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
@@ -49,8 +58,8 @@ body {
 }
    #content {
     display: block;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 code {
@@ -61,18 +70,17 @@ code {
 }
 
 pre {
+    max-width: 100%;
     display: block;
     padding: 9.5px;
     margin: 0 0 10px;
     font-size: 13px;
     line-height: 1.42857143;
     color: #333;
-    word-break: break-all;
-    /*word-wrap: break-word;*/
-    word-wrap: normal; /* horizontal scrolling */
     background-color: #f5f5f5;
     border: 1px solid #ccc;
     border-radius: 4px;
+    overflow : auto;
 }
 
 
@@ -95,7 +103,7 @@ li, dt{
 }
 
 video{
-    max-width: 95%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -104,11 +112,11 @@ figure p{
     text-indent:0em;
 }
 img{
-    max-width: 95%;
+    max-width: 100%;
 }
 
 embed{
-    max-width: 95%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -118,8 +126,8 @@ figure{
 }
 
 /*  class  */
-.framed{
-    max-width:700px;
+.FRAMED{
+    max-width:100%;
     border:1px solid ;
     padding: 1em;
     -webkit-box-sizing: border-box;
@@ -127,10 +135,10 @@ figure{
     box-sizing: border-box;
 }
 
-.notecard{
-    width: 320px;
+.NOTECARD{
+    width: 30%;
     position:relative;
-    right: -215px;
+    right: -30%;
     padding: 1em;
     margin:0 auto;
     border: solid 1px;
@@ -629,7 +637,7 @@ table tr:nth-child(even) {
 <h3 id="orgheadline42">德山书生</h3>
 <div class="outline-text-3" id="text-4-2">
 <ol class="org-ol">
-<li><a href="教育/德山书生/万泽的编程日记.html">万泽的编程日记.html</a></li>
+<li><a href="教育/德山书生/万泽的编程日记第一季.html">万泽的编程日记第一季.html</a></li>
 </ol>
 </div>
 </div>
@@ -865,7 +873,6 @@ table tr:nth-child(even) {
 <li><a href="电脑/c语言/gnu make manual .pdf">gnu make manual .pdf</a></li>
 <li><a href="电脑/c语言/Programming from the Ground Up .pdf">Programming from the Ground Up .pdf</a></li>
 <li><a href="电脑/c语言/gcc参考.pdf">gcc参考.pdf</a></li>
-<li><a href="电脑/c语言/c++语言学习笔记.html">c++语言学习笔记.html</a></li>
 <li><a href="电脑/c语言/算法手写代码必备手册.pdf">算法手写代码必备手册.pdf</a></li>
 </ol>
 </div>
@@ -1134,6 +1141,7 @@ table tr:nth-child(even) {
 <li><a href="电脑/python/Odoo/精通Odoo.pdf">精通Odoo.pdf</a></li>
 <li><a href="电脑/python/Odoo/odoo-new-api-guide-line.pdf">odoo-new-api-guide-line.pdf</a></li>
 <li><a href="电脑/python/Odoo/精通Odoo.html">精通Odoo.html</a></li>
+<li><a href="电脑/python/Odoo/Odoo研究补充.html">Odoo研究补充.html</a></li>
 <li><a href="电脑/python/Odoo/erppeek.pdf">erppeek.pdf</a></li>
 </ol>
 </div>
@@ -1143,7 +1151,6 @@ table tr:nth-child(even) {
 <div class="outline-text-4" id="text-7-7-2">
 <ol class="org-ol">
 <li><a href="电脑/python/PyQt5/PyQt5杂项.html">PyQt5杂项.html</a></li>
-<li><a href="电脑/python/PyQt5/PyQt5中级教程.html">PyQt5中级教程.html</a></li>
 <li><a href="电脑/python/PyQt5/PyQt5入门.html">PyQt5入门.html</a></li>
 <li><a href="电脑/python/PyQt5/PyQt5入门.pdf">PyQt5入门.pdf</a></li>
 </ol>
@@ -1290,6 +1297,7 @@ table tr:nth-child(even) {
 <li><a href="电脑/python/数据处理/numpy-ref-1.8.1.pdf">numpy-ref-1.8.1.pdf</a></li>
 <li><a href="电脑/python/数据处理/数据处理入门.html">数据处理入门.html</a></li>
 <li><a href="电脑/python/数据处理/numpy-user-1.8.1.pdf">numpy-user-1.8.1.pdf</a></li>
+<li><a href="电脑/python/数据处理/scipy模块.html">scipy模块.html</a></li>
 <li><a href="电脑/python/数据处理/numpy模块.html">numpy模块.html</a></li>
 <li><a href="电脑/python/数据处理/matplotlib模块.html">matplotlib模块.html</a></li>
 <li><a href="电脑/python/数据处理/scipy-ref-0.14.0.pdf">scipy-ref-0.14.0.pdf</a></li>
@@ -1317,6 +1325,7 @@ table tr:nth-child(even) {
 <li><a href="电脑/python/数据库/PostgreSQL-Up-and-Running.pdf">PostgreSQL-Up-and-Running.pdf</a></li>
 <li><a href="电脑/python/数据库/redis学习笔记.html">redis学习笔记.html</a></li>
 <li><a href="电脑/python/数据库/alembic模块.html">alembic模块.html</a></li>
+<li><a href="电脑/python/数据库/postgresql进阶.html">postgresql进阶.html</a></li>
 <li><a href="电脑/python/数据库/MongoDB-manual.pdf">MongoDB-manual.pdf</a></li>
 <li><a href="电脑/python/数据库/sql数据库入门.html">sql数据库入门.html</a></li>
 <li><a href="电脑/python/数据库/psycopg.pdf">psycopg.pdf</a></li>
@@ -1336,6 +1345,7 @@ table tr:nth-child(even) {
 <li><a href="电脑/python/文本处理/用Python进行自然语言处理.pdf">用Python进行自然语言处理.pdf</a></li>
 <li><a href="电脑/python/文本处理/pyparsing模块.html">pyparsing模块.html</a></li>
 <li><a href="电脑/python/文本处理/Mastering Python Regular Expressions.pdf">Mastering Python Regular Expressions.pdf</a></li>
+<li><a href="电脑/python/文本处理/文本处理入门.html">文本处理入门.html</a></li>
 <li><a href="电脑/python/文本处理/NLTK Essentials.pdf">NLTK Essentials.pdf</a></li>
 <li><a href="电脑/python/文本处理/Natural Language Processing with Python.pdf">Natural Language Processing with Python.pdf</a></li>
 </ol>
@@ -1347,6 +1357,8 @@ table tr:nth-child(even) {
 <ol class="org-ol">
 <li><a href="电脑/python/机器学习/Python Machine Learning.pdf">Python Machine Learning.pdf</a></li>
 <li><a href="电脑/python/机器学习/scikit-learn-docs.pdf">scikit-learn-docs.pdf</a></li>
+<li><a href="电脑/python/机器学习/机器学习入门.html">机器学习入门.html</a></li>
+<li><a href="电脑/python/机器学习/scikit-learn模块.html">scikit-learn模块.html</a></li>
 <li><a href="电脑/python/机器学习/Machine Learning in Python.pdf">Machine Learning in Python.pdf</a></li>
 </ol>
 </div>
@@ -1387,6 +1399,7 @@ table tr:nth-child(even) {
 <li><a href="电脑/python/网络抓取/scrapy.pdf">scrapy.pdf</a></li>
 <li><a href="电脑/python/网络抓取/OReilly Web Scraping with Python.pdf">OReilly Web Scraping with Python.pdf</a></li>
 <li><a href="电脑/python/网络抓取/lxml模块.html">lxml模块.html</a></li>
+<li><a href="电脑/python/网络抓取/scrapy模块学习笔记.html">scrapy模块学习笔记.html</a></li>
 <li><a href="电脑/python/网络抓取/Getting Started with Beautiful Soup.pdf">Getting Started with Beautiful Soup.pdf</a></li>
 <li><a href="电脑/python/网络抓取/js相关内容抓取问题.html">js相关内容抓取问题.html</a></li>
 <li><a href="电脑/python/网络抓取/lxmldoc-3.4.1.pdf">lxmldoc-3.4.1.pdf</a></li>
@@ -1403,8 +1416,10 @@ table tr:nth-child(even) {
 <li><a href="电脑/python/网络编程/Computer-Networking-Principles.pdf">Computer-Networking-Principles.pdf</a></li>
 <li><a href="电脑/python/网络编程/requests模块详解.html">requests模块详解.html</a></li>
 <li><a href="电脑/python/网络编程/http权威指南.pdf">http权威指南.pdf</a></li>
+<li><a href="电脑/python/网络编程/socketserver模块.html">socketserver模块.html</a></li>
 <li><a href="电脑/python/网络编程/计算机网络理论知识.html">计算机网络理论知识.html</a></li>
 <li><a href="电脑/python/网络编程/http学习笔记.html">http学习笔记.html</a></li>
+<li><a href="电脑/python/网络编程/域名管理.html">域名管理.html</a></li>
 <li><a href="电脑/python/网络编程/Twisted Network Programming Essentials.pdf">Twisted Network Programming Essentials.pdf</a></li>
 <li><a href="电脑/python/网络编程/WAMP协议简介.html">WAMP协议简介.html</a></li>
 <li><a href="电脑/python/网络编程/Python Requests Essentials.pdf">Python Requests Essentials.pdf</a></li>

@@ -1,173 +1,133 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-<title>活出意义来</title>
-<!-- 2015-11-14 21:53 -->
+<!-- 2016-03-28 一 12:12 -->
 <meta  charset="utf-8">
+<meta  name="viewport" content="width=device-width, initial-scale=1">
+<title>活出意义来</title>
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="V·E·弗兰克尔">
 <meta  name="description" content="制作者邮箱：a358003542@gmail.com"
 >
-<style type="text/css"> /*
- * with_bootstrap.css
- *
- * Copyright 2015 wanze <a358003542@gmail.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
- *
- *
- */
-
-@import url("http://getbootstrap.com/dist/css/bootstrap.min.css");
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    position: relative;
-    min-height: 100%;
-    margin: 0px;
-}
+<style type="text/css">
 body {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
-}
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 60px;
-    background-color: #f5f5f5;
-}
 
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-.container {
-  width: auto;
-  max-width: 750px;
-  padding: 0 15px;
 }
-.container .text-muted {
-  margin: 20px 0;
-}
-
-/* background-color: #f8f8f8; */
-.navbar-default{
-    background-color: #fff;
-}
-/*--------------------*/
-
-#content{
-    margin: 0 auto;
-    max-width: 750px;
-    padding: 17px;
-    line-height:160%;
-    font-size:16px;
-}
-
-h1,h2,h3,h4,h5,h6 {
-    font-family: 'PT Sans Narrow', sans-serif;
-    font-weight: 700;
-    margin-bottom: 1em;
-    margin-top: 1em;
-}
-
-
-pre{line-height:180%;font-size:90%;}
-code,kbd,pre,samp {
-  font-family: monospace, serif;
-}
-
-code{  padding: 2px;}
-p{
-    text-indent:2em;/*段落缩进*/
-    line-height:180%;/*行间距*/
-    }
-
-.title{
-    text-align: center;
-}
-.org-ol li , .org-ul li , org-dl dt{
-    margin-top: 0.5em; /*增大li之间的垂直space*/
-    margin-bottom: 0.5em; /*增大li之间的垂直space*/
-}
-p.verse{
-    margin-left: 3%;
-    text-indent:0em;
-}
-
-.right{
-    margin-left: auto;
-    margin-right: 0px;
-    text-align: right;
-}
-.left{
-    margin-left: 0px;
+@media (min-width: 768px) {
+  body {
+    width: 732px;
+    padding-right: 20px;
+    padding-left: 20px;
     margin-right: auto;
-    text-align: left;
+    margin-left: auto;
+  }
 }
-.center{
+@media (min-width: 992px) {
+  body {
+    width: 880px;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    width: 750px;
+    padding-right: 200px;
+    padding-left: 200px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.title {
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+.center-block {
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
 }
 
 .underline{
     text-decoration: underline;
 }
+   #content {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+code {
+    padding: 2px 4px;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+
+pre {
+    max-width: 100%;
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow : auto;
+}
+
+
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-left: 5px solid #eee;
+}
+
+
+p{
+    text-indent:2em;
+    line-height:150%;
+}
+
+li, dt{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
 
 video{
-    width: 750px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 figure p{
-    text-indent:0em;/*段落缩进*/
+    text-indent:0em;
 }
 img{
-    max-width: 700px;
+    max-width: 100%;
+}
+
+embed{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 figure{
     text-align: center;
 }
 
-table, th, td
-{
-    margin:0 auto;
-    min-width:2em;
-    text-align:center ;
-    padding: 5px;
-}
-
-table{
-    border-top: 2px solid ;
-    border-bottom: 2px solid ;
-}
-thead{
-    border-bottom: 1px solid ;
-}
-
 /*  class  */
-.framed{
-    max-width:700px;
+.FRAMED{
+    max-width:100%;
     border:1px solid ;
     padding: 1em;
     -webkit-box-sizing: border-box;
@@ -175,10 +135,10 @@ thead{
     box-sizing: border-box;
 }
 
-.notecard{
-    width: 320px;
+.NOTECARD{
+    width: 30%;
     position:relative;
-    right: -215px;
+    right: -30%;
     padding: 1em;
     margin:0 auto;
     border: solid 1px;
@@ -188,185 +148,102 @@ thead{
 }
 
 /*
-http://thomasf.github.io/solarized-css/
+table
 */
-
-dfn {
-  font-style: italic;
-}
-dd{
-    margin-left:2em;
-}
-mark {
-  background: #ff0;
-  color: #000;
-}
-
-q {
-  quotes: "\201C" "\201D" "\2018" "\2019";
-}
-small {
-  font-size: 80%;
-}
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sup {
-  top: -0.5em;
-}
-sub {
-  bottom: -0.25em;
-}
-
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 16px 0;
+    empty-cells: show;
+    border: 1px solid #ccc;
+    width: 100%;
+    display: table;
 }
 
-
-
-.tag {
-  background-color: #eee8d5;
-  color: #d33682;
-  padding: 0 0.2em;
+table tr {
+    border-bottom: 1px solid #ddd;
+}
+table th,table td{
+    padding:8px;
 }
 
-
-.todo,
-.next,
-.done {
-  color: #fdf6e3;
-  background-color: #dc322f;
-  padding: 0 0.2em;
+table tr:nth-child(even) {
+    background-color: #f1f1f1;
 }
-.tag {
-  -webkit-border-radius: 0.35em;
-  -moz-border-radius: 0.35em;
-  border-radius: 0.35em;
-}
-.TODO {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #2aa198;
-}
-.NEXT {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #268bd2;
-}
-.ACTIVE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #268bd2;
-}
-.DONE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #859900;
-}
-.WAITING {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #cb4b16;
-}
-.HOLD {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #d33682;
-}
-.NOTE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #d33682;
-}
-.CANCELLED {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #859900;
-}
-
-
-/*
-pygmentize -f html -S colorful -a .highlight
-*/
-
 .highlight .hll { background-color: #ffffcc }
-.highlight  { background: #ffffff; }
-.highlight .c { color: #888888 } /* Comment */
-.highlight .err { color: #FF0000; background-color: #FFAAAA } /* Error */
-.highlight .k { color: #008800; font-weight: bold } /* Keyword */
-.highlight .o { color: #333333 } /* Operator */
-.highlight .cm { color: #888888 } /* Comment.Multiline */
-.highlight .cp { color: #557799 } /* Comment.Preproc */
-.highlight .c1 { color: #888888 } /* Comment.Single */
-.highlight .cs { color: #cc0000; font-weight: bold } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #8f5902; font-style: italic } /* Comment */
+.highlight .err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.highlight .g { color: #000000 } /* Generic */
+.highlight .k { color: #204a87; font-weight: bold } /* Keyword */
+.highlight .l { color: #000000 } /* Literal */
+.highlight .n { color: #000000 } /* Name */
+.highlight .o { color: #ce5c00; font-weight: bold } /* Operator */
+.highlight .x { color: #000000 } /* Other */
+.highlight .p { color: #000000; font-weight: bold } /* Punctuation */
+.highlight .ch { color: #8f5902; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: #8f5902; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #a40000 } /* Generic.Deleted */
+.highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #ef2929 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .go { color: #000000; font-style: italic } /* Generic.Output */
+.highlight .gp { color: #8f5902 } /* Generic.Prompt */
+.highlight .gs { color: #000000; font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #008800; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #008800; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #008800; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #003388; font-weight: bold } /* Keyword.Pseudo */
-.highlight .kr { color: #008800; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #333399; font-weight: bold } /* Keyword.Type */
-.highlight .m { color: #6600EE; font-weight: bold } /* Literal.Number */
-.highlight .s { background-color: #fff0f0 } /* Literal.String */
-.highlight .na { color: #0000CC } /* Name.Attribute */
-.highlight .nb { color: #007020 } /* Name.Builtin */
-.highlight .nc { color: #BB0066; font-weight: bold } /* Name.Class */
-.highlight .no { color: #003366; font-weight: bold } /* Name.Constant */
-.highlight .nd { color: #555555; font-weight: bold } /* Name.Decorator */
-.highlight .ni { color: #880000; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #FF0000; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0066BB; font-weight: bold } /* Name.Function */
-.highlight .nl { color: #997700; font-weight: bold } /* Name.Label */
-.highlight .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #007700 } /* Name.Tag */
-.highlight .nv { color: #996633 } /* Name.Variable */
-.highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #6600EE; font-weight: bold } /* Literal.Number.Bin */
-.highlight .mf { color: #6600EE; font-weight: bold } /* Literal.Number.Float */
-.highlight .mh { color: #005588; font-weight: bold } /* Literal.Number.Hex */
-.highlight .mi { color: #0000DD; font-weight: bold } /* Literal.Number.Integer */
-.highlight .mo { color: #4400EE; font-weight: bold } /* Literal.Number.Oct */
-.highlight .sb { background-color: #fff0f0 } /* Literal.String.Backtick */
-.highlight .sc { color: #0044DD } /* Literal.String.Char */
-.highlight .sd { color: #DD4422 } /* Literal.String.Doc */
-.highlight .s2 { background-color: #fff0f0 } /* Literal.String.Double */
-.highlight .se { color: #666666; font-weight: bold; background-color: #fff0f0 } /* Literal.String.Escape */
-.highlight .sh { background-color: #fff0f0 } /* Literal.String.Heredoc */
-.highlight .si { background-color: #eeeeee } /* Literal.String.Interpol */
-.highlight .sx { color: #DD2200; background-color: #fff0f0 } /* Literal.String.Other */
-.highlight .sr { color: #000000; background-color: #fff0ff } /* Literal.String.Regex */
-.highlight .s1 { background-color: #fff0f0 } /* Literal.String.Single */
-.highlight .ss { color: #AA6600 } /* Literal.String.Symbol */
-.highlight .bp { color: #007020 } /* Name.Builtin.Pseudo */
-.highlight .vc { color: #336699 } /* Name.Variable.Class */
-.highlight .vg { color: #dd7700; font-weight: bold } /* Name.Variable.Global */
-.highlight .vi { color: #3333BB } /* Name.Variable.Instance */
-.highlight .il { color: #0000DD; font-weight: bold } /* Literal.Number.Integer.Long */
-
- </style>
+.highlight .gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.highlight .kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.highlight .ld { color: #000000 } /* Literal.Date */
+.highlight .m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.highlight .s { color: #4e9a06 } /* Literal.String */
+.highlight .na { color: #c4a000 } /* Name.Attribute */
+.highlight .nb { color: #204a87 } /* Name.Builtin */
+.highlight .nc { color: #000000 } /* Name.Class */
+.highlight .no { color: #000000 } /* Name.Constant */
+.highlight .nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.highlight .ni { color: #ce5c00 } /* Name.Entity */
+.highlight .ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #000000 } /* Name.Function */
+.highlight .nl { color: #f57900 } /* Name.Label */
+.highlight .nn { color: #000000 } /* Name.Namespace */
+.highlight .nx { color: #000000 } /* Name.Other */
+.highlight .py { color: #000000 } /* Name.Property */
+.highlight .nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #000000 } /* Name.Variable */
+.highlight .ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.highlight .mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.highlight .mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.highlight .mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.highlight .mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.highlight .mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.highlight .sb { color: #4e9a06 } /* Literal.String.Backtick */
+.highlight .sc { color: #4e9a06 } /* Literal.String.Char */
+.highlight .sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #4e9a06 } /* Literal.String.Double */
+.highlight .se { color: #4e9a06 } /* Literal.String.Escape */
+.highlight .sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.highlight .si { color: #4e9a06 } /* Literal.String.Interpol */
+.highlight .sx { color: #4e9a06 } /* Literal.String.Other */
+.highlight .sr { color: #4e9a06 } /* Literal.String.Regex */
+.highlight .s1 { color: #4e9a06 } /* Literal.String.Single */
+.highlight .ss { color: #4e9a06 } /* Literal.String.Symbol */
+.highlight .bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #000000 } /* Name.Variable.Class */
+.highlight .vg { color: #000000 } /* Name.Variable.Global */
+.highlight .vi { color: #000000 } /* Name.Variable.Instance */
+.highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
+</style>
 
 <script type="text/javascript" src="http://orgmode.org/org-info.js">
 /**
@@ -427,7 +304,7 @@ for the JavaScript code in this tag.
 */
 
 <!--/*--><![CDATA[/*><!--*/
-org_html_manager.set("TOC_DEPTH", "5");
+org_html_manager.set("TOC_DEPTH", "6");
 org_html_manager.set("LINK_HOME", "");
 org_html_manager.set("LINK_UP", "");
 org_html_manager.set("LOCAL_TOC", "1");
@@ -441,87 +318,81 @@ org_html_manager.setup();  // activate after the parameters are set
 </script>
 </head>
 <body>
-<header class="header">
-<nav class="navbar navbar-default navbar-static-top"><div class="container">
-<div class="navbar-header">
-<a class="navbar-brand" href="http://www.cdwanze.org"><img style="max-width:50px; margin-top: -15px;" src="/templates/images/logo.svg" /></a></div>
-<div id="navbar">
-<ul class="nav navbar-nav"><li class="active"><a href="http://blog.cdwanze.org">博客</a><li><a href="http://blog.cdwanze.org/about.html">关于</a><li><a href="http://blog.cdwanze.org/donate.html">支持</a></div>
-</div>
-</nav></header><div id="content">
+<div id="content">
+<header>
 <h1 class="title">活出意义来</h1>
-<nav id="table-of-contents">
+</header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 简介</a>
+<li><a href="#orgheadline3">1. 简介</a>
 <ul>
-<li><a href="#sec-1-1">1.1. 代序</a></li>
-<li><a href="#sec-1-2">1.2. 编者语</a></li>
+<li><a href="#orgheadline1">1.1. 代序</a></li>
+<li><a href="#orgheadline2">1.2. 编者语</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2. 集中营的经历</a>
+<li><a href="#orgheadline42">2. 集中营的经历</a>
 <ul>
-<li><a href="#sec-2-1">2.1. 一场硬仗</a></li>
-<li><a href="#sec-2-2">2.2. 挣扎生存时的道德问题</a></li>
-<li><a href="#sec-2-3">2.3. 鼓足勇气，现身说法</a></li>
-<li><a href="#sec-2-4">2.4. 苦役的代价</a></li>
-<li><a href="#sec-2-5">2.5. 入营第一关</a></li>
-<li><a href="#sec-2-6">2.6. 由惊骇到视若无睹</a></li>
-<li><a href="#sec-2-7">2.7. 冷漠是自卫的绝招</a></li>
-<li><a href="#sec-2-8">2.8. 精神创伤</a></li>
-<li><a href="#sec-2-9">2.9. 非人的境遇</a></li>
-<li><a href="#sec-2-10">2.10. 比噩梦还恐怖</a></li>
-<li><a href="#sec-2-11">2.11. 画饼充饥</a></li>
-<li><a href="#sec-2-12">2.12. ‘性’趣缺缺</a></li>
-<li><a href="#sec-2-13">2.13. 宗教热</a></li>
-<li><a href="#sec-2-14">2.14. 但教心似金钿坚，天上人间会相见</a></li>
-<li><a href="#sec-2-15">2.15. 死囚的美感经验</a></li>
-<li><a href="#sec-2-16">2.16. 营中艺术活动</a></li>
-<li><a href="#sec-2-17">2.17. 集中营幽默</a></li>
-<li><a href="#sec-2-18">2.18. 苦中作乐</a></li>
-<li><a href="#sec-2-19">2.19. 救命仙丹</a></li>
-<li><a href="#sec-2-20">2.20. 独处的渴望</a></li>
-<li><a href="#sec-2-21">2.21. 人命如蝼蚁</a></li>
-<li><a href="#sec-2-22">2.22. 德黑兰的死神</a></li>
-<li><a href="#sec-2-23">2.23. 自由的曙光</a></li>
-<li><a href="#sec-2-24">2.24. 吃瘪与吃香</a></li>
-<li><a href="#sec-2-25">2.25. 临时舍监</a></li>
-<li><a href="#sec-2-26">2.26. 抉择与自由</a></li>
-<li><a href="#sec-2-27">2.27. 超越当前的困境</a></li>
-<li><a href="#sec-2-28">2.28. 精神防线</a></li>
-<li><a href="#sec-2-29">2.29. 参透“为何”，迎接“为何”</a></li>
-<li><a href="#sec-2-30">2.30. 寻出生命的意义</a></li>
-<li><a href="#sec-2-31">2.31. 集体精神治疗</a></li>
-<li><a href="#sec-2-32">2.32. 天使和恶魔</a></li>
-<li><a href="#sec-2-33">2.33. 获释后的营俘心理</a></li>
-<li><a href="#sec-2-34">2.34. 人格解体</a></li>
-<li><a href="#sec-2-35">2.35. 宣泄</a></li>
-<li><a href="#sec-2-36">2.36. 重获新生</a></li>
-<li><a href="#sec-2-37">2.37. 精神失调的危机</a></li>
-<li><a href="#sec-2-38">2.38. 直如一场噩梦</a></li>
+<li><a href="#orgheadline4">2.1. 一场硬仗</a></li>
+<li><a href="#orgheadline5">2.2. 挣扎生存时的道德问题</a></li>
+<li><a href="#orgheadline6">2.3. 鼓足勇气，现身说法</a></li>
+<li><a href="#orgheadline7">2.4. 苦役的代价</a></li>
+<li><a href="#orgheadline8">2.5. 入营第一关</a></li>
+<li><a href="#orgheadline9">2.6. 由惊骇到视若无睹</a></li>
+<li><a href="#orgheadline10">2.7. 冷漠是自卫的绝招</a></li>
+<li><a href="#orgheadline11">2.8. 精神创伤</a></li>
+<li><a href="#orgheadline12">2.9. 非人的境遇</a></li>
+<li><a href="#orgheadline13">2.10. 比噩梦还恐怖</a></li>
+<li><a href="#orgheadline14">2.11. 画饼充饥</a></li>
+<li><a href="#orgheadline15">2.12. ‘性’趣缺缺</a></li>
+<li><a href="#orgheadline16">2.13. 宗教热</a></li>
+<li><a href="#orgheadline17">2.14. 但教心似金钿坚，天上人间会相见</a></li>
+<li><a href="#orgheadline18">2.15. 死囚的美感经验</a></li>
+<li><a href="#orgheadline19">2.16. 营中艺术活动</a></li>
+<li><a href="#orgheadline20">2.17. 集中营幽默</a></li>
+<li><a href="#orgheadline21">2.18. 苦中作乐</a></li>
+<li><a href="#orgheadline22">2.19. 救命仙丹</a></li>
+<li><a href="#orgheadline23">2.20. 独处的渴望</a></li>
+<li><a href="#orgheadline24">2.21. 人命如蝼蚁</a></li>
+<li><a href="#orgheadline25">2.22. 德黑兰的死神</a></li>
+<li><a href="#orgheadline26">2.23. 自由的曙光</a></li>
+<li><a href="#orgheadline27">2.24. 吃瘪与吃香</a></li>
+<li><a href="#orgheadline28">2.25. 临时舍监</a></li>
+<li><a href="#orgheadline29">2.26. 抉择与自由</a></li>
+<li><a href="#orgheadline30">2.27. 超越当前的困境</a></li>
+<li><a href="#orgheadline31">2.28. 精神防线</a></li>
+<li><a href="#orgheadline32">2.29. 参透“为何”，迎接“为何”</a></li>
+<li><a href="#orgheadline33">2.30. 寻出生命的意义</a></li>
+<li><a href="#orgheadline34">2.31. 集体精神治疗</a></li>
+<li><a href="#orgheadline35">2.32. 天使和恶魔</a></li>
+<li><a href="#orgheadline36">2.33. 获释后的营俘心理</a></li>
+<li><a href="#orgheadline37">2.34. 人格解体</a></li>
+<li><a href="#orgheadline38">2.35. 宣泄</a></li>
+<li><a href="#orgheadline39">2.36. 重获新生</a></li>
+<li><a href="#orgheadline40">2.37. 精神失调的危机</a></li>
+<li><a href="#orgheadline41">2.38. 直如一场噩梦</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3. 意义治疗法的基本概念</a>
+<li><a href="#orgheadline61">3. 意义治疗法的基本概念</a>
 <ul>
-<li><a href="#sec-3-1">3.1. 求意义的意志</a></li>
-<li><a href="#sec-3-2">3.2. 存在的挫折</a></li>
-<li><a href="#sec-3-3">3.3. 心灵性神经官能症</a></li>
-<li><a href="#sec-3-4">3.4. 心灵动力学</a></li>
-<li><a href="#sec-3-5">3.5. 存在的空虚</a></li>
-<li><a href="#sec-3-6">3.6. 生命的意义</a></li>
-<li><a href="#sec-3-7">3.7. 存在的本质</a></li>
-<li><a href="#sec-3-8">3.8. 爱的意义</a></li>
-<li><a href="#sec-3-9">3.9. 苦难的意义</a></li>
-<li><a href="#sec-3-10">3.10. 形而上的临床问题</a></li>
-<li><a href="#sec-3-11">3.11. 演剧意义治疗</a></li>
-<li><a href="#sec-3-12">3.12. 超越的意义</a></li>
-<li><a href="#sec-3-13">3.13. 生命的短暂性</a></li>
-<li><a href="#sec-3-14">3.14. 意义治疗是一种技术</a></li>
-<li><a href="#sec-3-15">3.15. 集体性神经官能症</a></li>
-<li><a href="#sec-3-16">3.16. 泛决定论的批判</a></li>
-<li><a href="#sec-3-17">3.17. 精神医学的信条</a></li>
-<li><a href="#sec-3-18">3.18. 再赋予人性的精神医学}</a></li>
+<li><a href="#orgheadline43">3.1. 求意义的意志</a></li>
+<li><a href="#orgheadline44">3.2. 存在的挫折</a></li>
+<li><a href="#orgheadline45">3.3. 心灵性神经官能症</a></li>
+<li><a href="#orgheadline46">3.4. 心灵动力学</a></li>
+<li><a href="#orgheadline47">3.5. 存在的空虚</a></li>
+<li><a href="#orgheadline48">3.6. 生命的意义</a></li>
+<li><a href="#orgheadline49">3.7. 存在的本质</a></li>
+<li><a href="#orgheadline50">3.8. 爱的意义</a></li>
+<li><a href="#orgheadline51">3.9. 苦难的意义</a></li>
+<li><a href="#orgheadline52">3.10. 形而上的临床问题</a></li>
+<li><a href="#orgheadline53">3.11. 演剧意义治疗</a></li>
+<li><a href="#orgheadline54">3.12. 超越的意义</a></li>
+<li><a href="#orgheadline55">3.13. 生命的短暂性</a></li>
+<li><a href="#orgheadline56">3.14. 意义治疗是一种技术</a></li>
+<li><a href="#orgheadline57">3.15. 集体性神经官能症</a></li>
+<li><a href="#orgheadline58">3.16. 泛决定论的批判</a></li>
+<li><a href="#orgheadline59">3.17. 精神医学的信条</a></li>
+<li><a href="#orgheadline60">3.18. 再赋予人性的精神医学}</a></li>
 </ul>
 </li>
 </ul>
@@ -529,8 +400,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </nav>
 
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 简介</h2>
+<div class="outline-2">
+<h2 id="orgheadline3">简介</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 为何而活，渺小的人类面对浩渺的宇宙，不断询问。弗兰克尔教授用其非凡的一生来探索这个问题。无疑这本书将是传世之作，既可作为人类愚蠢行为的警醒，也可作为人类更有意义生活追求的向导。
@@ -547,8 +418,8 @@ org_html_manager.setup();  // activate after the parameters are set
 
 
 
-<div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 代序</h3>
+<div class="outline-3">
+<h3 id="orgheadline1">代序</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 戈登•欧伯
@@ -609,29 +480,21 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 编者语</h3>
+<div class="outline-3">
+<h3 id="orgheadline2">编者语</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 我在想这样一个问题，中国人的国民性是如何形成的。下面我提出一个说法，中国的国民性在很大程度上是长期处于独裁专制的类监狱环境下自然而形成的性格或者文化，并没有其他高深不可测的神秘力量。下面我列出一个清单，清单中的各条都在本书各个地方列出和有所说明，大家看看是不是这样。
 </p>
 <ol class="org-ol">
-<li>适应忍耐能力很强 <a href="#shiying">适应</a>
-</li>
-<li>冷漠 <a href="#lengmo">冷漠</a>
-</li>
-<li>爱好食物 <a href="#aihaoshiwu">爱好食物</a>
-</li>
-<li>性压抑 <a href="#xingyayi">性压抑</a>
-</li>
-<li>甚少欢乐 <a href="#shenshaokuaile">甚少快乐</a>
-</li>
-<li>避免与众不同 <a href="#yuzhongbutong">不要与众不同</a>
-</li>
-<li>躁急易怒 <a href="#yinu">躁急易怒</a>
-</li>
-<li>自卑情结 <a href="#zibei">自卑情结</a>
-</li>
+<li>适应忍耐能力很强 <a href="#orgtarget1">适应</a></li>
+<li>冷漠 <a href="#orgtarget2">冷漠</a></li>
+<li>爱好食物 <a href="#orgtarget3">爱好食物</a></li>
+<li>性压抑 <a href="#orgtarget4">性压抑</a></li>
+<li>甚少欢乐 <a href="#orgtarget5">甚少快乐</a></li>
+<li>避免与众不同 <a href="#orgtarget6">不要与众不同</a></li>
+<li>躁急易怒 <a href="#orgtarget7">躁急易怒</a></li>
+<li>自卑情结 <a href="#orgtarget8">自卑情结</a></li>
 </ol>
 
 <p>
@@ -640,18 +503,18 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 </div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 集中营的经历</h2>
+<div class="outline-2">
+<h2 id="orgheadline42">集中营的经历</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 一场硬仗</h3>
+</div><div class="outline-3">
+<h3 id="orgheadline4">一场硬仗</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 本书并不以集中营实录自诩。书中所载，只是数百万集中营俘虏反复身受的痛苦经验。这是一个集中营的内在故事，由一位生还者所述。书中没有那屡经描绘而其实不太有人相信的大恐怖，有的只是多如牛毛、层出不穷的小折磨。换言之，本书只想为这个问题寻找答案：“一个普通的俘虏每天生活在集中营里，会有怎样的感触？”
 </p>
 
 <p>
-本书所描述的事件，大多不是发生在著名的大型集中营里，而是发生在屡见残杀的小集中营里。书中故事，不是英雄烈士的苦难事迹，也不是“酷霸”<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup> 或知名俘虏的生活点滴。它所关切的，不是有权势，有地位的人所受的苦，而是诸多默默无闻、名不见经传的俘虏所遭遇的苦刑、苛虐及死亡。“酷霸”真正瞧不起的，正是这些平凡无奇、袖子上一无标记的俘虏。他们几乎无以果腹，而“酷霸”却从不知饥饿为何物。事实上，许多“酷霸”在营期间的膳食，比这辈子的其他时候还要享受。但他们对俘虏的态度，比警卫还要苛薄；打起人来，也比纳粹挺进队员还要狠。当然，“酷霸”是由众多囚犯中精挑细选而来的。他们的个性，恰恰适合担任这种酷虐的角色；如果“工作”不力，有负所托，立刻就会被刷下来。因此，他们一个个都卖力表现，俨若纳粹挺进队员和营中警卫。象这种例子，也可以用同样的心理学观点来衡量。
+本书所描述的事件，大多不是发生在著名的大型集中营里，而是发生在屡见残杀的小集中营里。书中故事，不是英雄烈士的苦难事迹，也不是“酷霸”<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> 或知名俘虏的生活点滴。它所关切的，不是有权势，有地位的人所受的苦，而是诸多默默无闻、名不见经传的俘虏所遭遇的苦刑、苛虐及死亡。“酷霸”真正瞧不起的，正是这些平凡无奇、袖子上一无标记的俘虏。他们几乎无以果腹，而“酷霸”却从不知饥饿为何物。事实上，许多“酷霸”在营期间的膳食，比这辈子的其他时候还要享受。但他们对俘虏的态度，比警卫还要苛薄；打起人来，也比纳粹挺进队员还要狠。当然，“酷霸”是由众多囚犯中精挑细选而来的。他们的个性，恰恰适合担任这种酷虐的角色；如果“工作”不力，有负所托，立刻就会被刷下来。因此，他们一个个都卖力表现，俨若纳粹挺进队员和营中警卫。象这种例子，也可以用同样的心理学观点来衡量。
 </p>
 
 <p>
@@ -660,15 +523,15 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 挣扎生存时的道德问题</h3>
+<div class="outline-3">
+<h3 id="orgheadline5">挣扎生存时的道德问题</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 且以换营为例。换营消息，是由官方发布的，表面上说是要把一批俘虏转运到另一个营区。然而你如果料想这所谓的“另一个营区”其实就是指煤气间，你的推测可以说八九不离十。病弱而无力工作的俘虏，都会遭到淘汰，并且遣送到设有煤气间和火葬场的大型集中营里。淘汰的方法，是叫全体俘虏来一场群殴，或者分队格斗。当其时，每个俘虏心中最记挂的便是：努力把自己和好友的名字，排除于黑名单之外——尽管大家知道拯救某人，有可能会被发现。
 </p>
 
 <p>
-每次换营，总有一定数量的俘虏非走不可。然而，由于每个俘虏不过是个号码，所以究竟走了哪些人并没多大关系。俘虏在入营之时，随身证件和其他物品就已经遭到没收了（至少奥斯维辛集中营是这样做的），因此，每个人都有机会虚报姓名职业。许多人为了各种理由，就都这么做。当局所关注的，只是俘虏的号码。这个号码，就刺在各人的皮肤上，也绣在衣裤的某个地方。任何警卫若想“整”一个俘虏，只要对该俘虏的号码“瞟”一眼就行了（这一“瞟”，即可教我们心惊肉跳），根本不必查问姓名。<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>
+每次换营，总有一定数量的俘虏非走不可。然而，由于每个俘虏不过是个号码，所以究竟走了哪些人并没多大关系。俘虏在入营之时，随身证件和其他物品就已经遭到没收了（至少奥斯维辛集中营是这样做的），因此，每个人都有机会虚报姓名职业。许多人为了各种理由，就都这么做。当局所关注的，只是俘虏的号码。这个号码，就刺在各人的皮肤上，也绣在衣裤的某个地方。任何警卫若想“整”一个俘虏，只要对该俘虏的号码“瞟”一眼就行了（这一“瞟”，即可教我们心惊肉跳），根本不必查问姓名。<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
 </p>
 
 <p>
@@ -681,8 +544,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 鼓足勇气，现身说法</h3>
+<div class="outline-3">
+<h3 id="orgheadline6">鼓足勇气，现身说法</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 有关集中营的报道和实录，多已有案可稽。可是，事实真相只有附属于一个人的经验时才有其深意。本节所要描述的，正是这些经验的特质。笔者愿意以当今人类所拥有的知识，为曾陷身集中营的人阐释当时的经验，并帮助未曾身历其境的人理解、体会这极少数浩劫余生、如今却万难适应正常生活的人所曾身受的历炼。这些历劫归来的生还者常说：“我们不喜欢谈过去的经验。身历其境的人，不必别人多费唇舌来替他解说；没有经验过的人，不会了解我们当时和现在的感受。”
@@ -698,21 +561,21 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 苦役的代价</h3>
+<div class="outline-3">
+<h3 id="orgheadline7">苦役的代价</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 本书所述，乃是我在集中营中身为一名普通俘虏的经验。因而，我特别要声明的是，被俘期间，我除了最后几个星期之外，并未受雇担任营中的精抻病医生甚或是一般的医生。我提到这一点，难免有些自豪。我有几个同行相当幸运，能够在简陋且仅供应绷带（由破布和废纸作成）的急救站工作。而我，带着一一九一〇四的俘虏编号，大部分时间都在铁路沿线上挖土和铺铁轨。有一次，我独力挖掘一条地下水管的通道。这项功绩后来得到了报酬。就在一九四四年圣诞节，我收到一份所谓“奖金联券”的礼物，是由承包该项工程的建设公司发给的。我们这些俘虏，实际上是被集中营当局卖给这家公司当奴役，该公司每天按俘虏人数付给当局一笔固定的工资。每份联券约值五十个芬尼，可以兑换六根香烟。兑换时间，通常在几星期后，不过有时候也会失效。于是乎，我成了个骄傲的“财主”，拥有一份值十二根香烟的礼券。这十二根香烟本身或许无甚意义，却可以兑换十二份肉汤，而十二份肉汤在当时看来，委实是一道消饥救急的大餐。
 </p>
 
 <p>
-抽烟的特权，只保留给每星期都有固定奖券配额的“酷霸”，和在仓库、工作场所担任守卫、或领取几支烟以为担当危险职务酬劳的人。除此之外，就只有已丧失生存意志，想“享受”生平最后几天的俘虏，还可以拥有这个特权。因此，我们一旦看到一个同伴在抽烟，就知道他已经失去了活下去的力量和信心，而生存意志一旦丧失，便很难以恢复过来。<sup><a id="fnr.3" name="fnr.3" class="footref" href="#fn.3">3</a></sup>
+抽烟的特权，只保留给每星期都有固定奖券配额的“酷霸”，和在仓库、工作场所担任守卫、或领取几支烟以为担当危险职务酬劳的人。除此之外，就只有已丧失生存意志，想“享受”生平最后几天的俘虏，还可以拥有这个特权。因此，我们一旦看到一个同伴在抽烟，就知道他已经失去了活下去的力量和信心，而生存意志一旦丧失，便很难以恢复过来。<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-2-5" class="outline-3">
-<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 入营第一关</h3>
+<div class="outline-3">
+<h3 id="orgheadline8">入营第一关</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 现有大批资料，为众多俘虏的经验与观察的结晶。当我们仔细审视这些资料，将会发觉众俘虏对集中营生活的心理反应，可分为三个阶段：刚入营之后的阶段、习于集中营例行生活的阶段、释放且重获自由之后的阶段。
@@ -783,7 +646,7 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-在挺进队的警卫持枪戒备之下，我们奉命由火车站穿过通电的带钩铁丝网和营区，奔向清洗站。我们这批通过了第一关的邋遢人，在这儿可以说真正享受到洗澡的舒畅。“缓刑错觉”也因此再度有了个明确保证，连挺进队员似乎都和蔼可亲。可惜不多时，我们看出了和蔼可亲的原因。这些队员只要看到我们手腕上带有手表，对我们便亲切有加，并且鼓起如簧之舌，以万般善意的声调劝我们把手表交出去。既然我们什么东西都得充公，为什么不干脆交给一个看起来比较和气的人呢？说不定，有朝一日他还可以帮个大忙哩！<sup><a id="fnr.4" name="fnr.4" class="footref" href="#fn.4">4</a></sup>
+在挺进队的警卫持枪戒备之下，我们奉命由火车站穿过通电的带钩铁丝网和营区，奔向清洗站。我们这批通过了第一关的邋遢人，在这儿可以说真正享受到洗澡的舒畅。“缓刑错觉”也因此再度有了个明确保证，连挺进队员似乎都和蔼可亲。可惜不多时，我们看出了和蔼可亲的原因。这些队员只要看到我们手腕上带有手表，对我们便亲切有加，并且鼓起如簧之舌，以万般善意的声调劝我们把手表交出去。既然我们什么东西都得充公，为什么不干脆交给一个看起来比较和气的人呢？说不定，有朝一日他还可以帮个大忙哩！<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
 </p>
 
 <p>
@@ -848,7 +711,7 @@ org_html_manager.setup();  // activate after the parameters are set
 
 
 <p>
-<a id="shiying" name="shiying"></a>
+<a id="orgtarget1"></a>
 陀斯妥耶夫斯基曾断言：人无论任何境遇，都适应得了。现在，如果有人问我这句话究竟对不对，我会说，“对！人什么都适应得了，不过别问我怎么适应的。”只可惜，心理学研究目前还没进展到那个地步；我们俘虏在当时，也还没达到那个境界。当时，我们仍处在心理反应的第一阶段。
 </p>
 
@@ -870,8 +733,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-2-6" class="outline-3">
-<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 由惊骇到视若无睹</h3>
+<div class="outline-3">
+<h3 id="orgheadline9">由惊骇到视若无睹</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 “丧失理智，一定事出有因，不然就是没有理智。”这句话，大概是诗人莱辛所说的。遇到反常情况而有反常的反应，这是正常的行为。一个人在遭逢巨变——譬如被送进精神病院时，即使是精神医生，也会预料他反常的程度将与他正常的程度成正比。一个人对他被抓进集中营这件事的反应，容或显示他心智异常，然而客观说来，却是正常且典型的反应（这一点容后详述）。如前所言，这些反应在几天后开始有了变化。当事人由第一阶段转入第二阶段——也就是冷漠、无动于衷的阶段。当其时，他达到了一种情绪死亡的境界。
@@ -896,11 +759,11 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-7" class="outline-3">
-<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 冷漠是自卫的绝招</h3>
+<div class="outline-3">
+<h3 id="orgheadline10">冷漠是自卫的绝招</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
-<a id="lengmo" name="lengmo"></a>
+<a id="orgtarget2"></a>
 我曾在专供斑疹伤寒患者居住的茅舍里工作过一段时间。那些病人体温都非常高经常神志昏迷，而且大多都奄奄一息。每当有人死去，我总是冷眼旁观着随之而来且已经司空见惯的一幕：众俘虏一个个挨近犹温的尸体，有的抢到一盘吃剩的马铃薯泥，有的发现死者的木鞋比自己的稍好而来个调换。另一个抢到了死者的外衣，还有一个更因为也抓到了一点东西——一根真正的绳子——而高兴万分。
 </p>
 
@@ -923,8 +786,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-8" class="outline-3">
-<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 精神创伤</h3>
+<div class="outline-3">
+<h3 id="orgheadline11">精神创伤</h3>
 <div class="outline-text-3" id="text-2-8">
 <p>
 冷漠寡情，感觉钝化，自觉什么也无法在乎——这正是第二阶段心理反应所特有的征状。这些征状，终能使一个人忍受无时无之的鞭笞而浑无所觉。每个俘虏就靠这种迟钝和麻木，很快把自己裹进一层极为需要的保护膜里头。 
@@ -981,8 +844,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-9" class="outline-3">
-<h3 id="sec-2-9"><span class="section-number-3">2.9</span> 非人的境遇</h3>
+<div class="outline-3">
+<h3 id="orgheadline12">非人的境遇</h3>
 <div class="outline-text-3" id="text-2-9">
 <p>
 也有些监工同情我们的遭遇，尽量减轻我们的负担——至少在工地是如此。不过，即使是这样的监工，也经常提醒我们说，普通工人有时候干的活跟我们一样多，所花的时间却更短。然而，如果他们知道正常工人每天的饮食不像我们这样，只有十点半盎斯的面包（这是规定上的，实际上更少）和一小碗的稀汤，而且还不必承受精神压力，不必时时面对死亡威胁，一定会知道个中的原因。何况，正常工人不像我们这样，全无家人音讯，更不必担心亲人是不是被关进另一个集中营，或已经被送入煤气间。有一次，我就曾鼓足勇气对一个和善的监工说：“如果你能够以我现在向你学习修路的速度，来跟我学习脑部开刀的技术，我便佩服你啦！”当时，他咧嘴一笑。
@@ -991,8 +854,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-10" class="outline-3">
-<h3 id="sec-2-10"><span class="section-number-3">2.10</span> 比噩梦还恐怖</h3>
+<div class="outline-3">
+<h3 id="orgheadline13">比噩梦还恐怖</h3>
 <div class="outline-text-3" id="text-2-10">
 <p>
 第二阶段的主要征状——冷漠——是自我防卫所必需，人一旦冷漠，现实就模糊了；而一切的心力和情感便贯注在一件事上：保住自己和好友的生命。每天傍晚，当俘虏由工地返回营区，常常会松一口气叹道：“呼！幸好又过了一天。”
@@ -1013,11 +876,11 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-11" class="outline-3">
-<h3 id="sec-2-11"><span class="section-number-3">2.11</span> 画饼充饥</h3>
+<div class="outline-3">
+<h3 id="orgheadline14">画饼充饥</h3>
 <div class="outline-text-3" id="text-2-11">
 <p>
-<a id="aihaoshiwu" name="aihaoshiwu"></a>
+<a id="orgtarget3"></a>
 由于营养严重缺乏，渴望食物乃成为俘虏最主要的原始本能，并为其精神生活的重心。大多数的俘虏在工作时，只要彼此距离够近，且只要未受到严密监视，立刻就会打开话匣子，谈起食物来。其中一个会问另一个同在壕沟中劳动的难友：他最喜欢吃什么菜？当下，两人就会交换食谱，并计划劫后还乡喜相逢那天的菜单。两人就这样津津有味地畅谈不休，把那些佳肴美馔(zhuàn)描绘得淋漓尽致，直到别的俘虏暗中示意：“警卫来了”，才猛然住口。
 </p>
 
@@ -1052,11 +915,11 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-12" class="outline-3">
-<h3 id="sec-2-12"><span class="section-number-3">2.12</span> ‘性’趣缺缺</h3>
+<div class="outline-3">
+<h3 id="orgheadline15">‘性’趣缺缺</h3>
 <div class="outline-text-3" id="text-2-12">
 <p>
-<a id="xingyayi" name="xingyayi"></a>
+<a id="orgtarget4"></a>
 营养不良除了使众俘虏神往于食物之外，很可能也是性冲动普遍阙如的原因所在。在清一色男性的集中营里，心理学家必然会注意到一个现象：这里压根儿没有性倒错(Sexual Perversion)。这和其他纯男性的团体（譬如军队）恰恰相反。究其原因，除开初期的惊骇之外，营养不良似乎是唯一的解释。即使在梦里，俘虏对于“性”仿佛也是兴趣缺缺——尽管他的挫折感，以及较纤细、较微妙的感觉都能在梦中明确地表达出来。[这可以称之为生存压力之下的性压抑现象。]
 </p>
 
@@ -1075,8 +938,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-13" class="outline-3">
-<h3 id="sec-2-13"><span class="section-number-3">2.13</span> 宗教热</h3>
+<div class="outline-3">
+<h3 id="orgheadline16">宗教热</h3>
 <div class="outline-text-3" id="text-2-13">
 <p>
 集中营里，也普遍有一种。“文化冬眠”(Cutural hibernation)的现象，然而政治和宗教却是两个例外。营中处处有人谈论政治，而且几乎是毫不间断地谈。谈论的根据，主要是靠屡遭喝止但又传递极速的谣言。与军事状况有关的谣言经常互相矛盾。一个接一个快速传来的结果，除了增添俘虏的神经紧张之外，别无其他好处。有许多次，被乐观的谣言煽热了的希望——希望战争快快结束——一一归于破灭。有的俘虏因而丧失了一切希望，不过，最惹人发怒的却是那些无可救药的乐天派。
@@ -1101,8 +964,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-14" class="outline-3">
-<h3 id="sec-2-14"><span class="section-number-3">2.14</span> 但教心似金钿坚，天上人间会相见</h3>
+<div class="outline-3">
+<h3 id="orgheadline17">但教心似金钿坚，天上人间会相见</h3>
 <div class="outline-text-3" id="text-2-14">
 <p>
 但教心似金钿坚，天上人间会相见(出处：唐朝诗人白居易的《长恨歌》。)
@@ -1158,8 +1021,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-2-15" class="outline-3">
-<h3 id="sec-2-15"><span class="section-number-3">2.15</span> 死囚的美感经验</h3>
+<div class="outline-3">
+<h3 id="orgheadline18">死囚的美感经验</h3>
 <div class="outline-text-3" id="text-2-15">
 <p>
 这样子强化内心生活，就可以在空洞、贫血、孤绝的俘虏生涯中，以遁入过往的方式，找到了一个避难的港口。只要你不自羁绊，就可一任想像力驰骋于过往，咀嚼一些无关宏旨、微不足道的前尘往事。你会以怀旧的心情，把这些前尘往事一一加以美化，使其显得遥不可及，也使得你满心渴望再度身临其中。我自己就常在想像中搭上公共汽车，打开家门，接听电话且捻亮电灯。这些琐事和记忆每每令我低徊不已，乃至潸然泪下。
@@ -1180,8 +1043,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-16" class="outline-3">
-<h3 id="sec-2-16"><span class="section-number-3">2.16</span> 营中艺术活动</h3>
+<div class="outline-3">
+<h3 id="orgheadline19">营中艺术活动</h3>
 <div class="outline-text-3" id="text-2-16">
 <p>
 先前，我曾提到艺术。集中营里，也会有艺术这种东西么？这倒要看你所谓的艺术究竟是指什么而定。营中不时举行一些业余节目。每逢其时，有幢茅舍便会暂时腾出来，排上几条木条凳，还有人负责草拟一张节目单。当晚，营中稍有地位者（也就是像酷霸和一些不必到工地去做工的人）全都到场，大概是专程来笑一阵或哭几声——总之是为了消愁破闷。节目中有歌唱、诵诗、讲笑话等等．有的还暗暗讽刺营中的人、事、物。这一切，全是刻意要帮助我们忘忧的——也的确有所帮助。有些普通俘虏就因为这种节目很有消愁破闷之效，才不惜拖着疲惫的身子或冒着分不到当日口粮的危险而争先往观。
@@ -1202,8 +1065,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-17" class="outline-3">
-<h3 id="sec-2-17"><span class="section-number-3">2.17</span> 集中营幽默</h3>
+<div class="outline-3">
+<h3 id="orgheadline20">集中营幽默</h3>
 <div class="outline-text-3" id="text-2-17">
 <p>
 集中营里，居然也有艺术之类的玩意儿，这个事实局外人想必会大吃一惊。不过，要是他听说营中还有幽默感这东西，很可能更要啧啧称奇了。当然，所谓的幽默感只是淡淡的痕迹，而且为时不过短短数秒钟或数分钟。为求自保，幽默感是另一项精神武器。众所周知，幽默是人类性情当中最能使人超越任何情境的一种。即使超越的时间只是短短数秒也是弥足珍贵的能力。我就曾实地训练一位在建筑工地中与我并肩做工的友人培养幽默感。我建议他，以后我们每天至少要想出一则笑谭趣事——一则与获释之后可能遭遇到的情况有关的趣闻。他是一名外科医生，曾在某大医院充当助理。有次，我就因为对他描述他回复原职之后，将如何改不掉营中习惯，而逗得他捧腹不已。在建筑工地，监工为了叫我们勤快些，常吆喝道；“干呀！干呀！”尤其在督察巡视的时刻，更是吆喝不停。我于是告诉这位友人：“终有一天，你会回到手术房，执行一项腹部大手术。突然间，一个看护人员冲将进来，吆喝道'干呀！干呀！'，借以宣布主任大爷的光临。”
@@ -1216,8 +1079,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-18" class="outline-3">
-<h3 id="sec-2-18"><span class="section-number-3">2.18</span> 苦中作乐</h3>
+<div class="outline-3">
+<h3 id="orgheadline21">苦中作乐</h3>
 <div class="outline-text-3" id="text-2-18">
 <p>
 试着培养幽默感，试着以幽默的眼光观察事物——这是研究生活艺术时必学的一招。人世间尽管处处有痛苦，却仍有可能让生活的艺术付诸实现，即便在集中营里亦然。容我打个比方：痛苦就像是煤气。一个空房间里，如果注入某一定量的煤气，则不论房间多大，煤气都会完全均匀地弥漫。同样地，痛苦不论大小，都会完全充满人的心灵和意识。因此，人类痛苦的“尺度”，绝对是相对的。[心灵的空间越大，所承受的痛苦的强度就越小。]
@@ -1228,7 +1091,7 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-至于在两天三夜的旅途之后抵达荷城时，又有怎样的遭遇呢？在火车上，由于空间太窄，大多数人只好全程枯站，幸运的少数则轮流蹲在满是尿骚臭的稻草堆上。抵达时，从老俘虏那儿打听到的第一条大消息便是：这个小型集中营（人口仅二千五百名）没有“炉子”、没有火葬场、也没有煤气！这表示所有变成“末世脸”的人，不会直接被送到煤气间，而要等到所谓的“病患护送队”组成以后才被遣回奥斯维辛。这个令人惊喜的大好消息，使得大伙儿心情特佳。奥斯维辛那位资深舍监的愿望终于重视了：我们这么快，就已经来到一个没有“烟囱”的集中营里。当下，我们欢笑作乐，管他紧接着又要忍受什么样的煎熬？<sup><a id="fnr.5" name="fnr.5" class="footref" href="#fn.5">5</a></sup>
+至于在两天三夜的旅途之后抵达荷城时，又有怎样的遭遇呢？在火车上，由于空间太窄，大多数人只好全程枯站，幸运的少数则轮流蹲在满是尿骚臭的稻草堆上。抵达时，从老俘虏那儿打听到的第一条大消息便是：这个小型集中营（人口仅二千五百名）没有“炉子”、没有火葬场、也没有煤气！这表示所有变成“末世脸”的人，不会直接被送到煤气间，而要等到所谓的“病患护送队”组成以后才被遣回奥斯维辛。这个令人惊喜的大好消息，使得大伙儿心情特佳。奥斯维辛那位资深舍监的愿望终于重视了：我们这么快，就已经来到一个没有“烟囱”的集中营里。当下，我们欢笑作乐，管他紧接着又要忍受什么样的煎熬？<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>
 </p>
 
 <p>
@@ -1252,7 +1115,7 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-<a id="shenshaokuaile" name="shenshaokuaile"></a>
+<a id="orgtarget5"></a>
 在集中营生活里，这种贫弱的欢娱，为大伙儿提供了消极的快乐——也就是叔本华所说的“苦中作乐”（freedom from suffering）——然而就连这种快乐，也是相对性的。真正的快乐（即使是细微的）．可以说几乎没有。记得我有一次曾经草拟一张《快乐明细表》，结果发现，在过去好几个星期中，我总共只有两次快乐的经验。其中一次是这样的：我从工地回来后，苦等良久，终能进入厨房，并且被分发到由冯姓伙夫（也是俘虏）主勺的队伍里。冯伙夫站在一个大锅后，接过每个俘虏递上去的碗，一一盛上汤，众俘虏则一一迅速离开。这人是唯一不看情面、一视同仁、分汤公正的伙夫。他对自己的好友或乡亲，并不会特加关照，为他们捞出锅底的马锋薯，而叫其他人喝薄稀稀的汤。
 </p>
 
@@ -1263,8 +1126,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-19" class="outline-3">
-<h3 id="sec-2-19"><span class="section-number-3">2.19</span> 救命仙丹</h3>
+<div class="outline-3">
+<h3 id="orgheadline22">救命仙丹</h3>
 <div class="outline-text-3" id="text-2-19">
 <p>
 我恢复正常生活（即重获自由）很久以后，一位友人拿了张画刊给我看，上面登了几帧照片，全是集中营俘虏挤躺在木板床上．眼光呆滞地盯着一名访客的镜头。“很可怕，不是吗？那种呆滞的表情底下，隐含了多少恐怖啊！”
@@ -1289,11 +1152,11 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-20" class="outline-3">
-<h3 id="sec-2-20"><span class="section-number-3">2.20</span> 独处的渴望</h3>
+<div class="outline-3">
+<h3 id="orgheadline23">独处的渴望</h3>
 <div class="outline-text-3" id="text-2-20">
 <p>
-<a id="yuzhongbutong" name="yuzhongbutong"></a>
+<a id="orgtarget6"></a>
 前曾提到，在集中营里，任何事只要与生存活命没有关系，就没有价值。为了活命，营中人不惜作一切牺牲。但这势必威胁到他向所秉持的理念与价值，因而使他陷入精神的惶乱中，尝到价值失落的痛苦。生活在集中营这草菅人命、夺人心志、蔑视人性尊严、视人如待戮牲口（不过却打算榨尽他最后一滴劳力）的世界里，如果不尽力抗拒这种价值失落的痛苦，努力为自己保留一点自尊，终将丧失生而为人，具有独特心智、独特内在自由及个人价值的意识。当其时，你会认为自己不过是一大群人当中的一个；你的存在将退化到与禽兽无异的地步。事实上，集中营大多数的俘虏就是这样：一大群人，像羊群一样任人随意驱赶，毫无自己的思想和意志；而一小撮无赖，则由四面八方密切监视，并以各种酷虐手段任加折磨。他们不断地驱赶羊群，并以吆喝、踢打、棍击来指示方向；至于我们这群蠢羊，则只是一心一意地想着两件事：如何躲避恶狗与如何挣取一点食物。
 </p>
 
@@ -1316,8 +1179,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-21" class="outline-3">
-<h3 id="sec-2-21"><span class="section-number-3">2.21</span> 人命如蝼蚁</h3>
+<div class="outline-3">
+<h3 id="orgheadline24">人命如蝼蚁</h3>
 <div class="outline-text-3" id="text-2-21">
 <p>
 集中营里的人命，究竟多么不值，局外人通常很难以理解。营中人心肠虽硬，但每当一个“病人护进队”组成之时，大家就更意识到人命全然不受重视的事实。病人衰弱的身体，往往被丢上二轮马车，由别的俘虏冒着大风雪，拉了好几里路到下一个集中营去。在马车离开以前，如果有哪个病人死了，照样要丢上去——因为名册上非得正确无误不可。唯一重要的——只有名册。一个人的价值，就在于他有个俘虏号码。他名符其实地成了个号码。是死是活倒无关紧要，反正同样是个号码；而一个号码的生命是完全微不足道的。至于这个号码及这个生命背后所含的一切，包括命运、身世、姓名等等，不用说更是无足挂齿了。运送病人时，我因为是医生，必须陪病人从巴伐利亚的一个营转到另一个营。有次，有个年轻俘虏因为他哥哥未被列入名册，必须留下来，便一直哀求不停。管理员被缠得没办法，只好来个对调：把他哥哥和一名在当时较喜留下的俘虏对换过来。可是名册上却必须正确无误！这倒简单，两个人只要对换一下号码，就行了。
@@ -1330,8 +1193,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-22" class="outline-3">
-<h3 id="sec-2-22"><span class="section-number-3">2.22</span> 德黑兰的死神</h3>
+<div class="outline-3">
+<h3 id="orgheadline25">德黑兰的死神</h3>
 <div class="outline-text-3" id="text-2-22">
 <p>
 我在奥斯维辛时，就曾暗自订下一个规则。这规则屡经考验，效果良好，后来大多数的难友都争相效尤。一切问话，我大都照实回答；但若问得不明确，我便缄口不答。问到年龄，我据实以告；问到职业，我答：“医生”，但却并不详细答复。在奥斯维辛的第一个上午，一个挺进队员来到操场，大伙儿必须按四十岁以上、四十岁以下、金属工、机工（以此类推）……分成不同的队伍。后来接受受体检，有疝气的又另组一个新队。我那队被赶到另一间土屋重新整队，经过再一次的分组和问话（关于年龄职业的），我被分到另一个小组，然后又被赶到另一间小屋，再重新组队。就这样一连循环了几次，把我搞得烦死了，尤其我后来发现自己竟处在一群言语不通的陌生人当中，心里真是闷闷不乐。不久，最后一次的分组总算结束；万没想到，我竟又回到最初所属的那一队！主事者根本没注意到我这段时间里换了几个房间，不过，我却明白在这几分钟之内，命运之神用了许多种不同的方式，放了我一马。
@@ -1380,8 +1243,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-23" class="outline-3">
-<h3 id="sec-2-23"><span class="section-number-3">2.23</span> 自由的曙光</h3>
+<div class="outline-3">
+<h3 id="orgheadline26">自由的曙光</h3>
 <div class="outline-text-3" id="text-2-23">
 <p>
 营中人很怕做决定，也怕主动做任何事情。这是因为大家都强烈地感觉到命运是人的主宰，人不能企图改变它，只能任由它自然发展所致。这种感觉，每每因惯常的冷漠而益形加深。有时候，生死攸关的决定，必须在闪电般的瞬间做出。然而每个人都宁愿由命运替他做主。这种逃避行动的现象，在面对是否逃亡的问题时最为明显。当其时（只是短短几分钟），他备尝犹豫不定的煎熬。他尝试逃亡好吗？他该不该冒险？
@@ -1430,16 +1293,16 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-24" class="outline-3">
-<h3 id="sec-2-24"><span class="section-number-3">2.24</span> 吃瘪与吃香</h3>
+<div class="outline-3">
+<h3 id="orgheadline27">吃瘪与吃香</h3>
 <div class="outline-text-3" id="text-2-24">
 <p>
-<a id="yinu" name="yinu"></a>
+<a id="orgtarget7"></a>
 俘虏的冷漠，有其自卫的功能，但冷漠本身，也是由其他因素所促成的。除冷漠以外，俘虏的精神状态另有一个特征，那就是躁急易怒。这两种精神状态，都肇因于饥饿和睡眠不足（在正常生活中，也有此可能）。睡眠不足，部分是因为跳蚤太多，不胜其扰。挤得水泄不通的房舍，如果再不讲究卫生，就容易滋生蚊蚋。另方面，缺少尼古丁和咖啡因的刺激，也会使人容易冷漠和躁怒。
 </p>
 
 <p>
-<a id="zibei" name="zibei"></a>
+<a id="orgtarget8"></a>
 除开这两个生理因素之外，还有几个以情结（Complexes）形式出现的精神因素。大多数的俘虏都有一种自卑情结，并且深以为苦。过去，我们都曾一度自以为“有头有脸”。如今，却受到猪狗不如的待遇。（一个人内在价值的意识，原应建基于较高尚、较属精神层次的事物上，因此不可能为集中营生活所动摇。然而不要说俘虏，即便是享有自由之身的芸芸众生之中，有多少人真正拥有这样一份意识？）一般俘虏不必特别去想，就都感到自己的价值已全然贬低。这种感觉，在看到营中简单的社会结构所显示出来的强烈对比时，尤其明显。较“优秀”的俘虏，诸如酷霸、伙夫、仓库管理员，营警等等，可以说完全不像大多数俘虏那样自感吃瘪，反而自以为升格了！有的人甚至还自认为威风八面哩！至于内心酸溜溜的大多数对这一小撮吃香分子的观感，则有几种不同的表达方式，而开玩笑则是其中一种。譬如，我就曾听过一名俘虏对另一名俘虏谈起某酷霸：“喝！早在他还只是某大银行总经理时，我就认识他了。如今他在这里升得这么快，岂不是时来运转了吗？”
 </p>
 
@@ -1450,8 +1313,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-25" class="outline-3">
-<h3 id="sec-2-25"><span class="section-number-3">2.25</span> 临时舍监</h3>
+<div class="outline-3">
+<h3 id="orgheadline28">临时舍监</h3>
 <div class="outline-text-3" id="text-2-25">
 <p>
 我在斑疹伤寒病患区充任医生时，因为舍监病倒了，只好暂代他的职位，负责保持房舍的清洁（但愿“清洁”两字，还能用来形容那种情况下的环境），以便对当局有所交代。当局所谓的清洁检查，与其说是为了卫生，不如说是为了借机找碴。食物和药品只要多分配些，就大有帮助；然而检查员所关切的，只是走道中央有没有一根稻草？病人那块肮脏破烂、处处跳蚤的毛毯是否折叠得整齐？至于病人的命运如何，他们压根儿不管。我只要把俘虏帽从剪过发的头上猛抽下来，两个脚跟再重重一扣，然后口齿伶俐地报告：“六区九号病房，病俘五十二名，看护二名，医生一名！”他们就会满意，并且就会离开。可是在此之前，我却得把每张毯子一一弄平，把由床板上掉下的每根稻草一一捡起，再大声吆喝那些在床上打滚，扬言要捣乱我辛苦整理好的一切成果的可怜虫；而后才恭候大驾。（问题是，这些检查大员常常姗姗来迟好几个钟头，有时候干脆不来，令我白忙一阵。）吆喝是有必要的，因为发高烧的病人，已经冷漠到除非挨骂否则仍无动于衷的地步。有时候，连叫骂也不管用；这时，我就得使出浑身解数忍住一腔的怒火，才不致于出手打人。毕竟，在面临别人的无动于衷以及因而造成的险恶情势（即渐渐逼近的清洁检查）之时，任何人都特别容易变得暴躁起来。
@@ -1460,8 +1323,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-26" class="outline-3">
-<h3 id="sec-2-26"><span class="section-number-3">2.26</span> 抉择与自由</h3>
+<div class="outline-3">
+<h3 id="orgheadline29">抉择与自由</h3>
 <div class="outline-text-3" id="text-2-26">
 <p>
 我以这种心理学的精神病理学的角度，试着解析集中营俘虏的典型特征，很可能使读者错以为人乃是完全且无可避免地受制于环境。（以集中营俘虏为例，所谓环境，即是指集中营生活的独特结构，该结构迫使俘虏迁就某一固定模式。）然而人的自由呢？在面对任何既定环境时，人的行为反应当中，难道毫无精神自由可言？有个理论说，人不过是许多生物学、心理学、或社会学条件与环境的因素支配下的产物）这种说法，难道是真的吗？人真只是这些因素凑合下偶然的产儿吗？更重要的是，以俘虏在集中营那种社会里的反应和表现，能够证实人逃不开环境的影响吗？人在面临这种处境时，难道别无选择的余地？
@@ -1542,8 +1405,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-27" class="outline-3">
-<h3 id="sec-2-27"><span class="section-number-3">2.27</span> 超越当前的困境</h3>
+<div class="outline-3">
+<h3 id="orgheadline30">超越当前的困境</h3>
 <div class="outline-text-3" id="text-2-27">
 <p>
 任何人若想以心理治疗或心理卫生方法来抗拒集中营对某俘虏身心上的不良影响，就必须为他指出一个可堪期待的未来目标，借以增长他内在的力量。有些俘虏出于本能，也曾设法自行寻找这样的目标。人就这么奇特，他必须瞻望永恒（sub specie eternitatis），才能够活下去。这也正是人在处境极其困厄时的一线生机，即使有时候必须勉强自己，也一样。
@@ -1554,13 +1417,13 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-这种叫人满脑子只想着这些芝麻小事的处境，我实在是厌倦透了。我强迫自己把思潮转向另一个主题。突然间，我看到自己置身于一间明亮、温暖、高雅的讲堂，并且站在讲坛上，面对着全场凝神静声的来宾发表演说。演说的题目则是关于集中营的心理学！那一刻间我所身受的一切苦难，从遥远的科学立场看来全都变得客观起来。我就用这种办法让自己超越困厄的处境。我把所有的痛苦与煎熬当成前尘往事，并加以观察。这样一来，我自已以及我所受的苦难全都变成我手上一项有趣的心理学研究题目了。斯宾诺萨在他的名著《伦理学》上就曾说过：“我们只要把痛苦的情绪，塑成一幅明确清晰的图像，就不会再痛苦了。”<sup><a id="fnr.6" name="fnr.6" class="footref" href="#fn.6">6</a></sup>
+这种叫人满脑子只想着这些芝麻小事的处境，我实在是厌倦透了。我强迫自己把思潮转向另一个主题。突然间，我看到自己置身于一间明亮、温暖、高雅的讲堂，并且站在讲坛上，面对着全场凝神静声的来宾发表演说。演说的题目则是关于集中营的心理学！那一刻间我所身受的一切苦难，从遥远的科学立场看来全都变得客观起来。我就用这种办法让自己超越困厄的处境。我把所有的痛苦与煎熬当成前尘往事，并加以观察。这样一来，我自已以及我所受的苦难全都变成我手上一项有趣的心理学研究题目了。斯宾诺萨在他的名著《伦理学》上就曾说过：“我们只要把痛苦的情绪，塑成一幅明确清晰的图像，就不会再痛苦了。”<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-2-28" class="outline-3">
-<h3 id="sec-2-28"><span class="section-number-3">2.28</span> 精神防线</h3>
+<div class="outline-3">
+<h3 id="orgheadline31">精神防线</h3>
 <div class="outline-text-3" id="text-2-28">
 <p>
 对未来——自己的来来——失去信心的俘虏，必然难逃劫数。随着信念的丧失，精神防线亦告丧失；此后，自然甘心沉沦，一任身心日趋衰朽。这种情形通常借着危机的形式而突然发生；而其征兆，营中经验老到的俘虏都十分熟悉。我们每个人都很害怕这种情形发生——倒不是怕发生在自己身上，而是怕发生在好友身上（自己要是已沦落到这个地步，自然就无所谓害怕了）。一个俘虏只要有这种心理危机，刚开始，通常是早上醒来以后不肯穿衣盥洗，不然就是不肯到集合场去集合。你再怎么求他、揍他、恐吓他，都没有用。他只是躺在那里，动也不动。如果这种危机起因于生病，他就拒绝住进病人区或拒绝接受任何冶疗。总之他就是放弃。他呆呆地躺在自己的排泄物当中，天塌下来也不在乎。
@@ -1593,8 +1456,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-29" class="outline-3">
-<h3 id="sec-2-29"><span class="section-number-3">2.29</span> 参透“为何”，迎接“为何”</h3>
+<div class="outline-3">
+<h3 id="orgheadline32">参透“为何”，迎接“为何”</h3>
 <div class="outline-text-3" id="text-2-29">
 <p>
 心境（包括有无勇气与希望）的良窳（yǔ 良窳即优劣之意），与身体的免疫能力息息相关。懂得这个道理的人，自然会了解人如果突然失去希望和勇气，很可能因而致死。我的朋友傅先生之死，就是因为预期中的获释未曾实现，致令他陷入绝望使然。突如其来的绝望，减低了他身体上抵抗传染病的能力。由于对未来的信心及活下去的意志皆告瘫痪，身体对病毒便毫无招架之力。结果，他只好一死了之。他梦中那个声音毕竟没错。
@@ -1631,8 +1494,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-30" class="outline-3">
-<h3 id="sec-2-30"><span class="section-number-3">2.30</span> 寻出生命的意义</h3>
+<div class="outline-3">
+<h3 id="orgheadline33">寻出生命的意义</h3>
 <div class="outline-text-3" id="text-2-30">
 <p>
 心理治疗或心理卫生法，在集中营内十分不易进行。一旦有此机会，则进行之初，不是采取个人方式就是采取集体方式。个人心理治疗通常是一种“救生步骤”，以防止自杀为主。营中若有人企图自杀，按营规是严禁施救的。比如有名俘虏企图上吊，任何人都不可割断绳索将他救下。因而，在自杀企图萌生之前即防患未然，最为重要。
@@ -1643,14 +1506,14 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-这种独一无二的特性，使得每个人都与众不同，也使得每个人的存在有其意义。这种特质与创造性的工作和人类之爱息息相关。一个人一旦了解他的地位无可替代，自然容易尽最大心力为自己的存在负起最大责任。他只要知道自己有责任为某件尚待完成的工作或某个殷盼他早归的人而善自珍重，必定无法抛弃生命。他了解自己“为何”而活，因而承受得住“任何”煎熬。<sup><a id="fnr.7" name="fnr.7" class="footref" href="#fn.7">7</a></sup>
+这种独一无二的特性，使得每个人都与众不同，也使得每个人的存在有其意义。这种特质与创造性的工作和人类之爱息息相关。一个人一旦了解他的地位无可替代，自然容易尽最大心力为自己的存在负起最大责任。他只要知道自己有责任为某件尚待完成的工作或某个殷盼他早归的人而善自珍重，必定无法抛弃生命。他了解自己“为何”而活，因而承受得住“任何”煎熬。<sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup>
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2-31" class="outline-3">
-<h3 id="sec-2-31"><span class="section-number-3">2.31</span> 集体精神治疗</h3>
+<div class="outline-3">
+<h3 id="orgheadline34">集体精神治疗</h3>
 <div class="outline-text-3" id="text-2-31">
 <p>
 在集中营，集体精神治疗的机会十分有限。合适的榜样远比空泛的言辞还要有效。因此，如果有一名资深舍监不与当局同流合污，则他的正义并鼓舞人心的作为，将使他有千万次的机会对辖下诸俘虏发挥他惊人的影响力。行动的影响，向来比言辞还具有立竿见影之效。不过，如果内心的感受力为外在某个情境所增强，则口头劝勉仍然有相当的功效。记得有一次，某营舍发生事故，全舍俘虏皆深受震撼，内心的感受力因之大增。当时，舍监便安排了一场集体精神治疗。
@@ -1695,8 +1558,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-32" class="outline-3">
-<h3 id="sec-2-32"><span class="section-number-3">2.32</span> 天使和恶魔</h3>
+<div class="outline-3">
+<h3 id="orgheadline35">天使和恶魔</h3>
 <div class="outline-text-3" id="text-2-32">
 <p>
 现在，我们要谈的是俘虏心理反应的第三阶段：重获自由之后的心理。在此之前，我们且先考虑心理学家（尤其是曾在集中营里呆过的心理学家）经常被问到的一个问题：集中营警卫的心理结构究竟是怎么一回事？ 同样是有血有肉的人，怎么可能像许多俘虏所说的那样，用尽各种残酷手段来凌虐别人？任何人一旦听到这样的指控，且一旦相信这种事的确发生，就不能不问，这一切由心理学的观点来看怎么可能发生的。如果要给这个问题一个简单明了的答复，就不能不先指出几个事实：
@@ -1737,8 +1600,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-33" class="outline-3">
-<h3 id="sec-2-33"><span class="section-number-3">2.33</span> 获释后的营俘心理</h3>
+<div class="outline-3">
+<h3 id="orgheadline36">获释后的营俘心理</h3>
 <div class="outline-text-3" id="text-2-33">
 <p>
 现在，该正式来谈谈最后一个阶段的集中营心理——也就是俘虏获释后的心理了。要描述这种个人色彩必然特别浓厚的获释经验，我们自当循着故事部分的线索，回到营门挂起白旗的那天早上。
@@ -1761,14 +1624,14 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-此人似乎不知道大家的感觉全都跟他一样。他害臊地答道：“老实说，一点也不。”其实，我们早就丧失了感受快乐的能力，必须慢慢再学习才行<sup><a id="fnr.8" name="fnr.8" class="footref" href="#fn.8">8</a></sup>。
+此人似乎不知道大家的感觉全都跟他一样。他害臊地答道：“老实说，一点也不。”其实，我们早就丧失了感受快乐的能力，必须慢慢再学习才行<sup><a id="fnr.8" class="footref" href="#fn.8">8</a></sup>。
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2-34" class="outline-3">
-<h3 id="sec-2-34"><span class="section-number-3">2.34</span> 人格解体</h3>
+<div class="outline-3">
+<h3 id="orgheadline37">人格解体</h3>
 <div class="outline-text-3" id="text-2-34">
 <p>
 获释俘虏的这一切反应，照心理学的说法，便是由于所谓的“人格解体”（depersonalization）使然。每样事物都显得不真实、不可能，恍如梦幻一般，令人不敢置信。过去这些年来，我们有多少次为梦境所骗啊！我们梦到获释的日子来到了，我们重获自由，并且重返故乡，会见朋友，拥抱妻子，还坐在餐桌旁边，畅谈营中的一切经历——还说我们常梦到获释的光景。然而不多时，耳边响起尖锐的哨音；起床的讯号，惊醒了我们的“自由大梦”。如今，梦境是实现了，然而我们真能相信吗？
@@ -1777,8 +1640,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-35" class="outline-3">
-<h3 id="sec-2-35"><span class="section-number-3">2.35</span> 宣泄</h3>
+<div class="outline-3">
+<h3 id="orgheadline38">宣泄</h3>
 <div class="outline-text-3" id="text-2-35">
 <p>
 身体所受的压抑，远较心理的为少；因此，打从获释的第一刻开始，身体就懂得善加运用。大伙儿开始狼吞虎咽，一连吃喝了好几个小时和好几天甚至还吃到半夜。每个人的食量都大得惊人。有个俘虏就曾被附近的农家请去作客，当时，他吃了又吃，然后又喝了咖啡，打开了话匣子，从此便喋喋不休个没完。多年来积压在他心里的一切，终于得到了宣泄的良机。听他说话，他会有一种感觉：他“非讲不可”！他说话的欲望是无可抗拒的。大凡曾在重大压力之下度过一段时间——即使只是短短数天，譬如被盖世太保反复盘问——的人，都会有相同反应（这种人我就认识了几个）。一直要等到许多天以后，当事人不光是舌头喋够了，连心头的重荷也宣泄够了，才会突然意识到自己已冲破了重重羁绊，真正感到轻松起来。
@@ -1787,8 +1650,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-36" class="outline-3">
-<h3 id="sec-2-36"><span class="section-number-3">2.36</span> 重获新生</h3>
+<div class="outline-3">
+<h3 id="orgheadline39">重获新生</h3>
 <div class="outline-text-3" id="text-2-36">
 <p>
 获释几天后的某一天，我穿过缀满鲜花的草地，在乡野间一连走了好几里路到营区附近的市镇去。我听得到云雀振翅高飞时欢欣的啁啾。几里方圆之内，一无人迹，只有广阔的大地、无垠的晴空，云雀的欢跃、以及自由的空间。我停下脚步，四下张望，再仰视穹苍，然后，我跪了下来。那一刻间，我对自己和世界，可以说一无所知；而我的心里，永远只回荡着同一句话：“我从窄小的牢狱里向天主呼号，而它在广袤的穹苍间答复了我。”
@@ -1801,15 +1664,15 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-37" class="outline-3">
-<h3 id="sec-2-37"><span class="section-number-3">2.37</span> 精神失调的危机</h3>
+<div class="outline-3">
+<h3 id="orgheadline40">精神失调的危机</h3>
 <div class="outline-text-3" id="text-2-37">
 <p>
 要由营中最后数日的剧烈精神紧张归于内心的平静，当然不是轻而易举。如果你以为获释的俘虏不再需要任何精神上的帮助，那可就大错特错了。一个人承受如此巨大的精神压力达如此长久的时间，获释之后（尤其释放得相当突然）自然会遭遇危险。这种危险，由心理卫生的观点来看，便是指心理平衡的问题。潜水员一旦突然离开海底，巨大的水压顿告消失，他的身体健康势必受到威胁。同样地，一个人一旦突然解除其精神压力，精神健康也一定会面临考验。
 </p>
 
 <p>
-在这个心理阶段当中，禀性较粗朴原始的人，必然逃不过营中残酷暴行的影响。他们一旦获释，就自以为可以随便且毫不容情地使用自由。在他们眼里，改观了的只有一件事：他们已经摇身一变，成为压迫者<sup><a id="fnr.9" name="fnr.9" class="footref" href="#fn.9">9</a></sup>，而不再是被压迫者。如今，他们是强权和不公的煽动者，而非饱受凌辱的落水狗。他们根据过去的恐怖经验，认定自己所行不偏；而这想法，常常在小事情上可以看出。譬如，我有次和一位友人要到集中营去，途中经过一片麦田。我很自然地绕道而行，但友人却抓住我的手，把我拖着走过麦田。我结结巴巴地说不该践踏农作物，不料他勃然大怒，瞪着我咆哮道：“不用说了，我们难道被剥夺得还不够多？ 我的妻小统统死在煤气间里，而别的东西当然更不必提。现在，你居然还禁止我践踏几棵麦子！”
+在这个心理阶段当中，禀性较粗朴原始的人，必然逃不过营中残酷暴行的影响。他们一旦获释，就自以为可以随便且毫不容情地使用自由。在他们眼里，改观了的只有一件事：他们已经摇身一变，成为压迫者<sup><a id="fnr.9" class="footref" href="#fn.9">9</a></sup>，而不再是被压迫者。如今，他们是强权和不公的煽动者，而非饱受凌辱的落水狗。他们根据过去的恐怖经验，认定自己所行不偏；而这想法，常常在小事情上可以看出。譬如，我有次和一位友人要到集中营去，途中经过一片麦田。我很自然地绕道而行，但友人却抓住我的手，把我拖着走过麦田。我结结巴巴地说不该践踏农作物，不料他勃然大怒，瞪着我咆哮道：“不用说了，我们难道被剥夺得还不够多？ 我的妻小统统死在煤气间里，而别的东西当然更不必提。现在，你居然还禁止我践踏几棵麦子！”
 </p>
 
 <p>
@@ -1839,8 +1702,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-38" class="outline-3">
-<h3 id="sec-2-38"><span class="section-number-3">2.38</span> 直如一场噩梦</h3>
+<div class="outline-3">
+<h3 id="orgheadline41">直如一场噩梦</h3>
 <div class="outline-text-3" id="text-2-38">
 <p>
 终有一天，每位获释的俘虏在回顾集中营的种种经历之时，将不复了解自己是如何熬过来的。当获释的日子终于来临，每样事物在他看来都像是一场美梦。同样地，终有一天，一切集中营的经验在他看来，也将不过如一场噩梦。
@@ -1856,8 +1719,8 @@ org_html_manager.setup();  // activate after the parameters are set
 
 
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 意义治疗法的基本概念</h2>
+<div class="outline-2">
+<h2 id="orgheadline61">意义治疗法的基本概念</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 阅读我的短篇自传式故事的读者们，时常请求我更充分及更直接地说明意义治疗的学说。因此我在本书第一版中，增加简短的篇幅来说明意义治疗学。但这不够，许多要求围困住我，希望能作更详尽的解释。因此在这一版中，我重新并较充分地说明。
@@ -1881,8 +1744,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 求意义的意志</h3>
+<div class="outline-3">
+<h3 id="orgheadline43">求意义的意志</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 人要寻求意义是其生命中原始的力量，而非因“本能驱策力”（instinctual drives）而造成的“续发性的合理化作用”。这个意义是唯一的、独特的，唯有人能够且必须予以实践；也唯有当它获致实践才能够满足人求意义的意志。有些学者认为所谓的意义与价值只是“心理自卫机制”（defense mechanisms），反向作用（reaction formation）以及“升华作用”（sublimations）罢了！但对我而言，我不愿意只是因“心理自卫机制”而活，也不准备为了“反向作用”的缘故而死。但是，人，是能够为着他的理想与价值而生，也甚至能够为着他的理想与价值而死。
@@ -1910,8 +1773,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 存在的挫折</h3>
+<div class="outline-3">
+<h3 id="orgheadline44">存在的挫折</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 一个人求意义的意志也能遭受挫折即意义治疗学所称谓的“存在的挫折”。“存在”（Existential）一词有三种用法：（1）表达“存有”本身，例如独特的人类存在型式。（2）表达存在的意义。（3）在个人的存在中努力去寻找具体的意义，这就是上面所说的“求意义的意志”。
@@ -1924,8 +1787,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 心灵性神经官能症</h3>
+<div class="outline-3">
+<h3 id="orgheadline45">心灵性神经官能症</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 心灵性精神官能症并非由于“驱策力”与“本能”之间的冲突所引起，而是由于不同的价值冲突所引起。换言之，是来自道德的冲突。或用更通俗一点的说法，是由于灵性的问题。在这样的问题中间，存在的挫折常扮演一个重要的角色。
@@ -1950,8 +1813,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-4" class="outline-3">
-<h3 id="sec-3-4"><span class="section-number-3">3.4</span> 心灵动力学</h3>
+<div class="outline-3">
+<h3 id="orgheadline46">心灵动力学</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 我应该肯定，人的寻求意义与价值可能会引起内在的紧张而非内在的平衡，然而这种紧张为心理健康是不可缺少的先决条件。我要大胆地说，这世界上并没有什么东西能帮助人在最坏的情况中还能活下去．除非人体认到他的生命有一意义。正如尼采充满智慧的名言：“参透‘为何’，才能迎接‘任何’。”（He who has a “why” to live for can bear almost any “how”）我认为对任何心理治疗，这句话都可作为座右铭。在纳粹集中营内，我们可以亲眼看到，那些知道还有一件任务等待他去完成的人，最容易活下去。后来美国的精神医学家在日本与朝鲜的集中营内也证实了此点。
@@ -1972,8 +1835,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-5" class="outline-3">
-<h3 id="sec-3-5"><span class="section-number-3">3.5</span> 存在的空虚</h3>
+<div class="outline-3">
+<h3 id="orgheadline47">存在的空虚</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 “存在的空虚”是二十世纪的一种普遍现象。这是可以理解的，因为人类要成为真正的“人”时，必须经历双重的失落，由此而产生存在的空虚。人类历史之初，“人”就丧失了一些基本的动物性本能，而这些本能却深深嵌入其他动物的行为中，而使它们的生命安全稳固。这种安全感就如同伊甸乐园一样，永远与人类绝缘，人必须自作抉择。除此之外，人类在新近的发展阶段中，又经历到另一种失落的痛苦，即一向作为他行为支柱的传统已迅速地削弱了。本能冲动不告诉他应该作什么；传统也不告诉他必须作什么，很快地他就不知道自己要作什么了，于是他愈来愈听从别人要他去作什么，于是他就愈来愈成为顺从主义的牺牲者了。
@@ -2006,8 +1869,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-6" class="outline-3">
-<h3 id="sec-3-6"><span class="section-number-3">3.6</span> 生命的意义</h3>
+<div class="outline-3">
+<h3 id="orgheadline48">生命的意义</h3>
 <div class="outline-text-3" id="text-3-6">
 <p>
 我怀疑一个医师是否能用概括性的措辞来回答这个问题。因为生命的意义因人而异，因日而异，甚至因时而异。因此，我们不是问生命的一般意义为何，而是问在一个人存在的某一时刻中的特殊的生命意义为何。用概括性的措辞来回答这问题，正如我们去问一位下棋圣手说：“大师，请告诉我在这世界上最好的一步棋如何下法？”根本没有所谓最好的一步棋，甚至也没有不错的一步棋，而要看弈局中某一特殊局势，以及对手的人格型态而定。人类的存在也是如此，一个人不能去寻找抽象的生命意义，每个人都有他自己的特殊天职或使命，而此使命是需要具体地去实现的。他的生命无法重复，也不可取代。所以每一个人都是独特的，也只有他具特殊的机遇去完成其独特的天赋使命。
@@ -2020,8 +1883,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-7" class="outline-3">
-<h3 id="sec-3-7"><span class="section-number-3">3.7</span> 存在的本质</h3>
+<div class="outline-3">
+<h3 id="orgheadline49">存在的本质</h3>
 <div class="outline-text-3" id="text-3-7">
 <p>
 这种强调“能够负责”的特色，就显示在意义治疗法的一句金玉良言中：“假设你已经生活在第二度的生命中，并假设你第一次作错了，而现在还可能作错一样。”依我看来，再没有其它辞汇，可以比这句金玉良言更能激发起一个人的负责精神了。它叫人先假想现在已成过往，再假想过往可能无可改动、弥补。这种训示，使人意识到生命的有限，体悟到人由自身及生命中所创获的一切都具有决定的意义。
@@ -2052,12 +1915,9 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <ol class="org-ol">
-<li>创造、工作。
-</li>
-<li>体认价值。
-</li>
-<li>受苦。
-</li>
+<li>创造、工作。</li>
+<li>体认价值。</li>
+<li>受苦。</li>
 </ol>
 
 <p>
@@ -2071,8 +1931,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-8" class="outline-3">
-<h3 id="sec-3-8"><span class="section-number-3">3.8</span> 爱的意义</h3>
+<div class="outline-3">
+<h3 id="orgheadline50">爱的意义</h3>
 <div class="outline-text-3" id="text-3-8">
 <p>
 爱是进入另一个人最深人格核心之内的唯一方法。没有一个人能完全了解另一个人的本质精髓，除非爱他。借着心灵的爱情，我们才能看到所爱者的真髓特性。更甚者，我们还能看出所爱者潜藏着什么，这些潜力是应该实现却还未实现的。而且由于爱情，还可以使所爱者真的去实现那些潜能。凭借使他理会到自己能够成为什么，应该成为什么，面使他原有的潜能发掘出来。
@@ -2089,8 +1949,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-9" class="outline-3">
-<h3 id="sec-3-9"><span class="section-number-3">3.9</span> 苦难的意义</h3>
+<div class="outline-3">
+<h3 id="orgheadline51">苦难的意义</h3>
 <div class="outline-text-3" id="text-3-9">
 <p>
 当一个人遭遇到一种无可避免的、不能逃脱的情境，当他必须面对一个无法改变的命运——比如罹患了绝症或开刀也无效的癌症等等——他就等于得到一个最后机会，去实现最高的价值与最深的意义，即苦难的意义。这时，最重要的便是：他对苦难采取了什么态度？他用怎样的态度来承担他的痛苦？
@@ -2135,8 +1995,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-10" class="outline-3">
-<h3 id="sec-3-10"><span class="section-number-3">3.10</span> 形而上的临床问题</h3>
+<div class="outline-3">
+<h3 id="orgheadline52">形而上的临床问题</h3>
 <div class="outline-text-3" id="text-3-10">
 <p>
 一位医师愈来愈会面临这个问题：生命是什么？痛苦到底是什么？今天，精神医学家不断遭遇到的人类问题比精神官能症的症状要多得多。昔日人们去见神父，牧师或大师（佛教或犹太宗教中的大师），当时所问的问题，有些人现在转而去问精神科医师了。因此医师现今要面对哲学上的问题而非仅仅情绪的冲突罢了。
@@ -2144,8 +2004,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-3-11" class="outline-3">
-<h3 id="sec-3-11"><span class="section-number-3">3.11</span> 演剧意义治疗</h3>
+<div class="outline-3">
+<h3 id="orgheadline53">演剧意义治疗</h3>
 <div class="outline-text-3" id="text-3-11">
 <p>
 我很喜欢举下面的例子：有个十一岁的小男孩死了，他的母亲因自杀未遂而住进我的诊所。同事柯葛里医师（Dr．Kocourek）遂请她加入一个治疗性团体。当柯医师正指导一出演剧心理治疗时，我恰好进入，听到她投诉她的故事。小儿子去世后，她就与患过小儿麻痹而需坐轮椅的大儿子住在一起。这位母亲要反抗她的命运．她想与大儿子一起自杀，却是这个可怜的有残疾儿子阻止了她。他要活下去，因为对他来说，生命仍具有意义。但为什么对她的母亲就不是如此呢？她的生命要如何才有意义？并且我们要怎样去帮助她体会到这个意义？
@@ -2166,8 +2026,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-12" class="outline-3">
-<h3 id="sec-3-12"><span class="section-number-3">3.12</span> 超越的意义</h3>
+<div class="outline-3">
+<h3 id="orgheadline54">超越的意义</h3>
 <div class="outline-text-3" id="text-3-12">
 <p>
 这个终极的意义，必超越并凌驾于人类有限的智能之上！在意义治疗学中，我们就称之为“超越的意义”。人所要求的并非如同某些存在主义哲学家所言，是去忍受生命的无意义；而是要忍受自身无能力以理性抓住生命的绝对意义。“意义”比“逻辑”更加幽深。
@@ -2188,8 +2048,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-13" class="outline-3">
-<h3 id="sec-3-13"><span class="section-number-3">3.13</span> 生命的短暂性</h3>
+<div class="outline-3">
+<h3 id="orgheadline55">生命的短暂性</h3>
 <div class="outline-text-3" id="text-3-13">
 <p>
 使得人生看起来没有意义的事，除痛苦之外还有濒死；除疾病之外，还有死亡。但是我愿意强调，生命中唯一真正短暂无常的部分是它的潜在力，这些潜力一旦成为事实，立刻就变成过去。然而，凡存在过的，会永恒地存在，因此它们就从短暂性中被解救及被保存起来。
@@ -2210,8 +2070,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-14" class="outline-3">
-<h3 id="sec-3-14"><span class="section-number-3">3.14</span> 意义治疗是一种技术</h3>
+<div class="outline-3">
+<h3 id="orgheadline56">意义治疗是一种技术</h3>
 <div class="outline-text-3" id="text-3-14">
 <p>
 符合现实的畏惧（比如对死亡的畏惧），不能以精神动力学的解释予以免除；反过来说，神经官能性的害怕，如惧旷症，也不能用哲学的了解来治愈。但是意义治疗法却发展出一种特殊的技术来处理这些病例。为了解使用这种技术的出发点为何，我们选择了一种在神经官能症者身上常常会碰到的情况，所谓“预期的焦虑”。其特征为如果病人预期会害怕什么东西，到时就真的害怕了。例如一个人进入一间大厅面对许多人时，他害怕自己会脸红，结果真的脸红了。因此我们可把“愿望乃思想之父”（The wish is father to the thought）这句格言改成“害怕为事故之母”（The fear is mother of the event）。
@@ -2284,8 +2144,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-15" class="outline-3">
-<h3 id="sec-3-15"><span class="section-number-3">3.15</span> 集体性神经官能症</h3>
+<div class="outline-3">
+<h3 id="orgheadline57">集体性神经官能症</h3>
 <div class="outline-text-3" id="text-3-15">
 <p>
 每一个时代都有其集体性的神经官能症，同时每一个时代都需要它自己的心理治疗法以应付之。现时代的集体神经官能症可以说是“存在的空虚”。“存在的空虚”是一种个人性的“虚无主义”（nihilism），而虚无主义可定义为“生命没有意义”。如果现时代的心理治疗学无法脱离虚无主义哲学的撞击与影响，那么充其量它只代表了集体性的症状，而没有治疗的效果。这种脱离不了虚无主义的心理治疗，通传给病人的并非真正“人”的图像，而只是一张漫画而已，虽然它不是故意这样做。
@@ -2302,8 +2162,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-16" class="outline-3">
-<h3 id="sec-3-16"><span class="section-number-3">3.16</span> 泛决定论的批判</h3>
+<div class="outline-3">
+<h3 id="orgheadline58">泛决定论的批判</h3>
 <div class="outline-text-3" id="text-3-16">
 <p>
 精神分析时常为人所诟病的即其所谓的“泛性主义”（pansexualism）。但我怀疑这样的谴责是否正当。因为我认为其更错误与更危险的是所谓的“泛决定论”，“泛决定论”忽略了人面对任何情境时有采取立场的能力。人并非完全被制约及被决定的，而是他自己要决定向情境屈服还是与之对抗？换言之，人最后是自我决定的。人不仅仅是活着而已，他总是要决定他的存在到底应成为什么？下一刻他到底要变成什么？
@@ -2335,8 +2195,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-3-17" class="outline-3">
-<h3 id="sec-3-17"><span class="section-number-3">3.17</span> 精神医学的信条</h3>
+<div class="outline-3">
+<h3 id="orgheadline59">精神医学的信条</h3>
 <div class="outline-text-3" id="text-3-17">
 <p>
 我简直无法想像会有一个人是完全被制约住而没有丝毫的自由存留。因此无论是神经官能症甚或精神病患者，都会有残余的自由，不管所存留的自由有多少。事实上，即使是精神病，也不能触碰到一个人最深的人格核心。我记得有位大约六十岁的病人被带来看我，他罹患听幻觉已有数十年之久。 当时，我面对着一个衰败的人格（personality）。不出所料，他四周的人都认为他是白痴，但我却发现他身上辐射出一种多么奇异的魅力！他从小就想要作神父，然而他却只能享受到星期天早上在教堂唱诗班中唱圣歌的快乐。陪同他一起来看我的姊姊诉说，他有时会非常激动，但最后总是能恢复自我控制。我对这个病人非常的精神动力很感兴趣（underlying psychodynamics），我以为他对他姊姊的关系有很强的“固定现象”；因此我问他：“为什么你能够恢复自我控制？是为了谁的缘故？”停了几秒钟后，病人回答：“为了天主的缘故。”在这时刻，他最深处的人格显露了，而在这样的深底，不论其智能的秉赋是多么贫乏可怜，却显现了美丽的宗教生活。
@@ -2349,8 +2209,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-3-18" class="outline-3">
-<h3 id="sec-3-18"><span class="section-number-3">3.18</span> 再赋予人性的精神医学}</h3>
+<div class="outline-3">
+<h3 id="orgheadline60">再赋予人性的精神医学}</h3>
 <div class="outline-text-3" id="text-3-18">
 <p>
 良久以来（事实上已有半世纪之久了）。精神医学试图以机械作用的观点来解析人类心灵，因而对心理疾病的冶疗，也光是从技术上着眼。我相信这场梦已经过去了，现在地平线上隐约可见的已是“人性化的精神医学”，不再是“心理学化的医术”了。
@@ -2374,29 +2234,26 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p>即Capos，意思是监狱里罪犯的头头。</p></div>
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">即Capos，意思是监狱里罪犯的头头。</div></div>
 
-<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p>本书描写的是纳粹党卫军建立起来的集中营环境，实际上这样的环境和现在的监狱环境也有几分类似，我们可以想到《肖申克的救赎》电影里面的情景，而与之类似的环境还有劫匪持枪建立起来的环境等。这些环境有一个共同点，那就是某一少部分人拿着武器将一大群人用暴力的方式监禁起来。在这种暴力威权之下，人类建立起来的一切理性道德等等都受到巨大的冲击，一边是无法无天的撒旦，一边是时时处于生存边缘的小民。其实一个国家的政治环境也可能慢慢演变成为这样一种类监狱环境。一句话，在这个环境里面，实际上是拳头说了算。</p></div>
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara">本书描写的是纳粹党卫军建立起来的集中营环境，实际上这样的环境和现在的监狱环境也有几分类似，我们可以想到《肖申克的救赎》电影里面的情景，而与之类似的环境还有劫匪持枪建立起来的环境等。这些环境有一个共同点，那就是某一少部分人拿着武器将一大群人用暴力的方式监禁起来。在这种暴力威权之下，人类建立起来的一切理性道德等等都受到巨大的冲击，一边是无法无天的撒旦，一边是时时处于生存边缘的小民。其实一个国家的政治环境也可能慢慢演变成为这样一种类监狱环境。一句话，在这个环境里面，实际上是拳头说了算。</div></div>
 
-<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p>享受一口烟，然后是死亡。如果事实清晰可见而人们还那么去做，那真是愚蠢透顶了。</p></div>
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara">享受一口烟，然后是死亡。如果事实清晰可见而人们还那么去做，那真是愚蠢透顶了。</div></div>
 
-<div class="footdef"><sup><a id="fn.4" name="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p>斯德哥尔摩综合征所描述的心理反应开始出现。</p></div>
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara">斯德哥尔摩综合征所描述的心理反应开始出现。</div></div>
 
-<div class="footdef"><sup><a id="fn.5" name="fn.5" class="footnum" href="#fnr.5">5</a></sup> <p>我在想这个时候坚持下来的俘虏一定都怀着一个信仰，那就是战争会结束的。尽管这在当时看起来是那么的遥不可及，甚至是痴心妄想。但也许真是这骨子信仰才让人类超越于动物之上。这种信仰的背后当然需要一些道理，否则只是盲目的相信，而更重要的是坚持这种信仰能够让人获得实际的好处，我不是说最终的奖赏，我是说这种信仰的坚持本身就是一种好处。那些不轻言信仰而要一心证伪的人实际上是自愿放弃了人类最强大的一项心灵技能，这样将使得他们的灵魂软弱无力，使得他们的精神生活贫穷困乏。因为在这个世界上有太多的东西是不能直接证伪的， 而那些夸夸其谈宇宙真理的人不过是历史的笑料罢了。</p></div>
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara">我在想这个时候坚持下来的俘虏一定都怀着一个信仰，那就是战争会结束的。尽管这在当时看起来是那么的遥不可及，甚至是痴心妄想。但也许真是这骨子信仰才让人类超越于动物之上。这种信仰的背后当然需要一些道理，否则只是盲目的相信，而更重要的是坚持这种信仰能够让人获得实际的好处，我不是说最终的奖赏，我是说这种信仰的坚持本身就是一种好处。那些不轻言信仰而要一心证伪的人实际上是自愿放弃了人类最强大的一项心灵技能，这样将使得他们的灵魂软弱无力，使得他们的精神生活贫穷困乏。因为在这个世界上有太多的东西是不能直接证伪的， 而那些夸夸其谈宇宙真理的人不过是历史的笑料罢了。</div></div>
 
-<div class="footdef"><sup><a id="fn.6" name="fn.6" class="footnum" href="#fnr.6">6</a></sup> <p>有两种人生态度，一种是置身于生活之中，一种是超然于生活之外。置身于生活之中，痛苦忧愁接踵而来；超然于生活之外，以倾诉者，研究者，叙述者，观察者的姿态来看待自己的生活，那么一切苦难都不过如此。</p></div>
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara">有两种人生态度，一种是置身于生活之中，一种是超然于生活之外。置身于生活之中，痛苦忧愁接踵而来；超然于生活之外，以倾诉者，研究者，叙述者，观察者的姿态来看待自己的生活，那么一切苦难都不过如此。</div></div>
 
-<div class="footdef"><sup><a id="fn.7" name="fn.7" class="footnum" href="#fnr.7">7</a></sup> <p>生命赋予每个人不同的使命，不同的挑战。我们每个人都需要去面对，哪怕只是苦中作乐，哪怕只是在几乎没有希望的情景之下挣扎，我们的态度，我们的所作所为也赋予那不同的意义。朋友们，去勇敢向前，大胆地追寻你的生命的意义吧。</p></div>
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara">生命赋予每个人不同的使命，不同的挑战。我们每个人都需要去面对，哪怕只是苦中作乐，哪怕只是在几乎没有希望的情景之下挣扎，我们的态度，我们的所作所为也赋予那不同的意义。朋友们，去勇敢向前，大胆地追寻你的生命的意义吧。</div></div>
 
-<div class="footdef"><sup><a id="fn.8" name="fn.8" class="footnum" href="#fnr.8">8</a></sup> <p>正如前谈及的感官迟钝是一种自我保护机制。</p></div>
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8">8</a></sup> <div class="footpara">正如前谈及的感官迟钝是一种自我保护机制。</div></div>
 
-<div class="footdef"><sup><a id="fn.9" name="fn.9" class="footnum" href="#fnr.9">9</a></sup> <p>那些反抗压迫的革命者最后不是很多都成了另外一个残暴的压迫者了吗。</p></div>
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9">9</a></sup> <div class="footpara">那些反抗压迫的革命者最后不是很多都成了另外一个残暴的压迫者了吗。</div></div>
 
 
 </div>
 </div></div>
-<footer class="footer">
-<div class="container">
-<p class="text-muted">作者: V·E·弗兰克尔; 编者: 万泽; 最后修改时间: 2015-11-14 21:53.</p></div>
 </body>
 </html>

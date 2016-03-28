@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2015-12-29 二 15:58 -->
+<!-- 2016-03-28 一 12:12 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>编写emacs插件</title>
@@ -11,24 +11,33 @@
 >
 <style type="text/css">
 body {
-  padding-right: 30px;
-  padding-left: 30px;
-  margin-right: auto;
-  margin-left: auto;
+
 }
 @media (min-width: 768px) {
   body {
     width: 732px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 @media (min-width: 992px) {
   body {
-    width: 948px;
+    width: 880px;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 @media (min-width: 1200px) {
   body {
-    width: 1140px;
+    width: 750px;
+    padding-right: 200px;
+    padding-left: 200px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
@@ -38,13 +47,19 @@ body {
     padding: 10px;
 }
 
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .underline{
     text-decoration: underline;
 }
-  #content {
+   #content {
     display: block;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 code {
@@ -55,17 +70,17 @@ code {
 }
 
 pre {
+    max-width: 100%;
     display: block;
     padding: 9.5px;
     margin: 0 0 10px;
     font-size: 13px;
     line-height: 1.42857143;
     color: #333;
-    word-break: break-all;
-    word-wrap: break-word;
     background-color: #f5f5f5;
     border: 1px solid #ccc;
     border-radius: 4px;
+    overflow : auto;
 }
 
 
@@ -88,7 +103,7 @@ li, dt{
 }
 
 video{
-    width: 95%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -97,7 +112,13 @@ figure p{
     text-indent:0em;
 }
 img{
-    max-width: 95%;
+    max-width: 100%;
+}
+
+embed{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 figure{
@@ -105,8 +126,8 @@ figure{
 }
 
 /*  class  */
-.framed{
-    max-width:700px;
+.FRAMED{
+    max-width:100%;
     border:1px solid ;
     padding: 1em;
     -webkit-box-sizing: border-box;
@@ -114,10 +135,10 @@ figure{
     box-sizing: border-box;
 }
 
-.notecard{
-    width: 320px;
+.NOTECARD{
+    width: 30%;
     position:relative;
-    right: -215px;
+    right: -30%;
     padding: 1em;
     margin:0 auto;
     border: solid 1px;
@@ -125,69 +146,103 @@ figure{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+/*
+table
+*/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 16px 0;
+    empty-cells: show;
+    border: 1px solid #ccc;
+    width: 100%;
+    display: table;
+}
+
+table tr {
+    border-bottom: 1px solid #ddd;
+}
+table th,table td{
+    padding:8px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
 .highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
-.highlight .c { color: #008800; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
-.highlight .k { color: #AA22FF; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
-.highlight .cm { color: #008800; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #008800 } /* Comment.Preproc */
-.highlight .c1 { color: #008800; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #008800; font-weight: bold } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .c { color: #8f5902; font-style: italic } /* Comment */
+.highlight .err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.highlight .g { color: #000000 } /* Generic */
+.highlight .k { color: #204a87; font-weight: bold } /* Keyword */
+.highlight .l { color: #000000 } /* Literal */
+.highlight .n { color: #000000 } /* Name */
+.highlight .o { color: #ce5c00; font-weight: bold } /* Operator */
+.highlight .x { color: #000000 } /* Other */
+.highlight .p { color: #000000; font-weight: bold } /* Punctuation */
+.highlight .ch { color: #8f5902; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: #8f5902; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #a40000 } /* Generic.Deleted */
+.highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #ef2929 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .go { color: #000000; font-style: italic } /* Generic.Output */
+.highlight .gp { color: #8f5902 } /* Generic.Prompt */
+.highlight .gs { color: #000000; font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #AA22FF; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #AA22FF; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #AA22FF; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #AA22FF } /* Keyword.Pseudo */
-.highlight .kr { color: #AA22FF; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #00BB00; font-weight: bold } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
-.highlight .s { color: #BB4444 } /* Literal.String */
-.highlight .na { color: #BB4444 } /* Name.Attribute */
-.highlight .nb { color: #AA22FF } /* Name.Builtin */
-.highlight .nc { color: #0000FF } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
-.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #00A000 } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
-.highlight .nv { color: #B8860B } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sb { color: #BB4444 } /* Literal.String.Backtick */
-.highlight .sc { color: #BB4444 } /* Literal.String.Char */
-.highlight .sd { color: #BB4444; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #BB4444 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #BB4444 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
-.highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
-.highlight .s1 { color: #BB4444 } /* Literal.String.Single */
-.highlight .ss { color: #B8860B } /* Literal.String.Symbol */
-.highlight .bp { color: #AA22FF } /* Name.Builtin.Pseudo */
-.highlight .vc { color: #B8860B } /* Name.Variable.Class */
-.highlight .vg { color: #B8860B } /* Name.Variable.Global */
-.highlight .vi { color: #B8860B } /* Name.Variable.Instance */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+.highlight .gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.highlight .kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.highlight .ld { color: #000000 } /* Literal.Date */
+.highlight .m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.highlight .s { color: #4e9a06 } /* Literal.String */
+.highlight .na { color: #c4a000 } /* Name.Attribute */
+.highlight .nb { color: #204a87 } /* Name.Builtin */
+.highlight .nc { color: #000000 } /* Name.Class */
+.highlight .no { color: #000000 } /* Name.Constant */
+.highlight .nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.highlight .ni { color: #ce5c00 } /* Name.Entity */
+.highlight .ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #000000 } /* Name.Function */
+.highlight .nl { color: #f57900 } /* Name.Label */
+.highlight .nn { color: #000000 } /* Name.Namespace */
+.highlight .nx { color: #000000 } /* Name.Other */
+.highlight .py { color: #000000 } /* Name.Property */
+.highlight .nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #000000 } /* Name.Variable */
+.highlight .ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.highlight .mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.highlight .mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.highlight .mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.highlight .mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.highlight .mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.highlight .sb { color: #4e9a06 } /* Literal.String.Backtick */
+.highlight .sc { color: #4e9a06 } /* Literal.String.Char */
+.highlight .sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #4e9a06 } /* Literal.String.Double */
+.highlight .se { color: #4e9a06 } /* Literal.String.Escape */
+.highlight .sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.highlight .si { color: #4e9a06 } /* Literal.String.Interpol */
+.highlight .sx { color: #4e9a06 } /* Literal.String.Other */
+.highlight .sr { color: #4e9a06 } /* Literal.String.Regex */
+.highlight .s1 { color: #4e9a06 } /* Literal.String.Single */
+.highlight .ss { color: #4e9a06 } /* Literal.String.Symbol */
+.highlight .bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #000000 } /* Name.Variable.Class */
+.highlight .vg { color: #000000 } /* Name.Variable.Global */
+.highlight .vi { color: #000000 } /* Name.Variable.Instance */
+.highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
 </style>
 </head>
 <body>
@@ -326,7 +381,7 @@ figure{
 lisp语言里面最基本的元素是atom的，是atom类型的元素可以直接eval，你可以在emacs下输入 <code>M-x ielm</code> 来进入elisp的交互环境试着输入 1 或者 "abc" 来看一下。你可以如下来看看某个元素是不是数字:
 </p>
 
-<div class="highlight"><pre><span class="nv">ELISP&gt;</span> <span class="p">(</span><span class="nb">numberp</span> <span class="mf">1.1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="nv">ELISP&gt;</span> <span class="p">(</span><span class="nf">numberp</span> <span class="mf">1.1</span><span class="p">)</span>
 <span class="no">t</span>
 </pre></div>
 
@@ -337,9 +392,9 @@ lisp语言里面最基本的元素是atom的，是atom类型的元素可以直�
 <p>
 然后接下来lisp的第二大概念就是列表，lisp的一个表达式就是一个列表。比如:
 </p>
-<div class="highlight"><pre><span class="nv">ELISP&gt;</span> <span class="p">(</span><span class="nb">+</span> <span class="mi">2</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="nv">ELISP&gt;</span> <span class="p">(</span><span class="nf">+</span> <span class="mi">2</span> <span class="mi">5</span><span class="p">)</span>
 <span class="mi">7</span>
-<span class="nv">ELISP&gt;</span> <span class="p">(</span><span class="nb">*</span> <span class="mi">5</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nv">ELISP&gt;</span> <span class="p">(</span><span class="nf">*</span> <span class="mi">5</span> <span class="mi">5</span><span class="p">)</span>
 <span class="mi">25</span>
 </pre></div>
 
@@ -362,7 +417,7 @@ lisp语言里面最基本的元素是atom的，是atom类型的元素可以直�
 也就是后面的元素跳过eval，直接返回自身。上面的 (quote x) 还有一种简写形式 'x ，你可以直接输入'x来返回某个符号对象。
 </p>
 
-<div class="highlight"><pre><span class="nv">ELISP&gt;</span> <span class="ss">&#39;x</span>
+<div class="highlight"><pre><span></span><span class="nv">ELISP&gt;</span> <span class="ss">&#39;x</span>
 <span class="nv">x</span>
 <span class="nv">ELISP&gt;</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
 <span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
@@ -393,7 +448,7 @@ lisp语言里面最基本的元素是atom的，是atom类型的元素可以直�
 <p>
 首先推荐读者到 <a href="http://www.cs.cmu.edu/~dst/Lisp/sdraw/sdraw.generic">这里</a> 下载该网页文件保存为 <code>sdraw.lisp</code> 。然后在slime中加载如下所示:
 </p>
-<div class="highlight"><pre><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nb">load</span> <span class="s">&quot;~/sdraw.lisp&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nb">load</span> <span class="s">&quot;~/sdraw.lisp&quot;</span><span class="p">)</span>
 <span class="c1">;; Loading file /home/wanze/sdraw.lisp ...</span>
 <span class="c1">;; Loaded file /home/wanze/sdraw.lisp</span>
 <span class="no">T</span>
@@ -414,7 +469,7 @@ lisp语言里面最基本的元素是atom的，是atom类型的元素可以直�
 我们看到上面的例子，链表("a")里面就一个元素，其实际上是由两个部分组成的，第一个是car，也就是链表头，第二个是cdr，也就是链表尾。如下所示:
 </p>
 
-<div class="highlight"><pre><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nb">car</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nb">car</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">))</span>
 <span class="s">&quot;a&quot;</span>
 <span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nb">cdr</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">))</span>
 <span class="no">NIL</span>
@@ -424,7 +479,7 @@ lisp语言里面最基本的元素是atom的，是atom类型的元素可以直�
 <p>
 然后我们再来看两个元素的情况:
 </p>
-<div class="highlight"><pre><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nv">sdraw</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;a&quot;</span> <span class="s">&quot;b&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nv">sdraw</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;a&quot;</span> <span class="s">&quot;b&quot;</span><span class="p">))</span>
 
 <span class="nv">[*|*]---&gt;[*|*]---&gt;NIL</span>
  <span class="nv">|        |</span>
@@ -436,7 +491,7 @@ lisp语言里面最基本的元素是atom的，是atom类型的元素可以直�
 我们看到lisp的链表大致由叫做cons cell的东西链接起来的，这个cons cell分为两部分，一个头（car），一个尾（cdr），然后头或尾可以具体指向某个值，其中头或者尾指向某个具体的值则表明该链接终止了。一般的链表就如同上面所示，头指向某个具体的值，尾链接其他cons cell或者最终指向nil终止。但实际上还有一种结构:
 </p>
 
-<div class="highlight"><pre><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nv">sdraw</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;a&quot;</span> <span class="o">.</span> <span class="s">&quot;b&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nv">sdraw</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;a&quot;</span> <span class="o">.</span> <span class="s">&quot;b&quot;</span><span class="p">))</span>
 
 <span class="nv">[*|*]---&gt;&quot;b&quot;</span>
 <span class="nv"> |</span>
@@ -448,7 +503,7 @@ lisp语言里面最基本的元素是atom的，是atom类型的元素可以直�
 <p>
 下面再贴一个链表之内还有一个链表的情况:
 </p>
-<div class="highlight"><pre><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nv">sdraw</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;a&quot;</span> <span class="p">(</span><span class="s">&quot;b&quot;</span> <span class="s">&quot;c&quot;</span><span class="p">)))</span>
+<div class="highlight"><pre><span></span><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nv">sdraw</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;a&quot;</span> <span class="p">(</span><span class="s">&quot;b&quot;</span> <span class="s">&quot;c&quot;</span><span class="p">)))</span>
 
 <span class="nv">[*|*]---&gt;[*|*]---&gt;NIL</span>
  <span class="nv">|        |</span>
@@ -462,7 +517,7 @@ lisp语言里面最基本的元素是atom的，是atom类型的元素可以直�
 <p>
 实际上这里所谓的 cons cell 的cons是英文单词链接concatenate的缩写，你可以如下来自己构建一个链表结构:
 </p>
-<div class="highlight"><pre><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="s">&quot;a&quot;</span> <span class="no">nil</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="s">&quot;a&quot;</span> <span class="no">nil</span><span class="p">)</span>
 <span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span>
 <span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="s">&quot;a&quot;</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;b&quot;</span> <span class="s">&quot;c&quot;</span><span class="p">))</span>
 <span class="p">(</span><span class="s">&quot;a&quot;</span> <span class="s">&quot;b&quot;</span> <span class="s">&quot;c&quot;</span><span class="p">)</span>
@@ -842,7 +897,7 @@ load-file-name 返回该脚本所在的文件路径名，参考了 <a href="http
 <p>
 如下面的代码将返回本脚本所在的目录路径，字符串形式。
 </p>
-<div class="highlight"><pre><span class="p">(</span><span class="nv">file-name-directory</span> <span class="nv">load-file-name</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">file-name-directory</span> <span class="nv">load-file-name</span><span class="p">)</span>
 </pre></div>
 
 <p>
@@ -859,11 +914,11 @@ load-file-name 返回该脚本所在的文件路径名，参考了 <a href="http
 参考了 <a href="http://ergoemacs.org/emacs/elisp_read_file_content.html">这个网页</a> 。
 </p>
 
-<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">get-string-from-file</span> <span class="p">(</span><span class="nv">filePath</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defun</span> <span class="nv">get-string-from-file</span> <span class="p">(</span><span class="nv">filePath</span><span class="p">)</span>
   <span class="s">&quot;Return filePath&#39;s file content.&quot;</span>
-  <span class="p">(</span><span class="nv">with-temp-buffer</span>
-    <span class="p">(</span><span class="nv">insert-file-contents</span> <span class="nv">filePath</span><span class="p">)</span>
-    <span class="p">(</span><span class="nv">buffer-string</span><span class="p">)))</span>
+  <span class="p">(</span><span class="nb">with-temp-buffer</span>
+    <span class="p">(</span><span class="nf">insert-file-contents</span> <span class="nv">filePath</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">buffer-string</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -875,7 +930,7 @@ load-file-name 返回该脚本所在的文件路径名，参考了 <a href="http
 <p>
 if函数最简单的理解如下所示:
 </p>
-<div class="highlight"><pre><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="k">if</span> <span class="no">t</span> <span class="mi">5</span> <span class="mi">3</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="k">if</span> <span class="no">t</span> <span class="mi">5</span> <span class="mi">3</span><span class="p">)</span>
 <span class="mi">5</span>
 <span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="k">if</span> <span class="no">nil</span> <span class="mi">5</span> <span class="mi">3</span><span class="p">)</span>
 <span class="mi">3</span>
@@ -926,7 +981,7 @@ cond函数相当于c语言的switch语句。
 在lisp中讲到定义函数就不得不提lambda表达式，对lambda表达式有兴趣的请上网搜索相关信息了解之。简单来说就是如这样的 <code>(lambda (x) (* x x))</code> 一种匿名函数表示方法。该列表第二项定义的该函数的入口参数，然后第三项定义的是该函数的结果返回形式。对应的通过 <strong>defun</strong> 来定义自己的函数如下所示:
 </p>
 
-<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">square</span> <span class="p">(</span><span class="nv">x</span><span class="p">)</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">x</span> <span class="nv">x</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defun</span> <span class="nv">square</span> <span class="p">(</span><span class="nv">x</span><span class="p">)</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">x</span> <span class="nv">x</span><span class="p">))</span>
 </pre></div>
 
 <p>
@@ -1343,10 +1398,10 @@ XOR逻辑
 <p>
 这种用法我不太喜欢，还有一种参数定义方法，如下所示:
 </p>
-<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">multiply-by-seven</span> <span class="p">(</span><span class="nc">number</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defun</span> <span class="nv">multiply-by-seven</span> <span class="p">(</span><span class="nv">number</span><span class="p">)</span>
 <span class="s">&quot;Multiply NUMBER by seven.&quot;</span>
-<span class="p">(</span><span class="nv">interactive</span> <span class="s">&quot;nplease input a number:\n&quot;</span><span class="p">)</span> 
-<span class="p">(</span><span class="nv">message</span> <span class="s">&quot;The result is %d&quot;</span> <span class="p">(</span><span class="nb">*</span> <span class="mi">7</span> <span class="nc">number</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">interactive</span> <span class="s">&quot;nplease input a number:\n&quot;</span><span class="p">)</span> 
+<span class="p">(</span><span class="nf">message</span> <span class="s">&quot;The result is %d&quot;</span> <span class="p">(</span><span class="nf">*</span> <span class="mi">7</span> <span class="nv">number</span><span class="p">)))</span>
 </pre></div>
 
 <p>
@@ -1354,11 +1409,11 @@ XOR逻辑
 </p>
 
 
-<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">multiply-by-seven</span> <span class="p">(</span><span class="nc">number</span> <span class="nv">str</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defun</span> <span class="nv">multiply-by-seven</span> <span class="p">(</span><span class="nv">number</span> <span class="nv">str</span><span class="p">)</span>
 <span class="s">&quot;Multiply NUMBER by seven.&quot;</span>
-<span class="p">(</span><span class="nv">interactive</span> <span class="s">&quot;nplease input a number:\nsplease input a string:\n&quot;</span><span class="p">)</span> 
-<span class="p">(</span><span class="nv">message</span> <span class="s">&quot;The result is %d&quot;</span> <span class="p">(</span><span class="nb">*</span> <span class="mi">7</span> <span class="nc">number</span><span class="p">))</span>
-<span class="p">(</span><span class="nv">message</span> <span class="s">&quot;your input is: %s&quot;</span> <span class="nv">str</span><span class="p">))</span>
+<span class="p">(</span><span class="k">interactive</span> <span class="s">&quot;nplease input a number:\nsplease input a string:\n&quot;</span><span class="p">)</span> 
+<span class="p">(</span><span class="nf">message</span> <span class="s">&quot;The result is %d&quot;</span> <span class="p">(</span><span class="nf">*</span> <span class="mi">7</span> <span class="nv">number</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">message</span> <span class="s">&quot;your input is: %s&quot;</span> <span class="nv">str</span><span class="p">))</span>
 </pre></div>
 
 <p>
@@ -1666,7 +1721,7 @@ for y = ,f
 <p>
 在deb系系统中推荐直接用apt-get安装之:
 </p>
-<div class="highlight"><pre>apt-get install slime
+<div class="highlight"><pre><span></span>apt-get install slime
 </pre></div>
 
 <p>
@@ -1685,7 +1740,7 @@ for y = ,f
 <p>
 如下所示，将以batch批处理模式加载test.org，然后执行命令"org-html-export-to-html" 。然后这里的 <code>-u</code> 是指定以某个用户的身份来运行emacs（主要是一些配置文件相关）。
 </p>
-<div class="highlight"><pre><span class="nv">emacs</span> <span class="nv">test.org</span> <span class="nv">-u</span> <span class="s">&quot;$(id -un)&quot;</span> <span class="nv">--batch</span>  <span class="nv">-f</span> <span class="nv">org-html-export-to-html</span>
+<div class="highlight"><pre><span></span><span class="nv">emacs</span> <span class="nv">test.org</span> <span class="nv">-u</span> <span class="s">&quot;$(id -un)&quot;</span> <span class="nv">--batch</span>  <span class="nv">-f</span> <span class="nv">org-html-export-to-html</span>
 </pre></div>
 </div>
 </div>
@@ -1706,7 +1761,7 @@ for y = ,f
 <p>
 add-to-list
 </p>
-<div class="highlight"><pre><span class="nv">ELISP&gt;</span> <span class="p">(</span><span class="k">setq</span> <span class="nv">x</span> <span class="no">nil</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="nv">ELISP&gt;</span> <span class="p">(</span><span class="k">setq</span> <span class="nv">x</span> <span class="no">nil</span><span class="p">)</span>
 <span class="no">nil</span>
 <span class="nv">ELISP&gt;</span> <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;x</span> <span class="s">&quot;a&quot;</span><span class="p">)</span>
 <span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span>

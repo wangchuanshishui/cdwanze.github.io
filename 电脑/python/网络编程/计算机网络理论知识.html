@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-01-08 五 16:39 -->
+<!-- 2016-03-28 一 12:08 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>计算机网络理论知识</title>
@@ -11,24 +11,33 @@
 >
 <style type="text/css">
 body {
-  padding-right: 30px;
-  padding-left: 30px;
-  margin-right: auto;
-  margin-left: auto;
+
 }
 @media (min-width: 768px) {
   body {
     width: 732px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 @media (min-width: 992px) {
   body {
-    width: 948px;
+    width: 880px;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 @media (min-width: 1200px) {
   body {
-    width: 1140px;
+    width: 750px;
+    padding-right: 200px;
+    padding-left: 200px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
@@ -47,10 +56,10 @@ body {
 .underline{
     text-decoration: underline;
 }
-  #content {
+   #content {
     display: block;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 code {
@@ -61,17 +70,17 @@ code {
 }
 
 pre {
+    max-width: 100%;
     display: block;
     padding: 9.5px;
     margin: 0 0 10px;
     font-size: 13px;
     line-height: 1.42857143;
     color: #333;
-    word-break: break-all;
-    word-wrap: break-word;
     background-color: #f5f5f5;
     border: 1px solid #ccc;
     border-radius: 4px;
+    overflow : auto;
 }
 
 
@@ -94,7 +103,7 @@ li, dt{
 }
 
 video{
-    width: 95%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -103,7 +112,13 @@ figure p{
     text-indent:0em;
 }
 img{
-    max-width: 95%;
+    max-width: 100%;
+}
+
+embed{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 figure{
@@ -111,8 +126,8 @@ figure{
 }
 
 /*  class  */
-.framed{
-    max-width:700px;
+.FRAMED{
+    max-width:100%;
     border:1px solid ;
     padding: 1em;
     -webkit-box-sizing: border-box;
@@ -120,10 +135,10 @@ figure{
     box-sizing: border-box;
 }
 
-.notecard{
-    width: 320px;
+.NOTECARD{
+    width: 30%;
     position:relative;
-    right: -215px;
+    right: -30%;
     padding: 1em;
     margin:0 auto;
     border: solid 1px;
@@ -131,69 +146,103 @@ figure{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+/*
+table
+*/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 16px 0;
+    empty-cells: show;
+    border: 1px solid #ccc;
+    width: 100%;
+    display: table;
+}
+
+table tr {
+    border-bottom: 1px solid #ddd;
+}
+table th,table td{
+    padding:8px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
 .highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
-.highlight .c { color: #008800; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
-.highlight .k { color: #AA22FF; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
-.highlight .cm { color: #008800; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #008800 } /* Comment.Preproc */
-.highlight .c1 { color: #008800; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #008800; font-weight: bold } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .c { color: #8f5902; font-style: italic } /* Comment */
+.highlight .err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.highlight .g { color: #000000 } /* Generic */
+.highlight .k { color: #204a87; font-weight: bold } /* Keyword */
+.highlight .l { color: #000000 } /* Literal */
+.highlight .n { color: #000000 } /* Name */
+.highlight .o { color: #ce5c00; font-weight: bold } /* Operator */
+.highlight .x { color: #000000 } /* Other */
+.highlight .p { color: #000000; font-weight: bold } /* Punctuation */
+.highlight .ch { color: #8f5902; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: #8f5902; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #a40000 } /* Generic.Deleted */
+.highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #ef2929 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .go { color: #000000; font-style: italic } /* Generic.Output */
+.highlight .gp { color: #8f5902 } /* Generic.Prompt */
+.highlight .gs { color: #000000; font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #AA22FF; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #AA22FF; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #AA22FF; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #AA22FF } /* Keyword.Pseudo */
-.highlight .kr { color: #AA22FF; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #00BB00; font-weight: bold } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
-.highlight .s { color: #BB4444 } /* Literal.String */
-.highlight .na { color: #BB4444 } /* Name.Attribute */
-.highlight .nb { color: #AA22FF } /* Name.Builtin */
-.highlight .nc { color: #0000FF } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
-.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #00A000 } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
-.highlight .nv { color: #B8860B } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sb { color: #BB4444 } /* Literal.String.Backtick */
-.highlight .sc { color: #BB4444 } /* Literal.String.Char */
-.highlight .sd { color: #BB4444; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #BB4444 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #BB4444 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
-.highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
-.highlight .s1 { color: #BB4444 } /* Literal.String.Single */
-.highlight .ss { color: #B8860B } /* Literal.String.Symbol */
-.highlight .bp { color: #AA22FF } /* Name.Builtin.Pseudo */
-.highlight .vc { color: #B8860B } /* Name.Variable.Class */
-.highlight .vg { color: #B8860B } /* Name.Variable.Global */
-.highlight .vi { color: #B8860B } /* Name.Variable.Instance */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+.highlight .gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.highlight .kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.highlight .ld { color: #000000 } /* Literal.Date */
+.highlight .m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.highlight .s { color: #4e9a06 } /* Literal.String */
+.highlight .na { color: #c4a000 } /* Name.Attribute */
+.highlight .nb { color: #204a87 } /* Name.Builtin */
+.highlight .nc { color: #000000 } /* Name.Class */
+.highlight .no { color: #000000 } /* Name.Constant */
+.highlight .nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.highlight .ni { color: #ce5c00 } /* Name.Entity */
+.highlight .ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #000000 } /* Name.Function */
+.highlight .nl { color: #f57900 } /* Name.Label */
+.highlight .nn { color: #000000 } /* Name.Namespace */
+.highlight .nx { color: #000000 } /* Name.Other */
+.highlight .py { color: #000000 } /* Name.Property */
+.highlight .nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #000000 } /* Name.Variable */
+.highlight .ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.highlight .mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.highlight .mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.highlight .mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.highlight .mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.highlight .mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.highlight .sb { color: #4e9a06 } /* Literal.String.Backtick */
+.highlight .sc { color: #4e9a06 } /* Literal.String.Char */
+.highlight .sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #4e9a06 } /* Literal.String.Double */
+.highlight .se { color: #4e9a06 } /* Literal.String.Escape */
+.highlight .sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.highlight .si { color: #4e9a06 } /* Literal.String.Interpol */
+.highlight .sx { color: #4e9a06 } /* Literal.String.Other */
+.highlight .sr { color: #4e9a06 } /* Literal.String.Regex */
+.highlight .s1 { color: #4e9a06 } /* Literal.String.Single */
+.highlight .ss { color: #4e9a06 } /* Literal.String.Symbol */
+.highlight .bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #000000 } /* Name.Variable.Class */
+.highlight .vg { color: #000000 } /* Name.Variable.Global */
+.highlight .vi { color: #000000 } /* Name.Variable.Instance */
+.highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
 </style>
 </head>
 <body>
@@ -223,12 +272,13 @@ figure{
 <li><a href="#orgheadline12">2.8. UDP套接字编程</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline15">3. 其他</a>
+<li><a href="#orgheadline16">3. 其他</a>
 <ul>
 <li><a href="#orgheadline14">3.1. 端口号</a></li>
+<li><a href="#orgheadline15">3.2. github pages自定义域名</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline16">4. 参考资料</a></li>
+<li><a href="#orgheadline17">4. 参考资料</a></li>
 </ul>
 </div>
 </nav>
@@ -481,15 +531,15 @@ If-modified-sine: Wed, 4 Jul 2007 09:23:24
 <p>
 下面是服务器端server.py的代码:
 </p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
 
-<span class="n">HOST</span> <span class="o">=</span> <span class="s">&#39;localhost&#39;</span>
+<span class="n">HOST</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
 <span class="n">PORT</span> <span class="o">=</span> <span class="mi">50007</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
 <span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
 <span class="n">s</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">conn</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;Connected by&#39;</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Connected by&#39;</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span><span class="k">break</span>
@@ -503,16 +553,16 @@ If-modified-sine: Wed, 4 Jul 2007 09:23:24
 <p>
 下面是客户机端client.py的代码:
 </p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
 
-<span class="n">HOST</span> <span class="o">=</span> <span class="s">&#39;localhost&#39;</span>
+<span class="n">HOST</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
 <span class="n">PORT</span> <span class="o">=</span> <span class="mi">50007</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
 <span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
-<span class="n">s</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;Hello, world&#39;</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">b</span><span class="s1">&#39;Hello, world&#39;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
 <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;Received&#39;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Received&#39;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 </pre></div>
 
 <p>
@@ -545,24 +595,105 @@ If-modified-sine: Wed, 4 Jul 2007 09:23:24
 
 
 <div class="outline-2">
-<h2 id="orgheadline15">其他</h2>
+<h2 id="orgheadline16">其他</h2>
 <div class="outline-text-2" id="text-3">
 </div><div class="outline-3">
 <h3 id="orgheadline14">端口号</h3>
 </div>
-</div>
 
 
 
-<div class="outline-2">
-<h2 id="orgheadline16">参考资料</h2>
-<div class="outline-text-2" id="text-4">
+
+<div class="outline-3">
+<h3 id="orgheadline15">github pages自定义域名</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+内容是放在github上的，下面重点说一下自定义域名的问题。域名及其相关概念请参看 <a href="http://www.pchou.info/web-build/2013/01/05/build-github-blog-page-03.html">这个网站</a> ，后面适时我还会提到一些 。
+</p>
+
 <ol class="org-ol">
-<li>计算机网络自顶向下方法 , Author: James F. Kurose , Keith W. Ross ,陈鸣译 。</li>
-<li>Unix网络编程卷1: 套接字联网API , Author: W. R. Stevens , Bill Fenner 等著 , version: 第三版</li>
+<li>首先是购买域名，推荐到 <a href="https://www.godaddy.com/">godaddy</a> 上购买。买好的域名就可以在网页浏览器上刷了，只是还没有任何内容。</li>
+
+<li>如果你面向的浏览者主要是国外用户，那么就在godaddy上设置好dns，和接下来要讲的在 <a href="https://www.dnspod.cn/">dnspot</a> 上是类似的。如果你要使用dnspot的域名解析服务，又是在godaddy上买的域名，那么需要在godaddy上把dns服务器更改一下。</li>
+</ol>
+
+<p>
+如下图所示：
+</p>
+
+<figure>
+<p><img src="templates/images/godaddy-nameserver.png" alt="godaddy-nameserver.png">
+</p>
+<figcaption><span class="figure-number">Figure 2:</span> godaddy-nameserver</figcaption>
+</figure>
+
+<ol class="org-ol">
+<li>github pages 的根目录上新建一个 <code>CNAME</code> 文件，比如我的域名是 <code>www.cdwanze.org</code> ，那么就写上 <code>www.cdwanze.org</code> 。</li>
+</ol>
+
+<p>
+这个时候过了一会儿你如果点击你原来的github pages，那么就会转到对 <code>http://www.cdwanze.org</code> 的请求上。
+</p>
+
+<ol class="org-ol">
+<li>你还需要在dnspot上设置好A和CNAME，你的网页才能正常工作。</li>
+</ol>
+
+<p>
+其中 <strong>A</strong> 是域名转IP地址，然后 <strong>CNAME</strong> 是什么域名请求转成什么域名请求。如下图所示这样设置<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>。
+</p>
+
+
+<figure>
+<p><img src="templates/images/dnspot设置.png" alt="dnspot设置.png">
+</p>
+<figcaption><span class="figure-number">Figure 3:</span> dnspot设置</figcaption>
+</figure>
+
+<p>
+我们可以理解为对 <code>www.cdwanze.org</code> 的请求到了godaddy那里，然后godaddy说dns服务在dnspot那边，然后又跑到dnspot这里，遇到了这个CNAME设置，说转成 <code>a358003542.github.io.</code> 的域名请求，然后这里的A设置就是 <code>a358003542.github.io.</code> 这个域名请求送入这两个IP地址那里，这两个IP地址就是github pages的域名解析服务点。
+</p>
+
+<ol class="org-ol">
+<li>还要等上几分钟，才会生效。</li>
 </ol>
 </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
+<div class="outline-2">
+<h2 id="orgheadline17">参考资料</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>计算机网络自顶向下方法 , Author: James F. Kurose , Keith W. Ross ,陈鸣译 。</li>
+</ol>
+
+<p>
+这本书作为入门了解有关计算机网络相关知识还是很不错的，文档有点大，只好放在 <a href="https://drive.google.com/open?id=0ByWxOeitx54Pbk40MkU2a0VOUE0">google drive</a> 那里了。
+</p>
+
+
+
+<ol class="org-ol">
+<li>Unix网络编程卷1: 套接字联网API , Author: W. R. Stevens , Bill Fenner 等著 , version: 第三版</li>
+</ol>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">请参看<a href="http://pigerla.com/github-pages/2014-11-17/setting-up-a-custom-domain-with-github-pages/">这个网页</a>。</div></div>
+
+
+</div>
+</div></div>
 </body>
 </html>

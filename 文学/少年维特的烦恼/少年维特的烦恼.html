@@ -1,173 +1,133 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-<title>少年维特的烦恼</title>
-<!-- 2015-11-14 21:54 -->
+<!-- 2016-03-28 一 12:12 -->
 <meta  charset="utf-8">
+<meta  name="viewport" content="width=device-width, initial-scale=1">
+<title>少年维特的烦恼</title>
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="歌德(译:韩耀成)">
 <meta  name="description" content="制作者邮箱：a358003542@gmail.com"
 >
-<style type="text/css"> /*
- * with_bootstrap.css
- *
- * Copyright 2015 wanze <a358003542@gmail.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
- *
- *
- */
-
-@import url("http://getbootstrap.com/dist/css/bootstrap.min.css");
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    position: relative;
-    min-height: 100%;
-    margin: 0px;
-}
+<style type="text/css">
 body {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
-}
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 60px;
-    background-color: #f5f5f5;
-}
 
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-.container {
-  width: auto;
-  max-width: 750px;
-  padding: 0 15px;
 }
-.container .text-muted {
-  margin: 20px 0;
-}
-
-/* background-color: #f8f8f8; */
-.navbar-default{
-    background-color: #fff;
-}
-/*--------------------*/
-
-#content{
-    margin: 0 auto;
-    max-width: 750px;
-    padding: 17px;
-    line-height:160%;
-    font-size:16px;
-}
-
-h1,h2,h3,h4,h5,h6 {
-    font-family: 'PT Sans Narrow', sans-serif;
-    font-weight: 700;
-    margin-bottom: 1em;
-    margin-top: 1em;
-}
-
-
-pre{line-height:180%;font-size:90%;}
-code,kbd,pre,samp {
-  font-family: monospace, serif;
-}
-
-code{  padding: 2px;}
-p{
-    text-indent:2em;/*段落缩进*/
-    line-height:180%;/*行间距*/
-    }
-
-.title{
-    text-align: center;
-}
-.org-ol li , .org-ul li , org-dl dt{
-    margin-top: 0.5em; /*增大li之间的垂直space*/
-    margin-bottom: 0.5em; /*增大li之间的垂直space*/
-}
-p.verse{
-    margin-left: 3%;
-    text-indent:0em;
-}
-
-.right{
-    margin-left: auto;
-    margin-right: 0px;
-    text-align: right;
-}
-.left{
-    margin-left: 0px;
+@media (min-width: 768px) {
+  body {
+    width: 732px;
+    padding-right: 20px;
+    padding-left: 20px;
     margin-right: auto;
-    text-align: left;
+    margin-left: auto;
+  }
 }
-.center{
+@media (min-width: 992px) {
+  body {
+    width: 880px;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    width: 750px;
+    padding-right: 200px;
+    padding-left: 200px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.title {
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+.center-block {
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
 }
 
 .underline{
     text-decoration: underline;
 }
+   #content {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+code {
+    padding: 2px 4px;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+
+pre {
+    max-width: 100%;
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow : auto;
+}
+
+
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-left: 5px solid #eee;
+}
+
+
+p{
+    text-indent:2em;
+    line-height:150%;
+}
+
+li, dt{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
 
 video{
-    width: 750px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 figure p{
-    text-indent:0em;/*段落缩进*/
+    text-indent:0em;
 }
 img{
-    max-width: 700px;
+    max-width: 100%;
+}
+
+embed{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 figure{
     text-align: center;
 }
 
-table, th, td
-{
-    margin:0 auto;
-    min-width:2em;
-    text-align:center ;
-    padding: 5px;
-}
-
-table{
-    border-top: 2px solid ;
-    border-bottom: 2px solid ;
-}
-thead{
-    border-bottom: 1px solid ;
-}
-
 /*  class  */
-.framed{
-    max-width:700px;
+.FRAMED{
+    max-width:100%;
     border:1px solid ;
     padding: 1em;
     -webkit-box-sizing: border-box;
@@ -175,10 +135,10 @@ thead{
     box-sizing: border-box;
 }
 
-.notecard{
-    width: 320px;
+.NOTECARD{
+    width: 30%;
     position:relative;
-    right: -215px;
+    right: -30%;
     padding: 1em;
     margin:0 auto;
     border: solid 1px;
@@ -188,185 +148,102 @@ thead{
 }
 
 /*
-http://thomasf.github.io/solarized-css/
+table
 */
-
-dfn {
-  font-style: italic;
-}
-dd{
-    margin-left:2em;
-}
-mark {
-  background: #ff0;
-  color: #000;
-}
-
-q {
-  quotes: "\201C" "\201D" "\2018" "\2019";
-}
-small {
-  font-size: 80%;
-}
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sup {
-  top: -0.5em;
-}
-sub {
-  bottom: -0.25em;
-}
-
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 16px 0;
+    empty-cells: show;
+    border: 1px solid #ccc;
+    width: 100%;
+    display: table;
 }
 
-
-
-.tag {
-  background-color: #eee8d5;
-  color: #d33682;
-  padding: 0 0.2em;
+table tr {
+    border-bottom: 1px solid #ddd;
+}
+table th,table td{
+    padding:8px;
 }
 
-
-.todo,
-.next,
-.done {
-  color: #fdf6e3;
-  background-color: #dc322f;
-  padding: 0 0.2em;
+table tr:nth-child(even) {
+    background-color: #f1f1f1;
 }
-.tag {
-  -webkit-border-radius: 0.35em;
-  -moz-border-radius: 0.35em;
-  border-radius: 0.35em;
-}
-.TODO {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #2aa198;
-}
-.NEXT {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #268bd2;
-}
-.ACTIVE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #268bd2;
-}
-.DONE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #859900;
-}
-.WAITING {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #cb4b16;
-}
-.HOLD {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #d33682;
-}
-.NOTE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #d33682;
-}
-.CANCELLED {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #859900;
-}
-
-
-/*
-pygmentize -f html -S colorful -a .highlight
-*/
-
 .highlight .hll { background-color: #ffffcc }
-.highlight  { background: #ffffff; }
-.highlight .c { color: #888888 } /* Comment */
-.highlight .err { color: #FF0000; background-color: #FFAAAA } /* Error */
-.highlight .k { color: #008800; font-weight: bold } /* Keyword */
-.highlight .o { color: #333333 } /* Operator */
-.highlight .cm { color: #888888 } /* Comment.Multiline */
-.highlight .cp { color: #557799 } /* Comment.Preproc */
-.highlight .c1 { color: #888888 } /* Comment.Single */
-.highlight .cs { color: #cc0000; font-weight: bold } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #8f5902; font-style: italic } /* Comment */
+.highlight .err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.highlight .g { color: #000000 } /* Generic */
+.highlight .k { color: #204a87; font-weight: bold } /* Keyword */
+.highlight .l { color: #000000 } /* Literal */
+.highlight .n { color: #000000 } /* Name */
+.highlight .o { color: #ce5c00; font-weight: bold } /* Operator */
+.highlight .x { color: #000000 } /* Other */
+.highlight .p { color: #000000; font-weight: bold } /* Punctuation */
+.highlight .ch { color: #8f5902; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: #8f5902; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #a40000 } /* Generic.Deleted */
+.highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #ef2929 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .go { color: #000000; font-style: italic } /* Generic.Output */
+.highlight .gp { color: #8f5902 } /* Generic.Prompt */
+.highlight .gs { color: #000000; font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #008800; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #008800; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #008800; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #003388; font-weight: bold } /* Keyword.Pseudo */
-.highlight .kr { color: #008800; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #333399; font-weight: bold } /* Keyword.Type */
-.highlight .m { color: #6600EE; font-weight: bold } /* Literal.Number */
-.highlight .s { background-color: #fff0f0 } /* Literal.String */
-.highlight .na { color: #0000CC } /* Name.Attribute */
-.highlight .nb { color: #007020 } /* Name.Builtin */
-.highlight .nc { color: #BB0066; font-weight: bold } /* Name.Class */
-.highlight .no { color: #003366; font-weight: bold } /* Name.Constant */
-.highlight .nd { color: #555555; font-weight: bold } /* Name.Decorator */
-.highlight .ni { color: #880000; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #FF0000; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0066BB; font-weight: bold } /* Name.Function */
-.highlight .nl { color: #997700; font-weight: bold } /* Name.Label */
-.highlight .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #007700 } /* Name.Tag */
-.highlight .nv { color: #996633 } /* Name.Variable */
-.highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #6600EE; font-weight: bold } /* Literal.Number.Bin */
-.highlight .mf { color: #6600EE; font-weight: bold } /* Literal.Number.Float */
-.highlight .mh { color: #005588; font-weight: bold } /* Literal.Number.Hex */
-.highlight .mi { color: #0000DD; font-weight: bold } /* Literal.Number.Integer */
-.highlight .mo { color: #4400EE; font-weight: bold } /* Literal.Number.Oct */
-.highlight .sb { background-color: #fff0f0 } /* Literal.String.Backtick */
-.highlight .sc { color: #0044DD } /* Literal.String.Char */
-.highlight .sd { color: #DD4422 } /* Literal.String.Doc */
-.highlight .s2 { background-color: #fff0f0 } /* Literal.String.Double */
-.highlight .se { color: #666666; font-weight: bold; background-color: #fff0f0 } /* Literal.String.Escape */
-.highlight .sh { background-color: #fff0f0 } /* Literal.String.Heredoc */
-.highlight .si { background-color: #eeeeee } /* Literal.String.Interpol */
-.highlight .sx { color: #DD2200; background-color: #fff0f0 } /* Literal.String.Other */
-.highlight .sr { color: #000000; background-color: #fff0ff } /* Literal.String.Regex */
-.highlight .s1 { background-color: #fff0f0 } /* Literal.String.Single */
-.highlight .ss { color: #AA6600 } /* Literal.String.Symbol */
-.highlight .bp { color: #007020 } /* Name.Builtin.Pseudo */
-.highlight .vc { color: #336699 } /* Name.Variable.Class */
-.highlight .vg { color: #dd7700; font-weight: bold } /* Name.Variable.Global */
-.highlight .vi { color: #3333BB } /* Name.Variable.Instance */
-.highlight .il { color: #0000DD; font-weight: bold } /* Literal.Number.Integer.Long */
-
- </style>
+.highlight .gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.highlight .kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.highlight .ld { color: #000000 } /* Literal.Date */
+.highlight .m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.highlight .s { color: #4e9a06 } /* Literal.String */
+.highlight .na { color: #c4a000 } /* Name.Attribute */
+.highlight .nb { color: #204a87 } /* Name.Builtin */
+.highlight .nc { color: #000000 } /* Name.Class */
+.highlight .no { color: #000000 } /* Name.Constant */
+.highlight .nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.highlight .ni { color: #ce5c00 } /* Name.Entity */
+.highlight .ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #000000 } /* Name.Function */
+.highlight .nl { color: #f57900 } /* Name.Label */
+.highlight .nn { color: #000000 } /* Name.Namespace */
+.highlight .nx { color: #000000 } /* Name.Other */
+.highlight .py { color: #000000 } /* Name.Property */
+.highlight .nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #000000 } /* Name.Variable */
+.highlight .ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.highlight .mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.highlight .mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.highlight .mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.highlight .mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.highlight .mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.highlight .sb { color: #4e9a06 } /* Literal.String.Backtick */
+.highlight .sc { color: #4e9a06 } /* Literal.String.Char */
+.highlight .sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #4e9a06 } /* Literal.String.Double */
+.highlight .se { color: #4e9a06 } /* Literal.String.Escape */
+.highlight .sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.highlight .si { color: #4e9a06 } /* Literal.String.Interpol */
+.highlight .sx { color: #4e9a06 } /* Literal.String.Other */
+.highlight .sr { color: #4e9a06 } /* Literal.String.Regex */
+.highlight .s1 { color: #4e9a06 } /* Literal.String.Single */
+.highlight .ss { color: #4e9a06 } /* Literal.String.Symbol */
+.highlight .bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #000000 } /* Name.Variable.Class */
+.highlight .vg { color: #000000 } /* Name.Variable.Global */
+.highlight .vi { color: #000000 } /* Name.Variable.Instance */
+.highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
+</style>
 
 <script type="text/javascript" src="http://orgmode.org/org-info.js">
 /**
@@ -427,7 +304,7 @@ for the JavaScript code in this tag.
 */
 
 <!--/*--><![CDATA[/*><!--*/
-org_html_manager.set("TOC_DEPTH", "5");
+org_html_manager.set("TOC_DEPTH", "6");
 org_html_manager.set("LINK_HOME", "");
 org_html_manager.set("LINK_UP", "");
 org_html_manager.set("LOCAL_TOC", "1");
@@ -441,139 +318,133 @@ org_html_manager.setup();  // activate after the parameters are set
 </script>
 </head>
 <body>
-<header class="header">
-<nav class="navbar navbar-default navbar-static-top"><div class="container">
-<div class="navbar-header">
-<a class="navbar-brand" href="http://www.cdwanze.org"><img style="max-width:50px; margin-top: -15px;" src="/templates/images/logo.svg" /></a></div>
-<div id="navbar">
-<ul class="nav navbar-nav"><li class="active"><a href="http://blog.cdwanze.org">博客</a><li><a href="http://blog.cdwanze.org/about.html">关于</a><li><a href="http://blog.cdwanze.org/donate.html">支持</a></div>
-</div>
-</nav></header><div id="content">
+<div id="content">
+<header>
 <h1 class="title">少年维特的烦恼</h1>
-<nav id="table-of-contents">
+</header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 引言</a></li>
-<li><a href="#sec-2">2. 上篇</a>
+<li><a href="#orgheadline1">1. 引言</a></li>
+<li><a href="#orgheadline42">2. 上篇</a>
 <ul>
-<li><a href="#sec-2-1">2.1. 一七七一年五月四日</a></li>
-<li><a href="#sec-2-2">2.2. 五月十日</a></li>
-<li><a href="#sec-2-3">2.3. 五月十二日</a></li>
-<li><a href="#sec-2-4">2.4. 五月十三日</a></li>
-<li><a href="#sec-2-5">2.5. 五月十五日</a></li>
-<li><a href="#sec-2-6">2.6. 五月十七日</a></li>
-<li><a href="#sec-2-7">2.7. 五月二十二日</a></li>
-<li><a href="#sec-2-8">2.8. 五月二十六日</a></li>
-<li><a href="#sec-2-9">2.9. 五月二十七日</a></li>
-<li><a href="#sec-2-10">2.10. 五月三十日</a></li>
-<li><a href="#sec-2-11">2.11. 六月十六日</a></li>
-<li><a href="#sec-2-12">2.12. 六月十九日</a></li>
-<li><a href="#sec-2-13">2.13. 六月二十一日</a></li>
-<li><a href="#sec-2-14">2.14. 六月二十九日</a></li>
-<li><a href="#sec-2-15">2.15. 七月一日</a></li>
-<li><a href="#sec-2-16">2.16. 七月六日</a></li>
-<li><a href="#sec-2-17">2.17. 七月八日</a></li>
-<li><a href="#sec-2-18">2.18. 七月十日</a></li>
-<li><a href="#sec-2-19">2.19. 七月十一日</a></li>
-<li><a href="#sec-2-20">2.20. 七月十三日</a></li>
-<li><a href="#sec-2-21">2.21. 七月十六日</a></li>
-<li><a href="#sec-2-22">2.22. 七月十八日</a></li>
-<li><a href="#sec-2-23">2.23. 七月十九日</a></li>
-<li><a href="#sec-2-24">2.24. 七月二十日</a></li>
-<li><a href="#sec-2-25">2.25. 七月二十四日</a></li>
-<li><a href="#sec-2-26">2.26. 七月二十五日</a></li>
-<li><a href="#sec-2-27">2.27. 七月二十六日</a></li>
-<li><a href="#sec-2-28">2.28. 七月三十日</a></li>
-<li><a href="#sec-2-29">2.29. 八月八日</a></li>
-<li><a href="#sec-2-30">2.30. 傍晚</a></li>
-<li><a href="#sec-2-31">2.31. 八月十日</a></li>
-<li><a href="#sec-2-32">2.32. 八月十二日</a></li>
-<li><a href="#sec-2-33">2.33. 八月十五日</a></li>
-<li><a href="#sec-2-34">2.34. 八月十八日</a></li>
-<li><a href="#sec-2-35">2.35. 八月二十一日</a></li>
-<li><a href="#sec-2-36">2.36. 八月二十二日</a></li>
-<li><a href="#sec-2-37">2.37. 八月二十八日</a></li>
-<li><a href="#sec-2-38">2.38. 八月三十日</a></li>
-<li><a href="#sec-2-39">2.39. 九月三日</a></li>
-<li><a href="#sec-2-40">2.40. 九月十日</a></li>
+<li><a href="#orgheadline2">2.1. 一七七一年五月四日</a></li>
+<li><a href="#orgheadline3">2.2. 五月十日</a></li>
+<li><a href="#orgheadline4">2.3. 五月十二日</a></li>
+<li><a href="#orgheadline5">2.4. 五月十三日</a></li>
+<li><a href="#orgheadline6">2.5. 五月十五日</a></li>
+<li><a href="#orgheadline7">2.6. 五月十七日</a></li>
+<li><a href="#orgheadline8">2.7. 五月二十二日</a></li>
+<li><a href="#orgheadline9">2.8. 五月二十六日</a></li>
+<li><a href="#orgheadline10">2.9. 五月二十七日</a></li>
+<li><a href="#orgheadline11">2.10. 五月三十日</a></li>
+<li><a href="#orgheadline12">2.11. 六月十六日</a></li>
+<li><a href="#orgheadline13">2.12. 六月十九日</a></li>
+<li><a href="#orgheadline14">2.13. 六月二十一日</a></li>
+<li><a href="#orgheadline15">2.14. 六月二十九日</a></li>
+<li><a href="#orgheadline16">2.15. 七月一日</a></li>
+<li><a href="#orgheadline17">2.16. 七月六日</a></li>
+<li><a href="#orgheadline18">2.17. 七月八日</a></li>
+<li><a href="#orgheadline19">2.18. 七月十日</a></li>
+<li><a href="#orgheadline20">2.19. 七月十一日</a></li>
+<li><a href="#orgheadline21">2.20. 七月十三日</a></li>
+<li><a href="#orgheadline22">2.21. 七月十六日</a></li>
+<li><a href="#orgheadline23">2.22. 七月十八日</a></li>
+<li><a href="#orgheadline24">2.23. 七月十九日</a></li>
+<li><a href="#orgheadline25">2.24. 七月二十日</a></li>
+<li><a href="#orgheadline26">2.25. 七月二十四日</a></li>
+<li><a href="#orgheadline27">2.26. 七月二十五日</a></li>
+<li><a href="#orgheadline28">2.27. 七月二十六日</a></li>
+<li><a href="#orgheadline29">2.28. 七月三十日</a></li>
+<li><a href="#orgheadline30">2.29. 八月八日</a></li>
+<li><a href="#orgheadline31">2.30. 傍晚</a></li>
+<li><a href="#orgheadline32">2.31. 八月十日</a></li>
+<li><a href="#orgheadline33">2.32. 八月十二日</a></li>
+<li><a href="#orgheadline34">2.33. 八月十五日</a></li>
+<li><a href="#orgheadline35">2.34. 八月十八日</a></li>
+<li><a href="#orgheadline36">2.35. 八月二十一日</a></li>
+<li><a href="#orgheadline37">2.36. 八月二十二日</a></li>
+<li><a href="#orgheadline38">2.37. 八月二十八日</a></li>
+<li><a href="#orgheadline39">2.38. 八月三十日</a></li>
+<li><a href="#orgheadline40">2.39. 九月三日</a></li>
+<li><a href="#orgheadline41">2.40. 九月十日</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3. 下篇</a>
+<li><a href="#orgheadline54">3. 下篇</a>
 <ul>
-<li><a href="#sec-3-1">3.1. 十月二十日</a></li>
-<li><a href="#sec-3-2">3.2. 十一月二十六日</a></li>
-<li><a href="#sec-3-3">3.3. 十二月二十四日</a></li>
-<li><a href="#sec-3-4">3.4. 一七七二年一月八日</a></li>
-<li><a href="#sec-3-5">3.5. 一月二十日</a></li>
-<li><a href="#sec-3-6">3.6. 二月八日</a></li>
-<li><a href="#sec-3-7">3.7. 二月十七日</a></li>
-<li><a href="#sec-3-8">3.8. 二月二十日</a></li>
-<li><a href="#sec-3-9">3.9. 三月十五日</a></li>
-<li><a href="#sec-3-10">3.10. 三月十六日</a></li>
-<li><a href="#sec-3-11">3.11. 三月二十四日</a></li>
+<li><a href="#orgheadline43">3.1. 十月二十日</a></li>
+<li><a href="#orgheadline44">3.2. 十一月二十六日</a></li>
+<li><a href="#orgheadline45">3.3. 十二月二十四日</a></li>
+<li><a href="#orgheadline46">3.4. 一七七二年一月八日</a></li>
+<li><a href="#orgheadline47">3.5. 一月二十日</a></li>
+<li><a href="#orgheadline48">3.6. 二月八日</a></li>
+<li><a href="#orgheadline49">3.7. 二月十七日</a></li>
+<li><a href="#orgheadline50">3.8. 二月二十日</a></li>
+<li><a href="#orgheadline51">3.9. 三月十五日</a></li>
+<li><a href="#orgheadline52">3.10. 三月十六日</a></li>
+<li><a href="#orgheadline53">3.11. 三月二十四日</a></li>
 </ul>
 </li>
-<li><a href="#sec-4">4. 有关信息</a>
+<li><a href="#orgheadline89">4. 有关信息</a>
 <ul>
-<li><a href="#sec-4-1">4.1. 四月十九日</a></li>
-<li><a href="#sec-4-2">4.2. 五月五日</a></li>
-<li><a href="#sec-4-3">4.3. 五月九日</a></li>
-<li><a href="#sec-4-4">4.4. 五月二十五日</a></li>
-<li><a href="#sec-4-5">4.5. 六月十一日</a></li>
-<li><a href="#sec-4-6">4.6. 六月十六日</a></li>
-<li><a href="#sec-4-7">4.7. 六月十八日</a></li>
-<li><a href="#sec-4-8">4.8. 六月二十九日</a></li>
-<li><a href="#sec-4-9">4.9. 八月四日</a></li>
-<li><a href="#sec-4-10">4.10. 八月二十一日</a></li>
-<li><a href="#sec-4-11">4.11. 九月三日</a></li>
-<li><a href="#sec-4-12">4.12. 九月四日</a></li>
-<li><a href="#sec-4-13">4.13. 九月五日</a></li>
-<li><a href="#sec-4-14">4.14. 九月六日</a></li>
-<li><a href="#sec-4-15">4.15. 九月十二日</a></li>
-<li><a href="#sec-4-16">4.16. 九月十五日</a></li>
-<li><a href="#sec-4-17">4.17. 十月十日</a></li>
-<li><a href="#sec-4-18">4.18. 十月十二日</a></li>
-<li><a href="#sec-4-19">4.19. 十月十九日</a></li>
-<li><a href="#sec-4-20">4.20. 十月二十六日</a></li>
-<li><a href="#sec-4-21">4.21. 十月二十七日</a></li>
-<li><a href="#sec-4-22">4.22. 十月二十七日，傍晚</a></li>
-<li><a href="#sec-4-23">4.23. 十月三十日</a></li>
-<li><a href="#sec-4-24">4.24. 十一月三日</a></li>
-<li><a href="#sec-4-25">4.25. 十一月八日</a></li>
-<li><a href="#sec-4-26">4.26. 十一月十五日</a></li>
-<li><a href="#sec-4-27">4.27. 十一月二十一日</a></li>
-<li><a href="#sec-4-28">4.28. 十一月二十二日</a></li>
-<li><a href="#sec-4-29">4.29. 十一月二十四日</a></li>
-<li><a href="#sec-4-30">4.30. 十一月二十六日</a></li>
-<li><a href="#sec-4-31">4.31. 十一月三十日</a></li>
-<li><a href="#sec-4-32">4.32. 十二月一日</a></li>
-<li><a href="#sec-4-33">4.33. 十二月四日</a></li>
-<li><a href="#sec-4-34">4.34. 十二月六日</a></li>
+<li><a href="#orgheadline55">4.1. 四月十九日</a></li>
+<li><a href="#orgheadline56">4.2. 五月五日</a></li>
+<li><a href="#orgheadline57">4.3. 五月九日</a></li>
+<li><a href="#orgheadline58">4.4. 五月二十五日</a></li>
+<li><a href="#orgheadline59">4.5. 六月十一日</a></li>
+<li><a href="#orgheadline60">4.6. 六月十六日</a></li>
+<li><a href="#orgheadline61">4.7. 六月十八日</a></li>
+<li><a href="#orgheadline62">4.8. 六月二十九日</a></li>
+<li><a href="#orgheadline63">4.9. 八月四日</a></li>
+<li><a href="#orgheadline64">4.10. 八月二十一日</a></li>
+<li><a href="#orgheadline65">4.11. 九月三日</a></li>
+<li><a href="#orgheadline66">4.12. 九月四日</a></li>
+<li><a href="#orgheadline67">4.13. 九月五日</a></li>
+<li><a href="#orgheadline68">4.14. 九月六日</a></li>
+<li><a href="#orgheadline69">4.15. 九月十二日</a></li>
+<li><a href="#orgheadline70">4.16. 九月十五日</a></li>
+<li><a href="#orgheadline71">4.17. 十月十日</a></li>
+<li><a href="#orgheadline72">4.18. 十月十二日</a></li>
+<li><a href="#orgheadline73">4.19. 十月十九日</a></li>
+<li><a href="#orgheadline74">4.20. 十月二十六日</a></li>
+<li><a href="#orgheadline75">4.21. 十月二十七日</a></li>
+<li><a href="#orgheadline76">4.22. 十月二十七日，傍晚</a></li>
+<li><a href="#orgheadline77">4.23. 十月三十日</a></li>
+<li><a href="#orgheadline78">4.24. 十一月三日</a></li>
+<li><a href="#orgheadline79">4.25. 十一月八日</a></li>
+<li><a href="#orgheadline80">4.26. 十一月十五日</a></li>
+<li><a href="#orgheadline81">4.27. 十一月二十一日</a></li>
+<li><a href="#orgheadline82">4.28. 十一月二十二日</a></li>
+<li><a href="#orgheadline83">4.29. 十一月二十四日</a></li>
+<li><a href="#orgheadline84">4.30. 十一月二十六日</a></li>
+<li><a href="#orgheadline85">4.31. 十一月三十日</a></li>
+<li><a href="#orgheadline86">4.32. 十二月一日</a></li>
+<li><a href="#orgheadline87">4.33. 十二月四日</a></li>
+<li><a href="#orgheadline88">4.34. 十二月六日</a></li>
 </ul>
 </li>
-<li><a href="#sec-5">5. 编者致读者</a>
+<li><a href="#orgheadline94">5. 编者致读者</a>
 <ul>
-<li><a href="#sec-5-1">5.1. 十二月十二日</a></li>
-<li><a href="#sec-5-2">5.2. 十二月十四日</a></li>
-<li><a href="#sec-5-3">5.3. 十二月二十日</a></li>
-<li><a href="#sec-5-4">5.4. 夜里十一点以后</a></li>
+<li><a href="#orgheadline90">5.1. 十二月十二日</a></li>
+<li><a href="#orgheadline91">5.2. 十二月十四日</a></li>
+<li><a href="#orgheadline92">5.3. 十二月二十日</a></li>
+<li><a href="#orgheadline93">5.4. 夜里十一点以后</a></li>
 </ul>
 </li>
-<li><a href="#sec-6">6. 维基百科引用</a>
+<li><a href="#orgheadline103">6. 维基百科引用</a>
 <ul>
-<li><a href="#sec-6-1">6.1. 故事梗概</a></li>
-<li><a href="#sec-6-2">6.2. 背景知识</a>
+<li><a href="#orgheadline95">6.1. 故事梗概</a></li>
+<li><a href="#orgheadline98">6.2. 背景知识</a>
 <ul>
-<li><a href="#sec-6-2-1">6.2.1. 对夏绿蒂的爱</a></li>
-<li><a href="#sec-6-2-2">6.2.2. 耶稣撒冷的自杀</a></li>
+<li><a href="#orgheadline96">6.2.1. 对夏绿蒂的爱</a></li>
+<li><a href="#orgheadline97">6.2.2. 耶稣撒冷的自杀</a></li>
 </ul>
 </li>
-<li><a href="#sec-6-3">6.3. 社会影响</a>
+<li><a href="#orgheadline102">6.3. 社会影响</a>
 <ul>
-<li><a href="#sec-6-3-1">6.3.1. 争论</a></li>
-<li><a href="#sec-6-3-2">6.3.2. 维特热</a></li>
-<li><a href="#sec-6-3-3">6.3.3. 价值</a></li>
+<li><a href="#orgheadline99">6.3.1. 争论</a></li>
+<li><a href="#orgheadline100">6.3.2. 维特热</a></li>
+<li><a href="#orgheadline101">6.3.3. 价值</a></li>
 </ul>
 </li>
 </ul>
@@ -583,10 +454,10 @@ org_html_manager.setup();  // activate after the parameters are set
 </nav>
 
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 引言</h2>
+<div class="outline-2">
+<h2 id="orgheadline1">引言</h2>
 <div class="outline-text-2" id="text-1">
-<div class="notecard">
+<div class="NOTECARD">
 <p>
 有关可怜维特的故事，凡是我能搜集到的，我都尽力汇集在这里，供你们翻阅，我知道你们将为此而感谢我。对于他的精神和性格，你们定会深表钦佩和爱怜，对于他的命运定会洒下你们的泪水。
 </p>
@@ -598,14 +469,14 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 </div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 上篇</h2>
+<div class="outline-2">
+<h2 id="orgheadline42">上篇</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 一七七一年五月四日</h3>
+</div><div class="outline-3">
+<h3 id="orgheadline2">一七七一年五月四日</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-我终于走了，心里好高兴！我的挚友，人的心好生奇怪！离开了你，离开了我如此深爱、简直难以分离的你，我居然会感到高兴！我知道，你会原谅我的。命运偏偏安排我卷入一些感情纠葛之中，不正是为了使我这颗心惶惶终日吗？可怜的莱奥诺蕾！可是这并不是我的过错呀。她妹妹独特的魅力令我赏心惬意，而她那可怜的心儿却对我萌生了恋情，这能怨我吗？不过，我就完全没有责任吗？难道我没有培育她的感情？她吐自肺腑的纯真的言谈原本没有什么可笑，而我们却往往为之开怀大笑，我自己不是也曾以此来逗乐吗？难道我不曾<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>——啊，人呀，自己抱怨一阵又有何用！亲爱的朋友，我向你保证，我要，我要改正，我不会再像往常那样，把命运加给我们的一点儿不幸拿来反复咀嚼；我要享受现时，过去的事就让它过去吧。你说得对，我的挚友，人要是不那么死心眼、不那么执著地去追忆往昔的不幸——上帝知道人为什么这样！——，而是更多地考虑如何对现时处境泰然处之，那么人的苦楚就会小得多。
+我终于走了，心里好高兴！我的挚友，人的心好生奇怪！离开了你，离开了我如此深爱、简直难以分离的你，我居然会感到高兴！我知道，你会原谅我的。命运偏偏安排我卷入一些感情纠葛之中，不正是为了使我这颗心惶惶终日吗？可怜的莱奥诺蕾！可是这并不是我的过错呀。她妹妹独特的魅力令我赏心惬意，而她那可怜的心儿却对我萌生了恋情，这能怨我吗？不过，我就完全没有责任吗？难道我没有培育她的感情？她吐自肺腑的纯真的言谈原本没有什么可笑，而我们却往往为之开怀大笑，我自己不是也曾以此来逗乐吗？难道我不曾<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>——啊，人呀，自己抱怨一阵又有何用！亲爱的朋友，我向你保证，我要，我要改正，我不会再像往常那样，把命运加给我们的一点儿不幸拿来反复咀嚼；我要享受现时，过去的事就让它过去吧。你说得对，我的挚友，人要是不那么死心眼、不那么执著地去追忆往昔的不幸——上帝知道人为什么这样！——，而是更多地考虑如何对现时处境泰然处之，那么人的苦楚就会小得多。
 </p>
 
 <p>
@@ -626,8 +497,8 @@ org_html_manager.setup();  // activate after the parameters are set
 
 
 
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 五月十日</h3>
+<div class="outline-3">
+<h3 id="orgheadline3">五月十日</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 我整个灵魂都充满了奇妙的欢快，犹如我以整个心身欣赏的甜美的春晨。我独自一人，在这专为像我那样的人所创造的地方领受着生活的欢欣。我是多么幸福啊，我的挚友，我完全沉浸在宁静生活的感受之中，以至于把自己的艺术也搁置在一边。我现在无法作画，一笔也画不了，和以往相比，此刻我是位更伟大的画家。每当这可爱的山谷里的雾气在我周围蒸腾，太阳高悬在我那片幽暗的树林上空，只有几束阳光悄悄射进树林中的圣地时，我便卧躺在山涧那飞跌而下的溪水边的葳蕤(wēi ruí)的野草中，挨着地面观察千姿百态的小草；每当我感觉到我的心贴近草丛中麇(mí)集扰扰的小世界，贴近各种虫豸(zhì)蚊蝇千差万别、不可胜数的形状时，我就感到那个照他自己的模样创造我们的全能的上帝的存在，感觉到那个飘逸地将我们带进永恒快乐之中的博爱天父的呼吸；我的朋友，每当后来我眼前暮色朦胧，我周围的世界以及天空像情人的倩影整个都憩息在我心灵中时，我往往便会生出憧憬，并思忖：啊，你要是能把这一切重现，要是能将你心中如此丰富、如此温馨的情景写在纸上，使之成为你心灵的镜子，犹如你的心灵是博大无垠的上帝的镜子一样，那该多好！——我的朋友——不过，我要是真是这样去做，就必将陨灭，在这些宏伟壮丽的景象的威力下，我定将魂销魄散。
@@ -636,18 +507,18 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 五月十二日</h3>
+<div class="outline-3">
+<h3 id="orgheadline4">五月十二日</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-我不知道，这地方是有迷惑人的精灵在游荡，还是我心里温馨、美妙的奇思异想把我周围的一切变得如伊甸园般的美好。花园前面有一口水井，我像美露茜<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>及其姐妹一样，对这口井着了迷。——走下一座小山，就是一座拱门，再往下走二十级台阶，便有一股清泉从大理石岩缝中喷涌而出。泉水四周砌了矮矮的井栏，大树的浓荫覆盖着周围的地面，凉爽宜人。这一切既让人留连忘返，又令人悚然心悸。我每天都去那儿坐上一小时，一天不落。城里的姑娘都来这儿打水，这是一种最普通、最必需的家务，从前国王的女儿也要亲自操持。每当我坐在那儿，古代宗法社会的情景便会在我眼前浮现：先祖们在水井旁结识、联姻，<sup><a id="fnr.3" name="fnr.3" class="footref" href="#fn.3">3</a></sup>仁慈的精灵翱翔在水井和清泉的上空。哦，谁要是没有在炎暑劳顿跋涉之后享受了井畔的清凉而感到神清气爽，他对我的体会就不会感同身受。
+我不知道，这地方是有迷惑人的精灵在游荡，还是我心里温馨、美妙的奇思异想把我周围的一切变得如伊甸园般的美好。花园前面有一口水井，我像美露茜<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>及其姐妹一样，对这口井着了迷。——走下一座小山，就是一座拱门，再往下走二十级台阶，便有一股清泉从大理石岩缝中喷涌而出。泉水四周砌了矮矮的井栏，大树的浓荫覆盖着周围的地面，凉爽宜人。这一切既让人留连忘返，又令人悚然心悸。我每天都去那儿坐上一小时，一天不落。城里的姑娘都来这儿打水，这是一种最普通、最必需的家务，从前国王的女儿也要亲自操持。每当我坐在那儿，古代宗法社会的情景便会在我眼前浮现：先祖们在水井旁结识、联姻，<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>仁慈的精灵翱翔在水井和清泉的上空。哦，谁要是没有在炎暑劳顿跋涉之后享受了井畔的清凉而感到神清气爽，他对我的体会就不会感同身受。
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 五月十三日</h3>
+<div class="outline-3">
+<h3 id="orgheadline5">五月十三日</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 你问，要不要把我的书寄来？——亲爱的朋友，我求你看在上帝份上，别让书籍来打扰我！我不想再要什么指导、嘉勉和激励，我这颗心本身就已经够激荡翻腾的了；我需要的是摇篮曲，这我在荷马史诗中已经找到了好多。我常常将它们低声吟诵，以使我极度兴奋的热血冷静下来，因为像我这颗那么变幻无常、捉摸不定的心，你还从未见过呢。亲爱的朋友，你见我由苦闷变为放纵，由甜蜜的忧郁转为伤骨耗精的激情，你在替我担着多大的心，这还用我对你说吗？我自己也把我这颗心当成一个生病的孩子，任其随心所欲。这些情况请不要告诉别人，要不准有人要怪罪我的。
@@ -655,8 +526,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2-5" class="outline-3">
-<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 五月十五日</h3>
+<div class="outline-3">
+<h3 id="orgheadline6">五月十五日</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 当地的下层老百姓已经认识我了，并且很喜欢我，尤其是孩子。我来作个有点儿可悲的说明：起先我去接近他们，友好地向他们问这问那，于是有人就以为我是要取笑他们，便粗暴地将我打发走。对此我倒并不生气，只不过我对我以前常说的事有了极其生动的体会：某些稍有地位的人对老百姓总是冷冰冰地采取疏远的态度，他们似乎以为接近老百姓有失他们的身份；还有一些浅薄之辈和捣蛋的家伙，他们做出一副降贵纡(yū)尊的姿态，好在穷苦百姓面前更显得鹤立鸡群。
@@ -673,8 +544,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-6" class="outline-3">
-<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 五月十七日</h3>
+<div class="outline-3">
+<h3 id="orgheadline7">五月十七日</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 我已结识了形形色色的人，但知心朋友却尚未找到。我不知道，我究竟有些什么东西吸引人，令那么多人喜欢我、疼爱我，每当我们只能一起走一小段路，我就感到难过。你要是问这儿的人怎么样，那我要告诉你：和各处的一样！人都是一个模子里造出来的。多数人为了生计，干活耗去了大部分时间，剩下的一点儿业余时间却令他们犯了闲愁，非得挖空心思、想方设法把它打发掉。啊，人就是这么个命！
@@ -685,15 +556,15 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-唉，我青年时代的女友已经离开人间<sup><a id="fnr.4" name="fnr.4" class="footref" href="#fn.4">4</a></sup>，啊，我与她曾经相识！——我真想说：你是傻瓜！你在寻找人世间无法找到的东西！但是我曾拥有过她，我曾感到过她那颗心，那个伟大的灵魂，只要有她在，我就觉得比我实际的境界高出了许多，因为凡是我能做到的一切，我都达到了。仁慈的上帝！难道那时我灵魂中还有一丝精力未曾使用？在她面前难道我不能抒发我的心用以拥抱大自然的全部奇妙的感情？我们的交往中难道不是持续不断地织进了最纤细的感情、最敏锐的睿智，直至妙趣横生的谐谑和胡闹？这一切不全都打上了天才的印记？而如今！——啊，岁月，她长我的几年岁月，竟将她先于我带进了坟墓。我永远忘不了她，永远忘不了她那坚定的意志和她非凡的宽容。
+唉，我青年时代的女友已经离开人间<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>，啊，我与她曾经相识！——我真想说：你是傻瓜！你在寻找人世间无法找到的东西！但是我曾拥有过她，我曾感到过她那颗心，那个伟大的灵魂，只要有她在，我就觉得比我实际的境界高出了许多，因为凡是我能做到的一切，我都达到了。仁慈的上帝！难道那时我灵魂中还有一丝精力未曾使用？在她面前难道我不能抒发我的心用以拥抱大自然的全部奇妙的感情？我们的交往中难道不是持续不断地织进了最纤细的感情、最敏锐的睿智，直至妙趣横生的谐谑和胡闹？这一切不全都打上了天才的印记？而如今！——啊，岁月，她长我的几年岁月，竟将她先于我带进了坟墓。我永远忘不了她，永远忘不了她那坚定的意志和她非凡的宽容。
 </p>
 
 <p>
-几天前我遇见一位年轻人Ｖ，他是位襟怀坦荡的青年，脸也很俊。他刚从大学毕业，虽不自命不凡，但总以为比别人知道得多。我从各方面都感觉到，他也很勤奋，总之，他的学问不错。他听说我会画画，懂希腊文（这两件事在此地简直可说是寥若晨星），便来看我，叙谈中他从巴妥到伍德<sup><a id="fnr.5" name="fnr.5" class="footref" href="#fn.5">5</a></sup>，从德皮勒到温克尔曼<sup><a id="fnr.6" name="fnr.6" class="footref" href="#fn.6">6</a></sup>，将自己渊博的知识都抖搂出来炫耀一番，并对我说，他已通读了苏尔策<sup><a id="fnr.7" name="fnr.7" class="footref" href="#fn.7">7</a></sup>理论的第一部分，还拥有一部海纳<sup><a id="fnr.8" name="fnr.8" class="footref" href="#fn.8">8</a></sup>研究古希腊文化的讲稿。我则没去答理，任他吹得天花乱坠。
+几天前我遇见一位年轻人Ｖ，他是位襟怀坦荡的青年，脸也很俊。他刚从大学毕业，虽不自命不凡，但总以为比别人知道得多。我从各方面都感觉到，他也很勤奋，总之，他的学问不错。他听说我会画画，懂希腊文（这两件事在此地简直可说是寥若晨星），便来看我，叙谈中他从巴妥到伍德<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>，从德皮勒到温克尔曼<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>，将自己渊博的知识都抖搂出来炫耀一番，并对我说，他已通读了苏尔策<sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup>理论的第一部分，还拥有一部海纳<sup><a id="fnr.8" class="footref" href="#fn.8">8</a></sup>研究古希腊文化的讲稿。我则没去答理，任他吹得天花乱坠。
 </p>
 
 <p>
-我还认识了一位正派人，他是侯爵在此设置的地方法官<sup><a id="fnr.9" name="fnr.9" class="footref" href="#fn.9">9</a></sup>，是个直爽、坦诚的好人。有人说，见他和他九个孩子在一起的情景，真是件赏心的乐事；尤其是对他的大女儿，人们更是交口称赞。他已邀请我去他家，我想近日去拜访他。他住在侯爵的一所猎庄里，离这里一个半小时路程，他是在妻子去世后获准迁往那儿的，要不，再住城里的官邸只能使他触景生情，陡增悲痛。
+我还认识了一位正派人，他是侯爵在此设置的地方法官<sup><a id="fnr.9" class="footref" href="#fn.9">9</a></sup>，是个直爽、坦诚的好人。有人说，见他和他九个孩子在一起的情景，真是件赏心的乐事；尤其是对他的大女儿，人们更是交口称赞。他已邀请我去他家，我想近日去拜访他。他住在侯爵的一所猎庄里，离这里一个半小时路程，他是在妻子去世后获准迁往那儿的，要不，再住城里的官邸只能使他触景生情，陡增悲痛。
 </p>
 
 <p>
@@ -706,15 +577,15 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-2-7" class="outline-3">
-<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 五月二十二日</h3>
+<div class="outline-3">
+<h3 id="orgheadline8">五月二十二日</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 人生如梦，有人已经有此体验，这种感觉也萦绕在我的心头。每当我看到禁锢着人类创造力和探索力的那些局限；每当我看到人类把他们的精力全都耗费在设法满足目的仅仅是为了延长我们可怜的生存之各种需求上，看到要从探索的某些目标中得到慰藉那只是梦里听天由命的企盼，犹如一个被囚禁的人把囚室的墙上画上各种彩色人像和明丽的风光——威廉呀，对于这一切我只能缄默不语。于是我就回复到自己的内心，竟发现了一个世界！我更多地沉浸在思绪和隐秘的欲愿之中，而不是去表现生气勃勃的力量。在我的感官面前一切都变得朦胧恍惚，我也梦幻似地含笑进入这个世界。
 </p>
 
 <p>
-满腹经纶的各级教师都一致认为，孩子们并不懂得他们所欲为何；成人也同孩子一样在这个地球上到处磕磕绊绊，劳碌奔忙，既不知道自己来自何处，欲往何方，办事也无真正的意向，只好成为饼干、糕点和桦树条的奴隶<sup><a id="fnr.10" name="fnr.10" class="footref" href="#fn.10">10</a></sup>：这些谁也不愿相信，然而我却觉得，这是一目了然的。
+满腹经纶的各级教师都一致认为，孩子们并不懂得他们所欲为何；成人也同孩子一样在这个地球上到处磕磕绊绊，劳碌奔忙，既不知道自己来自何处，欲往何方，办事也无真正的意向，只好成为饼干、糕点和桦树条的奴隶<sup><a id="fnr.10" class="footref" href="#fn.10">10</a></sup>：这些谁也不愿相信，然而我却觉得，这是一目了然的。
 </p>
 
 <p>
@@ -724,22 +595,22 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-8" class="outline-3">
-<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 五月二十六日</h3>
+<div class="outline-3">
+<h3 id="orgheadline9">五月二十六日</h3>
 <div class="outline-text-3" id="text-2-8">
 <p>
 我爱找个合意的地方盖间小屋栖居，极其简朴地在那儿住下，我的这个脾性你早就知道。这里我又已发现了一个非常吸引我的好去处。
 </p>
 
 <p>
-有个叫瓦尔海姆<sup><a id="fnr.11" name="fnr.11" class="footref" href="#fn.11">11</a></sup>的地方，离城大约一小时路程，坐落在山坡上，令人神往，走上通往村里的山路，整座山谷便尽收眼底。那位上了年纪的酒店女老板是个殷勤好客、古道热肠的人，她给我斟了葡萄酒、啤酒，倒了杯咖啡；最令人陶醉的是那两棵菩提树，它伸展的枝桠覆盖了教堂前的农舍、谷仓和场院围绕的小场地。像这样令人神往、又不惹人注意的去处实在不容易找到，我常常让侍者从酒店里把小桌子和椅子搬到菩提树下，边喝咖啡，边读我的荷马。第一次，我在一个风和日丽的下午偶然来到菩提树下，发现场地上很冷清，大家都下地干活去了；只有一个大约四岁的孩子坐在地上，面前另一个大约半岁的小孩坐在他的双脚之间，他用双手搂着他，让他靠在自己怀里，正好成了小孩的靠背椅，虽然他的一双黑眼睛在活泼地东看西望，但他却一直安安静静地坐着。看到这一情景，我心里乐不可支；我便在对面的一张耕犁上坐下，兴致勃勃地画下了这兄弟俩的姿态。我又添上近处的篱笆，仓房的大门以及几个坏了的车轱辘，所有这些都按其前后远近的位置加以处理，经过一小时便完成了一幅精心布局、意趣盎然的作品，画上丝毫没有加进我自己的想法。这增强了今后我纯粹要遵循自然的决心。惟有自然才是无穷丰富的，惟有自然才能造就伟大的艺术家。对于成规的好处，人们可以赞美揄扬，大体犹如对于市民社会也可众口齐颂一样。一个按成规造就出来的人绝不会画出乏味拙劣的东西来，正如一个规矩守法的人绝不会令邻居讨厌，绝不会成为恶毒的歹徒，但是，另一方面，一切成规无论怎么说，也必定会破坏自然的感情和对自然的真实表现！你会说：“这太极端了！成规只起约束作用，把疯长的葡萄蔓修剪修剪”等等——好友，要我给你打个比方吗？这就像是谈恋爱。小伙子钟情于一位姑娘，成天厮守在她身边，耗尽了全部精力和财产，为的是好时时刻刻向她表白他对她一往情深的感情。这时来了个担任公职的市侩，对小伙子说：“可爱的年轻先生，恋爱是人之常情，你的爱也应合乎情理！把你的时间分配一下，一部分时间用来工作，休息时间就给你心爱的姑娘。算算你的财产，除去必要的开销，余下的我倒不反对你买件礼物送她，只不过不要送得太频繁，大体上在她的生日和命名日送她就行了”等等诸如此类的话。——要是听了这位庸人的话，那末就会出现一个有为的青年，我甚至可以向任何一位侯爵推荐，给他一个职位；不过他的爱情就完了，倘若他是艺术家，他的艺术也就完了。啊，朋友们，为什么天才的河流难得冲破堤岸，难得成为汹涌澎湃的洪水，震撼你惊愕的灵魂？——亲爱的朋友们，其原因就在于，两岸住的是沉着冷静、深思熟虑的老爷，他们担心自己花园中的亭榭、郁金香花圃以及菜园会被洪水冲毁，所以知道及时筑堤挖渠，以防患于未然。
+有个叫瓦尔海姆<sup><a id="fnr.11" class="footref" href="#fn.11">11</a></sup>的地方，离城大约一小时路程，坐落在山坡上，令人神往，走上通往村里的山路，整座山谷便尽收眼底。那位上了年纪的酒店女老板是个殷勤好客、古道热肠的人，她给我斟了葡萄酒、啤酒，倒了杯咖啡；最令人陶醉的是那两棵菩提树，它伸展的枝桠覆盖了教堂前的农舍、谷仓和场院围绕的小场地。像这样令人神往、又不惹人注意的去处实在不容易找到，我常常让侍者从酒店里把小桌子和椅子搬到菩提树下，边喝咖啡，边读我的荷马。第一次，我在一个风和日丽的下午偶然来到菩提树下，发现场地上很冷清，大家都下地干活去了；只有一个大约四岁的孩子坐在地上，面前另一个大约半岁的小孩坐在他的双脚之间，他用双手搂着他，让他靠在自己怀里，正好成了小孩的靠背椅，虽然他的一双黑眼睛在活泼地东看西望，但他却一直安安静静地坐着。看到这一情景，我心里乐不可支；我便在对面的一张耕犁上坐下，兴致勃勃地画下了这兄弟俩的姿态。我又添上近处的篱笆，仓房的大门以及几个坏了的车轱辘，所有这些都按其前后远近的位置加以处理，经过一小时便完成了一幅精心布局、意趣盎然的作品，画上丝毫没有加进我自己的想法。这增强了今后我纯粹要遵循自然的决心。惟有自然才是无穷丰富的，惟有自然才能造就伟大的艺术家。对于成规的好处，人们可以赞美揄扬，大体犹如对于市民社会也可众口齐颂一样。一个按成规造就出来的人绝不会画出乏味拙劣的东西来，正如一个规矩守法的人绝不会令邻居讨厌，绝不会成为恶毒的歹徒，但是，另一方面，一切成规无论怎么说，也必定会破坏自然的感情和对自然的真实表现！你会说：“这太极端了！成规只起约束作用，把疯长的葡萄蔓修剪修剪”等等——好友，要我给你打个比方吗？这就像是谈恋爱。小伙子钟情于一位姑娘，成天厮守在她身边，耗尽了全部精力和财产，为的是好时时刻刻向她表白他对她一往情深的感情。这时来了个担任公职的市侩，对小伙子说：“可爱的年轻先生，恋爱是人之常情，你的爱也应合乎情理！把你的时间分配一下，一部分时间用来工作，休息时间就给你心爱的姑娘。算算你的财产，除去必要的开销，余下的我倒不反对你买件礼物送她，只不过不要送得太频繁，大体上在她的生日和命名日送她就行了”等等诸如此类的话。——要是听了这位庸人的话，那末就会出现一个有为的青年，我甚至可以向任何一位侯爵推荐，给他一个职位；不过他的爱情就完了，倘若他是艺术家，他的艺术也就完了。啊，朋友们，为什么天才的河流难得冲破堤岸，难得成为汹涌澎湃的洪水，震撼你惊愕的灵魂？——亲爱的朋友们，其原因就在于，两岸住的是沉着冷静、深思熟虑的老爷，他们担心自己花园中的亭榭、郁金香花圃以及菜园会被洪水冲毁，所以知道及时筑堤挖渠，以防患于未然。
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2-9" class="outline-3">
-<h3 id="sec-2-9"><span class="section-number-3">2.9</span> 五月二十七日</h3>
+<div class="outline-3">
+<h3 id="orgheadline10">五月二十七日</h3>
 <div class="outline-text-3" id="text-2-9">
 <p>
 我发现，我着迷了，一味打比方，发议论，忘了把这两个孩子后来的情形向你讲完。我在犁头上坐了两个小时，我的思绪完全陶醉于作画中，昨天的信上已零零碎碎地对你谈起过。傍晚，一位手挎小篮的年轻女子朝着一直一动不动地坐在那儿的两个孩子走来，她老远就喊道：“菲利普斯，你真乖。”——她问候了我，我谢过她，站起身来，走到她跟前，问她是不是孩子的母亲。她作了肯定的回答，同时给了大孩子半块面包，抱起小的，以满怀深情的母爱亲吻他。——“我把这个小的交给菲利普斯照看，”她说，“我同大儿子进城买面包、糖和煮稀饭的沙锅去了。”——在她揭开盖的篮子里我看到了这些东西。——“晚上我要煮点稀粥给汉斯（这是那个最小的孩子的名字）喝；我那大儿子是个淘气包，昨天他同菲利普斯争吃沙锅里的一点剩粥时，把锅打碎了。”——我问起她大儿子的情况，她说他在草地上放鹅，刚说着，他就连蹦带跳地来了，还给老二带来一根榛(zhēn)树枝。我跟这女人继续聊着，得知她是学校教师的女儿，她丈夫到瑞士取他堂兄的遗产去了。——“他们想吃掉他的这笔遗产，”她说，“连回信都不给他，所以他亲自到瑞士去了。但愿他没遭到什么不测，我一直没有得到他的消息。”——离开这女人时，我心里很难过，便给每个孩子一枚克罗采，最小的孩子的一枚给了他妈妈，等她进城时好买个面包给他就粥吃，随后我们便彼此道别。
@@ -764,8 +635,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-10" class="outline-3">
-<h3 id="sec-2-10"><span class="section-number-3">2.10</span> 五月三十日</h3>
+<div class="outline-3">
+<h3 id="orgheadline11">五月三十日</h3>
 <div class="outline-text-3" id="text-2-10">
 <p>
 不久前我同你说的关于绘画的想法，当然对于诗歌创作也是适用的，只不过要识得其精髓，大胆加以说出，当然言要洗练，意要隽永。今天我看到一个场景，只要实录下来，就是世上最美的田园诗；可是诗歌、场景和田园诗要写成什么样呢？我们要体验自然现象难道非得刻意雕琢才成？
@@ -789,8 +660,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-2-11" class="outline-3">
-<h3 id="sec-2-11"><span class="section-number-3">2.11</span> 六月十六日</h3>
+<div class="outline-3">
+<h3 id="orgheadline12">六月十六日</h3>
 <div class="outline-text-3" id="text-2-11">
 <p>
 为什么我没有给你写信？——你提出这个问题，说明你凭你的智慧和经验已经先有所知。你准能猜到，我一切都很好，甚至——简而言之，我认识了一个人，她紧紧地牵动着我的心。我已经——我不知道。
@@ -841,19 +712,19 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-我舞伴的堂姐问绿蒂，新近寄给她的那本书看完没有。——“没有，”绿蒂说，“这本书我不喜欢，可以还给您了。上次那本也不怎么好看。”——我问这两本是什么书，她的回答使我大为吃惊：……<sup><a id="fnr.12" name="fnr.12" class="footref" href="#fn.12">12</a></sup>——我发现，她所谈的那些看法都很有个性，我看到，她的每一句话都使她脸上现出新的魅力，闪着新的精神的光辉。慢慢地，她的脸显得神采飞扬，因为她从我身上感觉到，我是理解她的。
+我舞伴的堂姐问绿蒂，新近寄给她的那本书看完没有。——“没有，”绿蒂说，“这本书我不喜欢，可以还给您了。上次那本也不怎么好看。”——我问这两本是什么书，她的回答使我大为吃惊：……<sup><a id="fnr.12" class="footref" href="#fn.12">12</a></sup>——我发现，她所谈的那些看法都很有个性，我看到，她的每一句话都使她脸上现出新的魅力，闪着新的精神的光辉。慢慢地，她的脸显得神采飞扬，因为她从我身上感觉到，我是理解她的。
 </p>
 
 <p>
-“早些年，”她说，“我最喜欢的就是小说。每当我星期天坐在一个角落里，用我整个心分担着燕妮小姐<sup><a id="fnr.13" name="fnr.13" class="footref" href="#fn.13">13</a></sup>的幸福与灾祸时，上帝知道，那有多快乐。我也不否认，这类小说今天对我仍有某些吸引力，可是因为我现在很少有时间看书，因此读的书也得要适合自己的胃口。我最喜爱的作家应是这样的：在他的作品中重新找到我的世界，他作品中描写的事情就像发生在我周围一般，并要觉得他的故事亲切有趣，宛如自己家里的生活，它虽然不是天堂，可是总的来说却是一个无法言表的幸福源泉。
+“早些年，”她说，“我最喜欢的就是小说。每当我星期天坐在一个角落里，用我整个心分担着燕妮小姐<sup><a id="fnr.13" class="footref" href="#fn.13">13</a></sup>的幸福与灾祸时，上帝知道，那有多快乐。我也不否认，这类小说今天对我仍有某些吸引力，可是因为我现在很少有时间看书，因此读的书也得要适合自己的胃口。我最喜爱的作家应是这样的：在他的作品中重新找到我的世界，他作品中描写的事情就像发生在我周围一般，并要觉得他的故事亲切有趣，宛如自己家里的生活，它虽然不是天堂，可是总的来说却是一个无法言表的幸福源泉。
 </p>
 
 <p>
-听了这番话，我竭力掩饰自己的激动，当然没能掩饰多久：当我听到她剀<sup><a id="fnr.14" name="fnr.14" class="footref" href="#fn.14">14</a></sup>切中理地随口谈起威克菲尔德牧师<sup><a id="fnr.15" name="fnr.15" class="footref" href="#fn.15">15</a></sup>，谈起……时，我情不自禁，便将不吐不快的话统统告诉了她。过了一会儿，绿蒂转过身去同两位女伴说话时我才发现，那两位姑娘方才一直被冷落了，她们睁着大眼睛，心不在焉，仿佛没有在场似的。堂姐不只一次嗤着鼻子嘲讽地盯着我，对此我却毫不在意。
+听了这番话，我竭力掩饰自己的激动，当然没能掩饰多久：当我听到她剀<sup><a id="fnr.14" class="footref" href="#fn.14">14</a></sup>切中理地随口谈起威克菲尔德牧师<sup><a id="fnr.15" class="footref" href="#fn.15">15</a></sup>，谈起……时，我情不自禁，便将不吐不快的话统统告诉了她。过了一会儿，绿蒂转过身去同两位女伴说话时我才发现，那两位姑娘方才一直被冷落了，她们睁着大眼睛，心不在焉，仿佛没有在场似的。堂姐不只一次嗤着鼻子嘲讽地盯着我，对此我却毫不在意。
 </p>
 
 <p>
-话题转到跳舞的乐趣上来了。——“如果热情是个缺陷，”绿蒂说，“那我也乐意向你们承认，我不知道还有什么比跳舞更美的了。我心里烦闷的时候，只要到我那架音调不正的钢琴上去弹上一曲对舞<sup><a id="fnr.16" name="fnr.16" class="footref" href="#fn.16">16</a></sup>，情绪就好了。”
+话题转到跳舞的乐趣上来了。——“如果热情是个缺陷，”绿蒂说，“那我也乐意向你们承认，我不知道还有什么比跳舞更美的了。我心里烦闷的时候，只要到我那架音调不正的钢琴上去弹上一曲对舞<sup><a id="fnr.16" class="footref" href="#fn.16">16</a></sup>，情绪就好了。”
 </p>
 
 <p>
@@ -865,11 +736,11 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-我们跳起了小步舞，一对对旋转着；我一个个请姑娘们跳，可是恰恰是那些最不惹人喜欢的姑娘偏偏不及时向你伸出手来，作出结束的表示。<sup><a id="fnr.17" name="fnr.17" class="footref" href="#fn.17">17</a></sup>绿蒂和她的舞伴开始跳英国舞<sup><a id="fnr.18" name="fnr.18" class="footref" href="#fn.18">18</a></sup>了。轮到她来跟我们一起跳出图形时，我心里那份惬意呀，你是会感觉到的。你一定得看看她的舞姿！你看，她跳得多么投入，她的全部身心都融入了舞蹈，她的整个身体非常和谐，她是那么逍遥自在，那么飘逸潇洒，仿佛跳舞就是一切，除此之外她别无所想，别无所感；此刻，在她眼前其他一切都消失了。
+我们跳起了小步舞，一对对旋转着；我一个个请姑娘们跳，可是恰恰是那些最不惹人喜欢的姑娘偏偏不及时向你伸出手来，作出结束的表示。<sup><a id="fnr.17" class="footref" href="#fn.17">17</a></sup>绿蒂和她的舞伴开始跳英国舞<sup><a id="fnr.18" class="footref" href="#fn.18">18</a></sup>了。轮到她来跟我们一起跳出图形时，我心里那份惬意呀，你是会感觉到的。你一定得看看她的舞姿！你看，她跳得多么投入，她的全部身心都融入了舞蹈，她的整个身体非常和谐，她是那么逍遥自在，那么飘逸潇洒，仿佛跳舞就是一切，除此之外她别无所想，别无所感；此刻，在她眼前其他一切都消失了。
 </p>
 
 <p>
-我请她跳第二轮对舞；她答应同我跳第三轮，她以世界上最真诚的态度对我说，她最喜欢跳德国舞<sup><a id="fnr.19" name="fnr.19" class="footref" href="#fn.19">19</a></sup>。——“跳德国舞时，原来的每对舞伴都要在一起跳，这是这里的习惯，”她接着说，“我的舞伴华尔兹跳得不好，倘若我免去他跳华尔兹，他会感谢我的。与您配对的那位姑娘也不会跳，而且也不喜欢，我看见您跳英国舞时旋转得很好；要是您愿意同我跳德国舞，您就到我的舞伴那儿去征得他的同意，我也去跟您的舞伴打个招呼。”——我随即握住她的手，我们商定，跳华尔兹的时候让她的舞伴去同我的舞伴聊天。
+我请她跳第二轮对舞；她答应同我跳第三轮，她以世界上最真诚的态度对我说，她最喜欢跳德国舞<sup><a id="fnr.19" class="footref" href="#fn.19">19</a></sup>。——“跳德国舞时，原来的每对舞伴都要在一起跳，这是这里的习惯，”她接着说，“我的舞伴华尔兹跳得不好，倘若我免去他跳华尔兹，他会感谢我的。与您配对的那位姑娘也不会跳，而且也不喜欢，我看见您跳英国舞时旋转得很好；要是您愿意同我跳德国舞，您就到我的舞伴那儿去征得他的同意，我也去跟您的舞伴打个招呼。”——我随即握住她的手，我们商定，跳华尔兹的时候让她的舞伴去同我的舞伴聊天。
 </p>
 
 <p>
@@ -893,10 +764,10 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-有的人希望能赢得一个美美的吻，我看见他们都把嘴撅成了喇叭状，伸胳膊伸腿地作好了接吻的准备。——“我们来玩数数！”绿蒂说。“请注意！我挨着圈子从右往左走，你们则顺序往下数，每人喊出自己轮到的数字，要数得飞快，就像野火蔓延一样，谁要是停了下来，或者数错了，他就得吃一记耳光，一直数到一千为止。”——这下可热闹了：绿蒂伸出胳膊，顺着圈子转。第一个喊了“一”，旁边的喊“二”，下一个喊“三”，挨次往下报数。此后她的步伐加快，而且越来越快；这时有位报错了数：啪！一记响亮的耳光。下一个在哈哈大笑，啪的一声也吃了一个。绿蒂又加快了速度。我自己也挨了两下，我发现，她给我的两记耳光比给别人的重，我好暗自心喜！一千还没数完，屋里早就笑声震耳，这个游戏也只得收场。知己朋友互相拉到一边，这时雷雨已经过去，我随绿蒂回到大厅，路上她说：“挨了耳光，他们把雷雨以及别的一切统统都忘了！”——我没有什么话来回答她。——“我的胆子最小，”她接着说，“我装作不怕的样子，以鼓起别人的勇气，结果我自己也真的变得胆大了。”——我们走到窗前。隆隆的雷声在远方滚响，大雨哗哗地落在大地上，腾起一股沁人心脾的芳香，它随温暖的空气朝我们飘来。绿蒂用胳膊肘支撑在窗台上，凝视窗外的原野，她望望天空，又望望我，我看到她的眸子已含满了泪水，她把手放在我的手上，说：“克洛普施托克！”——我立即想起萦绕在她心里的那首壮丽的颂歌 <sup><a id="fnr.20" name="fnr.20" class="footref" href="#fn.20">20</a></sup> ，
+有的人希望能赢得一个美美的吻，我看见他们都把嘴撅成了喇叭状，伸胳膊伸腿地作好了接吻的准备。——“我们来玩数数！”绿蒂说。“请注意！我挨着圈子从右往左走，你们则顺序往下数，每人喊出自己轮到的数字，要数得飞快，就像野火蔓延一样，谁要是停了下来，或者数错了，他就得吃一记耳光，一直数到一千为止。”——这下可热闹了：绿蒂伸出胳膊，顺着圈子转。第一个喊了“一”，旁边的喊“二”，下一个喊“三”，挨次往下报数。此后她的步伐加快，而且越来越快；这时有位报错了数：啪！一记响亮的耳光。下一个在哈哈大笑，啪的一声也吃了一个。绿蒂又加快了速度。我自己也挨了两下，我发现，她给我的两记耳光比给别人的重，我好暗自心喜！一千还没数完，屋里早就笑声震耳，这个游戏也只得收场。知己朋友互相拉到一边，这时雷雨已经过去，我随绿蒂回到大厅，路上她说：“挨了耳光，他们把雷雨以及别的一切统统都忘了！”——我没有什么话来回答她。——“我的胆子最小，”她接着说，“我装作不怕的样子，以鼓起别人的勇气，结果我自己也真的变得胆大了。”——我们走到窗前。隆隆的雷声在远方滚响，大雨哗哗地落在大地上，腾起一股沁人心脾的芳香，它随温暖的空气朝我们飘来。绿蒂用胳膊肘支撑在窗台上，凝视窗外的原野，她望望天空，又望望我，我看到她的眸子已含满了泪水，她把手放在我的手上，说：“克洛普施托克！”——我立即想起萦绕在她心里的那首壮丽的颂歌 <sup><a id="fnr.20" class="footref" href="#fn.20">20</a></sup> ，
 </p>
 
-<div class="notecard">
+<div class="NOTECARD">
 <p class="verse">
 啊，惠雨哗哗地、<br >
 哗哗地洒落在天地之间。<br >
@@ -912,14 +783,14 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 <p>
-沉浸在她通过那句口令倾泻在我心里的感情流之中。我忍不住俯在她手上，眼含喜悦的泪水吻着它。随后我又凝视她的眼睛——高尚的人呀<sup><a id="fnr.21" name="fnr.21" class="footref" href="#fn.21">21</a></sup>，倘若你在她的眼光中见到了对你的崇拜，那末我再也不想从那班凡夫俗子嘴里听到你那常遭亵渎的名字了！
+沉浸在她通过那句口令倾泻在我心里的感情流之中。我忍不住俯在她手上，眼含喜悦的泪水吻着它。随后我又凝视她的眼睛——高尚的人呀<sup><a id="fnr.21" class="footref" href="#fn.21">21</a></sup>，倘若你在她的眼光中见到了对你的崇拜，那末我再也不想从那班凡夫俗子嘴里听到你那常遭亵渎的名字了！
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2-12" class="outline-3">
-<h3 id="sec-2-12"><span class="section-number-3">2.12</span> 六月十九日</h3>
+<div class="outline-3">
+<h3 id="orgheadline13">六月十九日</h3>
 <div class="outline-text-3" id="text-2-12">
 <p>
 上次信上讲到哪儿，我已记不清了，但我记得，我上床时已是深夜两点了，假如不是写信，而是跟你当面神聊，也许我会一直让你呆到天明的。
@@ -931,8 +802,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-2-13" class="outline-3">
-<h3 id="sec-2-13"><span class="section-number-3">2.13</span> 六月二十一日</h3>
+<div class="outline-3">
+<h3 id="orgheadline14">六月二十一日</h3>
 <div class="outline-text-3" id="text-2-13">
 <p>
 日子过得真幸福，简直可以同上帝留给他那些圣徒的相媲美；无论将来我的命运会是怎样，我都不会说，我没有消受过欢乐，没有消受过最纯洁的生之欢乐。——我的瓦尔海姆你是知道的，我就在这儿住下了，此地到绿蒂那儿只消半小时，在那儿我感觉到了我自己，体验了人生的一切幸福。
@@ -955,7 +826,7 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-清晨，我随初升的朝阳去到我的瓦尔海姆，在那儿的菜园里亲手采摘豌豆，坐下来撕豆荚上的筋，这当间再读读我的荷马；然后我在小小的厨房里挑一只锅，挖一块黄油，同豆荚一起放进锅里，盖上锅盖，置于火上煮烧，自己则坐在一边，不时在锅里搅和几下；每当这时，我的脑海里便栩栩如生地浮现出佩涅洛佩的那些忘乎所以的求婚者杀猪宰牛、剔骨煨炖的情景<sup><a id="fnr.22" name="fnr.22" class="footref" href="#fn.22">22</a></sup>。这时充盈在我心头的那种宁静、真实的感觉正是这种宗法社会的生活特色，我呢，感谢上帝，我可以把这种生活特色自然而然地融进自己的生活方式里去。
+清晨，我随初升的朝阳去到我的瓦尔海姆，在那儿的菜园里亲手采摘豌豆，坐下来撕豆荚上的筋，这当间再读读我的荷马；然后我在小小的厨房里挑一只锅，挖一块黄油，同豆荚一起放进锅里，盖上锅盖，置于火上煮烧，自己则坐在一边，不时在锅里搅和几下；每当这时，我的脑海里便栩栩如生地浮现出佩涅洛佩的那些忘乎所以的求婚者杀猪宰牛、剔骨煨炖的情景<sup><a id="fnr.22" class="footref" href="#fn.22">22</a></sup>。这时充盈在我心头的那种宁静、真实的感觉正是这种宗法社会的生活特色，我呢，感谢上帝，我可以把这种生活特色自然而然地融进自己的生活方式里去。
 </p>
 
 <p>
@@ -964,18 +835,18 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-2-14" class="outline-3">
-<h3 id="sec-2-14"><span class="section-number-3">2.14</span> 六月二十九日</h3>
+<div class="outline-3">
+<h3 id="orgheadline15">六月二十九日</h3>
 <div class="outline-text-3" id="text-2-14">
 <p>
-前天，大夫从城里来看望法官，他发现我和绿蒂的弟妹们一起在地上玩，有几个在我身上爬来爬去，有的在逗弄我，我则搔他们的痒痒，弄得他们大叫大嚷。这位大夫是个非常刻板的木偶人，说话的时候老要理理袖口上的皱褶，没完没了地扯扯他的轮状绉(zhòu)领。我从他的鼻子上看出，他准认为我的举动有失聪明人的尊严。我才不吃这一套，让他去大发宏论好了。原先用纸牌搭的房子已被孩子们折散了，我又重新为他们搭了几座。此大夫回城以后就四处发泄他的不平，说法官家的孩子本来就缺少教养，现在维特又把他们全给毁了。是啊，亲爱的威廉，在这个世界上同我的心挨得最近的便是孩子。我从旁观察，在小事情上看到了他们将来所需要的品德和力量的萌芽；在他们的执拗中看出他们未来性格的坚定和刚毅，在他们的任性中看出足以化解世道险阻的良好的心态和洒脱的风度，而这一切又是如此纯洁，点污未沾！——于是我不断地、不断地回味人类导师的金玉良言：“你们若不回转，变成小孩子的样式，……”<sup><a id="fnr.23" name="fnr.23" class="footref" href="#fn.23">23</a></sup>现在，我的挚友，孩子是同我们一样的人，我们本应以他们为榜样，然而我们却待他们如奴隶，不许他们有自己的意志！——难道我们没有吗？哪儿来的这特权？——就因为我们年纪大些，聪明些！——天国中仁慈的上帝呀，年纪大的和年纪轻的孩子全都在你眼里，别无其他；至于你更喜欢哪一种孩子，你的儿子<sup><a id="fnr.24" name="fnr.24" class="footref" href="#fn.24">24</a></sup>早已有昭示。可是他们信仰他，却不听他的话，——这也是老问题了！——他们全都按照他们自己的模式来培养孩子。关于这些我不想继续饶舌了。再见，威廉！
+前天，大夫从城里来看望法官，他发现我和绿蒂的弟妹们一起在地上玩，有几个在我身上爬来爬去，有的在逗弄我，我则搔他们的痒痒，弄得他们大叫大嚷。这位大夫是个非常刻板的木偶人，说话的时候老要理理袖口上的皱褶，没完没了地扯扯他的轮状绉(zhòu)领。我从他的鼻子上看出，他准认为我的举动有失聪明人的尊严。我才不吃这一套，让他去大发宏论好了。原先用纸牌搭的房子已被孩子们折散了，我又重新为他们搭了几座。此大夫回城以后就四处发泄他的不平，说法官家的孩子本来就缺少教养，现在维特又把他们全给毁了。是啊，亲爱的威廉，在这个世界上同我的心挨得最近的便是孩子。我从旁观察，在小事情上看到了他们将来所需要的品德和力量的萌芽；在他们的执拗中看出他们未来性格的坚定和刚毅，在他们的任性中看出足以化解世道险阻的良好的心态和洒脱的风度，而这一切又是如此纯洁，点污未沾！——于是我不断地、不断地回味人类导师的金玉良言：“你们若不回转，变成小孩子的样式，……”<sup><a id="fnr.23" class="footref" href="#fn.23">23</a></sup>现在，我的挚友，孩子是同我们一样的人，我们本应以他们为榜样，然而我们却待他们如奴隶，不许他们有自己的意志！——难道我们没有吗？哪儿来的这特权？——就因为我们年纪大些，聪明些！——天国中仁慈的上帝呀，年纪大的和年纪轻的孩子全都在你眼里，别无其他；至于你更喜欢哪一种孩子，你的儿子<sup><a id="fnr.24" class="footref" href="#fn.24">24</a></sup>早已有昭示。可是他们信仰他，却不听他的话，——这也是老问题了！——他们全都按照他们自己的模式来培养孩子。关于这些我不想继续饶舌了。再见，威廉！
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2-15" class="outline-3">
-<h3 id="sec-2-15"><span class="section-number-3">2.15</span> 七月一日</h3>
+<div class="outline-3">
+<h3 id="orgheadline16">七月一日</h3>
 <div class="outline-text-3" id="text-2-15">
 <p>
 我从自己这颗可怜的心，这颗比某些缠绵病榻的人更受煎熬的心感受到，对一个病人来说，绿蒂有多重要。她将要来城里几天，陪伴一位束身自好的夫人。据大夫说，这位夫人大限已近，在她生命的最后时刻想要绿蒂呆在身边。上星期我同绿蒂一起去看望圣某某的一名牧师，那是个小村子，在旁边的山里，有一小时路程。我们是四点左右去的。绿蒂带了她的二妹妹。牧师的院子里有两棵高大的胡桃树，浓荫遮地。我们到那儿的时候，这位善良的老人正坐在门口的长凳上，他一见绿蒂，便变得精神焕发，竟忘了拄节疤手杖就站了起来，迎上前去。绿蒂赶忙跑去，把他按在凳上，她自己也在他身边坐下，转达她父亲的问候，又抱起老人的宠儿，那个又淘气又脏的最小的男孩来亲吻。你真该看看她对这位老人关怀备至的情景。她提高嗓音，好让他半聋的耳朵听得见。她告诉他，几位身强力壮的年轻人竟意外地死了；她又说起卡尔斯巴德温泉的出色的疗效，并称赞老人来年夏天要去那儿的决定；她还说，他的气色好多了，比上次见他的时候精神多了。——这当间我问候了牧师夫人，并极有礼貌地逗她高兴。老人兴致勃勃，胡桃树的绿荫遮盖着我们，真令人欣喜，以致我不由得夸赞起来。这下打开了老人的话匣子，虽然说起来有些吃力，但他还是讲了这两棵树的故事。——“那棵老的，”他说，“我们不知道是谁种的，有人说是这位，有人说是那位牧师。这后面那棵小一点的和我夫人同年，到十月就满五十了。她父亲早晨栽上这棵树，傍晚她就出生了。他是我的前任，这棵树在他心目中之宝贵，那是没说的，在我心目中当然也丝毫不差。二十七年前我还是个穷大学生，第一次来到这院子时，我夫人正坐在树底下的一根梁木上编织东西。”——绿蒂问起他女儿，他说，她同施密特先生到牧草地上工人那儿去了。接着，老人又继续说道：他的前任及其女儿很喜欢他，他先是担任老牧师的副手，后来就接了他的班。他的故事刚讲完，他女儿就同施密特先生从花园里走来了。姑娘亲切、热情地对绿蒂表示欢迎，说实话，我对她的印象不错。她是个性格敏捷、身体健美的褐发姑娘，一个暂居乡间的人，同她在一起是很惬意的。她的情人（施密特先生马上就表明了这个身份）是个文雅、但寡言少语的人，尽管绿蒂一再同他搭话，他仍旧不愿加入我们的谈话。最使我扫兴的是，我从他的面部表情看出，他之所以不爱说话，并不是由于智力贫乏，而是因为脾气固执和心情不佳。这一点可惜随后就表现得一清二楚了：散步的时候，弗丽德莉克同绿蒂，有时也同我走在一起，这位先生本来就黑黑的脸，一下便显得格外阴沉，以致绿蒂马上就扯扯我的袖子，提醒我别对弗丽德莉克太殷勤。我生平最讨厌的莫过于人与人之间相互折磨，尤其是风华正茂的年轻人，本可以胸怀坦荡地尽情欢乐，可是他们却彼此拿一些无聊的蠢事把不多几天的好日子都糟蹋掉，等意识到浪费的光阴已经无法弥补时，已经太晚了。想到这些，我心里感到十分恼火，因此，当我们傍晚时分回到牧师的院子里，坐在桌旁喝牛奶，谈起人世间的欢乐与痛苦时，我便忍不住接过话茬，真心实意地对心情不佳问题发了一通议论。——“我们人呵，”我开始说，“常常抱怨好日子这么少，坏日子这么多，我觉得，这种抱怨多半是没有道理的。倘若我们豁达大度，尽情享受上帝每天赐给我们的幸福，那么，如果遭到什么不幸，我们也就会有足够的力量去承受。”——“可是我们无力驾驭自己的情绪呀，”牧师夫人说，“这与我们的身体状况关系很大！一个人要是身体不舒服，他就会觉得处处不对劲。”——我同意她的说法。——“那么就把心情不佳看做一种病吧，”我接着说，“我们得问一问，有没有办法治呢？”——“这话说得对，”绿蒂说，“至少我相信，这在很大程度上要取决于我们自己。我自己就有切身体会。我要是受到戏弄，正当气头上，那我就一跃而起，到花园里去唱几支乡村舞曲，来回走一走，烦恼就全消了。”——“这正是我要说的，”我说，“心情不佳同懒惰完全一样，它本来就是一种懒惰。我们的天性就有此种倾向，可是，只要我们一旦有了振奋精神的力量，我们工作起来就会得心应手，并在工作中得到真正的快乐。”——弗丽德莉克凝神专注地听着，但那位年轻人却不同意我的意见，他反驳道，我们并不能主宰自己，尤其是无法控制自己的感情。——“我们这里谈的是关于尴尬的感情问题，”我说，“这种感情是人人都想摆脱的；要是不试一试，谁也不知道自己到底有多大力量。当然，要是病了，就会到处求医，为了恢复健康，最严的戒忌，最苦的药他也不会拒绝。”——我注意到，那位诚实的老人也在费劲地听着，以便参加我们的讨论。于是我便提高嗓门，把话题转向他。“牧师布道时谴责各种罪恶，”我说，“但是我还从未听到有谁从布道席上对恶劣的情绪加以谴责过。”——“这事该由城里的牧师来做，”他说，“农民的心情没有不好的；偶尔讲一讲倒也不妨，至少对他夫人以及法官先生是个教育。”——听了他的话，我们全都哈哈大笑，他也会心地笑了，笑得他咳嗽起来，我们的讨论才暂时中断。随后，这位年轻人又开口了：“您说心情不佳是一种罪恶；我觉得，这种说法过分了。”——“绝不过分，”我回答，“恶劣情绪既害自己，又害亲人，所以称它为罪恶是恰当的。我们不能使彼此幸福，难道这还不够，还非得互相抢夺各自心里间或所得到的那点快乐不成？请您告诉我，有没有这样的人，他情绪恶劣，却能将它藏于心中独自承受，而不破坏周围的快乐气氛？或者这样说吧，所谓心情不佳正是对于我们自己身份不配而内心感到沮丧以及对我们自己感到不满的表现，而这种不满又总是同被愚蠢的虚荣心煽动起来的妒忌联系在一起的。我们看到幸福的人，而我们却偏要让他们不幸，这是最让人不能忍受的。”——绿蒂见我说话时激动的神情，便向我微微一笑，弗丽德莉克眼里滚着的泪水鼓励我继续说下去。——“有的人控制着别人的心，”我说，“于是他便利用这个权力去掠夺别人心里自动萌发的单纯的快乐，这种人呀，真是可恨！世上任何馈赠和美意都无法补偿我们自身片刻的欢乐，那被我们的暴君不自在的妒忌心所败坏的片刻的欢乐。”
@@ -999,11 +870,11 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-2-16" class="outline-3">
-<h3 id="sec-2-16"><span class="section-number-3">2.16</span> 七月六日</h3>
+<div class="outline-3">
+<h3 id="orgheadline17">七月六日</h3>
 <div class="outline-text-3" id="text-2-16">
 <p>
-她还一直在照看她垂危的女友，她始终是个殷勤、可爱的姑娘，精心服侍女友，始终如一；她的目光到哪里，哪里的痛苦便会减轻，哪里便会洋溢着欢快的气氛。昨晚她同玛丽安娜和小玛尔莘<sup><a id="fnr.25" name="fnr.25" class="footref" href="#fn.25">25</a></sup>出去散步，我知道后就追了去，于是我们便一起漫步。走了一个半小时的路，我们才返身往城里走。到了那口水井边，那口对我十分珍贵，如今更是千万倍地珍贵的水井边，绿蒂就在井台上坐下，我们则站在她面前。我环视四周，呵，那时我的心是如此孤单，这情景此刻又浮现在我的眼前。——“亲爱的水井，”我说，“打那以后我再没来这里歇憩，享受你的清凉，往往匆匆而过，有时竟来不及看看你。”——我朝下望去，看见玛尔莘正端着一杯水小心谨慎地走上来。——我望着绿蒂，感觉到我对她所怀的全部情愫(sù)。这时玛尔莘端着杯子来了。玛丽安娜想接下她的杯子。“不用！”小姑娘嚷道，声音甜美极了，“不用，绿蒂姐姐，该你先喝！”——她说出这样的真情和美意令我欣喜若狂，以致我无法表达我的感情，就从地上抱起小姑娘，热烈地吻她，弄得她立即叫喊起来，并且哭了。——“你太唐突了，”绿蒂说。——我呆在一边，不知所措。——“来，玛尔莘，”绿蒂一边说，一边拉着妹妹的手，领着她走下台阶，“快用干净的泉水洗一洗，快，不要紧的。”——我站在那里，看着小姑娘手里捧着水一个劲儿地往脸颊上擦，她深信这神奇的泉水可以冲掉一切污秽，还可免去丢人现眼，长出难看的胡子来。<sup><a id="fnr.26" name="fnr.26" class="footref" href="#fn.26">26</a></sup>我听见绿蒂说：“行了！”可是小姑娘还在使劲地洗，仿佛多洗总比少洗好。——告诉你，威廉，我以往参加洗礼还从未怀着那么大的虔诚呢；绿蒂上来的时候，我真想拜伏在她面前，就像拜伏在为民族解脱罪愆的先知跟前一样。
+她还一直在照看她垂危的女友，她始终是个殷勤、可爱的姑娘，精心服侍女友，始终如一；她的目光到哪里，哪里的痛苦便会减轻，哪里便会洋溢着欢快的气氛。昨晚她同玛丽安娜和小玛尔莘<sup><a id="fnr.25" class="footref" href="#fn.25">25</a></sup>出去散步，我知道后就追了去，于是我们便一起漫步。走了一个半小时的路，我们才返身往城里走。到了那口水井边，那口对我十分珍贵，如今更是千万倍地珍贵的水井边，绿蒂就在井台上坐下，我们则站在她面前。我环视四周，呵，那时我的心是如此孤单，这情景此刻又浮现在我的眼前。——“亲爱的水井，”我说，“打那以后我再没来这里歇憩，享受你的清凉，往往匆匆而过，有时竟来不及看看你。”——我朝下望去，看见玛尔莘正端着一杯水小心谨慎地走上来。——我望着绿蒂，感觉到我对她所怀的全部情愫(sù)。这时玛尔莘端着杯子来了。玛丽安娜想接下她的杯子。“不用！”小姑娘嚷道，声音甜美极了，“不用，绿蒂姐姐，该你先喝！”——她说出这样的真情和美意令我欣喜若狂，以致我无法表达我的感情，就从地上抱起小姑娘，热烈地吻她，弄得她立即叫喊起来，并且哭了。——“你太唐突了，”绿蒂说。——我呆在一边，不知所措。——“来，玛尔莘，”绿蒂一边说，一边拉着妹妹的手，领着她走下台阶，“快用干净的泉水洗一洗，快，不要紧的。”——我站在那里，看着小姑娘手里捧着水一个劲儿地往脸颊上擦，她深信这神奇的泉水可以冲掉一切污秽，还可免去丢人现眼，长出难看的胡子来。<sup><a id="fnr.26" class="footref" href="#fn.26">26</a></sup>我听见绿蒂说：“行了！”可是小姑娘还在使劲地洗，仿佛多洗总比少洗好。——告诉你，威廉，我以往参加洗礼还从未怀着那么大的虔诚呢；绿蒂上来的时候，我真想拜伏在她面前，就像拜伏在为民族解脱罪愆的先知跟前一样。
 </p>
 
 <p>
@@ -1013,8 +884,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-17" class="outline-3">
-<h3 id="sec-2-17"><span class="section-number-3">2.17</span> 七月八日</h3>
+<div class="outline-3">
+<h3 id="orgheadline18">七月八日</h3>
 <div class="outline-text-3" id="text-2-17">
 <p>
 我是个什么样的孩子！竟渴望着别人的一瞥！我是个什么样的孩子！——我们到瓦尔海姆去了。姑娘们是坐马车去的，散步时我深信，在绿蒂乌黑的眸子里……——我是笨伯，原谅我吧！你真该见见她这双眼睛。——我想写得简短些，我困得眼睛都睁不开了。瞧，姑娘们都上车了，但青年Ｗ．泽尔施塔特、奥德兰和我还在马车旁站着。这时姑娘们都从车门里伸出头来，跟小伙子们闲聊。这帮小伙子当然个个都心情愉快，举止轻浮。——我竭力寻找绿蒂的眼睛；啊，她的眼睛看看这个，又望望那个！看我呀！看我呀！看我呀！此刻我的全部心思都陶醉在她的目光里，可它却偏偏不落在我身上！——我心里向她说了千百次再见！而她却一眼都不看我！马车开走了，我眼含泪水。我的目光跟随着她，看见车门口露出绿蒂的头饰，她转过头来，在张望，啊，是看我吗？——亲爱的！我没有把握，我的心飘浮不定。也许她是回过头来看我的！——那是我的慰藉。也许！——晚安！哦，我是个什么样的孩子！
@@ -1023,32 +894,32 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-18" class="outline-3">
-<h3 id="sec-2-18"><span class="section-number-3">2.18</span> 七月十日</h3>
+<div class="outline-3">
+<h3 id="orgheadline19">七月十日</h3>
 <div class="outline-text-3" id="text-2-18">
 <p>
-每当聚会时有人谈到她，我表现的那副可笑的滑稽相，你真该见识见识！要是别人问我喜不喜欢她？——喜欢！我真恨死这个词。一个人如果喜欢绿蒂，但对她又不是付出全部身心，全部感情，那他成了什么人！喜欢！最近有个人问我，喜不喜欢莪(é)相<sup><a id="fnr.27" name="fnr.27" class="footref" href="#fn.27">27</a></sup>！
+每当聚会时有人谈到她，我表现的那副可笑的滑稽相，你真该见识见识！要是别人问我喜不喜欢她？——喜欢！我真恨死这个词。一个人如果喜欢绿蒂，但对她又不是付出全部身心，全部感情，那他成了什么人！喜欢！最近有个人问我，喜不喜欢莪(é)相<sup><a id="fnr.27" class="footref" href="#fn.27">27</a></sup>！
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2-19" class="outline-3">
-<h3 id="sec-2-19"><span class="section-number-3">2.19</span> 七月十一日</h3>
+<div class="outline-3">
+<h3 id="orgheadline20">七月十一日</h3>
 <div class="outline-text-3" id="text-2-19">
 <p>
 Ｍ夫人病得很重；我分担着绿蒂的痛苦，为Ｍ夫人的生命祈涛。我很难得在一位女友家见到绿蒂，今天她给我讲了一件奇怪的事。——Ｍ老头是个嗜钱如命、贪婪透顶的吝啬鬼，他夫人这一辈子在他的管束之下可说是受尽了折磨，可是她总能想出办法来对付他。几天前大夫说她的病治不好了，她就把丈夫叫到跟前（绿蒂正在房里），对他说了下面这番话：“我得向你坦白一件事，要不然我死后可能会搅和不清，惹出麻烦来的。直至今日，家务一直是我操持的，我尽力做得有条不紊，省吃俭用；不过你要原谅我，三十年来我一直瞒着你。我们新婚之初，你给家里的伙食及其他开支所规定的钱只有一点点。后来我们家业大了，开销多了，你却始终不听劝说，给我相应增加每星期的费用；简单地说，你自己也知道，即使家里开销最大的时候，你还要求我每星期只能花七个古尔盾。我未提出异议，接受了你的要求，每星期超支部分，我便从营业收入中拿出钱来填补，因为谁也不会怀疑，女主人会偷自家的钱。我一个钱也没乱花，我死后来管家的女人面对这一点钱她会感到束手无策，不知如何是好的，而你却还一口咬定，你的第一位妻子就是拿这点钱应付家庭开支的；要不是考虑到这一层，我即使不坦白，也可以问心无愧地走向九泉之下的。”
 </p>
 
 <p>
-我和绿蒂议论着，这Ｍ老头明知七个古尔盾是不够支付也许两倍以上开销的，而他却不怀疑其中定有蹊跷，人的理智痴愚到了何种程度，简直不可思议。不过我也认识一些另一个类型的人，他们挥霍无度，以为家里接受了先知的那只盛有取之不尽的油的瓶子<sup><a id="fnr.28" name="fnr.28" class="footref" href="#fn.28">28</a></sup>，而丝毫不觉得诧异。
+我和绿蒂议论着，这Ｍ老头明知七个古尔盾是不够支付也许两倍以上开销的，而他却不怀疑其中定有蹊跷，人的理智痴愚到了何种程度，简直不可思议。不过我也认识一些另一个类型的人，他们挥霍无度，以为家里接受了先知的那只盛有取之不尽的油的瓶子<sup><a id="fnr.28" class="footref" href="#fn.28">28</a></sup>，而丝毫不觉得诧异。
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2-20" class="outline-3">
-<h3 id="sec-2-20"><span class="section-number-3">2.20</span> 七月十三日</h3>
+<div class="outline-3">
+<h3 id="orgheadline21">七月十三日</h3>
 <div class="outline-text-3" id="text-2-20">
 <p>
 不，我不欺骗自己！我从她乌黑的眸子里看出她对我以及我的命运的关心。是的，我感觉到，这点我可以相信我的心，我感觉到，她爱我！——哦，我可以，我能够用这句话来表达我的无上幸福吗？
@@ -1065,8 +936,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-21" class="outline-3">
-<h3 id="sec-2-21"><span class="section-number-3">2.21</span> 七月十六日</h3>
+<div class="outline-3">
+<h3 id="orgheadline22">七月十六日</h3>
 <div class="outline-text-3" id="text-2-21">
 <p>
 每当我的手指无意间触着她的手指，我们的脚在桌底下相碰的时候，啊，热血便在我全身奔涌！我像碰了火似的立即缩回，但是一种隐蔽的力量又在拉我往前。——我所有的感官都晕乎乎的，像腾云驾雾一样。——哦，她纯洁无邪，她的灵魂毫不拘谨，全然感觉不到这些细小的亲密举动使我受到多大的折磨。当她谈话时把手搁在我的手上，为谈话方便起见，挪得挨我近些，她嘴里呼出的美妙绝伦的气息可以送到我的唇上，这时我就像挨了电击，身体都要往下塌了。——威廉呀，假如有朝一日我胆大包天，那么这天堂，这真心实意……！你理解我。不，我的心并不如此堕落！软弱！够软弱的！——这难道不是堕落？——
@@ -1077,26 +948,26 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-关于古老音乐具有魔力的说法<sup><a id="fnr.29" name="fnr.29" class="footref" href="#fn.29">29</a></sup>，我觉得句句是真话。这首简单的歌令我多么感动！她弹奏这首歌的时机掌握得很好，往往在我恨不得一颗子弹射穿脑袋时，曲子响了！于是我灵魂中的迷误和阴暗情绪便随之烟消云散，我又可以更加自由地呼吸了。
+关于古老音乐具有魔力的说法<sup><a id="fnr.29" class="footref" href="#fn.29">29</a></sup>，我觉得句句是真话。这首简单的歌令我多么感动！她弹奏这首歌的时机掌握得很好，往往在我恨不得一颗子弹射穿脑袋时，曲子响了！于是我灵魂中的迷误和阴暗情绪便随之烟消云散，我又可以更加自由地呼吸了。
 　　
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2-22" class="outline-3">
-<h3 id="sec-2-22"><span class="section-number-3">2.22</span> 七月十八日</h3>
+<div class="outline-3">
+<h3 id="orgheadline23">七月十八日</h3>
 <div class="outline-text-3" id="text-2-22">
 <p>
 威廉呀，假如世上没有爱情，这世界对我们的心有何意义！没有光，一盏魔灯又有何用！你把小灯一拿进来，灿烂的图像便映现在你洁白的墙上！即使这些图像只不过是转瞬即逝的幻影，但如果我们像小青年似的站在这些图像之前，为这些奇妙的现象所迷醉，也总可以使我们快乐的。今天我不能到绿蒂那儿去，有个聚会我不得不参加。怎么办呢？我派我的仆人去，好使我身边有个今天到过她跟前的人。我等着他，心情多么焦急，重新见到他，心里又是多么高兴！要不是感到害臊，我真想抱住他的头来亲吻。
 </p>
 
 <p>
-人们常说起博洛尼亚石<sup><a id="fnr.30" name="fnr.30" class="footref" href="#fn.30">30</a></sup>，说是把它置于阳光之下，它便吸收阳光，到了夜间便会发一会儿光。对我来说，这仆人就是这种石头。她的目光曾在他脸上、面颊上、上衣纽扣以及外套领子上停留过，我的这种感觉把这一切变得如此神圣，如此珍贵！此刻即使有人出一千塔勒，我也不会把这小伙子让出去。有他在跟前，我心里就感到非常舒坦。——上帝保佑，你可不要笑我。威廉，能使我心里感到舒畅的东西，那会是幻影吗？
+人们常说起博洛尼亚石<sup><a id="fnr.30" class="footref" href="#fn.30">30</a></sup>，说是把它置于阳光之下，它便吸收阳光，到了夜间便会发一会儿光。对我来说，这仆人就是这种石头。她的目光曾在他脸上、面颊上、上衣纽扣以及外套领子上停留过，我的这种感觉把这一切变得如此神圣，如此珍贵！此刻即使有人出一千塔勒，我也不会把这小伙子让出去。有他在跟前，我心里就感到非常舒坦。——上帝保佑，你可不要笑我。威廉，能使我心里感到舒畅的东西，那会是幻影吗？
 　　
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2-23" class="outline-3">
-<h3 id="sec-2-23"><span class="section-number-3">2.23</span> 七月十九日</h3>
+<div class="outline-3">
+<h3 id="orgheadline24">七月十九日</h3>
 <div class="outline-text-3" id="text-2-23">
 <p>
 “我要去看她！”早上醒来，我愉快地望着美丽的太阳喊道：“我要去看她！”一整天我再也不想干别的了。一切，一切都交织在这期望中了。
@@ -1104,8 +975,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2-24" class="outline-3">
-<h3 id="sec-2-24"><span class="section-number-3">2.24</span> 七月二十日</h3>
+<div class="outline-3">
+<h3 id="orgheadline25">七月二十日</h3>
 <div class="outline-text-3" id="text-2-24">
 <p>
 你要我随公使到某地去，这个想法我还不愿苟同。我这个人不大喜欢听人差遣，再说众所周知，此公是个很讨厌的人。你说，我母亲很希望我找个事干，这真使我感到好笑。我现在不也在干事吗？不论数的是豌豆还是扁豆，从根本上说还不是一回事？世上的事归根到底还不统统都是毫无价值的鸡毛蒜皮的小事，一个人只是为别人而去拼命追名逐利，而没有他自己的激情，没有他自己的需要，那么，此人便是傻瓜。
@@ -1114,8 +985,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-2-25" class="outline-3">
-<h3 id="sec-2-25"><span class="section-number-3">2.25</span> 七月二十四日</h3>
+<div class="outline-3">
+<h3 id="orgheadline26">七月二十四日</h3>
 <div class="outline-text-3" id="text-2-25">
 <p>
 你叫我不要把绘画荒疏了，承蒙你把这事放在心上，但是我想宁肯压根儿不谈此事，也比告诉你这段时间我很少作画好。
@@ -1132,28 +1003,28 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-2-26" class="outline-3">
-<h3 id="sec-2-26"><span class="section-number-3">2.26</span> 七月二十五日</h3>
+<div class="outline-3">
+<h3 id="orgheadline27">七月二十五日</h3>
 <div class="outline-text-3" id="text-2-26">
 <p>
-是的，亲爱的绿蒂，一切我都愿为您操办和料理；您常给我任务吧，多多益善！对您我有一事相求：请别再往您写给我的字条上撒沙子<sup><a id="fnr.31" name="fnr.31" class="footref" href="#fn.31">31</a></sup>。今天我把您的字条迅速按在嘴上，弄得牙齿吱吱直响。
+是的，亲爱的绿蒂，一切我都愿为您操办和料理；您常给我任务吧，多多益善！对您我有一事相求：请别再往您写给我的字条上撒沙子<sup><a id="fnr.31" class="footref" href="#fn.31">31</a></sup>。今天我把您的字条迅速按在嘴上，弄得牙齿吱吱直响。
 　　
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-2-27" class="outline-3">
-<h3 id="sec-2-27"><span class="section-number-3">2.27</span> 七月二十六日</h3>
+<div class="outline-3">
+<h3 id="orgheadline28">七月二十六日</h3>
 <div class="outline-text-3" id="text-2-27">
 <p>
-我已经下了几次决心，不那么频繁地去看她。可是谁能做得到呢！我天天都受到诱惑，心里天天都许下神圣的诺言：你明天别去啦！可是明天一到，我却又找个令人折服的理由，转瞬之间，我就到了她的身旁。要不就是她晚上说过：“您明天肯定来吧？”——这样说了，能不去吗？要不就是她让我办了件事，我觉得亲自去给她个回话才合适；要不就是天气好极了，我就到瓦尔海姆去，而到了那儿，离她就只有半小时路程了！——我挨她的吸力太近，弹指间就到那儿了。我祖母曾讲过磁石山的童话：船只如果驶得离磁石山太近，船上的所有的铁质的东西就一下子全被吸去，钉子纷纷朝山上飞去，船板块块散裂、解体，那些可怜人都要葬身大海。<sup><a id="fnr.32" name="fnr.32" class="footref" href="#fn.32">32</a></sup>
+我已经下了几次决心，不那么频繁地去看她。可是谁能做得到呢！我天天都受到诱惑，心里天天都许下神圣的诺言：你明天别去啦！可是明天一到，我却又找个令人折服的理由，转瞬之间，我就到了她的身旁。要不就是她晚上说过：“您明天肯定来吧？”——这样说了，能不去吗？要不就是她让我办了件事，我觉得亲自去给她个回话才合适；要不就是天气好极了，我就到瓦尔海姆去，而到了那儿，离她就只有半小时路程了！——我挨她的吸力太近，弹指间就到那儿了。我祖母曾讲过磁石山的童话：船只如果驶得离磁石山太近，船上的所有的铁质的东西就一下子全被吸去，钉子纷纷朝山上飞去，船板块块散裂、解体，那些可怜人都要葬身大海。<sup><a id="fnr.32" class="footref" href="#fn.32">32</a></sup>
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2-28" class="outline-3">
-<h3 id="sec-2-28"><span class="section-number-3">2.28</span> 七月三十日</h3>
+<div class="outline-3">
+<h3 id="orgheadline29">七月三十日</h3>
 <div class="outline-text-3" id="text-2-28">
 <p>
 阿尔贝特回来了，我要走了；倘若他是最杰出、最高尚的人，无论哪方面我都要对他甘拜下风的话，那么我亲眼目睹他具有那么多完美无缺的品德，怎能忍受得了。——占有！——够了。威廉呀，那位未婚夫在这里了！他是个英俊、可爱的人，令人不得不对他产生好感。幸好迎接他回来时我没在场！要不我的心都会撕裂的。他十分庄重，有我在场时，他还一次都未吻过绿蒂。愿上帝奖励他的行为！为了他对绿蒂的敬重，我也不得不喜欢他。他对我很友好，我猜想，这主要是绿蒂的杰作，而并非他自己的感情；在这方面女人是很有办法的，而且自有她们的道理；她们若是能使两个爱慕者彼此友好相处，坐收渔翁之利的总是她们，虽然这很难做到。
@@ -1172,14 +1043,14 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-我咬紧牙关，嘲笑自己的可怜，两倍、三倍地嘲笑那些可能要我死了这条心的人，他们说，事情已经无法改变了。——这些草人<sup><a id="fnr.33" name="fnr.33" class="footref" href="#fn.33">33</a></sup>，快给我走开！——我在树林里东跑西颠了一阵，到绿蒂那儿去，可阿尔贝特正陪绿蒂坐在花园的凉亭里，我不能再往前走了，我傻话连篇，语无伦次，出尽了洋相。——“看在上帝的份上，”绿蒂今天对我说，“我请您别再闹出昨天晚上那种场面了！你那时那么滑稽可笑，真是吓人。”——和你说句掏心话吧，我瞅准时机，他一有事，我便嗖的一下出了门，每当发现她独自一人时，我就喜不自胜。
+我咬紧牙关，嘲笑自己的可怜，两倍、三倍地嘲笑那些可能要我死了这条心的人，他们说，事情已经无法改变了。——这些草人<sup><a id="fnr.33" class="footref" href="#fn.33">33</a></sup>，快给我走开！——我在树林里东跑西颠了一阵，到绿蒂那儿去，可阿尔贝特正陪绿蒂坐在花园的凉亭里，我不能再往前走了，我傻话连篇，语无伦次，出尽了洋相。——“看在上帝的份上，”绿蒂今天对我说，“我请您别再闹出昨天晚上那种场面了！你那时那么滑稽可笑，真是吓人。”——和你说句掏心话吧，我瞅准时机，他一有事，我便嗖的一下出了门，每当发现她独自一人时，我就喜不自胜。
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2-29" class="outline-3">
-<h3 id="sec-2-29"><span class="section-number-3">2.29</span> 八月八日</h3>
+<div class="outline-3">
+<h3 id="orgheadline30">八月八日</h3>
 <div class="outline-text-3" id="text-2-29">
 <p>
 有些人要我们屈服于不可抗拒的命运，对这些人我给予了痛斥。亲爱的威廉，请你相信，我绝不是指你。我真的没有想到，你会有类似的意见。从根本上说，你是对的。只有一点，我的挚友！世上的事能用“非此即彼”的套式来办的，真是微乎其微；感情和行为方式千差万别，就拿鹰钩鼻和狮子鼻之间的种种差异来说吧，真是林林总总，无以数计。倘若我承认你的全部论点是正确的，却又想设法从“非此即彼”中间溜过去，你不会生我的气吧。
@@ -1200,8 +1071,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-30" class="outline-3">
-<h3 id="sec-2-30"><span class="section-number-3">2.30</span> 傍晚</h3>
+<div class="outline-3">
+<h3 id="orgheadline31">傍晚</h3>
 <div class="outline-text-3" id="text-2-30">
 <p>
 我已经有好些时候没有记日记了，今天我又拿起日记本，看到我竟是如此有意识地一步步陷于目前的处境，真是大吃一惊！我对自己的处境一直看得很清楚，可是我的行动却像个孩子；现在我对自己的处境仍是一目了然，可是境况并没有好转的迹象。
@@ -1210,8 +1081,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-2-31" class="outline-3">
-<h3 id="sec-2-31"><span class="section-number-3">2.31</span> 八月十日</h3>
+<div class="outline-3">
+<h3 id="orgheadline32">八月十日</h3>
 <div class="outline-text-3" id="text-2-31">
 <p>
 我若不是傻瓜，我的生活本可以过得最好、最幸福。像我现在所处的环境，既优美，又让人心情愉快，这是不易多得的。啊，只有我的心才能创造自己的幸福，这话说得对。——我是这个可爱的家庭的一员，老人爱我如子，孩子爱我如父，绿蒂也爱我！——再就是守本分的阿尔贝特，他没有以脾气怪谲(jué)和举止无礼来扰乱我的幸福，他待我以亲切的友情，在他心目中，除了绿蒂，我就是世上最亲爱的人了！——威廉，我们散步时彼此谈着绿蒂，要是听听我们的谈话，真是一大乐事。世界上再也找不出比这种关系更可笑的事了，然而我却常常为此泫(xuàn)然泪下。
@@ -1224,8 +1095,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2-32" class="outline-3">
-<h3 id="sec-2-32"><span class="section-number-3">2.32</span> 八月十二日</h3>
+<div class="outline-3">
+<h3 id="orgheadline33">八月十二日</h3>
 <div class="outline-text-3" id="text-2-32">
 <p>
 确实，阿尔贝特是天底下最好的人，昨天我同他演了精彩的一幕。我去他那儿向他告别；我一时心血来潮，要骑马到山里去，现在我就是从山里给你写信的。我在他房间里来回踱着，他的两支手枪不意落在我的眼里。——“把手枪借给我吧，”我说，“我出门好用。”——“行呵，”他说，“要是你不怕麻烦给枪装上弹药；枪在我这里挂着只是摆摆样子而已。”——我取下一支枪，他继续说：“我的小心谨慎曾同我开了一次淘气的玩笑，打那以后我就不愿再摆弄这玩艺儿了。”——我心里好奇，很想知道这件事。——“我在乡下一位朋友家里大约住了三个月，”他说，“身边带了几支微型手枪，都未装弹药，我也睡得很安稳。一天下午，下着雨，我闲坐无事，不知怎么，顿时生出奇思异想：我们可能会遭到袭击，可能用得上手枪，可能……——你知道，事情会怎样。——我把手枪交给仆人，让他把枪擦一擦，装上弹药，而这小子却拿着枪去逗女仆玩，想吓唬她们一下，上帝知道是怎么搞的，枪走了火，通条还在枪膛里，一下子射进一位女仆右手拇指肌，把她的拇指打烂了。她向我哭诉了一阵，我还得支付她的治疗费，自此以后，我所有的枪支都不装弹药了。亲爱的朋友，小心谨慎有什么用？并不是所有的危险都能预见得到的！虽然……”——现在你知道了吧，我很喜欢此人，甚至还包括他的“虽然”二字，因为任何一般定理都有例外，这不是不言而喻的吗？此公竟如此四平八稳，面面俱到！要是他觉得说了些考虑不周、一般化的或不太确切的言辞，他就要没完没了地对他的话加以限定、修正、增添和删减，末了与原来的意思大相径庭。由于这个原因，他不厌其烦地把这件事情说得详详细细，纤(xiān)悉无遗，到后来我根本就不听他说了，完全在琢磨自己的一些阴郁的念头，我以暴躁的姿态把枪口对准自己右眼上的额头。——“啊哟！”阿尔贝特叫道，同时从我手里把枪夺下，“这是干什么？”——“枪里没装弹药，”我说。——“即使这样，你要干什么？”他极不耐烦地加了一句。“我想象不出，人怎么会这样傻，竟会开枪自杀，单是这种念头就让我恶心。”
@@ -1240,7 +1111,7 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-我耸耸肩，承认他说得有道理。——“可是，我亲爱的，”我接着说，“这里也有例外。不错，偷盗是一种罪恶，但是一个人为了自己和亲人不致饿死才去盗窃，他该值得同情还是该受到惩罚？丈夫由于正当的愤怒，一气之下杀了不忠实的妻子及卑鄙的奸夫，谁还会向他扔第一块石头<sup><a id="fnr.34" name="fnr.34" class="footref" href="#fn.34">34</a></sup>？还有那位姑娘，那位在极乐时刻完全沉醉在排山倒海的爱情的狂欢之中的姑娘，又有谁会向她扔第一块石头？我们的法律本身——这些冷血的、咬文嚼字的学究也会被感动，不给予她惩罚的。”
+我耸耸肩，承认他说得有道理。——“可是，我亲爱的，”我接着说，“这里也有例外。不错，偷盗是一种罪恶，但是一个人为了自己和亲人不致饿死才去盗窃，他该值得同情还是该受到惩罚？丈夫由于正当的愤怒，一气之下杀了不忠实的妻子及卑鄙的奸夫，谁还会向他扔第一块石头<sup><a id="fnr.34" class="footref" href="#fn.34">34</a></sup>？还有那位姑娘，那位在极乐时刻完全沉醉在排山倒海的爱情的狂欢之中的姑娘，又有谁会向她扔第一块石头？我们的法律本身——这些冷血的、咬文嚼字的学究也会被感动，不给予她惩罚的。”
 </p>
 
 <p>
@@ -1248,7 +1119,7 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-“哟，你们这些有理智的人！”我微笑着叫道。“激情！酩酊大醉！疯狂！你们却在那里冷眼旁观，无动于衷，你们这些品行端正的人，你们嘲骂醉汉，唾弃疯子，像祭司一般从那边过去<sup><a id="fnr.35" name="fnr.35" class="footref" href="#fn.35">35</a></sup>，像那个法利赛人似的感谢上帝<sup><a id="fnr.36" name="fnr.36" class="footref" href="#fn.36">36</a></sup>，感谢他没有把你们造成醉汉或疯子。我却不止一次喝醉过，我的激情也和疯狂相差无几，我并不为此感到悔恨，因为以我自己的尺度来衡量，我知道，凡是成就伟大事业，做了看似不可能的事的，都是出类拔萃的人，可是他们却从来都被骂作醉汉和疯子。
+“哟，你们这些有理智的人！”我微笑着叫道。“激情！酩酊大醉！疯狂！你们却在那里冷眼旁观，无动于衷，你们这些品行端正的人，你们嘲骂醉汉，唾弃疯子，像祭司一般从那边过去<sup><a id="fnr.35" class="footref" href="#fn.35">35</a></sup>，像那个法利赛人似的感谢上帝<sup><a id="fnr.36" class="footref" href="#fn.36">36</a></sup>，感谢他没有把你们造成醉汉或疯子。我却不止一次喝醉过，我的激情也和疯狂相差无几，我并不为此感到悔恨，因为以我自己的尺度来衡量，我知道，凡是成就伟大事业，做了看似不可能的事的，都是出类拔萃的人，可是他们却从来都被骂作醉汉和疯子。
 </p>
 
 <p>
@@ -1294,18 +1165,18 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-33" class="outline-3">
-<h3 id="sec-2-33"><span class="section-number-3">2.33</span> 八月十五日</h3>
+<div class="outline-3">
+<h3 id="orgheadline34">八月十五日</h3>
 <div class="outline-text-3" id="text-2-33">
 <p>
-确实，世界上人最需要的东西莫过于爱情。我感觉到，绿蒂不愿失去我，而这帮孩子更是只有一个愿望，那就是我每天一早就去他们那儿。今天我去了，去为绿蒂的钢琴校音，但这事今天没能办成，因为孩子们缠着我，要我给他们讲故事，甚至绿蒂也让我满足孩子们的心愿。我给他们把晚餐面包切好，他们从我手中接面包就像是从绿蒂手里拿到的一样，个个都非常高兴。我给他们讲了那位由一双神奇的手送饭来吃的公主的故事。<sup><a id="fnr.37" name="fnr.37" class="footref" href="#fn.37">37</a></sup>我由此学到了很多东西，这一点请你相信。我真感到惊讶，这个故事竟给他们留下了这么深的印象。因为我在讲的过程中往往添油加醋，第二次讲的时候上次编造的情节就给忘了，这时孩子们立刻就会说，这和上次讲的不一样，所以我现在正练习以抑扬顿挫的唱歌的音调毫不走样地一气儿就把故事背诵下来。我从中领会到，一位作家如果他的书再版时将故事作了修改，改了以后即使艺术上好多了，那还是必然会损害他的作品的。我们总是愿意接受第一个印象，人生来就是这样，最最荒诞不经的事你也可以使他信以为真，并且立即记得牢牢的，谁要想重新把它推翻或者抹掉，谁就是在自找麻烦！
+确实，世界上人最需要的东西莫过于爱情。我感觉到，绿蒂不愿失去我，而这帮孩子更是只有一个愿望，那就是我每天一早就去他们那儿。今天我去了，去为绿蒂的钢琴校音，但这事今天没能办成，因为孩子们缠着我，要我给他们讲故事，甚至绿蒂也让我满足孩子们的心愿。我给他们把晚餐面包切好，他们从我手中接面包就像是从绿蒂手里拿到的一样，个个都非常高兴。我给他们讲了那位由一双神奇的手送饭来吃的公主的故事。<sup><a id="fnr.37" class="footref" href="#fn.37">37</a></sup>我由此学到了很多东西，这一点请你相信。我真感到惊讶，这个故事竟给他们留下了这么深的印象。因为我在讲的过程中往往添油加醋，第二次讲的时候上次编造的情节就给忘了，这时孩子们立刻就会说，这和上次讲的不一样，所以我现在正练习以抑扬顿挫的唱歌的音调毫不走样地一气儿就把故事背诵下来。我从中领会到，一位作家如果他的书再版时将故事作了修改，改了以后即使艺术上好多了，那还是必然会损害他的作品的。我们总是愿意接受第一个印象，人生来就是这样，最最荒诞不经的事你也可以使他信以为真，并且立即记得牢牢的，谁要想重新把它推翻或者抹掉，谁就是在自找麻烦！
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2-34" class="outline-3">
-<h3 id="sec-2-34"><span class="section-number-3">2.34</span> 八月十八日</h3>
+<div class="outline-3">
+<h3 id="orgheadline35">八月十八日</h3>
 <div class="outline-text-3" id="text-2-34">
 <p>
 难道非得如此：使人幸福的东西，反过来又会变成他的痛苦之源？
@@ -1326,8 +1197,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-35" class="outline-3">
-<h3 id="sec-2-35"><span class="section-number-3">2.35</span> 八月二十一日</h3>
+<div class="outline-3">
+<h3 id="orgheadline36">八月二十一日</h3>
 <div class="outline-text-3" id="text-2-35">
 <p>
 清晨，我从噩梦中醒来，向她伸出双臂，结果是竹篮子打水；夜里，一个幸福无邪的梦捉弄了我，仿佛我在草地上坐在她的身边，握着她的手，印上千百个吻，随后我在床上找她时，又是海底捞月。唉，我在半睡半醒中昏昏聩聩地向她摸索，摸了一阵就完全清醒了。——一股泪流从我压抑的心中迸涌而出，面对昏暗的前程，我绝望地哭了。
@@ -1336,21 +1207,21 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-36" class="outline-3">
-<h3 id="sec-2-36"><span class="section-number-3">2.36</span> 八月二十二日</h3>
+<div class="outline-3">
+<h3 id="orgheadline37">八月二十二日</h3>
 <div class="outline-text-3" id="text-2-36">
 <p>
-真是不幸，威廉，我有充沛的活力，却偏偏无所事事，闲得发慌，我不能游手好闲，却也什么都干不了。我没有了想象力，失去了对大自然的感觉，书籍令我讨厌。倘若我们失去了自我，也就失去了一切。<sup><a id="fnr.38" name="fnr.38" class="footref" href="#fn.38">38</a></sup> 我向你发誓，有时我希望当一名短工，只是为了每天早晨醒来时，对来到的一天有所期待，有所渴求和希望。我常常羡慕阿尔贝特，看到他埋头在文件堆里，心里就思忖，要是我处在他的位置上，该有多好！好几次我曾想要给你和部长写信，在公使馆里谋个职位。你曾很有把握地说过，公使馆不会拒绝我。我自己也相信这一点。长时间以来部长一直很喜欢我，早就劝我找点事做；有个把小时，我也真想要这么办。可是后来我再一琢磨，便想起了那则马的寓言<sup><a id="fnr.39" name="fnr.39" class="footref" href="#fn.39">39</a></sup>。这匹马对自由感到厌烦了，便让人加上鞍子，套上辔(pèi)头，结果差点儿让人骑垮。——我不知道该怎么办。——亲爱的朋友，我心里要求改变现状的渴望，不也许正是一种内心里颇不愉快的厌烦，那种处处对我紧跟不放的厌烦吗？
+真是不幸，威廉，我有充沛的活力，却偏偏无所事事，闲得发慌，我不能游手好闲，却也什么都干不了。我没有了想象力，失去了对大自然的感觉，书籍令我讨厌。倘若我们失去了自我，也就失去了一切。<sup><a id="fnr.38" class="footref" href="#fn.38">38</a></sup> 我向你发誓，有时我希望当一名短工，只是为了每天早晨醒来时，对来到的一天有所期待，有所渴求和希望。我常常羡慕阿尔贝特，看到他埋头在文件堆里，心里就思忖，要是我处在他的位置上，该有多好！好几次我曾想要给你和部长写信，在公使馆里谋个职位。你曾很有把握地说过，公使馆不会拒绝我。我自己也相信这一点。长时间以来部长一直很喜欢我，早就劝我找点事做；有个把小时，我也真想要这么办。可是后来我再一琢磨，便想起了那则马的寓言<sup><a id="fnr.39" class="footref" href="#fn.39">39</a></sup>。这匹马对自由感到厌烦了，便让人加上鞍子，套上辔(pèi)头，结果差点儿让人骑垮。——我不知道该怎么办。——亲爱的朋友，我心里要求改变现状的渴望，不也许正是一种内心里颇不愉快的厌烦，那种处处对我紧跟不放的厌烦吗？
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2-37" class="outline-3">
-<h3 id="sec-2-37"><span class="section-number-3">2.37</span> 八月二十八日</h3>
+<div class="outline-3">
+<h3 id="orgheadline38">八月二十八日</h3>
 <div class="outline-text-3" id="text-2-37">
 <p>
-真的，要是我的病能治得好，他们是会给我治的。今天是我的生日，一大早我就收到阿尔贝特的一个小包裹。打开包裹，一个粉红色的蝴蝶结即刻映入我的眼帘。我与绿蒂初次相识时，她胸襟上就结着这个蝴蝶结，自那以后，我曾求过她多次，让她把蝴蝶结送我。包里还有两册十二开本的小书——韦特施泰因<sup><a id="fnr.40" name="fnr.40" class="footref" href="#fn.40">40</a></sup>版的荷马袖珍本。这个版本是我早就想要的，免得散步时总带着我那本埃内斯蒂版的大厚本。看，没等我开口他们就满足了我的愿望，他们善察人意，总是想方设法送给我一些我所喜爱的小礼品，以表达他们的友情。这些小礼品要比那些光彩夺目的礼物珍贵一千倍，那种耀眼的礼物是馈赠者用来侮辱我们，以满足他们自己的虚荣心的。我千百次地吻着蝴蝶结，每次呼吸都将种种幸福的回忆啜入心田，于是我便沉浸在幸福的日子里。这样的日子只有不多几天，现在已经一去不复返了。威廉呀！事情就是这样，我不抱怨，生命之花只不过是幻象！多少花朵凋谢了，没有留下一点痕迹，结了果的寥寥无几，而果实能成熟的就更是稀少！不过，世上的果实还是足够的；可是，我的兄弟呀，对于这些熟果难道我们可以不加理会，可以瞧不起，可以不去享受而任其烂掉吗？
+真的，要是我的病能治得好，他们是会给我治的。今天是我的生日，一大早我就收到阿尔贝特的一个小包裹。打开包裹，一个粉红色的蝴蝶结即刻映入我的眼帘。我与绿蒂初次相识时，她胸襟上就结着这个蝴蝶结，自那以后，我曾求过她多次，让她把蝴蝶结送我。包里还有两册十二开本的小书——韦特施泰因<sup><a id="fnr.40" class="footref" href="#fn.40">40</a></sup>版的荷马袖珍本。这个版本是我早就想要的，免得散步时总带着我那本埃内斯蒂版的大厚本。看，没等我开口他们就满足了我的愿望，他们善察人意，总是想方设法送给我一些我所喜爱的小礼品，以表达他们的友情。这些小礼品要比那些光彩夺目的礼物珍贵一千倍，那种耀眼的礼物是馈赠者用来侮辱我们，以满足他们自己的虚荣心的。我千百次地吻着蝴蝶结，每次呼吸都将种种幸福的回忆啜入心田，于是我便沉浸在幸福的日子里。这样的日子只有不多几天，现在已经一去不复返了。威廉呀！事情就是这样，我不抱怨，生命之花只不过是幻象！多少花朵凋谢了，没有留下一点痕迹，结了果的寥寥无几，而果实能成熟的就更是稀少！不过，世上的果实还是足够的；可是，我的兄弟呀，对于这些熟果难道我们可以不加理会，可以瞧不起，可以不去享受而任其烂掉吗？
 </p>
 
 <p>
@@ -1360,18 +1231,18 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-2-38" class="outline-3">
-<h3 id="sec-2-38"><span class="section-number-3">2.38</span> 八月三十日</h3>
+<div class="outline-3">
+<h3 id="orgheadline39">八月三十日</h3>
 <div class="outline-text-3" id="text-2-38">
 <p>
-不幸的人呀！你难道不是傻瓜？你不是在自己骗自己？这无休无止的汹涌澎湃的激情该怎么办？除了为她，我已不再祷告别的；除了她的倩影，我想象中已无别的形象，周围世界上的东西，只有同她有关的我才看得见。这也给了我一些幸福的时刻——直到我不得不同她分离！唉，威廉，我的心为何常将我困扰！——我坐在她身边，坐上两小时、三小时，欣赏着她的身姿，她的风度，她的谈吐，于是渐渐地我所有的感官都紧张到极点，我眼前一片昏暗，我几乎什么也听不到了，我的咽喉像是被暗杀者卡住了，我的心在狂跳，想要让压抑的感官得到发泄，结果反而使其更加紊乱。——威廉呀，我往往不明白，我到底是不是在世上！要不是有时我抑郁的心情有所减轻，要不是绿蒂给了我一点可怜的安慰，允许我伏在她的手上痛哭，吐一吐我心中的积郁，那我必然得走开，必须跑出去，远远地到原野中去四处游荡，那末，攀登陡峭的山峰，在无路可行的森林里走出一条路来，让灌木丛刮破我的衣服，让荆棘刺破我的肌肤，这便将是我的乐趣！这样，我心里就会好受一些！但也不过是“一些”而已！有时，我感到又累又渴，就在途中躺一躺，有时在深夜，一轮满月在天空高挂，我在寂寞的森林里坐在一棵弯曲的树上，使磨破的脚掌减轻些许痛楚，在影影绰绰的月色中，乏人的寂静将我送入梦乡！唉，威廉，一间修道士寂寞的陋室，一件粗羊毛织的长袍和一根荆条腰带<sup><a id="fnr.41" name="fnr.41" class="footref" href="#fn.41">41</a></sup>便是我的灵魂的清凉剂。再见！除了坟墓，我看不到这痛苦会有尽头。
+不幸的人呀！你难道不是傻瓜？你不是在自己骗自己？这无休无止的汹涌澎湃的激情该怎么办？除了为她，我已不再祷告别的；除了她的倩影，我想象中已无别的形象，周围世界上的东西，只有同她有关的我才看得见。这也给了我一些幸福的时刻——直到我不得不同她分离！唉，威廉，我的心为何常将我困扰！——我坐在她身边，坐上两小时、三小时，欣赏着她的身姿，她的风度，她的谈吐，于是渐渐地我所有的感官都紧张到极点，我眼前一片昏暗，我几乎什么也听不到了，我的咽喉像是被暗杀者卡住了，我的心在狂跳，想要让压抑的感官得到发泄，结果反而使其更加紊乱。——威廉呀，我往往不明白，我到底是不是在世上！要不是有时我抑郁的心情有所减轻，要不是绿蒂给了我一点可怜的安慰，允许我伏在她的手上痛哭，吐一吐我心中的积郁，那我必然得走开，必须跑出去，远远地到原野中去四处游荡，那末，攀登陡峭的山峰，在无路可行的森林里走出一条路来，让灌木丛刮破我的衣服，让荆棘刺破我的肌肤，这便将是我的乐趣！这样，我心里就会好受一些！但也不过是“一些”而已！有时，我感到又累又渴，就在途中躺一躺，有时在深夜，一轮满月在天空高挂，我在寂寞的森林里坐在一棵弯曲的树上，使磨破的脚掌减轻些许痛楚，在影影绰绰的月色中，乏人的寂静将我送入梦乡！唉，威廉，一间修道士寂寞的陋室，一件粗羊毛织的长袍和一根荆条腰带<sup><a id="fnr.41" class="footref" href="#fn.41">41</a></sup>便是我的灵魂的清凉剂。再见！除了坟墓，我看不到这痛苦会有尽头。
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2-39" class="outline-3">
-<h3 id="sec-2-39"><span class="section-number-3">2.39</span> 九月三日</h3>
+<div class="outline-3">
+<h3 id="orgheadline40">九月三日</h3>
 <div class="outline-text-3" id="text-2-39">
 <p>
 我不得不走了！感谢你，威廉，感谢你坚定了我动摇不定的决心。两星期来我在反复考虑离开她的问题。我必须走了。她又进城到女友家去了。而阿尔贝特——而我——我非走不可了！
@@ -1380,8 +1251,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-2-40" class="outline-3">
-<h3 id="sec-2-40"><span class="section-number-3">2.40</span> 九月十日</h3>
+<div class="outline-3">
+<h3 id="orgheadline41">九月十日</h3>
 <div class="outline-text-3" id="text-2-40">
 <p>
 那是一个黑夜！威廉呀！现在我经受了一切。我将不会再见她！哦，我的挚友，此刻我不能飞来抱住你的脖子，好好哭一场，来表达我狂喜的心情，倾吐冲击我心灵的感情。我坐在这儿，张着大嘴喘气，竭力使自己平静下来，等待黎明的来临。我定的马将在日出时启程。
@@ -1432,11 +1303,11 @@ org_html_manager.setup();  // activate after the parameters are set
 
 
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 下篇</h2>
+<div class="outline-2">
+<h2 id="orgheadline54">下篇</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 十月二十日</h3>
+</div><div class="outline-3">
+<h3 id="orgheadline43">十月二十日</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 昨天我们到了这里。公使身体不舒服，要在家里休息几天。他要是对人不怎么厉害，那一切都会好的。我发觉，我发觉，命运给了我严峻的考验。我要鼓起勇气！心情愉快什么都可以承受得住！心情愉快？这话竟出于我的笔下，真让我好笑。哦，只要稍为愉快一点，我就是天底下最幸福的人了。什么！别人有了一点儿精力和才能便在我面前自鸣得意、播唇弄舌了，我干吗要怀疑自己的才能和禀赋？仁慈的上帝，我这一切都是你赐予的，你为什么不留下一半，另给我以自信和满足呢？
@@ -1449,8 +1320,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 十一月二十六日</h3>
+<div class="outline-3">
+<h3 id="orgheadline44">十一月二十六日</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 我开始十分勉强地适应此地的生活了。最妙的是，这里有许多事情可做；此外，各式各样的人，形形色色的新形象在我的心灵之前展示了一场多姿多采的戏剧。我认识了Ｃ伯爵，他是个思想开明，又很有抱负的人，令我对他的敬重与日俱增；他见多识广，所以对人并不冷淡；同他的交往中他表现出极重友情、富有爱心。他很关心我，有次我到他府上去办一件公事，一经交谈，他便发现我们彼此十分投机，他可以同我畅怀叙谈，而这一点他并不是同每个人都能做到的。他对我推心置腹，举止坦率，我怎么赞誉也不为过。能见到一颗伟大的心灵，一个对人敞开胸怀、以诚相待的人，真是人世间温馨的乐事。
@@ -1459,8 +1330,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 十二月二十四日</h3>
+<div class="outline-3">
+<h3 id="orgheadline45">十二月二十四日</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 公使真让我烦死了，这是我预料到的。他是个拘泥刻板、仔细精确到极点的笨蛋，世上无人能出其右；此公一板一眼，唠唠叨叨，像个老婆子；他从来没有满意自己的时候，因此对谁都看不顺眼。我办事喜欢干脆利索，是怎么样就怎么样；他却会在把文稿退给我的时候说：“满不错，但请再看看，总是可以找出更好的字和更合适的小品词来的。”——真要把我气疯了。少用一个“和”，省掉一个连接词都是不允许的，有时我不经意用了几个倒装句，而他则是所有倒装句的死敌；如果复合长句没有按照传统的节奏来写，那他根本就看不懂。要同这么一个人打交道，真是一种痛苦。
@@ -1485,8 +1356,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-3-4" class="outline-3">
-<h3 id="sec-3-4"><span class="section-number-3">3.4</span> 一七七二年一月八日</h3>
+<div class="outline-3">
+<h3 id="orgheadline46">一七七二年一月八日</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 人啊，真不知是怎么回事，他们的全部心思都放在了虚文浮礼上，成年累月琢磨和希冀的就是宴席上自己的坐位能不断往前挪！这倒并非他们没有别的事情可做：不，工作多得成堆成堆的，正因为他们都热衷于种种伤脑筋的琐事，才耽误了去办重要的事。上星期乘雪橇出游时就发生了一场争吵，真是扫兴。
@@ -1499,8 +1370,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-3-5" class="outline-3">
-<h3 id="sec-3-5"><span class="section-number-3">3.5</span> 一月二十日</h3>
+<div class="outline-3">
+<h3 id="orgheadline47">一月二十日</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 亲爱的绿蒂，为躲避一场暴风雪。我逃进一家农舍小客店，在这里的房间里，我得给您写信了。只要我呆在Ｄ镇可悲的巢穴里，周旋于陌生的、对我的心来说是完全陌生的人群中，我就没有片刻工夫，没有片刻可以使我的心叫我给您写信的工夫；现在，在这所茅舍里，寂寞、狭隘，雪花和冰雹猛烈地扑打着小小的窗户，我第一个想到的就是您。我一进门，您的身影便浮现在我眼前，对您的思念就袭上我的心头，哦，绿蒂，这是多么圣洁，多么温馨！仁慈的上帝！第一个幸福的瞬间又出现了。
@@ -1529,8 +1400,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-3-6" class="outline-3">
-<h3 id="sec-3-6"><span class="section-number-3">3.6</span> 二月八日</h3>
+<div class="outline-3">
+<h3 id="orgheadline48">二月八日</h3>
 <div class="outline-text-3" id="text-3-6">
 <p>
 连续八天，这里的天气坏极了，但是我却很惬意。因为到这里以后，每个阳光灿烂的日子总是让人来糟蹋了，搞得索然无味。碰上下雨、下雪、严寒、化雪天气，哈！我心里想，这下好了。呆在屋里并不比在外面差，或者反过来，到外面去倒也不坏。每当早晨太阳升起，晴朗的一天开始时，我便禁不住要喊：这又是一份天赐财富，他们互相又可以你争我夺了！任何东西他们彼此都在你抢我夺，比如健康啦，好名声啦，欢乐啦，休息啦！多半是出于愚昧、无知和狭隘，要是听他们自己说，那个个都是菩萨心肠。有时我真想跪下来求他们，不要那么发疯似地点燃心头无名怒火。
@@ -1539,8 +1410,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-3-7" class="outline-3">
-<h3 id="sec-3-7"><span class="section-number-3">3.7</span> 二月十七日</h3>
+<div class="outline-3">
+<h3 id="orgheadline49">二月十七日</h3>
 <div class="outline-text-3" id="text-3-7">
 <p>
 我担心，公使和我的共事不会长了。此公真让人没法忍受。他的工作和办事方式极其可笑，以至我忍不住要违背他的意愿，往往按我自己的想法和方式行事，因此当然从来都不合他的心意。为此他最近到宫廷去告了我，部长给了我一次警告，虽然很温和，可总是警告呀。我正打算提出辞呈，正好收到他一封私人信。对这封信我不得不五体投地，对信里崇高、高尚和睿知的思想只有顶礼膜拜。他责备我过于感情用事，认为我在工作效益、影响别人和熟悉业务方面的偏激的想法是年轻人良好的勇气，他表示尊重，并不要求消除这些想法，只是要设法使之缓和一些，并把它们引导到能够真正发挥作用、产生有力影响的地方去。八天来我增强了信心，心情也舒畅了。心灵的平静是非常珍贵的，它本身就是快乐。亲爱的朋友，要是这美丽而宝贵的珍宝，不那么容易碎，该有多好。
@@ -1549,8 +1420,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-3-8" class="outline-3">
-<h3 id="sec-3-8"><span class="section-number-3">3.8</span> 二月二十日</h3>
+<div class="outline-3">
+<h3 id="orgheadline50">二月二十日</h3>
 <div class="outline-text-3" id="text-3-8">
 <p>
 愿上帝保佑你们，亲爱的朋友，但愿他把从我这儿扣掉的美好日子统统赐给你们！
@@ -1563,15 +1434,15 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-3-9" class="outline-3">
-<h3 id="sec-3-9"><span class="section-number-3">3.9</span> 三月十五日</h3>
+<div class="outline-3">
+<h3 id="orgheadline51">三月十五日</h3>
 <div class="outline-text-3" id="text-3-9">
 <p>
 我碰到一件倒霉事，它将会把我从这里赶走的。我气得把牙齿咬得吱吱响！真是活见鬼，这事还无法补救，这都是你们的过错，你们鼓励我，催促我，折磨我，要我接受一个不合自己心意的职位。这下我有好果子吃了！这下你们有好果子吃了！为了你不又说，一切都是我的偏激思想弄糟的，这里我就给你，亲爱的先生，简单明了地讲讲这件事吧，就像是编年史家把它记录下来的一样。
 </p>
 
 <p>
-冯•Ｃ伯爵喜欢我，器重我，这事谁都知道，我也对你说过一百遍了。昨天我在他家吃饭，刚巧那天晚上贵族社会的先生太太要在他家聚会，这事我想都没有想过，也从未留神我们下属不能参加。好吧。我在伯爵府上吃饭，饭后我们在大厅里来回走走，我同伯爵聊了会，又同来参加聚会的Ｂ上校谈了一阵，这样，聚会的时间就快到了。上帝知道，我什么都没有去想。这时最最高贵的冯•Ｓ夫人带着丈夫和孵化得很好的小鹅，那位胸脯扁平、穿着紧身胸衣的千金小姐进来了，走过的时候瞪着世袭贵族的眼睛，鼻子翘得老高。对这号人我从心里就反感，正等着伯爵无聊的应酬一完，我就告辞，正在这时，我的Ｂ小姐进来了。我见到她，心里总有几分欣喜，所以就没有走，站在她的椅子后面，过了一阵子我才发现，她跟我谈话没有平时那么坦率，而且有点发窘。这事引起了我的注意。难道她也和那些人一样，全是一丘之貉？我想着，心里好像被捅了一刀似的，就想走了。但我并没有走，真希望要向她道歉，我不相信她真会是这种态度，还希望听到她的一句好话以及——随你怎么想好了。这当间到了很多人，大厅里挤得满满的。来的人中有Ｆ男爵，穿戴着弗朗茨一世加冕时<sup><a id="fnr.42" name="fnr.42" class="footref" href="#fn.42">42</a></sup>的全套行头；有在这种场合按其贵族身份称他为冯•Ｒ大人的宫廷顾问Ｒ，带着他的聋子夫人，等等；那位穿得很寒酸的Ｊ也不应忘掉，他那套老古董礼服上的窟窿用时兴的布头打了不少补丁。物以类聚，这帮人都凑到了一起。我便和几个认识的人交谈，但他们个个都只有三言两语，爱理不理的样子。我想——我只留意我的Ｂ小姐，没有觉察到女人们都在大厅的一端交头接耳，窃窃私语，也没有发觉这种气氛也影响到了男人，冯•Ｓ夫人在同伯爵说些什么（这些都是Ｂ小姐后来告诉我的），直到末了伯爵朝我走来，把我领到窗户边。——“我们这种奇特的关系您是知道的，”他说，“我发现，参加聚会的人见到您在这儿都很不满意。我本人是说什么也不愿……”——“阁下，”我接下他的话说，“千万请您原谅；我本该早就想到的，我知道，您会宽恕我没有当机立断的；本来我早就要告辞了，却让一位恶女神把我留住了。”我笑着补充了一句，同时鞠了一躬。——伯爵深情地握着我的手，一切尽在不言中。我悄悄溜出聚会，在外面坐上一辆双轮马车，向Ｍ地驶去，在那儿站在山上观赏日落，同时吟诵荷马描写奥德修斯受到好心的猪倌款待<sup><a id="fnr.43" name="fnr.43" class="footref" href="#fn.43">43</a></sup>的诗篇。这一切多好啊。
+冯•Ｃ伯爵喜欢我，器重我，这事谁都知道，我也对你说过一百遍了。昨天我在他家吃饭，刚巧那天晚上贵族社会的先生太太要在他家聚会，这事我想都没有想过，也从未留神我们下属不能参加。好吧。我在伯爵府上吃饭，饭后我们在大厅里来回走走，我同伯爵聊了会，又同来参加聚会的Ｂ上校谈了一阵，这样，聚会的时间就快到了。上帝知道，我什么都没有去想。这时最最高贵的冯•Ｓ夫人带着丈夫和孵化得很好的小鹅，那位胸脯扁平、穿着紧身胸衣的千金小姐进来了，走过的时候瞪着世袭贵族的眼睛，鼻子翘得老高。对这号人我从心里就反感，正等着伯爵无聊的应酬一完，我就告辞，正在这时，我的Ｂ小姐进来了。我见到她，心里总有几分欣喜，所以就没有走，站在她的椅子后面，过了一阵子我才发现，她跟我谈话没有平时那么坦率，而且有点发窘。这事引起了我的注意。难道她也和那些人一样，全是一丘之貉？我想着，心里好像被捅了一刀似的，就想走了。但我并没有走，真希望要向她道歉，我不相信她真会是这种态度，还希望听到她的一句好话以及——随你怎么想好了。这当间到了很多人，大厅里挤得满满的。来的人中有Ｆ男爵，穿戴着弗朗茨一世加冕时<sup><a id="fnr.42" class="footref" href="#fn.42">42</a></sup>的全套行头；有在这种场合按其贵族身份称他为冯•Ｒ大人的宫廷顾问Ｒ，带着他的聋子夫人，等等；那位穿得很寒酸的Ｊ也不应忘掉，他那套老古董礼服上的窟窿用时兴的布头打了不少补丁。物以类聚，这帮人都凑到了一起。我便和几个认识的人交谈，但他们个个都只有三言两语，爱理不理的样子。我想——我只留意我的Ｂ小姐，没有觉察到女人们都在大厅的一端交头接耳，窃窃私语，也没有发觉这种气氛也影响到了男人，冯•Ｓ夫人在同伯爵说些什么（这些都是Ｂ小姐后来告诉我的），直到末了伯爵朝我走来，把我领到窗户边。——“我们这种奇特的关系您是知道的，”他说，“我发现，参加聚会的人见到您在这儿都很不满意。我本人是说什么也不愿……”——“阁下，”我接下他的话说，“千万请您原谅；我本该早就想到的，我知道，您会宽恕我没有当机立断的；本来我早就要告辞了，却让一位恶女神把我留住了。”我笑着补充了一句，同时鞠了一躬。——伯爵深情地握着我的手，一切尽在不言中。我悄悄溜出聚会，在外面坐上一辆双轮马车，向Ｍ地驶去，在那儿站在山上观赏日落，同时吟诵荷马描写奥德修斯受到好心的猪倌款待<sup><a id="fnr.43" class="footref" href="#fn.43">43</a></sup>的诗篇。这一切多好啊。
 </p>
 
 <p>
@@ -1585,8 +1456,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-3-10" class="outline-3">
-<h3 id="sec-3-10"><span class="section-number-3">3.10</span> 三月十六日</h3>
+<div class="outline-3">
+<h3 id="orgheadline52">三月十六日</h3>
 <div class="outline-text-3" id="text-3-10">
 <p>
 什么事都让我生气。今天我在林荫道上遇见了Ｂ小姐，我忍不住先向她打了招呼。等我们离别人稍远一点时，我就向她表示，她最近的态度使我受到极大的伤害。——“哦，维特，”她语调亲切地说，“您是了解我的心的，怎么能这样来解释我当时的迷惘呢？从我踏进大厅的一刻起，我为您受了多大的痛苦呀！这一切我都预见到了，想告诉您，话都千百次到了嘴上。我知道，冯•Ｓ夫人和冯•Ｔ夫人宁肯带着她们的丈夫一起退场，也不愿跟您一起参加晚会；我知道，伯爵也不会甘愿去得罪他们。现在竟闹得沸沸扬扬了！”——“闹成什么样了，小姐？”我问，竭力掩饰着内心的惊吓；这一瞬间，阿德林昨天告诉我的那些事，就像沸腾的开水一样，在我血管里奔流。——“我付出了多大代价啊！”说着，可爱的人儿眼睛里已饱含了泪水。——我控制不住自己了，准备扑倒在她的脚下。——“请您说说您自己受的委屈吧！”我大声说道。——眼泪从她的脸颊上往下流。我激动极了。她毫不掩饰地擦干眼泪。——“我姑妈您是认识的，”她开始说道，“她也在场，并且，——哦，是以什么样的眼光看着的哟！维特，昨天夜里我熬过来了，今天早上为了我同您交往的事挨了一顿教训，我不得不听着她贬低您，污辱您，我只能，也只允许我为您进行一点点辩白。”
@@ -1599,8 +1470,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-3-11" class="outline-3">
-<h3 id="sec-3-11"><span class="section-number-3">3.11</span> 三月二十四日</h3>
+<div class="outline-3">
+<h3 id="orgheadline53">三月二十四日</h3>
 <div class="outline-text-3" id="text-3-11">
 <p>
 我已向朝廷提出辞呈，希望能够获准。我没有先征得你们的同意，你们会原谅我的吧。我是不得不走了，你们会劝我留下，你们要说的话我全都明白，那么——请将此事婉转地告诉我母亲，我自己实在想不出什么法子，如果我不能让她满意，那只好请她自己放宽心了。当然，她一定很难过。她本来可以指望儿子当上枢密顾问和公使的，现在竟看着他一下子就把这个锦绣前程断送了，又牵着马回到了马圈！你们爱怎么想就怎么想，也可以提出种种我能够留下和应该留下来的理由，可是一句话，我要走了。告诉你们，我要去的地方就是这里的侯爵那儿。他很乐意同我结交，得知我的意向后，便邀请我同他到他的庄园去，共度美好的春天。他答应，一切都由我自己决定，因为我们一起在许多问题上都能相互理解，所以我就想碰碰运气，跟他一起去。
@@ -1611,11 +1482,11 @@ org_html_manager.setup();  // activate after the parameters are set
 
 
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> 有关信息</h2>
+<div class="outline-2">
+<h2 id="orgheadline89">有关信息</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 四月十九日</h3>
+</div><div class="outline-3">
+<h3 id="orgheadline55">四月十九日</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 感谢你的两封来信。我没有回复，因为我把信压下了，等朝廷批准我的辞呈；我担心母亲会去找部长，给我的计划增加困难。但是现在好了，我的辞呈批下来了。我真不愿告诉你们，他们很舍不得让我走，部长给我的信里是怎么写的——你们知道了又会埋怨的。王储送给我二十五个杜卡登作为辞职金，总之，我感动得流下了眼泪。上次我曾写信向母亲要钱，现在不需要了。
@@ -1624,8 +1495,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-2" class="outline-3">
-<h3 id="sec-4-2"><span class="section-number-3">4.2</span> 五月五日</h3>
+<div class="outline-3">
+<h3 id="orgheadline56">五月五日</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 明天我就要离开这里，经过的地方离我的出生地只有六里路，因此我想再去看看，重温往日那些充满幸福梦想的日子。父亲去世以后，母亲带着我走出大门，离开了这个亲切可爱的地方，蛰居在难以忍受的城里，这次我要从那个大门里进去。再见，威廉，我会把旅途中的情况告诉你的。
@@ -1634,8 +1505,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-3" class="outline-3">
-<h3 id="sec-4-3"><span class="section-number-3">4.3</span> 五月九日</h3>
+<div class="outline-3">
+<h3 id="orgheadline57">五月九日</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 我怀着朝圣者的虔诚结束了对故乡的朝拜，一些意想不到的感情使我激动不已。在离城还有一刻钟通往Ｓ地路旁的那棵大菩提树跟前，我让邮车停下，下车后便让邮车继续往前，我则安步当车，随心所欲地重新生动地品味对往事的回忆。我站在菩提树下，这棵树是我童年时散步的目的地和界限。多大的变化啊！那时我天真烂漫，少不更事，渴望到外面陌生的世界去，好使我的心吸取营养，享受欢乐，使我奋发向上和充满渴慕的胸怀得到充实和满足。现在我从广阔的世界回来了。——哦，我的朋友，我回来了，带来的却是破灭的希望，失败的计划！——我望着面前的高山，当年我曾千百次想去攀登。我可以在这里一连坐上几个小时，渴望越过高山，在森林和山谷中神游，在我眼前显得如此亲切、朦胧的森林和山谷中神游；到了该回家的时刻，我离开这个可爱的地方时，是多么恋恋不舍哟！——离城越来越近了，我向所有往日熟悉的花园房舍问候，而那些新建的，以及作了改动的房舍则使我反感。一进城门，我立即完完全全找到了自己的童年。亲爱的，我不想一一细说了；这一切对我来说是多么迷人，但说起来恐怕是非常单调的。我决定在集市上投宿，就挨着我们的旧居。在往那儿去的路上我发现，那间教室，那个我们在一位诚实的老太太管束下度过了童年的地方，现在已成了一家杂货铺。我回想起当年在这间斗室里所经历的不安、哭泣、神志的昏朦和心灵的恐惧。——每走一步也感触良多。一个朝圣者到了圣地也不会遇上这么多记忆中的圣迹。他的心灵也难以盛满这么多神圣的激动。——我还要说一说记忆中千百个经历中的一件。我沿河而下，来到一个农家；这也是我当年常走的路，那时我们男孩子常在那里用扁石块练习往水里打飘飘，看谁打的水飘儿最多。我还印象鲜明地记得，有时我站在那里，注视着河水，脑子里怀着奇妙的揣想随着河水流去，想象着河水流去的地方定是稀奇古怪的，不一会我的想象力就到了尽头；但是我的思绪还在继续驰骋，还在不停地驰骋，直至消失在看不见的远方。——你看，亲爱的朋友，我们杰出的先祖见识多么局限，却又这么幸福快乐！他们的感情，他们的诗歌又是多么天真！奥德修斯谈起无垠的大海和无际的陆地时，是多么真实、感人，多么亲昵、贴切和神秘啊！现在我能对每个学生说地球是圆的，对我又有何用？人只要一小块土地便可在上面安居乐业了，而用来安息的，有一蝘黄土就够了。
@@ -1648,8 +1519,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-4" class="outline-3">
-<h3 id="sec-4-4"><span class="section-number-3">4.4</span> 五月二十五日</h3>
+<div class="outline-3">
+<h3 id="orgheadline58">五月二十五日</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 我脑子里曾有过一个打算，在计划实现以前原本不想告诉你们的：现在计划已成泡影，所以说了也无妨。我本想去从军的，这事我在心里已经盘算很久了。主要是由于这个原因，我才跟侯爵到这里来，他现任某地的将军。有次散步时我向他透露了自己的打算；他劝我打消这个念头，说除非我真是出于热情，而不是一时心血来潮，否则还是听从他的劝告好。
@@ -1658,8 +1529,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-5" class="outline-3">
-<h3 id="sec-4-5"><span class="section-number-3">4.5</span> 六月十一日</h3>
+<div class="outline-3">
+<h3 id="orgheadline59">六月十一日</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 你爱怎么说就怎么说吧，我可不能再在这里呆下去了。要我在这儿干什么？我觉得日子真是长得无聊。侯爵待我很好，真是好得没法再好了，但我总觉得不对劲儿。我们彼此之间根本没有共同之处。他是一个有理性的人，不过他的理性极其一般；同他交往真还不如去读一本书来得愉快。我还在这儿呆八天，然后我又将漂泊四方。我又拿起笔来作画了，这是我在这里所干的最出色的事。侯爵颇有艺术感受力，如果他不是被那些讨厌的科学概念和普通术语框住，那他的理解力还会强得多。有时候，正当我怀着热烈的幻想向他畅谈自然和艺术的时候，他却自鸣得意地一下子插上一句关于艺术的陈词滥调，真把我气得咬牙切齿。
@@ -1668,8 +1539,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-6" class="outline-3">
-<h3 id="sec-4-6"><span class="section-number-3">4.6</span> 六月十六日</h3>
+<div class="outline-3">
+<h3 id="orgheadline60">六月十六日</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
 是呀，我只不过是个漂泊者，尘世间的匆匆过客！难道你们就不是吗？
@@ -1678,8 +1549,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-7" class="outline-3">
-<h3 id="sec-4-7"><span class="section-number-3">4.7</span> 六月十八日</h3>
+<div class="outline-3">
+<h3 id="orgheadline61">六月十八日</h3>
 <div class="outline-text-3" id="text-4-7">
 <p>
 我要去哪儿？让我向你敞开我的心扉吧。我还得在这儿呆十四天，然后我打算去参观某地的矿山；其实，这并不是我的目的，我只是想再挨绿蒂近一些，仅此而已。我自己也在笑我这颗心——不过我还是顺从了它的愿望。
@@ -1688,8 +1559,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-8" class="outline-3">
-<h3 id="sec-4-8"><span class="section-number-3">4.8</span> 六月二十九日</h3>
+<div class="outline-3">
+<h3 id="orgheadline62">六月二十九日</h3>
 <div class="outline-text-3" id="text-4-8">
 <p>
 不，这很好！一切都妙极了！——我——她的丈夫！呵，上帝，你创造了我，要是你赐给我这个福分，我会向你祈祷一辈子的。我不会抱怨，宽恕我的这些泪水，宽恕我的这些非分之想吧！——她，做我的的妻子！假如我能把这天底下最最可爱的人儿紧紧搂在怀里——每当阿尔贝特搂住她的纤腰，威廉呀，我全身就会战栗不已。
@@ -1705,8 +1576,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 </div>
 </div>
-<div id="outline-container-sec-4-9" class="outline-3">
-<h3 id="sec-4-9"><span class="section-number-3">4.9</span> 八月四日</h3>
+<div class="outline-3">
+<h3 id="orgheadline63">八月四日</h3>
 <div class="outline-text-3" id="text-4-9">
 <p>
 也不只我一个人的情况是这样。每个人的希望都成了泡影，每个人的期望都受了欺骗。我去看望了菩提树下的那位善良的妇人。她的大儿子欢喊着朝我跑来，听到叫声他母亲也来了。她脸上的样子很是忧郁，见了我，她的第一句话便是：“好心的先生，唉，我的汉斯已经死了！”——汉斯是她最小的儿子。我默然无语。——“我的丈夫，”她说，“已经从瑞士回来了，两手空空，什么也没有带来，要不是遇上好人，他真得沿途乞讨了。一路上他发着高烧。”——我不知对她说什么好，就给了孩子一些钱；她请我拿几个苹果走，我接受了，随后便离开了这个令人伤心的地方。
@@ -1715,8 +1586,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-10" class="outline-3">
-<h3 id="sec-4-10"><span class="section-number-3">4.10</span> 八月二十一日</h3>
+<div class="outline-3">
+<h3 id="orgheadline64">八月二十一日</h3>
 <div class="outline-text-3" id="text-4-10">
 <p>
 一转眼的功夫，我的情况就完全变了。有时生活又透出一缕欢乐的光辉，啊，可惜只有一瞬间！——每当我沉湎于梦幻之中，我便禁不住会想：假如阿尔贝特死了，会怎样呢？你就会……，是的，她也会……——于是我就想入非非，直至到了万丈深渊的边缘，才吓得胆战心惊地缩回来。
@@ -1728,8 +1599,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 </div>
 </div>
-<div id="outline-container-sec-4-11" class="outline-3">
-<h3 id="sec-4-11"><span class="section-number-3">4.11</span> 九月三日</h3>
+<div class="outline-3">
+<h3 id="orgheadline65">九月三日</h3>
 <div class="outline-text-3" id="text-4-11">
 <p>
 有时我真不理解，怎么有另一个人能够爱她，可以爱她，殊不知我爱她爱得如此真切，如此忘情，如此情意了她我什么也不了解，什么也不知道，什么也没有呀！
@@ -1738,8 +1609,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-12" class="outline-3">
-<h3 id="sec-4-12"><span class="section-number-3">4.12</span> 九月四日</h3>
+<div class="outline-3">
+<h3 id="orgheadline66">九月四日</h3>
 <div class="outline-text-3" id="text-4-12">
 <p>
 是的。事情正是这样。正像自然界已经临近秋天，我的心里和我周围也是一派萧飒秋意了。我的树叶正在变黄，近处的树木已经在落叶了。我刚来这里时，不是曾经对你讲起过一位青年农民吗？现在我又在瓦尔海姆打听他的情况；听说他已被解雇，被撵走了，谁也不愿再去了解他的情况了。昨天我在通往另一个村子的路上遇见了他，我向他打招呼，他给我讲了他的故事，使我倍受感动，要是我再把他的故事讲给你听，你定会容易理解的。可是说这些干什么呢？干吗不把这令我担忧、使我难受的事保留在自己心里呢？干吗还要来使你伤心呢？干吗我要不断给你机会让你来怜悯我，骂我呢？莫非我的命运也是如此！
@@ -1764,8 +1635,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-13" class="outline-3">
-<h3 id="sec-4-13"><span class="section-number-3">4.13</span> 九月五日</h3>
+<div class="outline-3">
+<h3 id="orgheadline67">九月五日</h3>
 <div class="outline-text-3" id="text-4-13">
 <p>
 她丈夫因事还逗留在乡下，她给他写了一张便笺(jiān)。信是这样开头的：“最好的、最亲爱的，一旦能够脱身，就快回来，我怀着无穷的喜悦在等你。”——来了一位朋友，捎来消息，说他因故还不能马上回来。她写的便笺还在那儿放着，晚上落到了我手里。我读着，微微笑了起来；她问我因何而笑？——“想象力真是上帝的赐予，”我大声说，“一瞬间我竟异想天开，仿佛觉得这张便笺是写给我的呢。”——她没有说活，似乎不大高兴，我也沉默不语。
@@ -1773,11 +1644,11 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 </div>
 </div>
-<div id="outline-container-sec-4-14" class="outline-3">
-<h3 id="sec-4-14"><span class="section-number-3">4.14</span> 九月六日</h3>
+<div class="outline-3">
+<h3 id="orgheadline68">九月六日</h3>
 <div class="outline-text-3" id="text-4-14">
 <p>
-我好不容易才下决心，把我第一次同绿蒂跳舞时穿的那件朴素的蓝燕尾服脱了下来。这件衣服穿到后来已经旧得穿不出去了。我又让人照原样做了一件，领子、翻边袖口也和原来这件一模一样，还配了黄坎肩和黄裤子。<sup><a id="fnr.44" name="fnr.44" class="footref" href="#fn.44">44</a></sup>
+我好不容易才下决心，把我第一次同绿蒂跳舞时穿的那件朴素的蓝燕尾服脱了下来。这件衣服穿到后来已经旧得穿不出去了。我又让人照原样做了一件，领子、翻边袖口也和原来这件一模一样，还配了黄坎肩和黄裤子。<sup><a id="fnr.44" class="footref" href="#fn.44">44</a></sup>
 </p>
 
 <p>
@@ -1787,8 +1658,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-15" class="outline-3">
-<h3 id="sec-4-15"><span class="section-number-3">4.15</span> 九月十二日</h3>
+<div class="outline-3">
+<h3 id="orgheadline69">九月十二日</h3>
 <div class="outline-text-3" id="text-4-15">
 <p>
 为了去接阿尔贝特，她外出了几天。今天我走进她的房间，她便向我迎来，我欣喜若狂地吻了她的手。
@@ -1821,8 +1692,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-16" class="outline-3">
-<h3 id="sec-4-16"><span class="section-number-3">4.16</span> 九月十五日</h3>
+<div class="outline-3">
+<h3 id="orgheadline70">九月十五日</h3>
 <div class="outline-text-3" id="text-4-16">
 <p>
 我真要疯了，威廉！世界上有点价值的东西本来就不多，可是竟有人对之毫不理解，绝无感情。你知道那两棵胡桃树，我和绿蒂一起去看望圣某某的那位坦诚的牧师时曾在树下坐过。就是这两棵美丽的胡桃树，上帝知道，它们始终以最大的欢乐充实我的心！这两棵树使牧师的院子变得多么温馨，多么凉爽！两棵树的枝桠是何等壮美！看到这两棵树就不禁使人怀念多年前栽种它们的两位可敬的牧师。学校老师常常提到其中一位牧师的名字，这个名字他是从祖父那儿听来的，说这位牧师是个老实人，每次到树下我总怀念他，心里充满着神圣的感觉。告诉你，威廉，这两棵树被砍掉了——砍掉了！昨天我同教师先生谈到此事，他流了泪。我简直气疯了，我真想宰了那个砍第一斧头的狗东西。倘若我的院子里有这么几棵树，我不得不眼睁睁地看着其中一棵慢慢地老死，那我定会难过得死去活来的。亲爱的朋友，从这件事情上倒是看到了一点，那就是：人间自有真情在！这两棵胡桃树被砍以后，全村怨声载道，愤愤不平。我希望牧师夫人看到黄油、鸡蛋和别的贡品的减少，就该体会到，她给本村造成的创伤有多大！砍胡桃树的正是她，这新牧师的夫人（我们的老牧师也已去世）。她是个瘦骨伶仃、病病歪歪的女人，因此她根本不留恋这世界，别人也不同情她。这个疯女人，装出一副学识渊博的样子，混入研究经典的行列，甚至下功夫从道德批判的角度对基督教进行新式改革，对于拉瓦特的狂热耸耸肩膀，不以为然，结果损害了自己的健康，所以在上帝的土地上得不到一点欢乐。也只有这种人才会把我的胡桃树砍掉。你看，我真难于平熄胸中之怒火！你可以设想一下：落叶使她的院子不干净并发霉，两棵树遮住了她的光线，而且核桃熟了，男孩子们就会掷石头去砸，这些都触着了她的神经，而当她正在权衡肯尼科特、塞姆勒和米夏艾利斯之间孰优孰劣的时候，就会影响她进行深入思考。我看到村里的人，尤其是老人，个个都如此不满意，就说：“你们当时为什么让她砍呢？”——“我们这里，”大伙儿说，“村长同意了，你有什么办法呢？”——但是有件事倒还算公道。牧师还从未尝过他夫人异想天开带来的甜头，这回他也想捞点油水，就同村长商量好，把卖树的钱对半分了塞进各自腰包。但爵爷设在当地的财务机构得知此事后，便说：“把树抬到这里来！”因为这两棵树原本长在牧师的院子里，而地方财务机构又对牧师的院子拥有产权，所以就把这两棵树卖给了出价最高的人。现在这两棵树还在地上！唔，我要是侯爵，我就要把牧师夫人、村长和财务机构全给……侯爵！——对，我要是侯爵，我还去为我领地上的两棵树操什么心！
@@ -1831,8 +1702,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-17" class="outline-3">
-<h3 id="sec-4-17"><span class="section-number-3">4.17</span> 十月十日</h3>
+<div class="outline-3">
+<h3 id="orgheadline71">十月十日</h3>
 <div class="outline-text-3" id="text-4-17">
 <p>
 我只要看到她那双乌黑的眸子，心里就非常高兴！你看，使我感到沮丧的，是阿尔贝特看上去好像不那么高兴，不像他——所希望的——不像我——以为的——假如——我不喜欢用破折号，但这里我没有其他办法来表达——我想这就够清楚的了。
@@ -1841,8 +1712,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-18" class="outline-3">
-<h3 id="sec-4-18"><span class="section-number-3">4.18</span> 十月十二日</h3>
+<div class="outline-3">
+<h3 id="orgheadline72">十月十二日</h3>
 <div class="outline-text-3" id="text-4-18">
 <p>
 莪相已把我心中的荷马挤走了。这位伟大的诗人把我引进了怎样的一个世界！我漫游在狂风呼啸的荒原，四周浓雾迷漫，月色朦胧，祖先的幽灵随风飘忽不定。我听到山上传来激流穿过森林的奔腾澎湃的轰鸣，时而还从洞穴中飘来幽灵隐隐约约的呻吟，以及痛不欲生的少女的恸哭，在长满青苔、杂草丛生的四块墓石旁哀悼那位光荣阵亡的战士，她的情人。随后我发现了他呀，这位白发苍苍的游吟诗人，他正在辽阔的荒原上寻找他祖先的足迹。呵，他找到了祖先的墓碑，后来他伤心地凝视着那颗射进滚滚云海之中的可爱的金星，往昔的时光又在英雄心中重现，那时这亲切的星光也曾照亮勇士的险阻，月亮曾辉映着他们扎着花环凯旋的战船。我看到诗人的额上刻印着深深的忧伤，看到最后这位孤独的英雄已经精疲力尽，看到他朝坟墓蹒跚地走去，在逝者虚幻无力的影子中不断吸吮新的、令人灼痛的欢乐，俯视着冰冷的土地和高高的、随风摇曳的野草，嘴里在呼喊：“那位旅人将会到来，到来，他曾见过我年轻时美丽的面容，他将会问：‘那位歌手，芬戈尔杰出的儿子在哪里？’他的脚步将跨越我的坟墓，他在世上到处找我，但是毫无结果。”——哦，朋友！我真愿像高贵的勇士，拔出剑来，一下就让我的侯爵从缓缓死去的痛苦折磨中解脱出来，然后再将我的灵魂遣送给这位获得解脱的半神。
@@ -1851,8 +1722,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-19" class="outline-3">
-<h3 id="sec-4-19"><span class="section-number-3">4.19</span> 十月十九日</h3>
+<div class="outline-3">
+<h3 id="orgheadline73">十月十九日</h3>
 <div class="outline-text-3" id="text-4-19">
 <p>
 呵，这空白！在这儿我胸中所感到的可怕空白！——我常常想，倘若你仅只一次，仅只一次能将她拥在心口，那么，这个空白整个儿都可填满。
@@ -1860,8 +1731,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 </div>
 </div>
-<div id="outline-container-sec-4-20" class="outline-3">
-<h3 id="sec-4-20"><span class="section-number-3">4.20</span> 十月二十六日</h3>
+<div class="outline-3">
+<h3 id="orgheadline74">十月二十六日</h3>
 <div class="outline-text-3" id="text-4-20">
 <p>
 是的，亲爱的朋友，我确信，而且越来越确信，一个人的生命是无足轻重，微不足道的。绿蒂的一位女友来看她，我便走进隔壁房间，拿起一本书，又读不下去，于是便拿起笔来写信。我听见她们在轻声说话；她们彼此都说了些无关紧要的事，城里的新闻，诸如谁结了婚，谁病了，病得很厉害之类。——“她老是干咳，脸上颧骨也突出来了，而且常常晕过去；我看她的日子不长了。”客人说。——“Ｎ. Ｎ. 也病得很重，”绿蒂说。——“他身上已经肿起来了，”另一位说。——我那活跃的想象力把我带到了这两个可怜人的床前；我见他们在苦苦挣扎，怎么也不肯告别人生，我见……威廉呀！两位女士正在谈论他们，就像他们在谈一个陌生人死了一样。——我环顾四周，打量着这个房间，我周围挂着绿蒂的衣服，放着阿尔贝特的文稿，还有那些我非常熟悉的家具，甚至连那只墨水瓶。我想：看呀，总而言之，对这家人来说你算什么呀！你的朋友尊敬你！你常常给他们以快乐，你这颗心离开他们就无法活下去了；可是——假如你现在走了，假如你离开了这个圈子呢？他们会感到因失去你而给他们的命运造成的空白吗？这种感觉将会有多久？多久？——啊，人生朝露，即使在他对自己的生活最最确信的地方，在他心爱的人的思念中和心灵里，他也必定会风流云散，荡然无存的，而且这一时刻马上就将到来！
@@ -1870,8 +1741,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-21" class="outline-3">
-<h3 id="sec-4-21"><span class="section-number-3">4.21</span> 十月二十七日</h3>
+<div class="outline-3">
+<h3 id="orgheadline75">十月二十七日</h3>
 <div class="outline-text-3" id="text-4-21">
 <p>
 人们相互之间的情分竟是如此淡薄，气得我常常想撕裂自己的胸膛，撞碎自己的脑袋。呵，爱情、欢乐、温暖、幸福，我不把这些给予别人，别人也不会给予我，而且，即使我心里充满了幸福，假如站在我面前的人是冷冰冰的，有气无力，那我也不会使他幸福呀。
@@ -1879,8 +1750,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 </div>
 </div>
-<div id="outline-container-sec-4-22" class="outline-3">
-<h3 id="sec-4-22"><span class="section-number-3">4.22</span> 十月二十七日，傍晚</h3>
+<div class="outline-3">
+<h3 id="orgheadline76">十月二十七日，傍晚</h3>
 <div class="outline-text-3" id="text-4-22">
 <p>
 我竟到了如此的境地，对她的感情吞噬了一切；我竟到了如此的境地，没有她我的一切都将付之东流。
@@ -1889,8 +1760,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-23" class="outline-3">
-<h3 id="sec-4-23"><span class="section-number-3">4.23</span> 十月三十日</h3>
+<div class="outline-3">
+<h3 id="orgheadline77">十月三十日</h3>
 <div class="outline-text-3" id="text-4-23">
 <p>
 我已经上百次起了去搂她脖子的念头！伟大的上帝知道，一个人看到面前有那么多心爱的东西，却不能伸手去拿，他心里多么难受呀！伸手去拿，这原本是人类最自然的本能。婴儿不是见到什么都抓吗？——而我呢？
@@ -1899,11 +1770,11 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-24" class="outline-3">
-<h3 id="sec-4-24"><span class="section-number-3">4.24</span> 十一月三日</h3>
+<div class="outline-3">
+<h3 id="orgheadline78">十一月三日</h3>
 <div class="outline-text-3" id="text-4-24">
 <p>
-上帝知道！我躺上床的时候常常怀着这样的愿望，有时甚至是希冀：不要再醒过来。但是早上我睁开眼睛，又看见了太阳，我心里是多么痛苦呀！我的情绪竟会如此反复无常，要是能归咎于天气，归咎于第三者或一次事业的失败，那么我心中难以忍受的不满意的重负就可以减轻一半。我真痛苦呀！我真切地感觉到，一切罪过全在我一人——不，不是罪过！够了，藏在我心里的一切痛苦之源也正是当初那个一切幸福之源。当初我感情充沛，到处游荡，所到之处，全都是天堂，我的心里可以深情地容纳整个世界，现在的我难道已不是当初的我了？这颗心现在已经死了，从中再也流不出欢乐来了，我的眼睛已经干涸，再也不能以清凉的泪水来滋润我的感官，我怯生生地把额头紧锁。我很痛苦，我失去了生命中的唯一欢乐，失去了我用以创造周围世界的神圣而生气勃勃的力量；这个力量现在已经消逝！——我从窗户里眺望远处的山峦，但见升上山顶，冲破浓雾，照耀着宁静的草地；一条河流蜿蜒曲折地经过树叶凋落的柳林缓缓向我流来，——哦！倘若这壮美的大自然像一幅漆画凝固在我的眼前，然而这欢乐却不能从我心里抽取一滴幸福来注入我的头颅，那么，我这个汉子站在上帝面前不犹如一口干枯的井和一只漏水的瓶<sup><a id="fnr.45" name="fnr.45" class="footref" href="#fn.45">45</a></sup>！我常常倒伏在地，祈求上帝赐我眼泪，就如在赤日炎炎、土地干裂之时农人向上苍求雨一般。
+上帝知道！我躺上床的时候常常怀着这样的愿望，有时甚至是希冀：不要再醒过来。但是早上我睁开眼睛，又看见了太阳，我心里是多么痛苦呀！我的情绪竟会如此反复无常，要是能归咎于天气，归咎于第三者或一次事业的失败，那么我心中难以忍受的不满意的重负就可以减轻一半。我真痛苦呀！我真切地感觉到，一切罪过全在我一人——不，不是罪过！够了，藏在我心里的一切痛苦之源也正是当初那个一切幸福之源。当初我感情充沛，到处游荡，所到之处，全都是天堂，我的心里可以深情地容纳整个世界，现在的我难道已不是当初的我了？这颗心现在已经死了，从中再也流不出欢乐来了，我的眼睛已经干涸，再也不能以清凉的泪水来滋润我的感官，我怯生生地把额头紧锁。我很痛苦，我失去了生命中的唯一欢乐，失去了我用以创造周围世界的神圣而生气勃勃的力量；这个力量现在已经消逝！——我从窗户里眺望远处的山峦，但见升上山顶，冲破浓雾，照耀着宁静的草地；一条河流蜿蜒曲折地经过树叶凋落的柳林缓缓向我流来，——哦！倘若这壮美的大自然像一幅漆画凝固在我的眼前，然而这欢乐却不能从我心里抽取一滴幸福来注入我的头颅，那么，我这个汉子站在上帝面前不犹如一口干枯的井和一只漏水的瓶<sup><a id="fnr.45" class="footref" href="#fn.45">45</a></sup>！我常常倒伏在地，祈求上帝赐我眼泪，就如在赤日炎炎、土地干裂之时农人向上苍求雨一般。
 </p>
 
 <p>
@@ -1913,8 +1784,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-25" class="outline-3">
-<h3 id="sec-4-25"><span class="section-number-3">4.25</span> 十一月八日</h3>
+<div class="outline-3">
+<h3 id="orgheadline79">十一月八日</h3>
 <div class="outline-text-3" id="text-4-25">
 <p>
 她责备我太没节制！呵，她言语之间含有多少绵绵情意！她说我端起一杯酒，往往就非得喝下一瓶才肯罢休，这就叫没有节制。——“您别这样！”她说，“请您想一想绿蒂吧！”——“想一想！”我说，“要您叫我想吗？我想！——我不想！您时时刻刻都在我心里。今天我就在您新近从马车上下来的地方坐过来着……”——她扯起了别的，引开话题，免得我就此事一个劲谈下去。我的挚友，我的意志完全被制服了！她可以随心所欲地将我摆布。
@@ -1923,18 +1794,18 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-26" class="outline-3">
-<h3 id="sec-4-26"><span class="section-number-3">4.26</span> 十一月十五日</h3>
+<div class="outline-3">
+<h3 id="orgheadline80">十一月十五日</h3>
 <div class="outline-text-3" id="text-4-26">
 <p>
-谢谢你，威廉，谢谢你的亲切关怀，谢谢你善意的劝告，而且求你不要着急。让我来忍受吧，虽然我已疲惫不堪，但我支撑下去的力气还是足够的。我崇敬宗教，这你知道，我觉得宗教是许多精疲力竭者的手杖，是许多渴得奄奄一息者的清凉剂。只不过——难道宗教对每个人都能有这样的作用，都必定会起这样的作用吗？倘若你看一看这大千世界，你就会发现成千上万的人，无论信教不信教，宗教对他们未曾有过，而且将来也不会有那样的作用，对我来说，难道宗教一定会是手杖和清凉剂吗？上帝之子自己不是说，在他周围的人都是天父赐予的吗<sup><a id="fnr.46" name="fnr.46" class="footref" href="#fn.46">46</a></sup>？倘若我不是天父赐予他的呢？倘若如我的心告诉我的那样，天父要把我留在他自己身边呢？——我请你不要误解我的意思，不要把我这些纯洁而恳切的话理解为嘲讽。我们自己的整个灵魂都袒露在你面前了，否则我宁愿沉默：对于大家都跟我一样不甚了然的事，我是一个字也不愿说的。人的命运不就是受尽那份痛苦，喝干那杯苦酒吗？——既然这杯酒<sup><a id="fnr.47" name="fnr.47" class="footref" href="#fn.47">47</a></sup>天上的上帝用嘴唇呷一下都觉得太苦，我为何要硬充好汉，装作喝起来很甜呢？在这一瞬间，我的整个生命正在存在与虚无之间颤抖，往昔犹如闪电，照亮了未来黑暗的深渊，我周围的一切都在沉没，世界正随我走向毁灭，在这可怕的瞬间，我为何还要害羞？“我的上帝，我的上帝，为什么离弃我？”这难道不是上帝之子的声音，不是这甘自折磨、甘愿清苦、正无法阻挡地走向毁灭的上帝之子徒劳地使出全部力气从内心深处喊出的声音<sup><a id="fnr.48" name="fnr.48" class="footref" href="#fn.48">48</a></sup>？我为什么就羞于表露自己的想法？他，能像卷布帛一样把天空都卷将起来<sup><a id="fnr.49" name="fnr.49" class="footref" href="#fn.49">49</a></sup>的他尚且逃脱不了那一瞬间，我又何必害怕这一瞬间呢？
+谢谢你，威廉，谢谢你的亲切关怀，谢谢你善意的劝告，而且求你不要着急。让我来忍受吧，虽然我已疲惫不堪，但我支撑下去的力气还是足够的。我崇敬宗教，这你知道，我觉得宗教是许多精疲力竭者的手杖，是许多渴得奄奄一息者的清凉剂。只不过——难道宗教对每个人都能有这样的作用，都必定会起这样的作用吗？倘若你看一看这大千世界，你就会发现成千上万的人，无论信教不信教，宗教对他们未曾有过，而且将来也不会有那样的作用，对我来说，难道宗教一定会是手杖和清凉剂吗？上帝之子自己不是说，在他周围的人都是天父赐予的吗<sup><a id="fnr.46" class="footref" href="#fn.46">46</a></sup>？倘若我不是天父赐予他的呢？倘若如我的心告诉我的那样，天父要把我留在他自己身边呢？——我请你不要误解我的意思，不要把我这些纯洁而恳切的话理解为嘲讽。我们自己的整个灵魂都袒露在你面前了，否则我宁愿沉默：对于大家都跟我一样不甚了然的事，我是一个字也不愿说的。人的命运不就是受尽那份痛苦，喝干那杯苦酒吗？——既然这杯酒<sup><a id="fnr.47" class="footref" href="#fn.47">47</a></sup>天上的上帝用嘴唇呷一下都觉得太苦，我为何要硬充好汉，装作喝起来很甜呢？在这一瞬间，我的整个生命正在存在与虚无之间颤抖，往昔犹如闪电，照亮了未来黑暗的深渊，我周围的一切都在沉没，世界正随我走向毁灭，在这可怕的瞬间，我为何还要害羞？“我的上帝，我的上帝，为什么离弃我？”这难道不是上帝之子的声音，不是这甘自折磨、甘愿清苦、正无法阻挡地走向毁灭的上帝之子徒劳地使出全部力气从内心深处喊出的声音<sup><a id="fnr.48" class="footref" href="#fn.48">48</a></sup>？我为什么就羞于表露自己的想法？他，能像卷布帛一样把天空都卷将起来<sup><a id="fnr.49" class="footref" href="#fn.49">49</a></sup>的他尚且逃脱不了那一瞬间，我又何必害怕这一瞬间呢？
 　　
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-4-27" class="outline-3">
-<h3 id="sec-4-27"><span class="section-number-3">4.27</span> 十一月二十一日</h3>
+<div class="outline-3">
+<h3 id="orgheadline81">十一月二十一日</h3>
 <div class="outline-text-3" id="text-4-27">
 <p>
 她看不出，她感觉不到，她正在酿造毒酒，我和她都将被毁掉；满怀狂喜，我将她递给我的这杯毁灭之酒一饮而尽。那亲切的目光，她那经常——经常？——不，不是经常，是有时凝视着我的目光，用意何在？她接受我下意识流露的感情时那喜形于色的样子，还有她额头上表露出来的对我所受痛苦的怜悯，用意又是何在？
@@ -1947,8 +1818,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-28" class="outline-3">
-<h3 id="sec-4-28"><span class="section-number-3">4.28</span> 十一月二十二日</h3>
+<div class="outline-3">
+<h3 id="orgheadline82">十一月二十二日</h3>
 <div class="outline-text-3" id="text-4-28">
 <p>
 我不能这样祈祷：“让我得到她吧！”可是，我又往往觉得她是我的。我不能这样祈祷：“把她给我吧！”因为她已属于别人。我没完没了地同自己的痛苦开着玩笑；但是我一旦迁就自己的愿望，放松了约束，那就会引出一连串相反的论点来。
@@ -1957,8 +1828,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-29" class="outline-3">
-<h3 id="sec-4-29"><span class="section-number-3">4.29</span> 十一月二十四日</h3>
+<div class="outline-3">
+<h3 id="orgheadline83">十一月二十四日</h3>
 <div class="outline-text-3" id="text-4-29">
 <p>
 她感觉到了我所受的痛苦。今天她的目光深深地透进我的心里。我发现只有她一个人在；我什么也没有说，她则望着我。在她身上我再也看不到花容的俏丽，再也看不到卓越的精神的光辉，这一切全都在我眼前消失了。但是她的目光却更加妩媚，流露着最亲切的关怀和最甜蜜的怜悯，她的目光深深打动了我。我为何不可以伏在她的脚下？我为何不可以在她脖子上印上千百个吻来给予回答？她躲开了，逃去弹钢琴了，她那甜美、轻柔的声音合着钢琴的弹奏，唱起了和谐的歌。我还从未见过她的嘴唇如此迷人；微微启开的两片芳唇，仿佛渴望吸吮钢琴中涌流出来的甘美的声音，只有从她纯洁的嘴里发出奇妙的回声——哦，但愿我能把当时的情景给你描述！——我抵挡不住了，便俯身发誓：芳唇呀，我永远不敢冒昧地对你们亲吻，因为唇上飘浮着天上的精灵。——可是——我，想要！——哈！你看，在我的灵魂之前好似耸立着一道隔墙——这份幸福——然后就以毁灭来赎此罪过——罪过？
@@ -1967,8 +1838,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-30" class="outline-3">
-<h3 id="sec-4-30"><span class="section-number-3">4.30</span> 十一月二十六日</h3>
+<div class="outline-3">
+<h3 id="orgheadline84">十一月二十六日</h3>
 <div class="outline-text-3" id="text-4-30">
 <p>
 我有时对自己说：你的命运是独一无二的；赞美别人的幸福吧——谁都没有受过你那样的苦。——后来我便吟诵一位古代诗人的诗篇，我觉得好似窥见了自己的心。我呵，已经饱尝了种种痛苦！哎，在我之前的人难道就已经如此不幸了吗？
@@ -1977,8 +1848,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-31" class="outline-3">
-<h3 id="sec-4-31"><span class="section-number-3">4.31</span> 十一月三十日</h3>
+<div class="outline-3">
+<h3 id="orgheadline85">十一月三十日</h3>
 <div class="outline-text-3" id="text-4-31">
 <p>
 我大概，我大概无法恢复理智了！我无论走到哪里，都会碰到一种乱我方寸的情景。今天！呵，命运！呵，人！
@@ -1993,14 +1864,14 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-假如一个病人为求圣水而去遥远的圣泉，结果反而加重了自己的病情，更增加了死亡的痛苦，谁要是嘲笑这个病人，谁就要死于非命；假如一个人心里受尽折磨，为了摆脱良心的悔恨，消除心灵的痛苦而去朝拜那座圣墓，他的脚在尚未开辟出来的路上每迈出一步，对他充满恐惧的灵魂来说就是一点解痛灵液，每经过一天的跋涉就使他心上减轻了许多烦恼，那谁要自以为比这位朝圣者高明，他也必将死于非命！——能说这是妄想吗？你们这些坐在软垫上耍嘴皮子的人！——妄想！——噢，上帝！你看看我的眼泪吧！你创造的人已经够可怜的了，你为什么还要再给他一些兄弟，让他们去抢夺他那一点儿东西，抢夺他对你，对你这个无所不爱的神的一点点信任？我们信赖能治百病的药草，信赖葡萄的眼泪<sup><a id="fnr.50" name="fnr.50" class="footref" href="#fn.50">50</a></sup>，这些不都是对你信赖的表示？因为你赋予了我们周围的一切以治病和缓解痛苦的力量，而这种力量正是我们不可须臾或缺的。父亲，我不认识的父亲！父亲，你曾充满我的整个心灵，而现在却转过脸去，对我不理不睬，父亲呵，把我召唤到你那儿去吧！请你不要再沉默了！对于你的沉默，我这颗焦渴的心灵经受不住了。——一个人，一位父亲，当自己突然归来的儿子搂着他的脖子喊着“我回来了，我的父亲”时，他会生气吗？他的儿子还说：“按照你的意愿，我的旅程本该坚持得更久，但我中断了旅程，请你不要生气。这个世界到处都一样，劳碌和工作换来报酬和欢乐，但是这些于我又有何用？惟有在你所在之处，我才感到惬意，在你面前无论遭罪还是享受，我都心甘情愿。”——而你，仁慈的天父，难道会将他撵出大门不成？
+假如一个病人为求圣水而去遥远的圣泉，结果反而加重了自己的病情，更增加了死亡的痛苦，谁要是嘲笑这个病人，谁就要死于非命；假如一个人心里受尽折磨，为了摆脱良心的悔恨，消除心灵的痛苦而去朝拜那座圣墓，他的脚在尚未开辟出来的路上每迈出一步，对他充满恐惧的灵魂来说就是一点解痛灵液，每经过一天的跋涉就使他心上减轻了许多烦恼，那谁要自以为比这位朝圣者高明，他也必将死于非命！——能说这是妄想吗？你们这些坐在软垫上耍嘴皮子的人！——妄想！——噢，上帝！你看看我的眼泪吧！你创造的人已经够可怜的了，你为什么还要再给他一些兄弟，让他们去抢夺他那一点儿东西，抢夺他对你，对你这个无所不爱的神的一点点信任？我们信赖能治百病的药草，信赖葡萄的眼泪<sup><a id="fnr.50" class="footref" href="#fn.50">50</a></sup>，这些不都是对你信赖的表示？因为你赋予了我们周围的一切以治病和缓解痛苦的力量，而这种力量正是我们不可须臾或缺的。父亲，我不认识的父亲！父亲，你曾充满我的整个心灵，而现在却转过脸去，对我不理不睬，父亲呵，把我召唤到你那儿去吧！请你不要再沉默了！对于你的沉默，我这颗焦渴的心灵经受不住了。——一个人，一位父亲，当自己突然归来的儿子搂着他的脖子喊着“我回来了，我的父亲”时，他会生气吗？他的儿子还说：“按照你的意愿，我的旅程本该坚持得更久，但我中断了旅程，请你不要生气。这个世界到处都一样，劳碌和工作换来报酬和欢乐，但是这些于我又有何用？惟有在你所在之处，我才感到惬意，在你面前无论遭罪还是享受，我都心甘情愿。”——而你，仁慈的天父，难道会将他撵出大门不成？
 　　
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-4-32" class="outline-3">
-<h3 id="sec-4-32"><span class="section-number-3">4.32</span> 十二月一日</h3>
+<div class="outline-3">
+<h3 id="orgheadline86">十二月一日</h3>
 <div class="outline-text-3" id="text-4-32">
 <p>
 威廉！前天信上告诉你的那个人，那位幸福的不幸者，曾当过绿蒂父亲的文书，对绿蒂萌生一片痴情，先是藏在自己心里，后来被发现，他为此丢掉了工作，被遣送回家，结果发了疯。你也许是漠不关心地读这个故事的吧，因为阿尔贝特也是无动于衷地讲给我听的，尽管我写得枯燥干巴，但是请你体会一下，这故事对我的震动有多大！
@@ -2009,18 +1880,18 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-4-33" class="outline-3">
-<h3 id="sec-4-33"><span class="section-number-3">4.33</span> 十二月四日</h3>
+<div class="outline-3">
+<h3 id="orgheadline87">十二月四日</h3>
 <div class="outline-text-3" id="text-4-33">
 <p>
-我求你——你看，我这个人完了，我再也无法忍受了！今天我坐在她身边——我坐着，她弹着钢琴，弹出各种曲调，全都是她内心情感的流露！全都是！——全都是！——你以为怎样？——她的小妹妹坐在我的膝上打扮她的布娃娃。我眼里噙着泪水。我低下头，看到了她的结婚戒指。——我的眼泪滚滚而流。——突然，她弹起了那支天籁般甜美的老曲子<sup><a id="fnr.51" name="fnr.51" class="footref" href="#fn.51">51</a></sup>，顿时，我心里感到莫大的慰藉，忆起件件往事，忆起以往听这支歌的时光，忆起这中间那些令人烦恼的忧郁的日子，忆起破灭的希望，还有——我在房里走来走去，心里强烈的欲求令我窒息。——“看在上帝份上，”我说，同时情绪激动地走到她跟前，“看在上帝份上，请你别弹了！”——她停了下来，怔怔地望着我。“维特，”她微笑着说，这笑容渗进了我的心坎，“维特，您病得很厉害，您连最心爱的东西都厌烦了。您走吧，我求您，请您情绪安静下来。”——我立即离开她，冲了出去。——上帝呵，你看到了我的痛苦，请你快快将它结束吧！
+我求你——你看，我这个人完了，我再也无法忍受了！今天我坐在她身边——我坐着，她弹着钢琴，弹出各种曲调，全都是她内心情感的流露！全都是！——全都是！——你以为怎样？——她的小妹妹坐在我的膝上打扮她的布娃娃。我眼里噙着泪水。我低下头，看到了她的结婚戒指。——我的眼泪滚滚而流。——突然，她弹起了那支天籁般甜美的老曲子<sup><a id="fnr.51" class="footref" href="#fn.51">51</a></sup>，顿时，我心里感到莫大的慰藉，忆起件件往事，忆起以往听这支歌的时光，忆起这中间那些令人烦恼的忧郁的日子，忆起破灭的希望，还有——我在房里走来走去，心里强烈的欲求令我窒息。——“看在上帝份上，”我说，同时情绪激动地走到她跟前，“看在上帝份上，请你别弹了！”——她停了下来，怔怔地望着我。“维特，”她微笑着说，这笑容渗进了我的心坎，“维特，您病得很厉害，您连最心爱的东西都厌烦了。您走吧，我求您，请您情绪安静下来。”——我立即离开她，冲了出去。——上帝呵，你看到了我的痛苦，请你快快将它结束吧！
 　　
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-4-34" class="outline-3">
-<h3 id="sec-4-34"><span class="section-number-3">4.34</span> 十二月六日</h3>
+<div class="outline-3">
+<h3 id="orgheadline88">十二月六日</h3>
 <div class="outline-text-3" id="text-4-34">
 <p>
 她的倩影时时跟随着我，寸步不离！无论是醒着还是在梦里，她都充满了我整个心灵！这里，我一闭上眼睛，这里，在我的内视力汇聚的额头里，都有她那双乌黑的眸子显现。就在这里！我无法向你表述！我一闭上眼睛，她的明眸就出现了；她的眸子犹如海洋，犹如深渊，羁留在我的眼前，我的心里，装满我额头里的全部感官。
@@ -2034,10 +1905,10 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> 编者致读者</h2>
+<div class="outline-2">
+<h2 id="orgheadline94">编者致读者</h2>
 <div class="outline-text-2" id="text-5">
-<div class="framed">
+<div class="FRAMED">
 <p>
 我多么希望，我们的朋友在他引人注目的最后几天里能给我们留下充分的手迹，这样我们就可以挨次发表他的遗书，中间不必用叙述来打断了。
 </p>
@@ -2112,7 +1983,7 @@ org_html_manager.setup();  // activate after the parameters are set
 “不幸的人呀，你没救了！我看得出，我们都没救了。”
 </p>
 
-<div class="framed">
+<div class="FRAMED">
 <p>
 阿尔贝特最后当着法官的面所说的关于被捕者的那番话，维特听了反感之极：他认为阿尔贝特的话里带刺，是针对他的。经过反复思考，他机敏的头脑虽然也明知法官和阿尔贝特两人是对的，但是他觉得如果他承认了，认输了，仿佛就意味着放弃了自己内心深处的依托。
 </p>
@@ -2127,13 +1998,13 @@ org_html_manager.setup();  // activate after the parameters are set
 “尽管我对自己说，而且反复地说：他是正派人，是好人，但是这有什么用呢，我的五脏六腑都碎了；叫我如何公正得了！”
 </p>
 
-<div class="framed">
+<div class="FRAMED">
 <p>
 这天傍晚天气很温和，雪也开始融化了，所以绿蒂便同阿尔贝特步行回家。路上她左顾右盼，仿佛少了维特的陪伴，心里颇为惦念似的。阿尔贝特便开始谈他，谴责他，但同时也为他说了些公道话。他说到维特不幸的激情，希望尽可能不和他来往。——“我希望这样做也是为了我们呀，”他说。“我求你，”他接着说，“设法让他改变对你的态度，让他少来看你。人家在注意了，我知道到处都有人在说闲话呢。”——绿蒂没有吭声，阿尔贝特好像已经感觉到了她的沉默，至少从这时起他不在她面前提维特了，如果她提到，他也不作声，或者把话题岔开。
 </p>
 
 <p>
-维特为救那个不幸的人所作的无望的努力，是正在熄灭的火苗最后一次熊熊燃烧；这次努力的失败使他更深地陷入痛苦之中，无所事事；特别是当他听说犯人矢口否认<sup><a id="fnr.52" name="fnr.52" class="footref" href="#fn.52">52</a></sup>自己的罪行，因此可能要求他出庭证实犯人的罪行时，他几乎气疯了。
+维特为救那个不幸的人所作的无望的努力，是正在熄灭的火苗最后一次熊熊燃烧；这次努力的失败使他更深地陷入痛苦之中，无所事事；特别是当他听说犯人矢口否认<sup><a id="fnr.52" class="footref" href="#fn.52">52</a></sup>自己的罪行，因此可能要求他出庭证实犯人的罪行时，他几乎气疯了。
 </p>
 
 <p>
@@ -2150,8 +2021,8 @@ org_html_manager.setup();  // activate after the parameters are set
 
 
 
-<div id="outline-container-sec-5-1" class="outline-3">
-<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 十二月十二日</h3>
+<div class="outline-3">
+<h3 id="orgheadline90">十二月十二日</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 亲爱的威廉，我现在的情况，那些据说被恶魔撵得四处乱闯的不幸的人大概一定都经历过。有时，我心绪不宁；这既非恐惧，亦非欲念——这是内心的莫名狂涛，它似乎要撕裂我的胸腔，扼住我的咽喉！痛苦呀，痛苦！于是我只好在这与人作对的季节里到可怕的黑夜中去游荡。
@@ -2168,14 +2039,14 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-5-2" class="outline-3">
-<h3 id="sec-5-2"><span class="section-number-3">5.2</span> 十二月十四日</h3>
+<div class="outline-3">
+<h3 id="orgheadline91">十二月十四日</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
-这是怎么回事，我亲爱的朋友？我对自己都害怕了！我对她的爱难道不是最神圣、最纯洁、最富亲情之爱吗？我曾经感觉到灵魂里存有该受惩罚的企望？——我不想保证——然而现在却有这许多的梦！哦！有的人把这些矛盾的结果归咎于鬼怪的捉弄，他们的感觉确是真实无误！这一夜！——说来我都发抖——这一夜，我将她搂在怀里，紧紧贴着我的胸脯，在她情话绵绵的嘴上印了千百个吻；我的眼睛在她醉意朦胧的明眸中沉浮！上帝呵！回想起这炽烈的欢乐真是销魂荡魄，我现在仍感到极乐的幸福，难道这也要受到惩罚？绿蒂呀，绿蒂！——我是已经完了！我的神志紊乱如麻，整整八天，我已无法思考，我的眼里泪水滚滚。我既然到哪儿都不快乐，那么到哪儿也不会有快乐<sup><a id="fnr.53" name="fnr.53" class="footref" href="#fn.53">53</a></sup>。我没有愿望，没有希求。我觉得，走了更好。
+这是怎么回事，我亲爱的朋友？我对自己都害怕了！我对她的爱难道不是最神圣、最纯洁、最富亲情之爱吗？我曾经感觉到灵魂里存有该受惩罚的企望？——我不想保证——然而现在却有这许多的梦！哦！有的人把这些矛盾的结果归咎于鬼怪的捉弄，他们的感觉确是真实无误！这一夜！——说来我都发抖——这一夜，我将她搂在怀里，紧紧贴着我的胸脯，在她情话绵绵的嘴上印了千百个吻；我的眼睛在她醉意朦胧的明眸中沉浮！上帝呵！回想起这炽烈的欢乐真是销魂荡魄，我现在仍感到极乐的幸福，难道这也要受到惩罚？绿蒂呀，绿蒂！——我是已经完了！我的神志紊乱如麻，整整八天，我已无法思考，我的眼里泪水滚滚。我既然到哪儿都不快乐，那么到哪儿也不会有快乐<sup><a id="fnr.53" class="footref" href="#fn.53">53</a></sup>。我没有愿望，没有希求。我觉得，走了更好。
 </p>
 
-<div class="framed">
+<div class="FRAMED">
 <p>
 这期间，在那样的情况下，离开世界的决心在维特心里越来越坚定。自从他回到绿蒂身边以来，谢世始终是他最后的出路和希望；不过他对自己说，不要操之过急，不要迅速采取行动，他要怀着美好的信念，怀着尽可能平静的决心来迈出这一步。
 </p>
@@ -2194,7 +2065,7 @@ org_html_manager.setup();  // activate after the parameters are set
 拉起帷幕，到幕后去！收场拉倒！为什么还要踌躇、畏缩？是因为不了解幕后是什么情景？是因为去了便不能返回？我们精神的禀赋，便是能预感到混沌和黑暗，对此我们却毫不知晓。
 </p>
 
-<div class="framed">
+<div class="FRAMED">
 <p>
 到后来，他同这个悲伤的念头越来越密切，越来越亲近，决心已下，而且坚定不移，下面写给他朋友的这封含义双关的信便是一个证明。
 </p>
@@ -2203,14 +2074,14 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-5-3" class="outline-3">
-<h3 id="sec-5-3"><span class="section-number-3">5.3</span> 十二月二十日</h3>
+<div class="outline-3">
+<h3 id="orgheadline92">十二月二十日</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 感谢你的厚爱，威廉，蒙你对那句话作了这样的理解。是的，你说得对：我觉得还是走了好。你建议我回到你们那儿去，我不完全满意；至少我还想绕一回道，尤其是天气还有希望出现持续霜冻，路会比较好走。你想来接我，我也感到非常高兴；只是请你再推迟两个星期，等接到我的下一封信再作考虑。果子尚未成熟，千万不可采摘！十四天左右的时间可以办很多的事。烦你告诉我母亲：请她为她儿子祈祷，并求她原谅我给她造成的种种烦恼。那些我本该使他们欢乐的人，却让他们悲伤，哎，这就是我的命。别了，我最珍贵的朋友！愿苍天赐福予你！别了！
 </p>
 
-<div class="framed">
+<div class="FRAMED">
 <p>
 至于这段时间里绿蒂心里有什么变化，她对她丈夫，对她不幸的朋友的感情怎样，我们都不好用语言来表达，虽然根据对她性格的了解，我们在心里对此会有一个大致的看法，只有一颗美丽的女性的心灵才能窥见她的心灵，体会到她的思想感情。
 </p>
@@ -2241,7 +2112,7 @@ org_html_manager.setup();  // activate after the parameters are set
 已经决定了，绿蒂，我决定死，我写信告诉你这件事并不是浪漫主义地制造紧张，而是十分冷静的，就在今天早上，我将最后见你一面。当你读到此信时，亲爱的，冰冷的坟墓已经盖住了这个不安和不幸者的僵硬的遗体了。在他生命的最后时刻，他能享受到最大的温馨莫过于同你倾心交谈了。我度过了可怕的一夜，哎，也是慈悲的一夜。这一夜加强并且确定了我的决心：死！我昨天离开你的时候，真是悲愤填膺、肝肠寸断，想到在你身边我的生命已经毫无希望，毫无欢乐，我的心就冷得直打颤。——我一回到房间，就疯了似地跪在地上。呵，上帝！你赐我以苦涩的眼泪，这最后一服清凉剂！千百种计划，千百种希望在我心里翻腾，末了只剩下最后的、唯一的念头，坚定不变的念头：死！——我躺下睡了，早晨醒来，心情平静，我心里那个念头依然那么强烈，那么坚定：死！——这不是绝望，这是确信，我已最后决定，我要为你牺牲。是呀，绿蒂！为什么我要将它隐瞒？我们三人当中必须要有一个离去，而我则甘愿做这一个人！呵，我最亲爱的，一个疯狂的念头确曾常常在我破碎的心里折腾——杀死你丈夫！——杀死你！——杀死我自己！——那就杀了我自己吧！——当你在美丽的夏日黄昏登上山岗时，请你想着我，想着我也曾常常爬上这山头，然后你遥望那边教堂墓地里我的坟墓，看那葳蕤的青草在落日余晖中随风摆动。——我动笔写这封信的时候，心情是平静的，可是现在，现在我周围的一切都变得生动活跃，我像孩子似的哭了。
 </p>
 
-<div class="framed">
+<div class="FRAMED">
 <p>
 将近十点钟，维特叫来仆人，边穿衣边对他说，过几天他要出门，因此让仆人把衣服刷干净，将行装收拾好；还叫他去把各处的帐目结清，把借出去的几本书取回，给那几位他每月都给予一些周济的穷人预先发放两个月的接济金。他吩咐把饭送到房里来。吃过饭，他骑马去法官家。法官不在，他便在花园里踱来踱去，陷入沉思，似乎还要对以往的种种伤心事最后作一次总的追忆。
 </p>
@@ -2260,7 +2131,7 @@ org_html_manager.setup();  // activate after the parameters are set
 你一定没有料到！你以为我会听你的话，到圣诞夜才来看你。哦，绿蒂！要么今天见你，要么就永远不见！圣诞夜你手里就拿着这封信了，你一定会哆嗦，你可爱的眼泪将把信纸打湿。我甘愿这样做，我必须这样做！呵，我下了决心，感到多么痛快。
 </p>
 
-<div class="framed">
+<div class="FRAMED">
 <p>
 这期间绿蒂正处于一种奇怪的心态之中。同维特最后那次谈话之后她就感觉到，要同他分开她会多么难受，而要他离开她，他又将多么痛苦。
 </p>
@@ -2303,7 +2174,7 @@ org_html_manager.setup();  // activate after the parameters are set
 婀娜多姿的密诺娜走出来了，她目光低垂，泪水盈盈，她垂着的秀发随着时时从山上吹来的风儿飘洒。——英雄们听到她吐出的婉转歌声，他们的心情变得更加阴沉，因为他们常常见到萨尔迦的坟墓，常常看到一身素装的珂尔玛幽暗的住房。珂尔玛孤独地伫立在山岗上，歌声悦耳动听；萨尔迦曾答应前来，但是四周已经笼罩着茫茫夜色。听吧，这就是珂尔玛的歌声，她正独坐在山岗上！
 </p>
 
-<div class="center">
+<div class="center-block">
 <p>
 <strong>珂尔玛</strong>
 </p>
@@ -2350,7 +2221,7 @@ org_html_manager.setup();  // activate after the parameters are set
 乌林怀抱竖琴登场了，弹着琴为我们唱起阿尔品的歌。——阿尔品的声音娓娓动听，利诺的心里热情奔放。但是他们现在都已仙逝，在斗室之中长眠，他们的歌声也不再在塞尔玛上空回荡。从前乌林有次打猎归来，那时英雄们尚未捐躯沙场。他听到他们在山岗上比赛歌唱，他们的歌声缠绵婉转，但充满哀伤。他们咏叹那位群雄中的佼佼者，咏叹莫拉尔的阵亡。他的心灵活像芬戈尔的一样崇高，他的剑像奥斯卡的一样，令人丧胆。——可是他倒下了。他的父亲悲声痛哭，他姐姐的眼里泪水盈眶，英俊的莫拉尔的姐姐密诺娜的眼里泪水盈眶。在乌林歌唱之前她便下场，犹如西天的月亮预感到暴风雨即将来临之前，便将美丽的脸庞在云里躲藏。——我和乌林一起弹起竖琴，伴着这悲痛的歌唱。
 </p>
 
-<div class="center">
+<div class="center-block">
 <p>
 <strong>利诺</strong>
 </p>
@@ -2362,7 +2233,7 @@ org_html_manager.setup();  // activate after the parameters are set
 风过雨停，中午天气晴朗，乌云正在散开，时隐时现的太阳又匆匆照耀着山岗。阳光映红山中的溪水，在谷底奔向远方。溪涧的淙淙低吟果然甜美，但是我听到的声音，我听到的阿尔品的声音却更加悦耳动人。他在哀哭死去的英雄，他低垂着衰老的头颅，他的双眼哭得通红。阿尔品，杰出的歌手，你为何独自伫立在这默默无语的山岗上？你凄凉的声音为什么像穿林的风，像击岸的浪？
 </p>
 
-<div class="center">
+<div class="center-block">
 <p>
 <strong>阿尔品</strong>
 </p>
@@ -2429,7 +2300,7 @@ org_html_manager.setup();  // activate after the parameters are set
 每当山上的暴风雨来到，每当北风掀起巨浪，我就坐在喧嚣激荡的岸上，望着那块可怕的岩石。在月亮西沉时，我常常看见我儿女的幽灵，在朦胧中，他们时隐时现，相处和睦，一起游荡，但都现着无限的悲伤。
 </p>
 
-<div class="framed">
+<div class="FRAMED">
 <p>
 绿蒂的眼里涌出一股汩(gǔ)汩的泪水，冲泄了她心头的压抑。但她这一哭，维特却念不下去了。他扔下诗稿，抓住她的手，痛苦的眼泪潸潸(shān)而下。绿蒂倚在另一只手上，用手帕掩住自己的眼睛。两人都非常激动。他们从这些高尚人物的遭遇中体会到了自己的不幸，他们有着同样的感受，他们的眼泪在一起交融。维特的嘴唇和眼睛，在绿蒂的手臂上灼燃；她全身起了一阵寒战，她想要离开，但是痛苦和同情像铅一样压在她心上，她的神经像是麻痹了。她深深吸了口气，好让自己的神智恢复清醒，她抽泣着，求他继续读下去，她恳求时的声音非常动人，宛如来自上天的妙音！维特浑身颤抖，他的心像要爆炸似的，他拿起诗稿，时断时续地念道：
 </p>
@@ -2440,7 +2311,7 @@ org_html_manager.setup();  // activate after the parameters are set
 春风呵，你为何把我唤醒？你柔情缱绻地将我爱抚，并对我说：我要以天上的甘霖将你滋润！但是我凋谢的时日已近，暴风雨即将来临，它将把我吹打得枝叶飘零！明天那位旅人将会来到，他曾见过我年轻时美丽的面容，他的眼睛将在原野上四处把我寻找，但无法将我找到。——
 </p>
 
-<div class="framed">
+<div class="FRAMED">
 <p>
 这些词句的重量全部落在了这个不幸的人的身上。他完全绝望了。一下跪倒在绿蒂面前，抓着她的两只手，把它们先压在自己的眼睛上，再按在自己的额头上，她好像感觉到他灵魂中有个可怕的盘算正在飞升。她的神志昏乱了，她紧紧抓着他的手，把他的手按在自己胸脯上，她心情忧郁而又深受感动，她向他俯下身来，两人灼燃的面颊偎依在一起。在他们心里世界已经消失了，他紧紧把她搂住，将她贴在自己胸口上，并在她颤抖的、咕嗫的嘴唇上印以无数个狂吻。——“维特！”她声音窒息地喊道，同时向一边转过脸去，“维特！”她那娇弱的手把他的胸脯从自己的胸上推开；“维特！”她叫道，冷静的声音里流露着高尚的感情。——他没有反抗，把搂着她的手放开，茫然失措地跪在她面前。——她站了起来，心里又怕又乱，又爱又怒，浑身颤抖，说：“这是最后一次！维特！您不要再见我了。”说完，她以充满爱意的目光朝这位不幸的人好好看了看，便奔到隔壁房间，锁上了门。——维特向她伸开双臂，但没敢拦住她。他躺在地上，头枕沙发，就这个姿势躺了半个多小时，直到听见有什么声响他才清醒过来。那是女仆进来收拾桌子，准备开饭了。他在屋里踱来踱去，后来发现又只剩下他一个人时，便到隔壁房门前，低声唤道：“绿蒂！绿蒂！只再说一句话！说一声‘永别’！”——她没有出声。——他等着，央求着，等着；后来，他只好离开，走时他喊道：“别了，绿蒂！永别了！”
 </p>
@@ -2471,7 +2342,7 @@ org_html_manager.setup();  // activate after the parameters are set
 阿尔贝特是你的丈夫，这是怎么回事？丈夫！我爱你，我要将你从他的怀里夺到我的怀里来，对这个世界——对这个世界这难道就是罪孽吗？罪孽？好，为此我来惩罚自己；我已经品尝了这罪孽的全部天大的欢乐，已将生命的琼浆和力量吮进了我的心里，从这一刻起你就是我的了！我的，哦，绿蒂！我先走了，去见我的天父，去见你的天父。这一切我都要向天父诉说，他将安慰我，直到你也来到。那时，我将向你飞去，抓着你，在天父面前拥抱在一起，永不分离。我不是做梦，不是妄想！在快进坟墓之时，我心里更亮堂。我们都是要死的！我们会再见的！我们将见到你的母亲！我将见到她，将找到她，呵，我要在她面前倾诉我的衷肠！你的母亲，和你长得一模一样！
 </p>
 
-<div class="framed">
+<div class="FRAMED">
 <p>
 将近十一点，维特问他的仆人，阿尔贝特是不是已经回来了？仆人说，回来了，他看见他骑着马过去的。主人听了，随即写了一张便条交给他，内容是：
 </p>
@@ -2482,7 +2353,7 @@ org_html_manager.setup();  // activate after the parameters are set
 我打算出门旅行，把您的手枪借我一用行吗？祝您快乐！
 </p>
 
-<div class="framed">
+<div class="FRAMED">
 <p>
 可爱的夫人昨天晚上辗转反侧，夜不成眠。她所担心的事，终于作出了抉择，而且是以她既不能预料、又无法担心的方式作出抉择的。她的天性本来一向是和悦温顺的，居然也火冒急燎了；徘徊瞻顾，百感交集扰乱了她美丽的心灵。她胸中感受到的是维特拥抱时的烈火？是对他举止放肆的不满？是她将自己眼前的处境与过去那些自由自在、天真无邪和自信不疑的日子相比而生出的恼怒？她该如何去见自己的丈夫，如何向他坦白那一幕，她理当坦率承认、可又不敢承认的那一幕呢？他俩相对默默无言，这已有很长时间，难道该首先由她来打破沉默，并在这极不适宜的时候使丈夫获得这一意想不到的发现？她担心，单就维特来访这件事就会给他一个不愉快的印象，更何况是那个意想不到的灾难！她能指望她丈夫会完全从好的方面来看待她，不带任何成见地容纳她吗？她能希望她丈夫愿意洞察她的灵魂吗？还有，她在她丈夫面前从来都是光明磊落、问心无愧的，像水晶一样透明，她从未对他，也不可能对他隐讳自己的任何感情，现在她难道能对他装假？她左右为难，忧虑重重，处境十分尴尬；她的思想一再回到维特身上——她失去了维特，她舍不得他，可惜又必须丢开他；而他一旦失去了她，他就什么都没有了。
 </p>
@@ -2517,7 +2388,7 @@ org_html_manager.setup();  // activate after the parameters are set
 手枪经过了你的手，你还擦掉了枪上的灰尘，我将这两支枪吻了千百遍，因为你触摸过它们！你，天上的圣灵，玉成了我的决心！你，绿蒂，把手枪交给了我，我曾多么希望从你手中领受死亡呀，呵，现在我领受了！哦，我曾详细问了我的仆人，他说，你把枪递给他时，你在颤抖，你连“再见”都没有说！——唉，天哪，连句“再见”也没有说！——难道为了那一瞬间，那把我永远固定在你身上的一瞬间，你就关闭了你对我的那颗心？绿蒂呀，那个印象即使再过一千年也是不会磨灭的！我感觉到，对于一个为你把爱火燃得如此炽烈的人，你是不会恨他的。
 </p>
 
-<div class="framed">
+<div class="FRAMED">
 <p>
 饭后，他叫仆人把东西全部包装好，撕掉了许多信函，出去处理了几笔小额债务。办完以后他回到寓所，不一会又走出大门，冒雨走进伯爵的花园，在那里踯躅徘徊，直到暮色降临才回屋继续写信。
 </p>
@@ -2532,7 +2403,7 @@ org_html_manager.setup();  // activate after the parameters are set
 阿尔贝特，我对你竟做了亏心事，请原谅我吧。我破坏了你家庭的和睦，造成了你俩之间的猜疑。别了！我愿了结这一切。哦，但愿我的死能带给你们幸福！阿尔贝特，阿尔贝特，请让这位天使幸福！愿上帝永远降福于你！
 </p>
 
-<div class="framed">
+<div class="FRAMED">
 <p>
 晚上，他又在信函、文稿中翻找了很久，撕碎很多信件，将它们投进炉里，并在几个写着威廉地址的包裹上加了封条，包里是他的一些短文和没有写完的随感，有几篇我曾见到过。晚上十点钟他叫人给壁炉里添了木柴，并送来一瓶酒，就叫仆人去睡觉。仆人的房间和房东的卧室都在老远的后院，仆人一回去便和衣而睡，好在第二天一早就去伺候主人，因为主人说过，驿站的马车六点以前就会到门口的。
 </p>
@@ -2541,8 +2412,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 </div>
 
-<div id="outline-container-sec-5-4" class="outline-3">
-<h3 id="sec-5-4"><span class="section-number-3">5.4</span> 夜里十一点以后</h3>
+<div class="outline-3">
+<h3 id="orgheadline93">夜里十一点以后</h3>
 <div class="outline-text-3" id="text-5-4">
 <p>
 现在更深夜静，我的心里也十分平静。我感谢你，上帝，感谢你在这最后一刻赐我温暖和力量。
@@ -2557,11 +2428,11 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-我已给你父亲留了一纸便笺，请他保护我的遗体。在教堂墓地后面朝田野的一隅有两棵菩提树，我希望在那儿安息。他能够，他一定会为他的朋友办这件事的。请你也求求他。我并不指望虔诚的基督徒会将他们的遗体摆放在一个可怜的不幸者旁边。<sup><a id="fnr.54" name="fnr.54" class="footref" href="#fn.54">54</a></sup>呵，我希望你们把我葬在路旁或者寂寞的山谷中，祭司和利未人走过我的墓碑前将为我祝福，撒玛利亚人也将为我洒泪。
+我已给你父亲留了一纸便笺，请他保护我的遗体。在教堂墓地后面朝田野的一隅有两棵菩提树，我希望在那儿安息。他能够，他一定会为他的朋友办这件事的。请你也求求他。我并不指望虔诚的基督徒会将他们的遗体摆放在一个可怜的不幸者旁边。<sup><a id="fnr.54" class="footref" href="#fn.54">54</a></sup>呵，我希望你们把我葬在路旁或者寂寞的山谷中，祭司和利未人走过我的墓碑前将为我祝福，撒玛利亚人也将为我洒泪。
 </p>
 
 <p>
-绿蒂！在此，我毫不畏缩地握住这冰冷的、可怕的高脚杯<sup><a id="fnr.55" name="fnr.55" class="footref" href="#fn.55">55</a></sup>，饮下死亡的醇醪！它是你递给我的，那我还有什么畏缩！一切！一切！我生命中的一切愿望和希冀就这样全部得到了满足！我要扣击冥界的铁门了，心情冷静，态度坚毅。
+绿蒂！在此，我毫不畏缩地握住这冰冷的、可怕的高脚杯<sup><a id="fnr.55" class="footref" href="#fn.55">55</a></sup>，饮下死亡的醇醪！它是你递给我的，那我还有什么畏缩！一切！一切！我生命中的一切愿望和希冀就这样全部得到了满足！我要扣击冥界的铁门了，心情冷静，态度坚毅。
 </p>
 
 <p>
@@ -2572,7 +2443,7 @@ org_html_manager.setup();  // activate after the parameters are set
 我想穿着这套衣服入殓，绿蒂，你接触过这套衣服，并使它变得神圣了；这事我也求了你父亲。我的灵魂将飘荡在灵柩上。请别让人翻我的衣服口袋。这个粉红色的蝴蝶结，就是我第一次在你的弟妹中看到你时，你戴在胸前的那个蝴蝶结——哦，请吻他们一千次，并把他们这位不幸的朋友的遭遇告诉他们。这些可爱的小家伙！他们都围着我呢。呵，我已经紧紧地同你联结在一起了！我对你是一见钟情！——让这个蝴蝶结和我同葬吧。这是我生日那天你送给我的！我是多么贪婪地接受了这一切呵！——唉，没有想到，这条路竟把我引到了这里！——你要镇静！我求你，要镇静！——枪里装上了子弹——时钟正敲十二点！就这么着吧！——绿蒂！绿蒂！永别了！永别了！
 </p>
 
-<div class="framed">
+<div class="FRAMED">
 <p>
 有位邻居看见火光一闪，听到一声枪响；但随后一切都又寂静无声了，所以他也就没有继续留意。
 </p>
@@ -2594,7 +2465,7 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-酒，他只喝了一杯。书桌上放着一本摊开的《艾米莉娅•迦洛蒂》。<sup><a id="fnr.56" name="fnr.56" class="footref" href="#fn.56">56</a></sup>
+酒，他只喝了一杯。书桌上放着一本摊开的《艾米莉娅•迦洛蒂》。<sup><a id="fnr.56" class="footref" href="#fn.56">56</a></sup>
 </p>
 
 <p>
@@ -2602,7 +2473,7 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 
 <p>
-老法官闻讯，策马疾驰而至，热泪盈眶地吻着垂死的维特。他的几个较大的儿子也跟踵而至，他们一齐跪在床前，抑制不住内心的悲痛，大哭不已，吻他的手和嘴，尤其是一向最受维特喜爱的老大，一直吻着他的嘴唇不起来，直到维特断了气，人家才强行把这孩子拉开。中午十二点维特去世了。由于法官在场并作了部署，才避免大家蜂拥而至，造成混乱。夜里将近十一点，法官吩咐把维特安葬在他自己选定的地方。老法官和他的儿子跟在遗体后面，为维特送葬，阿尔贝特没能来，他正在为绿蒂的生命担忧。维特的遗体由几位工匠抬着，没有祭司来为他送葬。<sup><a id="fnr.57" name="fnr.57" class="footref" href="#fn.57">57</a></sup>
+老法官闻讯，策马疾驰而至，热泪盈眶地吻着垂死的维特。他的几个较大的儿子也跟踵而至，他们一齐跪在床前，抑制不住内心的悲痛，大哭不已，吻他的手和嘴，尤其是一向最受维特喜爱的老大，一直吻着他的嘴唇不起来，直到维特断了气，人家才强行把这孩子拉开。中午十二点维特去世了。由于法官在场并作了部署，才避免大家蜂拥而至，造成混乱。夜里将近十一点，法官吩咐把维特安葬在他自己选定的地方。老法官和他的儿子跟在遗体后面，为维特送葬，阿尔贝特没能来，他正在为绿蒂的生命担忧。维特的遗体由几位工匠抬着，没有祭司来为他送葬。<sup><a id="fnr.57" class="footref" href="#fn.57">57</a></sup>
 </p>
 
 </div>
@@ -2611,8 +2482,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> 维基百科引用</h2>
+<div class="outline-2">
+<h2 id="orgheadline103">维基百科引用</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 本来韩耀成翻译版本后面还有一个译后记，但为了保证文学作品的跨越时代特性，我将其删去了。考虑到读者可能需要了解一些作品的背景知识，现将维基百科（2014-03-02版）“少年维特的烦恼”词条相关信息列出来。
@@ -2623,8 +2494,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </p>
 </div>
 
-<div id="outline-container-sec-6-1" class="outline-3">
-<h3 id="sec-6-1"><span class="section-number-3">6.1</span> 故事梗概</h3>
+<div class="outline-3">
+<h3 id="orgheadline95">故事梗概</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 绝大部分的情节是在维特写给朋友威廉的信中叙述的。
@@ -2645,11 +2516,11 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-6-2" class="outline-3">
-<h3 id="sec-6-2"><span class="section-number-3">6.2</span> 背景知识</h3>
+<div class="outline-3">
+<h3 id="orgheadline98">背景知识</h3>
 <div class="outline-text-3" id="text-6-2">
-</div><div id="outline-container-sec-6-2-1" class="outline-4">
-<h4 id="sec-6-2-1"><span class="section-number-4">6.2.1</span> 对夏绿蒂的爱</h4>
+</div><div class="outline-4">
+<h4 id="orgheadline96">对夏绿蒂的爱</h4>
 <div class="outline-text-4" id="text-6-2-1">
 <p>
 小说的情节在极大程度上是自传性的：当歌德在韦茨拉尔（Wetzlar）的帝国最高法院实习期间，他结识了年轻的夏绿蒂•布夫，并爱上了她。但夏绿蒂已经和一位名叫约翰•克里斯蒂安•凯斯特纳（Johann Christian Kestner）的法律工作者订了婚。在夏绿蒂的父亲看来，凯斯特纳显然比年轻、有着艺术方面抱负的歌德更加稳重可靠；歌德在那时就已经更想成为一名艺术家而不是律师。歌德仓促地离开了夏绿蒂。后来，他又认识了一位枢密顾问的女儿马克西米利安娜•冯•拉•罗歇。歌德把两个女子给他留下的印象融合到了绿蒂的形象中。据歌德本人说，他在四周的时间内写出了这部书信体小说，以抵消爱情的痛苦并使自己从自杀的念头中摆脱出来。
@@ -2658,8 +2529,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-6-2-2" class="outline-4">
-<h4 id="sec-6-2-2"><span class="section-number-4">6.2.2</span> 耶稣撒冷的自杀</h4>
+<div class="outline-4">
+<h4 id="orgheadline97">耶稣撒冷的自杀</h4>
 <div class="outline-text-4" id="text-6-2-2">
 <p>
 小说中的一部分情节，特别是结尾的部分，不同于歌德的经历。维特自尽了，歌德却沉浸在痛苦与写作中。小说中自杀的情节是受到了一位年轻的同事耶路撒冷的激发而产生的。耶路撒冷确实因为巨大的爱情上的不幸而自杀，他在韦茨拉尔的墓地成了不幸的年轻恋人的朝拜圣地。卡尔•威廉•耶路撒冷（Karl Wilhelm Jerusalem）是歌德的泛泛之交，他于1772年10月自杀。此事是凯斯特纳告诉歌德的。具有悲剧性的是，耶路撒冷用来自杀的手枪是凯斯特纳借给他的。这使歌德把他自己在1772年夏天的经历和耶路撒冷的命运混合起来，而在小说的第二部分，耶路撒冷的命运越来越多地成为叙述的主要对象。歌德将耶路撒冷的许多性格特点和其他特征转移到他的维特形象上。为了更近地了解耶路撒冷自杀的情况，歌德于1772年11月初再次短暂地来到韦茨拉尔。他以与熟悉耶路撒冷的人的谈话，以及他自己对耶路撒冷的记忆构成了小说的基础。他甚至原文引用了凯斯特纳对耶路撒冷之死的报告的一些段落。
@@ -2669,11 +2540,11 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-6-3" class="outline-3">
-<h3 id="sec-6-3"><span class="section-number-3">6.3</span> 社会影响</h3>
+<div class="outline-3">
+<h3 id="orgheadline102">社会影响</h3>
 <div class="outline-text-3" id="text-6-3">
-</div><div id="outline-container-sec-6-3-1" class="outline-4">
-<h4 id="sec-6-3-1"><span class="section-number-4">6.3.1</span> 争论</h4>
+</div><div class="outline-4">
+<h4 id="orgheadline99">争论</h4>
 <div class="outline-text-4" id="text-6-3-1">
 <p>
 这部小说激起了批评家和支持者们极为热烈的反应。其中的原因在于，歌德以维特作为他小说的中心人物，而这个人物完全违背了市民社会的规则。市民大众将维特视为一个和睦婚姻的破坏者，一个反叛者，一个无神论者，他与市民大众的观念完全相悖。他们期待的文学，更多的是“实用的东西”和“娱乐的东西”，而歌德的小说在他们看来并不是上述两者中的任何一种。他们直接在故事中寻找“实用的东西”，他们希望有一个他们能够认同的人物，并从他的行为中得到学习。但这部小说却是以自杀告终的——从市民的价值标准来看这不可想象。许多市民批评这部小说仅仅因为它的主要人物不符合他们的观念，还威胁到他们的价值标准。他们认为《少年维特的烦恼》是一本和传统文学决裂的书，这种决裂是他们不希望看到的。他们认为这本书颂扬了与他们的利益相悖的价值标准，赞美了自杀的行为。
@@ -2690,8 +2561,8 @@ org_html_manager.setup();  // activate after the parameters are set
 </div>
 
 
-<div id="outline-container-sec-6-3-2" class="outline-4">
-<h4 id="sec-6-3-2"><span class="section-number-4">6.3.2</span> 维特热</h4>
+<div class="outline-4">
+<h4 id="orgheadline100">维特热</h4>
 <div class="outline-text-4" id="text-6-3-2">
 <p>
 正当歌德经受着来自教会和市民方面的愤怒和批评的时候，这部小说也拥有着热心的追随者。首先在年轻人中间爆发了一场不折不扣的“维特热”，这场热潮使得维特成了一个偶像人物。当时出现了“维特装”（黄裤子、黄马甲、蓝外衣）、“维特杯子”、甚至还有“维特香水”。小说中的场景装点着茶壶、咖啡壶、杯子、饼干盘和茶叶罐。对于那时的有教养的市民来说，喝茶喝咖啡的时间成了接触文学的美好一刻。
@@ -2705,8 +2576,8 @@ org_html_manager.setup();  // activate after the parameters are set
 
 
 
-<div id="outline-container-sec-6-3-3" class="outline-4">
-<h4 id="sec-6-3-3"><span class="section-number-4">6.3.3</span> 价值</h4>
+<div class="outline-4">
+<h4 id="orgheadline101">价值</h4>
 <div class="outline-text-4" id="text-6-3-3">
 <p>
 《少年维特的烦恼》被视为狂飙突进运动时期最重要的小说。这部小说获得了那个时代相当高的印数，并且是引发所谓的“阅读热”的因素之一。
@@ -2727,125 +2598,122 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p>这里歌德述说了自己的一段感情纠葛。一七七〇年歌德在斯特拉斯堡跟一位法国舞蹈教师学跳舞。这位舞蹈教师有两位娴雅、美丽的女儿，正值豆蔻年华，她们常常陪歌德跳舞。姐姐卢琴黛，即小说中的莱奥诺蕾，倾心于歌德，而歌德却更钟情于她妹妹埃米莉娅，但妹妹已和别人订婚。卢琴黛认为，她之所以不为歌德所爱，是由于妹妹这个第三者从中作梗的缘故，因此既怨歌德又恨妹妹。鉴于这种处境，歌德听从了埃米莉娅的建议，离开了她们。此段经历留下的只是一片爱情的涟漪。歌德在他的自传《诗与真》中记述了这次爱情波折。</p></div>
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">这里歌德述说了自己的一段感情纠葛。一七七〇年歌德在斯特拉斯堡跟一位法国舞蹈教师学跳舞。这位舞蹈教师有两位娴雅、美丽的女儿，正值豆蔻年华，她们常常陪歌德跳舞。姐姐卢琴黛，即小说中的莱奥诺蕾，倾心于歌德，而歌德却更钟情于她妹妹埃米莉娅，但妹妹已和别人订婚。卢琴黛认为，她之所以不为歌德所爱，是由于妹妹这个第三者从中作梗的缘故，因此既怨歌德又恨妹妹。鉴于这种处境，歌德听从了埃米莉娅的建议，离开了她们。此段经历留下的只是一片爱情的涟漪。歌德在他的自传《诗与真》中记述了这次爱情波折。</div></div>
 
-<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p>美露茜，法国古代传说中的人鱼水妖，其上部为女身，下身为鱼形。</p></div>
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara">美露茜，法国古代传说中的人鱼水妖，其上部为女身，下身为鱼形。</div></div>
 
-<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p>《圣经》载：年迈的亚伯拉罕派仆人到本乡本族去为儿子以撒娶妻。一天黄昏时分，仆人来到亚伯拉罕兄弟拿鹤的城，正值众女子出来打水。仆人站在井旁求上帝指引。他向少女利百加要水瓶里的水喝，利百加非但满足他的愿望，而且还去打水给他的骆驼喝，于是仆人遂选中利百加作为以撒的妻子。事见《旧约全书》中的《创世纪》第24章。</p></div>
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara">《圣经》载：年迈的亚伯拉罕派仆人到本乡本族去为儿子以撒娶妻。一天黄昏时分，仆人来到亚伯拉罕兄弟拿鹤的城，正值众女子出来打水。仆人站在井旁求上帝指引。他向少女利百加要水瓶里的水喝，利百加非但满足他的愿望，而且还去打水给他的骆驼喝，于是仆人遂选中利百加作为以撒的妻子。事见《旧约全书》中的《创世纪》第24章。</div></div>
 
-<div class="footdef"><sup><a id="fn.4" name="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p>这里维特想起了一位年纪比他稍长的女友。对青少年时期的维特来说，这位女友既是听取他忏悔的神甫，是他灵魂的领路人，也是圣女和给他帮助的人，后来他还曾提到她。18世纪的知识青年都渴望能找到一个支撑，这支撑不是一种学说，而是一个榜样。当时许多描写心灵教育的伟大作品都写了这个问题。歌德所刻画的年轻人的榜样大多为女性，这里维特提到的他那位女友就是一例。年轻人希望得到一位年岁稍长的成熟的人的帮助是歌德时代人际关系中的重要主题之一。这里生活和虚构互相交织在一起。维特是个多愁善感的人，他的心灵必须依附于为他所爱所尊敬的人。他经历的依附形式有三种：对这位成熟的年长女友的依附，对和他同年的朋友威廉的依附和对绿蒂爱情的依附。但是小说成书之时，这位年长的女友已经去世，她的手已经不能来清理维特紊乱的思绪了。小说一开始就提出这个主题是很重要的：维特失去了一位心灵的领路人，而威廉又不是能够帮助他克服心灵危机的人，这就潜伏了维特悲剧命运的因素。</p></div>
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara">这里维特想起了一位年纪比他稍长的女友。对青少年时期的维特来说，这位女友既是听取他忏悔的神甫，是他灵魂的领路人，也是圣女和给他帮助的人，后来他还曾提到她。18世纪的知识青年都渴望能找到一个支撑，这支撑不是一种学说，而是一个榜样。当时许多描写心灵教育的伟大作品都写了这个问题。歌德所刻画的年轻人的榜样大多为女性，这里维特提到的他那位女友就是一例。年轻人希望得到一位年岁稍长的成熟的人的帮助是歌德时代人际关系中的重要主题之一。这里生活和虚构互相交织在一起。维特是个多愁善感的人，他的心灵必须依附于为他所爱所尊敬的人。他经历的依附形式有三种：对这位成熟的年长女友的依附，对和他同年的朋友威廉的依附和对绿蒂爱情的依附。但是小说成书之时，这位年长的女友已经去世，她的手已经不能来清理维特紊乱的思绪了。小说一开始就提出这个主题是很重要的：维特失去了一位心灵的领路人，而威廉又不是能够帮助他克服心灵危机的人，这就潜伏了维特悲剧命运的因素。</div></div>
 
-<div class="footdef"><sup><a id="fn.5" name="fn.5" class="footnum" href="#fnr.5">5</a></sup> <p>巴妥（Charles Batteux，1713-1780），法国美学家、法国艺术哲学的奠基人。伍德（Robert Wood， 1716-1771），英国研究荷马的学者。</p></div>
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara">巴妥（Charles Batteux，1713-1780），法国美学家、法国艺术哲学的奠基人。伍德（Robert Wood， 1716-1771），英国研究荷马的学者。</div></div>
 
-<div class="footdef"><sup><a id="fn.6" name="fn.6" class="footnum" href="#fnr.6">6</a></sup> <p>德皮勒（Roger de Piles，1635-1709），法国画家、美术理论家。温克尔曼（Johann Joachim Winkelmann，1717-1768），德国考古学家和艺术史家。</p></div>
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara">德皮勒（Roger de Piles，1635-1709），法国画家、美术理论家。温克尔曼（Johann Joachim Winkelmann，1717-1768），德国考古学家和艺术史家。</div></div>
 
-<div class="footdef"><sup><a id="fn.7" name="fn.7" class="footnum" href="#fnr.7">7</a></sup> <p>苏尔策（Johann Georg Sulzer，1720-1779），瑞士美学家，这里提到的苏尔策理论系指他的著作《艺术总论》（Allgemeine Theorie der Schönen Künste），维特写这封信时(1771)，这部著作的第一部刚出版。</p></div>
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara">苏尔策（Johann Georg Sulzer，1720-1779），瑞士美学家，这里提到的苏尔策理论系指他的著作《艺术总论》（Allgemeine Theorie der Schönen Künste），维特写这封信时(1771)，这部著作的第一部刚出版。</div></div>
 
-<div class="footdef"><sup><a id="fn.8" name="fn.8" class="footnum" href="#fnr.8">8</a></sup> <p>海纳（Christian Gottlob Heyne，1729-1812），德国戈廷根大学古典语言学家。18世纪70年代初在古希腊文化阐释方面他是一颗冉冉上升的明星，他讲课的讲稿中有许多内容是他发表的文章中所没有包含的，因此他的讲稿被视作极其珍贵的文献。</p></div>
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8">8</a></sup> <div class="footpara">海纳（Christian Gottlob Heyne，1729-1812），德国戈廷根大学古典语言学家。18世纪70年代初在古希腊文化阐释方面他是一颗冉冉上升的明星，他讲课的讲稿中有许多内容是他发表的文章中所没有包含的，因此他的讲稿被视作极其珍贵的文献。</div></div>
 
-<div class="footdef"><sup><a id="fn.9" name="fn.9" class="footnum" href="#fnr.9">9</a></sup> <p>指小说女主人公夏绿蒂的父亲——韦茨拉尔德意志骑士团的法官布甫（Heinrich Adam Buff），其长女名叫卡罗琳娜，小说中夏绿蒂的原型实为其同名次女。</p></div>
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9">9</a></sup> <div class="footpara">指小说女主人公夏绿蒂的父亲——韦茨拉尔德意志骑士团的法官布甫（Heinrich Adam Buff），其长女名叫卡罗琳娜，小说中夏绿蒂的原型实为其同名次女。</div></div>
 
-<div class="footdef"><sup><a id="fn.10" name="fn.10" class="footnum" href="#fnr.10">10</a></sup> <p>意为受制于工资和惩罚。</p></div>
+<div class="footdef"><sup><a id="fn.10" class="footnum" href="#fnr.10">10</a></sup> <div class="footpara">意为受制于工资和惩罚。</div></div>
 
-<div class="footdef"><sup><a id="fn.11" name="fn.11" class="footnum" href="#fnr.11">11</a></sup> <p>读者不必费力去找这里所提到的那些地方；不得已，我必须将原信中的真实地名改掉。——作者原注。</p></div>
+<div class="footdef"><sup><a id="fn.11" class="footnum" href="#fnr.11">11</a></sup> <div class="footpara">读者不必费力去找这里所提到的那些地方；不得已，我必须将原信中的真实地名改掉。——作者原注。</div></div>
 
-<div class="footdef"><sup><a id="fn.12" name="fn.12" class="footnum" href="#fnr.12">12</a></sup> <p>不得已，我只好将信里此处删去，免得遭致别人的非议。其实作家根本就不要在乎一位年轻姑娘或一个尚未定见的小伙子的评价。</p></div>
+<div class="footdef"><sup><a id="fn.12" class="footnum" href="#fnr.12">12</a></sup> <div class="footpara">不得已，我只好将信里此处删去，免得遭致别人的非议。其实作家根本就不要在乎一位年轻姑娘或一个尚未定见的小伙子的评价。</div></div>
 
-<div class="footdef"><sup><a id="fn.13" name="fn.13" class="footnum" href="#fnr.13">13</a></sup> <p>燕妮小姐，很可能是指法国女作家里柯波尼（Marie-Jeanne Riccoboni）的小说《燕妮•格朗维叶小姐的故事》（Histoire de Miss Jenny Glanvilli）中的主人公，该小说的德译本于1764年出版。此处由具体到一般，泛指当时时兴的感伤主义小说。</p></div>
+<div class="footdef"><sup><a id="fn.13" class="footnum" href="#fnr.13">13</a></sup> <div class="footpara">燕妮小姐，很可能是指法国女作家里柯波尼（Marie-Jeanne Riccoboni）的小说《燕妮•格朗维叶小姐的故事》（Histoire de Miss Jenny Glanvilli）中的主人公，该小说的德译本于1764年出版。此处由具体到一般，泛指当时时兴的感伤主义小说。</div></div>
 
-<div class="footdef"><sup><a id="fn.14" name="fn.14" class="footnum" href="#fnr.14">14</a></sup> <p>kǎi，符合情理。</p></div>
+<div class="footdef"><sup><a id="fn.14" class="footnum" href="#fnr.14">14</a></sup> <div class="footpara">kǎi，符合情理。</div></div>
 
-<div class="footdef"><sup><a id="fn.15" name="fn.15" class="footnum" href="#fnr.15">15</a></sup> <p>威克菲尔德牧师，指英国作家哥尔德斯密斯（Oliver Goldsmith）的小说《威克菲尔德牧师》（The Vicar of Wakefield，1766）中的同名主人公。在斯特拉斯堡时期赫尔德向歌德推荐了这本小说，并给他朗诵了小说的德文译本，歌德在《诗与真》中作了记述，可参阅该书第十卷。</p></div>
+<div class="footdef"><sup><a id="fn.15" class="footnum" href="#fnr.15">15</a></sup> <div class="footpara">威克菲尔德牧师，指英国作家哥尔德斯密斯（Oliver Goldsmith）的小说《威克菲尔德牧师》（The Vicar of Wakefield，1766）中的同名主人公。在斯特拉斯堡时期赫尔德向歌德推荐了这本小说，并给他朗诵了小说的德文译本，歌德在《诗与真》中作了记述，可参阅该书第十卷。</div></div>
 
-<div class="footdef"><sup><a id="fn.16" name="fn.16" class="footnum" href="#fnr.16">16</a></sup> <p>对舞，男女成对跳的一种舞蹈，源于英国村舞，起初采取村舞的纵向队形，男女各排成一行，每对男女舞至队首，作双人舞后让位于下一对。后来欧洲大陆的对舞又采取了村舞的方队形，所以又称方舞或方形舞。由舞蹈者的精心合作，可以跳出种种几何图形来。</p></div>
+<div class="footdef"><sup><a id="fn.16" class="footnum" href="#fnr.16">16</a></sup> <div class="footpara">对舞，男女成对跳的一种舞蹈，源于英国村舞，起初采取村舞的纵向队形，男女各排成一行，每对男女舞至队首，作双人舞后让位于下一对。后来欧洲大陆的对舞又采取了村舞的方队形，所以又称方舞或方形舞。由舞蹈者的精心合作，可以跳出种种几何图形来。</div></div>
 
-<div class="footdef"><sup><a id="fn.17" name="fn.17" class="footnum" href="#fnr.17">17</a></sup> <p>小步舞是一种古老的法国对舞，当时德国社交圈里这种舞式还不太普及，有的人对它还不熟悉，因此维特抱怨某些女士在该结束时还不伸出手来做出结束的表示。</p></div>
+<div class="footdef"><sup><a id="fn.17" class="footnum" href="#fnr.17">17</a></sup> <div class="footpara">小步舞是一种古老的法国对舞，当时德国社交圈里这种舞式还不太普及，有的人对它还不熟悉，因此维特抱怨某些女士在该结束时还不伸出手来做出结束的表示。</div></div>
 
-<div class="footdef"><sup><a id="fn.18" name="fn.18" class="footnum" href="#fnr.18">18</a></sup> <p>英国舞，即前面提到的英国对舞。</p></div>
+<div class="footdef"><sup><a id="fn.18" class="footnum" href="#fnr.18">18</a></sup> <div class="footpara">英国舞，即前面提到的英国对舞。</div></div>
 
-<div class="footdef"><sup><a id="fn.19" name="fn.19" class="footnum" href="#fnr.19">19</a></sup> <p>德国舞，指华尔兹舞，最初出现时因其多旋转，男女搂抱而舞，曾使高雅的社交界感到震惊。当时乡村舞会上所跳的舞通常有这几种形式：法国小步舞，社交场合跳得很多，基本地面图案最初为“8”字形，后为“Z”字形；英国对舞，是当时最受欢迎的舞式；德国华尔兹，当时的社交界里还刚兴起。舞会上先跳法国小步舞，接着是英国对舞，通常跳三轮，对舞的变形中间还插进一轮华尔兹。华尔兹这种舞蹈形式，使男女舞者能得到最充分的自由发挥，所以绿蒂最爱跳华尔兹。</p></div>
+<div class="footdef"><sup><a id="fn.19" class="footnum" href="#fnr.19">19</a></sup> <div class="footpara">德国舞，指华尔兹舞，最初出现时因其多旋转，男女搂抱而舞，曾使高雅的社交界感到震惊。当时乡村舞会上所跳的舞通常有这几种形式：法国小步舞，社交场合跳得很多，基本地面图案最初为“8”字形，后为“Z”字形；英国对舞，是当时最受欢迎的舞式；德国华尔兹，当时的社交界里还刚兴起。舞会上先跳法国小步舞，接着是英国对舞，通常跳三轮，对舞的变形中间还插进一轮华尔兹。华尔兹这种舞蹈形式，使男女舞者能得到最充分的自由发挥，所以绿蒂最爱跳华尔兹。</div></div>
 
-<div class="footdef"><sup><a id="fn.20" name="fn.20" class="footnum" href="#fnr.20">20</a></sup> <p>指德国杰出的诗人克洛普施托克的颂歌《春的庆典》（Die Frühlngsfeier，1759；又译《春祭颂歌》），诗中歌颂包含整个宇宙在内的自然，语言庄严、明快。诗的最后两节描绘了暴雨过后的情景。</p></div>
+<div class="footdef"><sup><a id="fn.20" class="footnum" href="#fnr.20">20</a></sup> <div class="footpara">指德国杰出的诗人克洛普施托克的颂歌《春的庆典》（Die Frühlngsfeier，1759；又译《春祭颂歌》），诗中歌颂包含整个宇宙在内的自然，语言庄严、明快。诗的最后两节描绘了暴雨过后的情景。</div></div>
 
-<div class="footdef"><sup><a id="fn.21" name="fn.21" class="footnum" href="#fnr.21">21</a></sup> <p>指克洛普施托克。</p></div>
+<div class="footdef"><sup><a id="fn.21" class="footnum" href="#fnr.21">21</a></sup> <div class="footpara">指克洛普施托克。</div></div>
 
-<div class="footdef"><sup><a id="fn.22" name="fn.22" class="footnum" href="#fnr.22">22</a></sup> <p>佩涅洛佩，荷马史诗《奥德赛》中主人公奥德修斯的妻子，她在丈夫征战特洛伊和归途中在海上漂泊的漫长岁月里，面对无数求婚者始终忠贞不渝。“忘乎所以的求婚者”喻指《奥德赛》中第二十歌的情景，歌中叙述奥德修斯漂泊未归，佩涅洛佩的众多的求婚者便在奥德修斯家里杀猪宰牛，大摆筵席的情景。</p></div>
+<div class="footdef"><sup><a id="fn.22" class="footnum" href="#fnr.22">22</a></sup> <div class="footpara">佩涅洛佩，荷马史诗《奥德赛》中主人公奥德修斯的妻子，她在丈夫征战特洛伊和归途中在海上漂泊的漫长岁月里，面对无数求婚者始终忠贞不渝。“忘乎所以的求婚者”喻指《奥德赛》中第二十歌的情景，歌中叙述奥德修斯漂泊未归，佩涅洛佩的众多的求婚者便在奥德修斯家里杀猪宰牛，大摆筵席的情景。</div></div>
 
-<div class="footdef"><sup><a id="fn.23" name="fn.23" class="footnum" href="#fnr.23">23</a></sup> <p>语出《圣经》：耶稣的门徒问耶稣，天国里谁最大。耶稣叫来一个小孩，让他站在他的门徒当中说：“我实在告诉你们，你们若不回转，变成小孩子的样式，断不得进天国。所以凡自己谦卑像这小孩子的，他在天国里就是最大的。”见《圣经•新约全书》中《马太福音》18:1-4。</p></div>
+<div class="footdef"><sup><a id="fn.23" class="footnum" href="#fnr.23">23</a></sup> <div class="footpara">语出《圣经》：耶稣的门徒问耶稣，天国里谁最大。耶稣叫来一个小孩，让他站在他的门徒当中说：“我实在告诉你们，你们若不回转，变成小孩子的样式，断不得进天国。所以凡自己谦卑像这小孩子的，他在天国里就是最大的。”见《圣经•新约全书》中《马太福音》18:1-4。</div></div>
 
-<div class="footdef"><sup><a id="fn.24" name="fn.24" class="footnum" href="#fnr.24">24</a></sup> <p>喻指耶稣基督。基督教认为，耶稣是上帝的儿子。</p></div>
+<div class="footdef"><sup><a id="fn.24" class="footnum" href="#fnr.24">24</a></sup> <div class="footpara">喻指耶稣基督。基督教认为，耶稣是上帝的儿子。</div></div>
 
-<div class="footdef"><sup><a id="fn.25" name="fn.25" class="footnum" href="#fnr.25">25</a></sup> <p>玛丽安娜，绿蒂的女友；玛尔莘，绿蒂的妹妹。</p></div>
+<div class="footdef"><sup><a id="fn.25" class="footnum" href="#fnr.25">25</a></sup> <div class="footpara">玛丽安娜，绿蒂的女友；玛尔莘，绿蒂的妹妹。</div></div>
 
-<div class="footdef"><sup><a id="fn.26" name="fn.26" class="footnum" href="#fnr.26">26</a></sup> <p>当时的传说，认为处女被青年男子吻后，嘴上便要长出胡子来。</p></div>
+<div class="footdef"><sup><a id="fn.26" class="footnum" href="#fnr.26">26</a></sup> <div class="footpara">当时的传说，认为处女被青年男子吻后，嘴上便要长出胡子来。</div></div>
 
-<div class="footdef"><sup><a id="fn.27" name="fn.27" class="footnum" href="#fnr.27">27</a></sup> <p>莪相（Ossian），古代爱尔兰说唱诗人。1762年，苏格兰诗人麦克菲森（James Macperson，1736-1796）声称“发现”了莪相的诗，他假托从3世纪盖尔语的原文翻译了《芬戈尔》和《帖木拉》两部史诗，并先后出版，于是这些所谓“莪相”的诗篇便传遍整个欧洲，对早期浪漫主义运动产生重要影响。实际上，这些作品虽有部分是根据盖尔语民谣写成的，但大部分是麦克菲森自己的创作。关于“莪相”诗篇真伪问题一直是批评家研究的一个课题，直到19世纪末，研究证明，麦克菲森制作的不规则的盖尔语原文只不过是他自己英文作品的不规则的盖尔语的译作。至此，关于莪相的争论才得以解决。学术界一致认为，被浪漫化了的史诗《莪相集》并非真正是莪相的作品，而于16世纪前期整理出版的《莪相民谣集》才是真正的爱尔兰盖尔语抒情诗和叙事诗。歌德当时读到的莪相的诗是麦克菲森的创作，不能与真正的莪相诗篇《莪相民谣集》相混淆。</p></div>
+<div class="footdef"><sup><a id="fn.27" class="footnum" href="#fnr.27">27</a></sup> <div class="footpara">莪相（Ossian），古代爱尔兰说唱诗人。1762年，苏格兰诗人麦克菲森（James Macperson，1736-1796）声称“发现”了莪相的诗，他假托从3世纪盖尔语的原文翻译了《芬戈尔》和《帖木拉》两部史诗，并先后出版，于是这些所谓“莪相”的诗篇便传遍整个欧洲，对早期浪漫主义运动产生重要影响。实际上，这些作品虽有部分是根据盖尔语民谣写成的，但大部分是麦克菲森自己的创作。关于“莪相”诗篇真伪问题一直是批评家研究的一个课题，直到19世纪末，研究证明，麦克菲森制作的不规则的盖尔语原文只不过是他自己英文作品的不规则的盖尔语的译作。至此，关于莪相的争论才得以解决。学术界一致认为，被浪漫化了的史诗《莪相集》并非真正是莪相的作品，而于16世纪前期整理出版的《莪相民谣集》才是真正的爱尔兰盖尔语抒情诗和叙事诗。歌德当时读到的莪相的诗是麦克菲森的创作，不能与真正的莪相诗篇《莪相民谣集》相混淆。</div></div>
 
-<div class="footdef"><sup><a id="fn.28" name="fn.28" class="footnum" href="#fnr.28">28</a></sup> <p>盛有取之不尽的油的瓶子，典出《圣经》故事：先知以利亚奉上帝之命客居一寡妇家，问主人要饼吃。但寡妇坛内只有一把面，瓶里只有一点油，她和儿子自己要做饼吃。以利亚叫她不必怕，只要先做一个小饼给他，然后再为她自己和儿子做饼，并说：“耶和华以色列的上帝如此说，坛内的面不必减少，瓶里的油必不缺短。”见《圣经•旧约全书》中《列王记》（上）17:12-16。</p></div>
+<div class="footdef"><sup><a id="fn.28" class="footnum" href="#fnr.28">28</a></sup> <div class="footpara">盛有取之不尽的油的瓶子，典出《圣经》故事：先知以利亚奉上帝之命客居一寡妇家，问主人要饼吃。但寡妇坛内只有一把面，瓶里只有一点油，她和儿子自己要做饼吃。以利亚叫她不必怕，只要先做一个小饼给他，然后再为她自己和儿子做饼，并说：“耶和华以色列的上帝如此说，坛内的面不必减少，瓶里的油必不缺短。”见《圣经•旧约全书》中《列王记》（上）17:12-16。</div></div>
 
-<div class="footdef"><sup><a id="fn.29" name="fn.29" class="footnum" href="#fnr.29">29</a></sup> <p>古代、中世纪以及巴洛克时期有种说法，认为音乐对于人和动物都会发生神奇的作用。《圣经》中以色列王扫罗受到恶魔的骚扰，他就差人把勇敢的大卫找来，侍立在他面前。当恶魔降临到扫罗身上时，大卫就拿琴用手而弹，驱逐恶魔（《旧约全书•撒母耳记》上，16:14-23）；希腊神话中，俄耳甫斯所弹的竖琴声可使猛兽俯首，顽石点头；安菲翁曾用竖琴的魔力筑成底比斯城。自有这些故事和传说以来，持音乐具有魔力说的人很多。</p></div>
+<div class="footdef"><sup><a id="fn.29" class="footnum" href="#fnr.29">29</a></sup> <div class="footpara">古代、中世纪以及巴洛克时期有种说法，认为音乐对于人和动物都会发生神奇的作用。《圣经》中以色列王扫罗受到恶魔的骚扰，他就差人把勇敢的大卫找来，侍立在他面前。当恶魔降临到扫罗身上时，大卫就拿琴用手而弹，驱逐恶魔（《旧约全书•撒母耳记》上，16:14-23）；希腊神话中，俄耳甫斯所弹的竖琴声可使猛兽俯首，顽石点头；安菲翁曾用竖琴的魔力筑成底比斯城。自有这些故事和传说以来，持音乐具有魔力说的人很多。</div></div>
 
-<div class="footdef"><sup><a id="fn.30" name="fn.30" class="footnum" href="#fnr.30">30</a></sup> <p>博洛尼亚石（Bononischer Stein），一种在黑暗中能发光的石头，1603年为意大利炼金术士卡斯卡西奥洛在意大利博洛尼亚附近的帕德诺山发现。他利用这种石料合成一种昼曝于日，夜则可以熠熠发光的物质。初以为是能将贱金属变为金银的点金石，后方知为硫酸钡，一种重晶石矿。</p></div>
+<div class="footdef"><sup><a id="fn.30" class="footnum" href="#fnr.30">30</a></sup> <div class="footpara">博洛尼亚石（Bononischer Stein），一种在黑暗中能发光的石头，1603年为意大利炼金术士卡斯卡西奥洛在意大利博洛尼亚附近的帕德诺山发现。他利用这种石料合成一种昼曝于日，夜则可以熠熠发光的物质。初以为是能将贱金属变为金银的点金石，后方知为硫酸钡，一种重晶石矿。</div></div>
 
-<div class="footdef"><sup><a id="fn.31" name="fn.31" class="footnum" href="#fnr.31">31</a></sup> <p>以前没有吸墨水纸，一般都往写好的纸上撒细沙，好使墨迹干得快些，以免把字迹抹掉。</p></div>
+<div class="footdef"><sup><a id="fn.31" class="footnum" href="#fnr.31">31</a></sup> <div class="footpara">以前没有吸墨水纸，一般都往写好的纸上撒细沙，好使墨迹干得快些，以免把字迹抹掉。</div></div>
 
-<div class="footdef"><sup><a id="fn.32" name="fn.32" class="footnum" href="#fnr.32">32</a></sup> <p>关于磁石山的故事说，在大海里有座黑石山，又叫磁石山，有极大的吸力。有一次一岛屿国的太子所率领的船队被风浪推到山下，受磁石的吸引，船上的钉子和金属物全都飞上山去，船身渐渐支离、解体。船上的人落入海中，有的淹死，有的围着破船挣扎。故事见阿拉伯民间故事集《一千零一夜》和《船夫和巴格达三个女人的故事》中第三个僧人的故事。这里歌德以磁石山和船只的故事来隐喻绿蒂和维特的不幸结局。</p></div>
+<div class="footdef"><sup><a id="fn.32" class="footnum" href="#fnr.32">32</a></sup> <div class="footpara">关于磁石山的故事说，在大海里有座黑石山，又叫磁石山，有极大的吸力。有一次一岛屿国的太子所率领的船队被风浪推到山下，受磁石的吸引，船上的钉子和金属物全都飞上山去，船身渐渐支离、解体。船上的人落入海中，有的淹死，有的围着破船挣扎。故事见阿拉伯民间故事集《一千零一夜》和《船夫和巴格达三个女人的故事》中第三个僧人的故事。这里歌德以磁石山和船只的故事来隐喻绿蒂和维特的不幸结局。</div></div>
 
-<div class="footdef"><sup><a id="fn.33" name="fn.33" class="footnum" href="#fnr.33">33</a></sup> <p>草人，此处指那些缺乏感情的人。</p></div>
+<div class="footdef"><sup><a id="fn.33" class="footnum" href="#fnr.33">33</a></sup> <div class="footpara">草人，此处指那些缺乏感情的人。</div></div>
 
-<div class="footdef"><sup><a id="fn.34" name="fn.34" class="footnum" href="#fnr.34">34</a></sup> <p>扔第一块石头，典故源出《圣经》。一天早晨，耶稣正在向老百姓宣教，这时文士和法利赛人带着一个行淫时被捉拿的妇人来对耶稣说：“夫子，这妇人是正行淫之时被捉拿的。摩西在律法上吩咐我们，把这样的人用石头打死。你说该把她怎么样呢？”耶稣说：“你们中间谁是没有罪的，谁就可以先拿石头打她。”这些人自己心里有鬼，谁也不敢扔第一块石头。（参见《新约全书•约翰福音》8:3-11。）由此，“扔第一块石头”或“先拿石头打”这句话就转喻为带头对某人进行批判、攻击、非难和谴责。</p></div>
+<div class="footdef"><sup><a id="fn.34" class="footnum" href="#fnr.34">34</a></sup> <div class="footpara">扔第一块石头，典故源出《圣经》。一天早晨，耶稣正在向老百姓宣教，这时文士和法利赛人带着一个行淫时被捉拿的妇人来对耶稣说：“夫子，这妇人是正行淫之时被捉拿的。摩西在律法上吩咐我们，把这样的人用石头打死。你说该把她怎么样呢？”耶稣说：“你们中间谁是没有罪的，谁就可以先拿石头打她。”这些人自己心里有鬼，谁也不敢扔第一块石头。（参见《新约全书•约翰福音》8:3-11。）由此，“扔第一块石头”或“先拿石头打”这句话就转喻为带头对某人进行批判、攻击、非难和谴责。</div></div>
 
-<div class="footdef"><sup><a id="fn.35" name="fn.35" class="footnum" href="#fnr.35">35</a></sup> <p>“祭司从那边过来”，典出《圣经》：有个人落入强盗之手，被剥去了衣裳，打个半死后丢下。“偶然有一个祭司从这条路上来，看见他，就从那边过去了。又有一个利未人到这地方，看见他，也照样从那边过去了。”唯有一个撒玛利亚人见到这情景就动了慈心，上前用油和酒倒在他的伤处，包裹好了，扶他骑上自己的牲口，带到店里去照应。故事见《新约全书•路加福音》10:28-34。“祭司从那边过去”后来转喻为见死不救、没有同情心的人。</p></div>
+<div class="footdef"><sup><a id="fn.35" class="footnum" href="#fnr.35">35</a></sup> <div class="footpara">“祭司从那边过来”，典出《圣经》：有个人落入强盗之手，被剥去了衣裳，打个半死后丢下。“偶然有一个祭司从这条路上来，看见他，就从那边过去了。又有一个利未人到这地方，看见他，也照样从那边过去了。”唯有一个撒玛利亚人见到这情景就动了慈心，上前用油和酒倒在他的伤处，包裹好了，扶他骑上自己的牲口，带到店里去照应。故事见《新约全书•路加福音》10:28-34。“祭司从那边过去”后来转喻为见死不救、没有同情心的人。</div></div>
 
-<div class="footdef"><sup><a id="fn.36" name="fn.36" class="footnum" href="#fnr.36">36</a></sup> <p>“法利赛人感谢上帝”，典出《圣经》：有两个人上殿里去祷告，一个是法利赛人，一个是税吏。法利赛人站着，自言自语地祷告说：“上帝啊，我感谢你，我不像别人，勒索、不义、奸淫，也不像这个税吏。我一个礼拜禁食两次，凡我所得的，都捐上十分之一。”那税吏远远地站着，头都不敢抬，只捶着胸求上帝开恩，可怜他这个罪人。耶稣讲完这个故事，说：“我告诉你们，这人回家去比那人倒算为义了，因为凡自高的，必降为卑，自卑的，必升为高。”（参见 《新约全书•路加福音》18:10-14。）这里耶稣以法利赛人喻指那些仗着自己是义人而藐视别人的人。</p></div>
+<div class="footdef"><sup><a id="fn.36" class="footnum" href="#fnr.36">36</a></sup> <div class="footpara">“法利赛人感谢上帝”，典出《圣经》：有两个人上殿里去祷告，一个是法利赛人，一个是税吏。法利赛人站着，自言自语地祷告说：“上帝啊，我感谢你，我不像别人，勒索、不义、奸淫，也不像这个税吏。我一个礼拜禁食两次，凡我所得的，都捐上十分之一。”那税吏远远地站着，头都不敢抬，只捶着胸求上帝开恩，可怜他这个罪人。耶稣讲完这个故事，说：“我告诉你们，这人回家去比那人倒算为义了，因为凡自高的，必降为卑，自卑的，必升为高。”（参见 《新约全书•路加福音》18:10-14。）这里耶稣以法利赛人喻指那些仗着自己是义人而藐视别人的人。</div></div>
 
-<div class="footdef"><sup><a id="fn.37" name="fn.37" class="footnum" href="#fnr.37">37</a></sup> <p>这是法国作家玛丽－卡特琳•朱梅尔•德•贝纳伊（Marie-Cathérine Jumelle de Berneville）的童话《白猫》中所写的故事：一个公主被囚，囚室的天花板里长出一双手，给她送来饭菜，所以公主才得以不死。</p></div>
+<div class="footdef"><sup><a id="fn.37" class="footnum" href="#fnr.37">37</a></sup> <div class="footpara">这是法国作家玛丽－卡特琳•朱梅尔•德•贝纳伊（Marie-Cathérine Jumelle de Berneville）的童话《白猫》中所写的故事：一个公主被囚，囚室的天花板里长出一双手，给她送来饭菜，所以公主才得以不死。</div></div>
 
-<div class="footdef"><sup><a id="fn.38" name="fn.38" class="footnum" href="#fnr.38">38</a></sup> <p><strong>“倘若我们失去了自我，也就失去了一切。”</strong> 这是在歌德不同时期的作品中反复出现的基调之一。此处指维特缺少某种可以使他为之投入的东西，无论是艺术、工作，还是一个相亲的人，也就是说他失去了自我。这个基调在本书十一月十五日信的结尾处又再次出现，言辞更为激烈。</p></div>
+<div class="footdef"><sup><a id="fn.38" class="footnum" href="#fnr.38">38</a></sup> <div class="footpara"><strong>“倘若我们失去了自我，也就失去了一切。”</strong> 这是在歌德不同时期的作品中反复出现的基调之一。此处指维特缺少某种可以使他为之投入的东西，无论是艺术、工作，还是一个相亲的人，也就是说他失去了自我。这个基调在本书十一月十五日信的结尾处又再次出现，言辞更为激烈。</div></div>
 
-<div class="footdef"><sup><a id="fn.39" name="fn.39" class="footnum" href="#fnr.39">39</a></sup> <p>马的寓言，指罗马诗人贺拉斯《书札》中的一则寓言：马受鹿的欺侮，向人求救，人便骑着马去逐鹿，鹿虽死了，但马却永远成了人的奴隶。</p></div>
+<div class="footdef"><sup><a id="fn.39" class="footnum" href="#fnr.39">39</a></sup> <div class="footpara">马的寓言，指罗马诗人贺拉斯《书札》中的一则寓言：马受鹿的欺侮，向人求救，人便骑着马去逐鹿，鹿虽死了，但马却永远成了人的奴隶。</div></div>
 
-<div class="footdef"><sup><a id="fn.40" name="fn.40" class="footnum" href="#fnr.40">40</a></sup> <p>韦特施泰因（J. H. Wetstein，1649-1726），荷兰印刷家，他于1707年出版了袖珍本《荷马集》，这是希腊文和拉丁文两种文字的对照本。</p></div>
+<div class="footdef"><sup><a id="fn.40" class="footnum" href="#fnr.40">40</a></sup> <div class="footpara">韦特施泰因（J. H. Wetstein，1649-1726），荷兰印刷家，他于1707年出版了袖珍本《荷马集》，这是希腊文和拉丁文两种文字的对照本。</div></div>
 
-<div class="footdef"><sup><a id="fn.41" name="fn.41" class="footnum" href="#fnr.41">41</a></sup> <p>粗羊毛长袍和荆条腰带，是那时忏悔者的典型装束。《圣经》载：施洗约翰“身穿骆驼毛的衣服，腰束皮带，吃的是蝗虫野蜜”，在犹太旷野约旦河一带给人施洗，宣传悔改的福音。（参见《新约全书•马太福音》3:1-12）。</p></div>
+<div class="footdef"><sup><a id="fn.41" class="footnum" href="#fnr.41">41</a></sup> <div class="footpara">粗羊毛长袍和荆条腰带，是那时忏悔者的典型装束。《圣经》载：施洗约翰“身穿骆驼毛的衣服，腰束皮带，吃的是蝗虫野蜜”，在犹太旷野约旦河一带给人施洗，宣传悔改的福音。（参见《新约全书•马太福音》3:1-12）。</div></div>
 
-<div class="footdef"><sup><a id="fn.42" name="fn.42" class="footnum" href="#fnr.42">42</a></sup> <p>弗郎茨一世（1708-1765）是神圣罗马帝国皇帝，他的加冕典礼于一七四五年举行。</p></div>
+<div class="footdef"><sup><a id="fn.42" class="footnum" href="#fnr.42">42</a></sup> <div class="footpara">弗郎茨一世（1708-1765）是神圣罗马帝国皇帝，他的加冕典礼于一七四五年举行。</div></div>
 
-<div class="footdef"><sup><a id="fn.43" name="fn.43" class="footnum" href="#fnr.43">43</a></sup> <p>奥德修斯征战特洛伊，归途中在海上经过漫长岁月的漂泊，历经艰辛，终于回到故乡，他在女神雅典娜的帮助下变成一个年迈的乞丐，受到猪倌尤迈奥的热情款待。事见《奥德赛》第十三和第十五歌。</p></div>
+<div class="footdef"><sup><a id="fn.43" class="footnum" href="#fnr.43">43</a></sup> <div class="footpara">奥德修斯征战特洛伊，归途中在海上经过漫长岁月的漂泊，历经艰辛，终于回到故乡，他在女神雅典娜的帮助下变成一个年迈的乞丐，受到猪倌尤迈奥的热情款待。事见《奥德赛》第十三和第十五歌。</div></div>
 
-<div class="footdef"><sup><a id="fn.44" name="fn.44" class="footnum" href="#fnr.44">44</a></sup> <p>这套衣服被称为“维特装”。歌德这部小说发表后，“维特装”成了一种时髦。</p></div>
+<div class="footdef"><sup><a id="fn.44" class="footnum" href="#fnr.44">44</a></sup> <div class="footpara">这套衣服被称为“维特装”。歌德这部小说发表后，“维特装”成了一种时髦。</div></div>
 
-<div class="footdef"><sup><a id="fn.45" name="fn.45" class="footnum" href="#fnr.45">45</a></sup> <p>这个比喻是从《圣经》故事中引伸而来的，源出《旧约全书•传道书》12:1-8。原句是：“你趁着年幼，衰败的日子尚未来到，就是你所说的，我毫无喜乐的那些年日未曾临近之先，当记念造你的主。不要等到日头、光明、月亮、星宿变为黑暗……吊丧的在街上往来，银链折断，金罐破裂，瓶子在泉旁损坏，水轮在井口破烂，尘土仍归于地，灵仍归于赐灵的上帝。”干枯的井和漏水的瓶象征理想的破灭或生命的结束。</p></div>
+<div class="footdef"><sup><a id="fn.45" class="footnum" href="#fnr.45">45</a></sup> <div class="footpara">这个比喻是从《圣经》故事中引伸而来的，源出《旧约全书•传道书》12:1-8。原句是：“你趁着年幼，衰败的日子尚未来到，就是你所说的，我毫无喜乐的那些年日未曾临近之先，当记念造你的主。不要等到日头、光明、月亮、星宿变为黑暗……吊丧的在街上往来，银链折断，金罐破裂，瓶子在泉旁损坏，水轮在井口破烂，尘土仍归于地，灵仍归于赐灵的上帝。”干枯的井和漏水的瓶象征理想的破灭或生命的结束。</div></div>
 
-<div class="footdef"><sup><a id="fn.46" name="fn.46" class="footnum" href="#fnr.46">46</a></sup> <p>“上帝之子”指耶稣。关于这句话，《圣经》载：耶稣说，凡是到他那儿去的人都是上帝赐给他的，他不会丢弃他们。请参阅《新约全书•约翰福音》6:37、44、65和17:24。</p></div>
+<div class="footdef"><sup><a id="fn.46" class="footnum" href="#fnr.46">46</a></sup> <div class="footpara">“上帝之子”指耶稣。关于这句话，《圣经》载：耶稣说，凡是到他那儿去的人都是上帝赐给他的，他不会丢弃他们。请参阅《新约全书•约翰福音》6:37、44、65和17:24。</div></div>
 
-<div class="footdef"><sup><a id="fn.47" name="fn.47" class="footnum" href="#fnr.47">47</a></sup> <p>“这杯酒”原文是这只“杯”，语出《圣经》：耶稣受难前曾向上帝祷告说：“我父啊，倘若可行，求你叫这杯离开我吧，然而不要照我的意思，只要照你的意思！”所以这里的“杯”乃“苦杯”或“苦酒”之意。参见《新约全书•马太福音》26:39。</p></div>
+<div class="footdef"><sup><a id="fn.47" class="footnum" href="#fnr.47">47</a></sup> <div class="footpara">“这杯酒”原文是这只“杯”，语出《圣经》：耶稣受难前曾向上帝祷告说：“我父啊，倘若可行，求你叫这杯离开我吧，然而不要照我的意思，只要照你的意思！”所以这里的“杯”乃“苦杯”或“苦酒”之意。参见《新约全书•马太福音》26:39。</div></div>
 
-<div class="footdef"><sup><a id="fn.48" name="fn.48" class="footnum" href="#fnr.48">48</a></sup> <p>耶稣被钉在十字架上时曾发出“我的上帝，我的上帝，为什么离弃我”的喊声。事见《新约全书•马太福音》27:46。</p></div>
+<div class="footdef"><sup><a id="fn.48" class="footnum" href="#fnr.48">48</a></sup> <div class="footpara">耶稣被钉在十字架上时曾发出“我的上帝，我的上帝，为什么离弃我”的喊声。事见《新约全书•马太福音》27:46。</div></div>
 
-<div class="footdef"><sup><a id="fn.49" name="fn.49" class="footnum" href="#fnr.49">49</a></sup> <p>关于卷天，《圣经》中赞美耶和华的颂诗中有类似的说法：“耶和华，我的上帝啊，你为至大，你以尊荣威严为衣服，披上亮光，如披外袍。铺张穹苍，如铺幔子……”参见《旧约全书•诗篇》104:1-2。</p></div>
+<div class="footdef"><sup><a id="fn.49" class="footnum" href="#fnr.49">49</a></sup> <div class="footpara">关于卷天，《圣经》中赞美耶和华的颂诗中有类似的说法：“耶和华，我的上帝啊，你为至大，你以尊荣威严为衣服，披上亮光，如披外袍。铺张穹苍，如铺幔子……”参见《旧约全书•诗篇》104:1-2。</div></div>
 
-<div class="footdef"><sup><a id="fn.50" name="fn.50" class="footnum" href="#fnr.50">50</a></sup> <p>葡萄的眼泪为葡萄酒之意。</p></div>
+<div class="footdef"><sup><a id="fn.50" class="footnum" href="#fnr.50">50</a></sup> <div class="footpara">葡萄的眼泪为葡萄酒之意。</div></div>
 
-<div class="footdef"><sup><a id="fn.51" name="fn.51" class="footnum" href="#fnr.51">51</a></sup> <p>这就是维特恋爱伊始就描述过的那支曲子。他在一七七一年七月十六日的信中写道：“她有一支曲子，这是她以天使之力在钢琴上弹奏出来的，那么纯朴，那么才气横溢！这时她心爱的歌，她只要奏出第一个音符，困扰我的一切痛苦、紊乱和郁闷就统统无影无踪了。”维特的爱情始初融入了这支曲子，在他的生活经历了一个圆圈，爱情行将结束之时，又回到了这支曲子，它以压倒一切的力量又重新奏响了。</p></div>
+<div class="footdef"><sup><a id="fn.51" class="footnum" href="#fnr.51">51</a></sup> <div class="footpara">这就是维特恋爱伊始就描述过的那支曲子。他在一七七一年七月十六日的信中写道：“她有一支曲子，这是她以天使之力在钢琴上弹奏出来的，那么纯朴，那么才气横溢！这时她心爱的歌，她只要奏出第一个音符，困扰我的一切痛苦、紊乱和郁闷就统统无影无踪了。”维特的爱情始初融入了这支曲子，在他的生活经历了一个圆圈，爱情行将结束之时，又回到了这支曲子，它以压倒一切的力量又重新奏响了。</div></div>
 
-<div class="footdef"><sup><a id="fn.52" name="fn.52" class="footnum" href="#fnr.52">52</a></sup> <p>指一口咬定，拒不承认。</p></div>
+<div class="footdef"><sup><a id="fn.52" class="footnum" href="#fnr.52">52</a></sup> <div class="footpara">指一口咬定，拒不承认。</div></div>
 
-<div class="footdef"><sup><a id="fn.53" name="fn.53" class="footnum" href="#fnr.53">53</a></sup> <p>原译文：“那末到处都有快乐”，明显上下文不对。</p></div>
+<div class="footdef"><sup><a id="fn.53" class="footnum" href="#fnr.53">53</a></sup> <div class="footpara">原译文：“那末到处都有快乐”，明显上下文不对。</div></div>
 
-<div class="footdef"><sup><a id="fn.54" name="fn.54" class="footnum" href="#fnr.54">54</a></sup> <p>根据基督教教规，自杀乃犯罪行为，自杀者不能葬在教堂公寓里，所以维特留下遗书，托绿蒂的父亲S法官把他的遗体葬在墓地的菩提树下。</p></div>
+<div class="footdef"><sup><a id="fn.54" class="footnum" href="#fnr.54">54</a></sup> <div class="footpara">根据基督教教规，自杀乃犯罪行为，自杀者不能葬在教堂公寓里，所以维特留下遗书，托绿蒂的父亲S法官把他的遗体葬在墓地的菩提树下。</div></div>
 
-<div class="footdef"><sup><a id="fn.55" name="fn.55" class="footnum" href="#fnr.55">55</a></sup> <p>高脚杯喻指枪柄。关于饮下杯中死亡之酒的典故出自《圣经》：耶稣被犹大出卖的那夜，彼得拔刀将前来捉拿耶稣的大祭司的仆人的耳朵砍下。这时耶稣对彼得说：“收刀入鞘吧，我父所给我的那杯，我岂可不喝呢。”（《新约全书•约翰福音》18:11）</p></div>
+<div class="footdef"><sup><a id="fn.55" class="footnum" href="#fnr.55">55</a></sup> <div class="footpara">高脚杯喻指枪柄。关于饮下杯中死亡之酒的典故出自《圣经》：耶稣被犹大出卖的那夜，彼得拔刀将前来捉拿耶稣的大祭司的仆人的耳朵砍下。这时耶稣对彼得说：“收刀入鞘吧，我父所给我的那杯，我岂可不喝呢。”（《新约全书•约翰福音》18:11）</div></div>
 
-<div class="footdef"><sup><a id="fn.56" name="fn.56" class="footnum" href="#fnr.56">56</a></sup> <p>《艾米莉娅•迦洛蒂》（1772）是德国作家莱辛（1729-1781）的著名悲剧。女主人公艾米莉娅为了不遭公爵强暴，请求父亲将她刺死。这里写维特书桌上放着一本打开的《艾米莉娅•迦洛蒂》意在说明，在某些情况下自杀并非是狂热的伤感情绪的宣泄，而是对道德自由的拯救。维特在一七七二年十月十二日的信中曾提到过一个类似的主题：一位“高贵的骑士，拔出剑来”，使侯爵“从缓慢死去的痛苦折磨中解脱出来”。根据正统的观点，以及启蒙运动的观点，无论自杀还是根据本人意愿由他人所杀，这两种行为都是卑鄙的，但是对于艾米莉娅及其父亲来说，他们的行为，目的在于维护艾米莉娅的贞操，保持完美的道德。维特打开《艾米莉娅•迦洛蒂》放在桌上，意在希望别人也应该用这样的观点来看待他的死。</p></div>
+<div class="footdef"><sup><a id="fn.56" class="footnum" href="#fnr.56">56</a></sup> <div class="footpara">《艾米莉娅•迦洛蒂》（1772）是德国作家莱辛（1729-1781）的著名悲剧。女主人公艾米莉娅为了不遭公爵强暴，请求父亲将她刺死。这里写维特书桌上放着一本打开的《艾米莉娅•迦洛蒂》意在说明，在某些情况下自杀并非是狂热的伤感情绪的宣泄，而是对道德自由的拯救。维特在一七七二年十月十二日的信中曾提到过一个类似的主题：一位“高贵的骑士，拔出剑来”，使侯爵“从缓慢死去的痛苦折磨中解脱出来”。根据正统的观点，以及启蒙运动的观点，无论自杀还是根据本人意愿由他人所杀，这两种行为都是卑鄙的，但是对于艾米莉娅及其父亲来说，他们的行为，目的在于维护艾米莉娅的贞操，保持完美的道德。维特打开《艾米莉娅•迦洛蒂》放在桌上，意在希望别人也应该用这样的观点来看待他的死。</div></div>
 
-<div class="footdef"><sup><a id="fn.57" name="fn.57" class="footnum" href="#fnr.57">57</a></sup> <p>十八世纪末期，安葬死者通常都在晚间或深夜进行，棺材则由某个手工业行会的工匠来抬。在这一点上维特的下葬与一般习俗没有什么区别。所不同的是，维特安葬时没有祭司参加，这在十八世纪是非常惹眼的。因为这一来就等于把维特打成了凶手和罪犯，而在当时神职人员是不给自杀者安葬的。自杀的人也很难在公墓里得到一块墓地，所以维特预先留下遗书，托Ｓ法官将他葬在“教堂墓地后面朝田野的一隅有两棵菩提树”的地方。这里的文字是这样表述的：“法官吩咐把维特安葬在他自己选定的地方。”十八世纪的读者从这句简短而含蓄的话中便可得知：没有法官的照顾，一切都不可能按维特生前的愿望进行。</p></div>
+<div class="footdef"><sup><a id="fn.57" class="footnum" href="#fnr.57">57</a></sup> <div class="footpara">十八世纪末期，安葬死者通常都在晚间或深夜进行，棺材则由某个手工业行会的工匠来抬。在这一点上维特的下葬与一般习俗没有什么区别。所不同的是，维特安葬时没有祭司参加，这在十八世纪是非常惹眼的。因为这一来就等于把维特打成了凶手和罪犯，而在当时神职人员是不给自杀者安葬的。自杀的人也很难在公墓里得到一块墓地，所以维特预先留下遗书，托Ｓ法官将他葬在“教堂墓地后面朝田野的一隅有两棵菩提树”的地方。这里的文字是这样表述的：“法官吩咐把维特安葬在他自己选定的地方。”十八世纪的读者从这句简短而含蓄的话中便可得知：没有法官的照顾，一切都不可能按维特生前的愿望进行。</div></div>
 
 
 </div>
 </div></div>
-<footer class="footer">
-<div class="container">
-<p class="text-muted">作者: 歌德(译:韩耀成); 编者: 编者:万泽; 最后修改时间: 2015-11-14 21:53.</p></div>
 </body>
 </html>

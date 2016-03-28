@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-02-18 四 20:43 -->
+<!-- 2016-03-28 一 12:06 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>tikz制图详解</title>
@@ -11,24 +11,33 @@
 >
 <style type="text/css">
 body {
-  padding-right: 30px;
-  padding-left: 30px;
-  margin-right: auto;
-  margin-left: auto;
+
 }
 @media (min-width: 768px) {
   body {
     width: 732px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 @media (min-width: 992px) {
   body {
-    width: 948px;
+    width: 880px;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 @media (min-width: 1200px) {
   body {
-    width: 1140px;
+    width: 750px;
+    padding-right: 200px;
+    padding-left: 200px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
@@ -49,8 +58,8 @@ body {
 }
    #content {
     display: block;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 code {
@@ -61,18 +70,17 @@ code {
 }
 
 pre {
+    max-width: 100%;
     display: block;
     padding: 9.5px;
     margin: 0 0 10px;
     font-size: 13px;
     line-height: 1.42857143;
     color: #333;
-    word-break: break-all;
-    /*word-wrap: break-word;*/
-    word-wrap: normal; /* horizontal scrolling */
     background-color: #f5f5f5;
     border: 1px solid #ccc;
     border-radius: 4px;
+    overflow : auto;
 }
 
 
@@ -95,7 +103,7 @@ li, dt{
 }
 
 video{
-    width: 95%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -104,7 +112,13 @@ figure p{
     text-indent:0em;
 }
 img{
-    max-width: 95%;
+    max-width: 100%;
+}
+
+embed{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 figure{
@@ -112,8 +126,8 @@ figure{
 }
 
 /*  class  */
-.framed{
-    max-width:700px;
+.FRAMED{
+    max-width:100%;
     border:1px solid ;
     padding: 1em;
     -webkit-box-sizing: border-box;
@@ -121,10 +135,10 @@ figure{
     box-sizing: border-box;
 }
 
-.notecard{
-    width: 320px;
+.NOTECARD{
+    width: 30%;
     position:relative;
-    right: -215px;
+    right: -30%;
     padding: 1em;
     margin:0 auto;
     border: solid 1px;
@@ -312,25 +326,27 @@ table tr:nth-child(even) {
 <li><a href="#orgheadline34">16. 平移</a></li>
 <li><a href="#orgheadline35">17. 旋转</a></li>
 <li><a href="#orgheadline36">18. 反对称</a></li>
-<li><a href="#orgheadline42">19. 电路图</a>
+<li><a href="#orgheadline37">19. 多个node连接</a></li>
+<li><a href="#orgheadline38">20. 绘制几何图形</a></li>
+<li><a href="#orgheadline44">21. 电路图</a>
 <ul>
-<li><a href="#orgheadline37">19.1. 电路基本符号</a></li>
-<li><a href="#orgheadline38">19.2. 连线问题</a></li>
-<li><a href="#orgheadline39">19.3. 翻转问题</a></li>
-<li><a href="#orgheadline40">19.4. 电压表和电流表</a></li>
-<li><a href="#orgheadline41">19.5. info选项</a></li>
+<li><a href="#orgheadline39">21.1. 电路基本符号</a></li>
+<li><a href="#orgheadline40">21.2. 连线问题</a></li>
+<li><a href="#orgheadline41">21.3. 翻转问题</a></li>
+<li><a href="#orgheadline42">21.4. 电压表和电流表</a></li>
+<li><a href="#orgheadline43">21.5. info选项</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline45">20. 示例</a>
+<li><a href="#orgheadline47">22. 示例</a>
 <ul>
-<li><a href="#orgheadline43">20.1. 例子一</a></li>
-<li><a href="#orgheadline44">20.2. 例子二</a></li>
+<li><a href="#orgheadline45">22.1. 例子一</a></li>
+<li><a href="#orgheadline46">22.2. 例子二</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline48">21. 附录</a>
+<li><a href="#orgheadline50">23. 附录</a>
 <ul>
-<li><a href="#orgheadline46">21.1. 单位</a></li>
-<li><a href="#orgheadline47">21.2. 参考资料</a></li>
+<li><a href="#orgheadline48">23.1. 单位</a></li>
+<li><a href="#orgheadline49">23.2. 参考资料</a></li>
 </ul>
 </li>
 </ul>
@@ -1507,125 +1523,80 @@ tikz除了前面的基本必要知识外，还有很多零零散散的内容，�
 <p>
 这个例子核心内容是批量定义点和点的运算，把这个弄懂了，后面tikz的核心大门就为你打开了，然后很多图形都可以用简洁的命令生成出来了。
 </p>
+</div>
+</div>
 
 
-<p>
-\section{多个node连接}
-</p>
-\begin{Verbatim}
-\usetikzlibrary{positioning}
-\tikzset{place/.style={circle,draw=blue!50,fill=blue!20,
-thick,inner sep=0pt,minimum size=6mm}}
-\tikzset{transition/.style={rectangle,draw=black!50,
-fill=black!20,thick,inner sep=0pt,minimum size=4mm}}
-\tikzset{every label/.style=red}
-\begin{tikzpicture}[bend angle=45]
-\node[place] (waiting)  {};
-\node[place] (critical) [below=of waiting] {};
-\node[place](semaphore) [below=of critical,label=above:$s\le3$] {};
-\node[transition](leave critical) [right=of critical]{};
-\node[transition] (enter critical)[left=of critical]{};
-\draw [->] (enter critical) to (critical);
-\draw [->] (waiting) to [bend right] (enter critical);
-\draw [->] (enter critical) to [bend right] (semaphore);
-\draw [->] (semaphore) to [bend right] (leave critical);
-\draw [->] (critical) to (leave critical);
-\draw [->] (leave critical) to [bend right] (waiting);
-\end{tikzpicture}
-\end{Verbatim}
+<div class="outline-2">
+<h2 id="orgheadline37">多个node连接</h2>
+<div class="outline-text-2" id="text-19">
+<div class="highlight"><pre><span></span><span class="k">\usetikzlibrary</span><span class="nb">{</span>positioning<span class="nb">}</span>
+<span class="k">\tikzset</span><span class="nb">{</span>place/.style=<span class="nb">{</span>circle,draw=blue!50,fill=blue!20,
+thick,inner sep=0pt,minimum size=6mm<span class="nb">}}</span>
+<span class="k">\tikzset</span><span class="nb">{</span>transition/.style=<span class="nb">{</span>rectangle,draw=black!50,
+fill=black!20,thick,inner sep=0pt,minimum size=4mm<span class="nb">}}</span>
+<span class="k">\tikzset</span><span class="nb">{</span>every label/.style=red<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[bend angle=45]
+<span class="k">\node</span><span class="na">[place]</span> (waiting)  <span class="nb">{}</span>;
+<span class="k">\node</span><span class="na">[place]</span> (critical) [below=of waiting] <span class="nb">{}</span>;
+<span class="k">\node</span><span class="na">[place]</span>(semaphore) [below=of critical,label=above:<span class="s">$</span><span class="nb">s</span><span class="nv">\le</span><span class="m">3</span><span class="s">$</span>] <span class="nb">{}</span>;
+<span class="k">\node</span><span class="na">[transition]</span>(leave critical) [right=of critical]<span class="nb">{}</span>;
+<span class="k">\node</span><span class="na">[transition]</span> (enter critical)[left=of critical]<span class="nb">{}</span>;
+<span class="k">\draw</span> [-&gt;] (enter critical) to (critical);
+<span class="k">\draw</span> [-&gt;] (waiting) to [bend right] (enter critical);
+<span class="k">\draw</span> [-&gt;] (enter critical) to [bend right] (semaphore);
+<span class="k">\draw</span> [-&gt;] (semaphore) to [bend right] (leave critical);
+<span class="k">\draw</span> [-&gt;] (critical) to (leave critical);
+<span class="k">\draw</span> [-&gt;] (leave critical) to [bend right] (waiting);
+<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+</pre></div>
 
-<p>
-\tikzset{place/.style={circle,draw=blue!50,fill=blue!20,thick,inner sep=0pt,minimum size=6mm}}
-\tikzset{transition/.style={rectangle,draw=black!50,fill=black!20,thick,inner sep=0pt,minimum size=4mm}}
-\tikzset{every label/.style=red}
-</p>
-\begin{tikzpicture}[bend angle=45]
-\node[place] (waiting)  {};
-\node[place] (critical) [below=of waiting] {};
-\node[place](semaphore) [below=of critical,label=above:$s\le3$] {};
-\node[transition](leave critical) [right=of critical]{};
-\node[transition] (enter critical)[left=of critical]{};
-\draw [->] (enter critical) to (critical);
-\draw [->] (waiting) to [bend right] (enter critical);
-\draw [->] (enter critical) to [bend right] (semaphore);
-\draw [->] (semaphore) to [bend right] (leave critical);
-\draw [->] (critical) to (leave critical);
-\draw [->] (leave critical) to [bend right] (waiting);
-\end{tikzpicture}
 
 <p>
 这个例子需要加载positioning包，这个例子很好地展示了多个node和用箭头连接来表示他们关系的图形如何绘制。
 </p>
+</div>
+</div>
 
 
+<div class="outline-2">
+<h2 id="orgheadline38">绘制几何图形</h2>
+<div class="outline-text-2" id="text-20">
 <p>
-\section{几何第一个例子}
 为了减少文档大小，我编写的tikz的例子都放入文件夹[\textit{tikz制图}]里面了。
 </p>
 
-\begin{Verbatim}
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<span class="k">\coordinate</span><span class="na">[label=left:\textcolor{blue}{$A$}]</span> (A) 
+at (<span class="s">$</span><span class="o">(</span><span class="m">0</span><span class="nb">,</span><span class="m">0</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="m">0</span><span class="nb">.</span><span class="m">1</span><span class="o">*(</span><span class="nb">rand,rand</span><span class="o">)</span><span class="s">$</span>) ;
+<span class="k">\coordinate</span><span class="na">[label=right:\textcolor{blue}{$B$}]</span> (B) 
+at (<span class="s">$</span><span class="o">(</span><span class="m">1</span><span class="nb">.</span><span class="m">25</span><span class="nb">,</span><span class="m">0</span><span class="nb">.</span><span class="m">25</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="m">0</span><span class="nb">.</span><span class="m">1</span><span class="o">*(</span><span class="nb">rand,rand</span><span class="o">)</span><span class="s">$</span>) ;
 
-\begin{tikzpicture}
-\coordinate[label=left:\textcolor{blue}{$A$}] (A) 
-at ($(0,0) +0.1*(rand,rand)$) ;
-\coordinate[label=right:\textcolor{blue}{$B$}] (B) 
-at ($(1.25,0.25) +0.1*(rand,rand)$) ;
+<span class="k">\draw</span> [name path=A--B] (A) -- (B);
 
-\draw [name path=A--B] (A) -- (B);
+<span class="k">\node</span> [name path=D,draw,circle through=(B),label=left:<span class="s">$</span><span class="nb">D</span><span class="s">$</span>] at (A) <span class="nb">{}</span>;
+<span class="k">\node</span> [name path=E,draw,circle through=(A),label=right:<span class="s">$</span><span class="nb">E</span><span class="s">$</span>] at (B) <span class="nb">{}</span>;
 
-\node [name path=D,draw,circle through=(B),label=left:$D$] at (A) {};
-\node [name path=E,draw,circle through=(A),label=right:$E$] at (B) {};
+<span class="k">\path</span> [name intersections=<span class="nb">{</span>of=D and E, 
+by=<span class="nb">{</span>[label=above:<span class="s">$</span><span class="nb">C</span><span class="s">$</span>]C, [label=below:<span class="s">$</span><span class="nb">C&#39;</span><span class="s">$</span>]C&#39;<span class="nb">}}</span>];
 
-\path [name intersections={of=D and E, 
-by={[label=above:$C$]C, [label=below:$C'$]C'}}];
+<span class="k">\draw</span> [red] (A) -- (C);
+<span class="k">\draw</span> [red] (B) -- (C);
 
-\draw [red] (A) -- (C);
-\draw [red] (B) -- (C);
+<span class="k">\draw</span> [name path=C--C&#39;,red] (C) -- (C&#39;);
+<span class="k">\path</span> [name intersections=<span class="nb">{</span>of=A--B and C--C&#39;,by=F<span class="nb">}</span>];
 
-\draw [name path=C--C',red] (C) -- (C');
-\path [name intersections={of=A--B and C--C',by=F}];
+<span class="k">\node</span> [fill=red,inner sep=1,label=-45:<span class="s">$</span><span class="nb">F</span><span class="s">$</span>] at (F) <span class="nb">{}</span>;
 
-\node [fill=red,inner sep=1,label=-45:$F$] at (F) {};
+<span class="k">\foreach</span> <span class="k">\point</span> in <span class="nb">{</span>A,B,C,C&#39;<span class="nb">}</span>
+<span class="k">\fill</span> [black,opacity=.5] (<span class="k">\point</span>) circle (2pt);
 
-\foreach \point in {A,B,C,C'}
-\fill [black,opacity=.5] (\point) circle (2pt);
+<span class="k">\begin</span><span class="nb">{</span>pgfonlayer<span class="nb">}{</span>background<span class="nb">}</span>
+<span class="k">\fill</span><span class="na">[orange!80]</span> (A) -- (C) -- (B) -- cycle;
+<span class="k">\end</span><span class="nb">{</span>pgfonlayer<span class="nb">}</span>
 
-\begin{pgfonlayer}{background}
-\fill[orange!80] (A) -- (C) -- (B) -- cycle;
-\end{pgfonlayer}
-
-\end{tikzpicture}
-\end{Verbatim}
-
-\begin{tikzpicture}
-\coordinate[label=left:\textcolor{blue}{$A$}] (A) at ($(0,0) +0.1*(rand,rand)$) ;
-\coordinate[label=right:\textcolor{blue}{$B$}] (B) at ($(1.25,0.25) +0.1*(rand,rand)$) ;
-
-\draw [name path=A--B] (A) -- (B);
-
-\node [name path=D,draw,circle through=(B),label=left:$D$] at (A) {};
-\node [name path=E,draw,circle through=(A),label=right:$E$] at (B) {};
-
-\path [name intersections={of=D and E, by={[label=above:$C$]C, [label=below:$C'$]C'}}];
-
-\draw [red] (A) -- (C);
-\draw [red] (B) -- (C);
-
-\draw [name path=C--C',red] (C) -- (C');
-\path [name intersections={of=A--B and C--C',by=F}];
-
-\node [fill=red,inner sep=1,label=-45:$F$] at (F) {};
-
-\foreach \point in {A,B,C,C'}
-\fill [black,opacity=.5] (\point) circle (2pt);
-
-\begin{pgfonlayer}{background}
-\fill[orange!80] (A) -- (C) -- (B) -- cycle;
-\end{pgfonlayer}
-
-\end{tikzpicture}
-
-
+<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+</pre></div>
 
 
 
@@ -1833,8 +1804,8 @@ xmin，xmax，ymin，ymax选项使用来配置坐标轴范围的。
 
 
 <div class="outline-2">
-<h2 id="orgheadline42">电路图</h2>
-<div class="outline-text-2" id="text-19">
+<h2 id="orgheadline44">电路图</h2>
+<div class="outline-text-2" id="text-21">
 <p>
 用tikz绘制一般电路图的解决方案可以说是完美，首先需要加载宏包：
 </p>
@@ -1856,8 +1827,8 @@ xmin，xmax，ymin，ymax选项使用来配置坐标轴范围的。
 </p>
 </div>
 <div class="outline-3">
-<h3 id="orgheadline37">电路基本符号</h3>
-<div class="outline-text-3" id="text-19-1">
+<h3 id="orgheadline39">电路基本符号</h3>
+<div class="outline-text-3" id="text-21-1">
 <dl class="org-dl">
 <dt>battery </dt><dd>电池  <code>\tikz[circuit ee IEC]{\node[battery] {};}</code></dd>
 <dt>bulb </dt><dd>灯泡   <code>\tikz[circuit ee IEC]{\node[bulb] {};}</code></dd>
@@ -1873,8 +1844,8 @@ current direction  &amp; to路径上加上电流方向\footnote{如果是[\textb
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline38">连线问题</h3>
-<div class="outline-text-3" id="text-19-2">
+<h3 id="orgheadline40">连线问题</h3>
+<div class="outline-text-3" id="text-21-2">
 <p>
 各个元器件之间的连线除了一般的\verb+&#x2013;+连直线外，还可以通过\verb+-|+或者\verb+|-+来处理垂直拐线的问题，其中\verb+-|+你可以理解为从第一个点先横着走再竖着走，而\verb+|-+你可以理解为先从第一个点竖着走再横着走。
 </p>
@@ -1882,8 +1853,8 @@ current direction  &amp; to路径上加上电流方向\footnote{如果是[\textb
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline39">翻转问题</h3>
-<div class="outline-text-3" id="text-19-3">
+<h3 id="orgheadline41">翻转问题</h3>
+<div class="outline-text-3" id="text-21-3">
 <p>
 四个基本的选项[\textbf{point up point down point left point right}\\]，分别是朝上，朝下，朝左和朝 右。
 </p>
@@ -1896,8 +1867,8 @@ current direction  &amp; to路径上加上电流方向\footnote{如果是[\textb
 
 
 <div class="outline-3">
-<h3 id="orgheadline40">电压表和电流表</h3>
-<div class="outline-text-3" id="text-19-4">
+<h3 id="orgheadline42">电压表和电流表</h3>
+<div class="outline-text-3" id="text-21-4">
 <p>
 电压表电流表实际上\textbf{circuit ee IEC}里面也有，不过不是我们（中国大陆）初高中物理书上常见的那种，而我们其实可以很简单的用node命令就画出了类似书本上的那种符号：
 </p>
@@ -1909,8 +1880,8 @@ current direction  &amp; to路径上加上电流方向\footnote{如果是[\textb
 
 
 <div class="outline-3">
-<h3 id="orgheadline41">info选项</h3>
-<div class="outline-text-3" id="text-19-5">
+<h3 id="orgheadline43">info选项</h3>
+<div class="outline-text-3" id="text-21-5">
 <p>
 这些node命令都支持\verb+info+选项，也就是旁边加上标签信息。此外还有一个\verb+info'+选项会让信息位置反向，有时很有用。如果位置还是不满意那就只好用\verb+info=angle:text+的形式了，其中angle填上你想要的角度。一般通过角度控制能够达到满意的效果了吧。
 </p>
@@ -1924,11 +1895,11 @@ current direction  &amp; to路径上加上电流方向\footnote{如果是[\textb
 
 
 <div class="outline-2">
-<h2 id="orgheadline45">示例</h2>
-<div class="outline-text-2" id="text-20">
+<h2 id="orgheadline47">示例</h2>
+<div class="outline-text-2" id="text-22">
 </div><div class="outline-3">
-<h3 id="orgheadline43">例子一</h3>
-<div class="outline-text-3" id="text-20-1">
+<h3 id="orgheadline45">例子一</h3>
+<div class="outline-text-3" id="text-22-1">
 <div class="highlight"><pre><span></span><span class="k">\usetikzlibrary</span><span class="nb">{</span>circuits.ee.IEC<span class="nb">}</span>
 
 <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[circuit ee IEC]
@@ -1958,8 +1929,8 @@ current direction  &amp; to路径上加上电流方向\footnote{如果是[\textb
 
 
 <div class="outline-3">
-<h3 id="orgheadline44">例子二</h3>
-<div class="outline-text-3" id="text-20-2">
+<h3 id="orgheadline46">例子二</h3>
+<div class="outline-text-3" id="text-22-2">
 <div class="highlight"><pre><span></span><span class="k">\usetikzlibrary</span><span class="nb">{</span>circuits.ee.IEC<span class="nb">}</span>
 
 <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[circuit ee IEC]
@@ -1995,19 +1966,19 @@ current direction  &amp; to路径上加上电流方向\footnote{如果是[\textb
 
 
 <div class="outline-2">
-<h2 id="orgheadline48">附录</h2>
-<div class="outline-text-2" id="text-21">
+<h2 id="orgheadline50">附录</h2>
+<div class="outline-text-2" id="text-23">
 </div><div class="outline-3">
-<h3 id="orgheadline46">单位</h3>
-<div class="outline-text-3" id="text-21-1">
+<h3 id="orgheadline48">单位</h3>
+<div class="outline-text-3" id="text-23-1">
 <p>
 tikz的单位继承自tex的单位系统，然后其默认的长度单位是cm。
 </p>
 </div>
 </div>
 <div class="outline-3">
-<h3 id="orgheadline47">参考资料</h3>
-<div class="outline-text-3" id="text-21-2">
+<h3 id="orgheadline49">参考资料</h3>
+<div class="outline-text-3" id="text-23-2">
 <ol class="org-ol">
 <li>Graphics with TikZ Andrew Mertz and William Slough</li>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-01-08 五 16:38 -->
+<!-- 2016-03-28 一 12:08 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>套接字编程入门</title>
@@ -11,24 +11,33 @@
 >
 <style type="text/css">
 body {
-  padding-right: 30px;
-  padding-left: 30px;
-  margin-right: auto;
-  margin-left: auto;
+
 }
 @media (min-width: 768px) {
   body {
     width: 732px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 @media (min-width: 992px) {
   body {
-    width: 948px;
+    width: 880px;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 @media (min-width: 1200px) {
   body {
-    width: 1140px;
+    width: 750px;
+    padding-right: 200px;
+    padding-left: 200px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
@@ -47,10 +56,10 @@ body {
 .underline{
     text-decoration: underline;
 }
-  #content {
+   #content {
     display: block;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 code {
@@ -61,17 +70,17 @@ code {
 }
 
 pre {
+    max-width: 100%;
     display: block;
     padding: 9.5px;
     margin: 0 0 10px;
     font-size: 13px;
     line-height: 1.42857143;
     color: #333;
-    word-break: break-all;
-    word-wrap: break-word;
     background-color: #f5f5f5;
     border: 1px solid #ccc;
     border-radius: 4px;
+    overflow : auto;
 }
 
 
@@ -94,7 +103,7 @@ li, dt{
 }
 
 video{
-    width: 95%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -103,7 +112,13 @@ figure p{
     text-indent:0em;
 }
 img{
-    max-width: 95%;
+    max-width: 100%;
+}
+
+embed{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 figure{
@@ -111,8 +126,8 @@ figure{
 }
 
 /*  class  */
-.framed{
-    max-width:700px;
+.FRAMED{
+    max-width:100%;
     border:1px solid ;
     padding: 1em;
     -webkit-box-sizing: border-box;
@@ -120,10 +135,10 @@ figure{
     box-sizing: border-box;
 }
 
-.notecard{
-    width: 320px;
+.NOTECARD{
+    width: 30%;
     position:relative;
-    right: -215px;
+    right: -30%;
     padding: 1em;
     margin:0 auto;
     border: solid 1px;
@@ -131,69 +146,103 @@ figure{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+/*
+table
+*/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 16px 0;
+    empty-cells: show;
+    border: 1px solid #ccc;
+    width: 100%;
+    display: table;
+}
+
+table tr {
+    border-bottom: 1px solid #ddd;
+}
+table th,table td{
+    padding:8px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
 .highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
-.highlight .c { color: #008800; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
-.highlight .k { color: #AA22FF; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
-.highlight .cm { color: #008800; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #008800 } /* Comment.Preproc */
-.highlight .c1 { color: #008800; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #008800; font-weight: bold } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .c { color: #8f5902; font-style: italic } /* Comment */
+.highlight .err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.highlight .g { color: #000000 } /* Generic */
+.highlight .k { color: #204a87; font-weight: bold } /* Keyword */
+.highlight .l { color: #000000 } /* Literal */
+.highlight .n { color: #000000 } /* Name */
+.highlight .o { color: #ce5c00; font-weight: bold } /* Operator */
+.highlight .x { color: #000000 } /* Other */
+.highlight .p { color: #000000; font-weight: bold } /* Punctuation */
+.highlight .ch { color: #8f5902; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: #8f5902; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #a40000 } /* Generic.Deleted */
+.highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #ef2929 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .go { color: #000000; font-style: italic } /* Generic.Output */
+.highlight .gp { color: #8f5902 } /* Generic.Prompt */
+.highlight .gs { color: #000000; font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #AA22FF; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #AA22FF; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #AA22FF; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #AA22FF } /* Keyword.Pseudo */
-.highlight .kr { color: #AA22FF; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #00BB00; font-weight: bold } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
-.highlight .s { color: #BB4444 } /* Literal.String */
-.highlight .na { color: #BB4444 } /* Name.Attribute */
-.highlight .nb { color: #AA22FF } /* Name.Builtin */
-.highlight .nc { color: #0000FF } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
-.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #00A000 } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
-.highlight .nv { color: #B8860B } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sb { color: #BB4444 } /* Literal.String.Backtick */
-.highlight .sc { color: #BB4444 } /* Literal.String.Char */
-.highlight .sd { color: #BB4444; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #BB4444 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #BB4444 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
-.highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
-.highlight .s1 { color: #BB4444 } /* Literal.String.Single */
-.highlight .ss { color: #B8860B } /* Literal.String.Symbol */
-.highlight .bp { color: #AA22FF } /* Name.Builtin.Pseudo */
-.highlight .vc { color: #B8860B } /* Name.Variable.Class */
-.highlight .vg { color: #B8860B } /* Name.Variable.Global */
-.highlight .vi { color: #B8860B } /* Name.Variable.Instance */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+.highlight .gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.highlight .kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.highlight .ld { color: #000000 } /* Literal.Date */
+.highlight .m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.highlight .s { color: #4e9a06 } /* Literal.String */
+.highlight .na { color: #c4a000 } /* Name.Attribute */
+.highlight .nb { color: #204a87 } /* Name.Builtin */
+.highlight .nc { color: #000000 } /* Name.Class */
+.highlight .no { color: #000000 } /* Name.Constant */
+.highlight .nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.highlight .ni { color: #ce5c00 } /* Name.Entity */
+.highlight .ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #000000 } /* Name.Function */
+.highlight .nl { color: #f57900 } /* Name.Label */
+.highlight .nn { color: #000000 } /* Name.Namespace */
+.highlight .nx { color: #000000 } /* Name.Other */
+.highlight .py { color: #000000 } /* Name.Property */
+.highlight .nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #000000 } /* Name.Variable */
+.highlight .ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.highlight .mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.highlight .mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.highlight .mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.highlight .mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.highlight .mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.highlight .sb { color: #4e9a06 } /* Literal.String.Backtick */
+.highlight .sc { color: #4e9a06 } /* Literal.String.Char */
+.highlight .sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #4e9a06 } /* Literal.String.Double */
+.highlight .se { color: #4e9a06 } /* Literal.String.Escape */
+.highlight .sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.highlight .si { color: #4e9a06 } /* Literal.String.Interpol */
+.highlight .sx { color: #4e9a06 } /* Literal.String.Other */
+.highlight .sr { color: #4e9a06 } /* Literal.String.Regex */
+.highlight .s1 { color: #4e9a06 } /* Literal.String.Single */
+.highlight .ss { color: #4e9a06 } /* Literal.String.Symbol */
+.highlight .bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #000000 } /* Name.Variable.Class */
+.highlight .vg { color: #000000 } /* Name.Variable.Global */
+.highlight .vi { color: #000000 } /* Name.Variable.Instance */
+.highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
 </style>
 </head>
 <body>
@@ -353,9 +402,9 @@ getaddrinfo函数返回的 <code>family,type,proto</code> 这三个参数可以�
 <p>
 我们来用下面这个脚本试一下:
 </p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
 
-<span class="n">addrinfos</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">getaddrinfo</span><span class="p">(</span><span class="s">&#39;www.163.com&#39;</span><span class="p">,</span><span class="s">&#39;http&#39;</span><span class="p">)</span>
+<span class="n">addrinfos</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">getaddrinfo</span><span class="p">(</span><span class="s1">&#39;www.163.com&#39;</span><span class="p">,</span><span class="s1">&#39;http&#39;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">addrinfo</span> <span class="ow">in</span> <span class="n">addrinfos</span><span class="p">:</span>
     <span class="n">socket_parameter</span> <span class="o">=</span> <span class="n">addrinfo</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
@@ -366,7 +415,7 @@ getaddrinfo函数返回的 <code>family,type,proto</code> 这三个参数可以�
     <span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="o">*</span><span class="n">socket_parameter</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;connected&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;connected&#39;</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
@@ -709,42 +758,42 @@ python有所谓的GIL概念，很多人对其有指责，而实际上那些支�
 本例子来自 <a href="#orgtarget1">参考资料3</a> ，我将其改成了python3版本。
 </p>
 
-<div class="highlight"><pre><span class="c">#!/usr/bin/env python3</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">socket</span><span class="o">,</span> <span class="nn">time</span>
 
 <span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
-    <span class="n">usage</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;usage: %prog [options] poetry-file</span>
+    <span class="n">usage</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;usage: %prog [options] poetry-file</span>
 
-<span class="s">This is the Slow Poetry Server, blocking edition.</span>
-<span class="s">Run it like this:</span>
+<span class="s2">This is the Slow Poetry Server, blocking edition.</span>
+<span class="s2">Run it like this:</span>
 
-<span class="s">  python3 slowpoetry3.py ecstasy.txt</span>
+<span class="s2">  python3 slowpoetry3.py ecstasy.txt</span>
 
-<span class="s">&quot;&quot;&quot;</span>
+<span class="s2">&quot;&quot;&quot;</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The port to listen on. Default to a random available port.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-p&#39;</span><span class="p">,</span><span class="s">&#39;--port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The port to listen on. Default to a random available port.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span><span class="s1">&#39;--port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The interface to listen on. Default is localhost.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--iface&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The interface to listen on. Default is localhost.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--iface&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The number of seconds between sending bytes.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--delay&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=.</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The number of seconds between sending bytes.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--delay&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=.</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The number of bytes to send at a time.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--num-bytes&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The number of bytes to send at a time.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--num-bytes&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;poetry_file&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;poetry_file&#39;</span><span class="p">)</span>
 
     <span class="n">args</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">())</span>
 
-    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;poetry_file&#39;</span><span class="p">]</span>
+    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;poetry_file&#39;</span><span class="p">]</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">poetry_file</span><span class="p">:</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;No such file: </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">poetry_file</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;No such file: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">poetry_file</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">args</span>
 
@@ -760,16 +809,16 @@ python有所谓的GIL概念，很多人对其有指责，而实际上那些支�
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">bytes</span><span class="p">:</span>
             <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
             <span class="n">inputf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-            <span class="k">return</span> <span class="s">&#39;end&#39;</span>
+            <span class="k">return</span> <span class="s1">&#39;end&#39;</span>
 
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Sending </span><span class="si">%d</span><span class="s"> bytes&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="nb">bytes</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Sending </span><span class="si">%d</span><span class="s1"> bytes&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="nb">bytes</span><span class="p">))</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">sock</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="nb">bytes</span><span class="p">)</span>
         <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
             <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
             <span class="n">inputf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-            <span class="k">return</span> <span class="s">&#39;error&#39;</span>
+            <span class="k">return</span> <span class="s1">&#39;error&#39;</span>
 
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
@@ -779,34 +828,34 @@ python有所谓的GIL概念，很多人对其有指责，而实际上那些支�
     <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
         <span class="n">sock</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">listen_socket</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
 
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Somebody at </span><span class="si">%s</span><span class="s"> wants poetry!&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">addr</span><span class="p">,))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Somebody at </span><span class="si">%s</span><span class="s1"> wants poetry!&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">addr</span><span class="p">,))</span>
 
         <span class="n">result</span> <span class="o">=</span> <span class="n">send_poetry</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">poetry_file</span><span class="p">,</span> <span class="n">num_bytes</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="s">&#39;end&#39;</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">&#39;sending complete&#39;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">result</span> <span class="o">==</span> <span class="s">&#39;error&#39;</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">&#39;error, sending stopped&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;sending complete&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">result</span> <span class="o">==</span> <span class="s1">&#39;error&#39;</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;error, sending stopped&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">args</span><span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
-    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;poetry_file&#39;</span><span class="p">]</span>
-    <span class="n">port</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;port&#39;</span><span class="p">]</span>
-    <span class="n">iface</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;iface&#39;</span><span class="p">]</span>
-    <span class="n">num_bytes</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;num_bytes&#39;</span><span class="p">]</span>
-    <span class="n">delay</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;delay&#39;</span><span class="p">]</span>
+    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;poetry_file&#39;</span><span class="p">]</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>
+    <span class="n">iface</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;iface&#39;</span><span class="p">]</span>
+    <span class="n">num_bytes</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;num_bytes&#39;</span><span class="p">]</span>
+    <span class="n">delay</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span>
 
     <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
     <span class="n">sock</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">iface</span><span class="p">,</span> <span class="n">port</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">))</span>
     <span class="n">sock</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Serving </span><span class="si">%s</span><span class="s"> on port </span><span class="si">%s</span><span class="s">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">poetry_file</span><span class="p">,</span> <span class="n">sock</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Serving </span><span class="si">%s</span><span class="s1"> on port </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">poetry_file</span><span class="p">,</span> <span class="n">sock</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">1</span><span class="p">]))</span>
 
     <span class="n">serve</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">poetry_file</span><span class="p">,</span> <span class="n">num_bytes</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span>
 
     <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -815,40 +864,40 @@ python有所谓的GIL概念，很多人对其有指责，而实际上那些支�
 <div class="outline-3">
 <h3 id="orgheadline22">获取诗歌客户端</h3>
 <div class="outline-text-3" id="text-4-2">
-<div class="highlight"><pre><span class="c">#!/usr/bin/env python3</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">datetime</span><span class="o">,</span> <span class="nn">argparse</span><span class="o">,</span> <span class="nn">socket</span>
 
 <span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
-    <span class="n">usage</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;usage: %prog [options] [hostname]:port ...</span>
+    <span class="n">usage</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;usage: %prog [options] [hostname]:port ...</span>
 
-<span class="s">This is the Get Poetry Now! client, blocking edition.</span>
-<span class="s">Run it like this:</span>
+<span class="s2">This is the Get Poetry Now! client, blocking edition.</span>
+<span class="s2">Run it like this:</span>
 
-<span class="s">  python3 get-poetry3.py port1 port2 port3 ...</span>
+<span class="s2">  python3 get-poetry3.py port1 port2 port3 ...</span>
 
-<span class="s">&quot;&quot;&quot;</span>
+<span class="s2">&quot;&quot;&quot;</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;port&#39;</span><span class="p">,</span><span class="n">nargs</span><span class="o">=</span><span class="s">&#39;+&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span><span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
 
     <span class="n">args</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">())</span>
-    <span class="n">addresses</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;port&#39;</span><span class="p">]</span>
+    <span class="n">addresses</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">addresses</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">format_help</span><span class="p">())</span>
         <span class="n">parser</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">parse_address</span><span class="p">(</span><span class="n">addr</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s">&#39;:&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">addr</span><span class="p">:</span>
-            <span class="n">host</span> <span class="o">=</span> <span class="s">&#39;127.0.0.1&#39;</span>
+        <span class="k">if</span> <span class="s1">&#39;:&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">addr</span><span class="p">:</span>
+            <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span>
             <span class="n">port</span> <span class="o">=</span> <span class="n">addr</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">addr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">addr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">port</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
-            <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;Ports must be integers.&#39;</span><span class="p">)</span>
+            <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Ports must be integers.&#39;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">host</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
 
@@ -861,7 +910,7 @@ python有所谓的GIL概念，很多人对其有指责，而实际上那些支�
     <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
     <span class="n">sock</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
 
-    <span class="n">poem</span> <span class="o">=</span> <span class="n">b</span><span class="s">&#39;&#39;</span>
+    <span class="n">poem</span> <span class="o">=</span> <span class="n">b</span><span class="s1">&#39;&#39;</span>
 
     <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
@@ -870,7 +919,7 @@ python有所谓的GIL概念，很多人对其有指责，而实际上那些支�
             <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
             <span class="k">break</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">),</span><span class="n">end</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
         <span class="n">poem</span> <span class="o">+=</span> <span class="n">data</span>
 
@@ -879,7 +928,7 @@ python有所谓的GIL概念，很多人对其有指责，而实际上那些支�
 
 <span class="k">def</span> <span class="nf">format_address</span><span class="p">(</span><span class="n">address</span><span class="p">):</span>
     <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">address</span>
-    <span class="k">return</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">host</span> <span class="ow">or</span> <span class="s">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">host</span> <span class="ow">or</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -888,21 +937,21 @@ python有所谓的GIL概念，很多人对其有指责，而实际上那些支�
 
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">address</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">addresses</span><span class="p">):</span>
         <span class="n">addr_fmt</span> <span class="o">=</span> <span class="n">format_address</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Task </span><span class="si">%d</span><span class="s">: get poetry from: </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">addr_fmt</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Task </span><span class="si">%d</span><span class="s1">: get poetry from: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">addr_fmt</span><span class="p">))</span>
         <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 
         <span class="n">poem</span> <span class="o">=</span> <span class="n">get_poetry</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
 
         <span class="n">time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;Task </span><span class="si">%d</span><span class="s">: got </span><span class="si">%d</span><span class="s"> bytes of poetry from </span><span class="si">%s</span><span class="s"> in </span><span class="si">%s</span><span class="s">&#39;</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Task </span><span class="si">%d</span><span class="s1">: got </span><span class="si">%d</span><span class="s1"> bytes of poetry from </span><span class="si">%s</span><span class="s1"> in </span><span class="si">%s</span><span class="s1">&#39;</span>
         <span class="k">print</span><span class="p">(</span><span class="n">msg</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">poem</span><span class="p">),</span> <span class="n">addr_fmt</span><span class="p">,</span> <span class="n">time</span><span class="p">))</span>
 
         <span class="n">elapsed</span> <span class="o">+=</span> <span class="n">time</span>
 
-    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Got </span><span class="si">%d</span><span class="s"> poems in </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">addresses</span><span class="p">)),</span> <span class="n">elapsed</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Got </span><span class="si">%d</span><span class="s1"> poems in </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">addresses</span><span class="p">)),</span> <span class="n">elapsed</span><span class="p">))</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
@@ -1140,8 +1189,8 @@ close()
 <p>
 下面的例子将之前那个诗歌服务器写成了Select风格的异步版本:
 </p>
-<div class="highlight"><pre><span class="c">#!/usr/bin/env python3</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">socket</span><span class="o">,</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">selectors</span>
@@ -1149,36 +1198,36 @@ close()
 <span class="n">sel</span> <span class="o">=</span> <span class="n">selectors</span><span class="o">.</span><span class="n">DefaultSelector</span><span class="p">()</span>
 
 <span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
-    <span class="n">usage</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;usage: %prog [options] poetry-file</span>
+    <span class="n">usage</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;usage: %prog [options] poetry-file</span>
 
-<span class="s">This is the Slow Poetry Server, blocking edition.</span>
-<span class="s">Run it like this:</span>
+<span class="s2">This is the Slow Poetry Server, blocking edition.</span>
+<span class="s2">Run it like this:</span>
 
-<span class="s">  python3 select_slowpoetry3.py ecstasy.txt</span>
+<span class="s2">  python3 select_slowpoetry3.py ecstasy.txt</span>
 
-<span class="s">&quot;&quot;&quot;</span>
+<span class="s2">&quot;&quot;&quot;</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The port to listen on. Default to a random available port.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-p&#39;</span><span class="p">,</span><span class="s">&#39;--port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The port to listen on. Default to a random available port.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span><span class="s1">&#39;--port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The interface to listen on. Default is localhost.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--iface&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The interface to listen on. Default is localhost.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--iface&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The number of seconds between sending bytes.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--delay&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=.</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The number of seconds between sending bytes.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--delay&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=.</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The number of bytes to send at a time.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--num-bytes&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The number of bytes to send at a time.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--num-bytes&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;poetry_file&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;poetry_file&#39;</span><span class="p">)</span>
 
     <span class="n">args</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">())</span>
 
-    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;poetry_file&#39;</span><span class="p">]</span>
+    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;poetry_file&#39;</span><span class="p">]</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">poetry_file</span><span class="p">:</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;No such file: </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">poetry_file</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;No such file: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">poetry_file</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">args</span>
 
@@ -1192,7 +1241,7 @@ close()
         <span class="n">sel</span><span class="o">.</span><span class="n">unregister</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
         <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="n">inputf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;sending complete&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;sending complete&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">True</span>
 
     <span class="k">try</span><span class="p">:</span>
@@ -1201,7 +1250,7 @@ close()
         <span class="n">sel</span><span class="o">.</span><span class="n">unregister</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
         <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="n">inputf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;some error, sending stoped&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;some error, sending stoped&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">False</span>
 
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
@@ -1209,41 +1258,41 @@ close()
 
 <span class="k">def</span> <span class="nf">serve</span><span class="p">(</span><span class="n">listen_socket</span><span class="p">,</span> <span class="n">poetry_file</span><span class="p">,</span> <span class="n">num_bytes</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="n">sock</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">listen_socket</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Somebody at </span><span class="si">%s</span><span class="s"> wants poetry!&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">addr</span><span class="p">,))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Somebody at </span><span class="si">%s</span><span class="s1"> wants poetry!&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">addr</span><span class="p">,))</span>
     <span class="n">sock</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
 
-    <span class="n">inputf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">poetry_file</span><span class="p">,</span><span class="s">&#39;rb&#39;</span><span class="p">)</span>
+    <span class="n">inputf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">poetry_file</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span>
     <span class="n">sel</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="n">selectors</span><span class="o">.</span><span class="n">EVENT_WRITE</span><span class="p">,</span>
-        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;callback&#39;</span><span class="p">:</span><span class="n">send_poetry</span><span class="p">,</span><span class="s">&#39;args&#39;</span><span class="p">:[</span><span class="n">poetry_file</span><span class="p">,</span><span class="n">num_bytes</span><span class="p">,</span><span class="n">delay</span><span class="p">,</span><span class="n">inputf</span><span class="p">]})</span>
+        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;callback&#39;</span><span class="p">:</span><span class="n">send_poetry</span><span class="p">,</span><span class="s1">&#39;args&#39;</span><span class="p">:[</span><span class="n">poetry_file</span><span class="p">,</span><span class="n">num_bytes</span><span class="p">,</span><span class="n">delay</span><span class="p">,</span><span class="n">inputf</span><span class="p">]})</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">args</span><span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
-    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;poetry_file&#39;</span><span class="p">]</span>
-    <span class="n">port</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;port&#39;</span><span class="p">]</span>
-    <span class="n">iface</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;iface&#39;</span><span class="p">]</span>
-    <span class="n">num_bytes</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;num_bytes&#39;</span><span class="p">]</span>
-    <span class="n">delay</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;delay&#39;</span><span class="p">]</span>
+    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;poetry_file&#39;</span><span class="p">]</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>
+    <span class="n">iface</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;iface&#39;</span><span class="p">]</span>
+    <span class="n">num_bytes</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;num_bytes&#39;</span><span class="p">]</span>
+    <span class="n">delay</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span>
 
     <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
     <span class="n">sock</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">iface</span><span class="p">,</span> <span class="n">port</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">))</span>
     <span class="n">sock</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
     <span class="n">sock</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Serving </span><span class="si">%s</span><span class="s"> on port </span><span class="si">%s</span><span class="s">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">poetry_file</span><span class="p">,</span> <span class="n">sock</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Serving </span><span class="si">%s</span><span class="s1"> on port </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">poetry_file</span><span class="p">,</span> <span class="n">sock</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">1</span><span class="p">]))</span>
 
     <span class="n">sel</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">selectors</span><span class="o">.</span><span class="n">EVENT_READ</span><span class="p">,</span>
-        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;callback&#39;</span><span class="p">:</span><span class="n">serve</span><span class="p">,</span><span class="s">&#39;args&#39;</span><span class="p">:[</span><span class="n">poetry_file</span><span class="p">,</span><span class="n">num_bytes</span><span class="p">,</span><span class="n">delay</span><span class="p">]})</span>
+        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;callback&#39;</span><span class="p">:</span><span class="n">serve</span><span class="p">,</span><span class="s1">&#39;args&#39;</span><span class="p">:[</span><span class="n">poetry_file</span><span class="p">,</span><span class="n">num_bytes</span><span class="p">,</span><span class="n">delay</span><span class="p">]})</span>
 
     <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
         <span class="n">events</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">mask</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
-            <span class="n">callback</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;callback&#39;</span><span class="p">]</span>
-            <span class="n">callback</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">fileobj</span><span class="p">,</span> <span class="o">*</span><span class="n">key</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;args&#39;</span><span class="p">])</span>
+            <span class="n">callback</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;callback&#39;</span><span class="p">]</span>
+            <span class="n">callback</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">fileobj</span><span class="p">,</span> <span class="o">*</span><span class="n">key</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;args&#39;</span><span class="p">])</span>
 
     <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
@@ -1279,8 +1328,8 @@ netcat localhost 10000
 客户端的编写要更加简单一点，具体代码如下所示:
 </p>
 
-<div class="highlight"><pre><span class="c">#!/usr/bin/env python3</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">datetime</span><span class="o">,</span> <span class="nn">argparse</span><span class="o">,</span> <span class="nn">socket</span>
 
@@ -1288,35 +1337,35 @@ netcat localhost 10000
 <span class="n">sel</span> <span class="o">=</span> <span class="n">selectors</span><span class="o">.</span><span class="n">DefaultSelector</span><span class="p">()</span>
 
 <span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
-    <span class="n">usage</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;usage: %prog [options] [hostname]:port ...</span>
+    <span class="n">usage</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;usage: %prog [options] [hostname]:port ...</span>
 
-<span class="s">This is the Get Poetry Now! client, blocking edition.</span>
-<span class="s">Run it like this:</span>
+<span class="s2">This is the Get Poetry Now! client, blocking edition.</span>
+<span class="s2">Run it like this:</span>
 
-<span class="s">  python3 select_get_poetry3.py port1 port2 port3 ...</span>
+<span class="s2">  python3 select_get_poetry3.py port1 port2 port3 ...</span>
 
-<span class="s">通过select I/O复用来建立一个异步诗歌下载客户端，可以同时面向多个诗歌服务器来进行下载。</span>
-<span class="s">&quot;&quot;&quot;</span>
+<span class="s2">通过select I/O复用来建立一个异步诗歌下载客户端，可以同时面向多个诗歌服务器来进行下载。</span>
+<span class="s2">&quot;&quot;&quot;</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;port&#39;</span><span class="p">,</span><span class="n">nargs</span><span class="o">=</span><span class="s">&#39;+&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span><span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
 
     <span class="n">args</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">())</span>
-    <span class="n">addresses</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;port&#39;</span><span class="p">]</span>
+    <span class="n">addresses</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">addresses</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">format_help</span><span class="p">())</span>
         <span class="n">parser</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">parse_address</span><span class="p">(</span><span class="n">addr</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s">&#39;:&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">addr</span><span class="p">:</span>
-            <span class="n">host</span> <span class="o">=</span> <span class="s">&#39;127.0.0.1&#39;</span>
+        <span class="k">if</span> <span class="s1">&#39;:&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">addr</span><span class="p">:</span>
+            <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span>
             <span class="n">port</span> <span class="o">=</span> <span class="n">addr</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">addr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">addr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">port</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
-            <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;Ports must be integers.&#39;</span><span class="p">)</span>
+            <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Ports must be integers.&#39;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">host</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
 
@@ -1327,13 +1376,13 @@ netcat localhost 10000
 
     <span class="n">bstring</span> <span class="o">=</span> <span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">bstring</span><span class="p">:</span><span class="c">###end fo reading</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">bstring</span><span class="p">:</span><span class="c1">###end fo reading</span>
         <span class="n">sel</span><span class="o">.</span><span class="n">unregister</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
         <span class="n">infile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;end of reading&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;end of reading&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">True</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;writing to {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">infile</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;writing to {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">infile</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
         <span class="n">infile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bstring</span><span class="p">)</span>
 
 
@@ -1346,7 +1395,7 @@ netcat localhost 10000
 
 <span class="k">def</span> <span class="nf">format_address</span><span class="p">(</span><span class="n">address</span><span class="p">):</span>
     <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">address</span>
-    <span class="k">return</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">host</span> <span class="ow">or</span> <span class="s">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">host</span> <span class="ow">or</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">addresses</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
@@ -1354,21 +1403,21 @@ netcat localhost 10000
     <span class="n">sockets</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span> <span class="n">addresses</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">sock</span> <span class="ow">in</span> <span class="n">sockets</span><span class="p">:</span>
-        <span class="n">filename</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sock</span><span class="o">.</span><span class="n">getpeername</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s">&#39;.txt&#39;</span>
-        <span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s">&#39;wb&#39;</span><span class="p">)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sock</span><span class="o">.</span><span class="n">getpeername</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;.txt&#39;</span>
+        <span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span>
         <span class="n">sel</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">selectors</span><span class="o">.</span><span class="n">EVENT_READ</span><span class="p">,</span>
-        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;callback&#39;</span><span class="p">:</span><span class="n">download_poetry</span><span class="p">,</span>
-        <span class="s">&#39;args&#39;</span><span class="p">:[</span><span class="n">infile</span><span class="p">]})</span>
+        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;callback&#39;</span><span class="p">:</span><span class="n">download_poetry</span><span class="p">,</span>
+        <span class="s1">&#39;args&#39;</span><span class="p">:[</span><span class="n">infile</span><span class="p">]})</span>
 
     <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
         <span class="n">events</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">mask</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
-            <span class="n">callback</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;callback&#39;</span><span class="p">]</span>
-            <span class="n">callback</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">fileobj</span><span class="p">,</span> <span class="o">*</span><span class="n">key</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;args&#39;</span><span class="p">])</span>
+            <span class="n">callback</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;callback&#39;</span><span class="p">]</span>
+            <span class="n">callback</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">fileobj</span><span class="p">,</span> <span class="o">*</span><span class="n">key</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;args&#39;</span><span class="p">])</span>
 
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
@@ -1506,43 +1555,43 @@ EventLoop对象的close方法，关闭事件循环。
 结合上面对于asyncio模块的初步讨论，现在我们可以写出一个事件驱动式的诗歌服务器了，其代码比之前的select风格更简洁和美观了。
 </p>
 
-<div class="highlight"><pre><span class="c">#!/usr/bin/env python3</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">socket</span><span class="o">,</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">asyncio</span>
 
 <span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
-    <span class="n">usage</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;usage: %prog [options] poetry-file</span>
+    <span class="n">usage</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;usage: %prog [options] poetry-file</span>
 
-<span class="s">This is the Slow Poetry Server, blocking edition.</span>
-<span class="s">Run it like this:</span>
+<span class="s2">This is the Slow Poetry Server, blocking edition.</span>
+<span class="s2">Run it like this:</span>
 
-<span class="s">  python3 asyncio_slowpoetry3.py ecstasy.txt</span>
+<span class="s2">  python3 asyncio_slowpoetry3.py ecstasy.txt</span>
 
-<span class="s">&quot;&quot;&quot;</span>
+<span class="s2">&quot;&quot;&quot;</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The port to listen on. Default to a random available port.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-p&#39;</span><span class="p">,</span><span class="s">&#39;--port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The port to listen on. Default to a random available port.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span><span class="s1">&#39;--port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The interface to listen on. Default is localhost.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--iface&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The interface to listen on. Default is localhost.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--iface&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The number of seconds between sending bytes.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--delay&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=.</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The number of seconds between sending bytes.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--delay&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=.</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The number of bytes to send at a time.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--num-bytes&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The number of bytes to send at a time.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--num-bytes&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;poetry_file&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;poetry_file&#39;</span><span class="p">)</span>
 
     <span class="n">args</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">())</span>
 
-    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;poetry_file&#39;</span><span class="p">]</span>
+    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;poetry_file&#39;</span><span class="p">]</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">poetry_file</span><span class="p">:</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;No such file: </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">poetry_file</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;No such file: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">poetry_file</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">args</span>
 
@@ -1556,7 +1605,7 @@ EventLoop对象的close方法，关闭事件循环。
         <span class="n">eventloop</span><span class="o">.</span><span class="n">remove_writer</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
         <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="n">inputf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;sending complete&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;sending complete&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">True</span>
 
     <span class="k">try</span><span class="p">:</span>
@@ -1565,7 +1614,7 @@ EventLoop对象的close方法，关闭事件循环。
         <span class="n">eventloop</span><span class="o">.</span><span class="n">remove_writer</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
         <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="n">inputf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;some error, sending stoped&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;some error, sending stoped&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">False</span>
 
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
@@ -1573,26 +1622,26 @@ EventLoop对象的close方法，关闭事件循环。
 
 <span class="k">def</span> <span class="nf">serve</span><span class="p">(</span><span class="n">eventloop</span><span class="p">,</span><span class="n">listen_socket</span><span class="p">,</span> <span class="n">poetry_file</span><span class="p">,</span> <span class="n">num_bytes</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="n">sock</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">listen_socket</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Somebody at </span><span class="si">%s</span><span class="s"> wants poetry!&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">addr</span><span class="p">,))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Somebody at </span><span class="si">%s</span><span class="s1"> wants poetry!&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">addr</span><span class="p">,))</span>
     <span class="n">sock</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
 
-    <span class="n">inputf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">poetry_file</span><span class="p">,</span><span class="s">&#39;rb&#39;</span><span class="p">)</span>
+    <span class="n">inputf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">poetry_file</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span>
     <span class="n">eventloop</span><span class="o">.</span><span class="n">add_writer</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">send_poetry</span><span class="p">,</span> <span class="n">eventloop</span><span class="p">,</span><span class="n">sock</span><span class="p">,</span><span class="n">poetry_file</span><span class="p">,</span><span class="n">num_bytes</span><span class="p">,</span><span class="n">delay</span><span class="p">,</span><span class="n">inputf</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">args</span><span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
-    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;poetry_file&#39;</span><span class="p">]</span>
-    <span class="n">port</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;port&#39;</span><span class="p">]</span>
-    <span class="n">iface</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;iface&#39;</span><span class="p">]</span>
-    <span class="n">num_bytes</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;num_bytes&#39;</span><span class="p">]</span>
-    <span class="n">delay</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;delay&#39;</span><span class="p">]</span>
+    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;poetry_file&#39;</span><span class="p">]</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>
+    <span class="n">iface</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;iface&#39;</span><span class="p">]</span>
+    <span class="n">num_bytes</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;num_bytes&#39;</span><span class="p">]</span>
+    <span class="n">delay</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span>
 
     <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
     <span class="n">sock</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">iface</span><span class="p">,</span> <span class="n">port</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">))</span>
     <span class="n">sock</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
     <span class="n">sock</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Serving </span><span class="si">%s</span><span class="s"> on port </span><span class="si">%s</span><span class="s">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">poetry_file</span><span class="p">,</span> <span class="n">sock</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Serving </span><span class="si">%s</span><span class="s1"> on port </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">poetry_file</span><span class="p">,</span> <span class="n">sock</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">1</span><span class="p">]))</span>
 
     <span class="n">eventloop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
     <span class="n">eventloop</span><span class="o">.</span><span class="n">add_reader</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="n">serve</span><span class="p">,</span><span class="n">eventloop</span><span class="p">,</span><span class="n">sock</span><span class="p">,</span><span class="n">poetry_file</span><span class="p">,</span><span class="n">num_bytes</span><span class="p">,</span><span class="n">delay</span><span class="p">)</span>
@@ -1605,7 +1654,7 @@ EventLoop对象的close方法，关闭事件循环。
     <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1661,42 +1710,42 @@ BaseEventLoop.add_writer(fd, callback, *args)
 这里也将之前的诗歌获取客户端写成asyncio版本。代码如下所示，改动不是很大。
 </p>
 
-<div class="highlight"><pre><span class="c">#!/usr/bin/env python3</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">datetime</span><span class="o">,</span> <span class="nn">argparse</span><span class="o">,</span> <span class="nn">socket</span>
 <span class="kn">import</span> <span class="nn">asyncio</span>
 
 <span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
-    <span class="n">usage</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;usage: %prog [options] [hostname]:port ...</span>
+    <span class="n">usage</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;usage: %prog [options] [hostname]:port ...</span>
 
-<span class="s">This is the Get Poetry Now! client, blocking edition.</span>
-<span class="s">Run it like this:</span>
+<span class="s2">This is the Get Poetry Now! client, blocking edition.</span>
+<span class="s2">Run it like this:</span>
 
-<span class="s">  python3 select_get_poetry3.py port1 port2 port3 ...</span>
+<span class="s2">  python3 select_get_poetry3.py port1 port2 port3 ...</span>
 
-<span class="s">通过select I/O复用来建立一个异步诗歌下载客户端，可以同时面向多个诗歌服务器来进行下载。</span>
-<span class="s">&quot;&quot;&quot;</span>
+<span class="s2">通过select I/O复用来建立一个异步诗歌下载客户端，可以同时面向多个诗歌服务器来进行下载。</span>
+<span class="s2">&quot;&quot;&quot;</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;port&#39;</span><span class="p">,</span><span class="n">nargs</span><span class="o">=</span><span class="s">&#39;+&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span><span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
 
     <span class="n">args</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">())</span>
-    <span class="n">addresses</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;port&#39;</span><span class="p">]</span>
+    <span class="n">addresses</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">addresses</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">format_help</span><span class="p">())</span>
         <span class="n">parser</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">parse_address</span><span class="p">(</span><span class="n">addr</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s">&#39;:&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">addr</span><span class="p">:</span>
-            <span class="n">host</span> <span class="o">=</span> <span class="s">&#39;127.0.0.1&#39;</span>
+        <span class="k">if</span> <span class="s1">&#39;:&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">addr</span><span class="p">:</span>
+            <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span>
             <span class="n">port</span> <span class="o">=</span> <span class="n">addr</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">addr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">addr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">port</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
-            <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;Ports must be integers.&#39;</span><span class="p">)</span>
+            <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Ports must be integers.&#39;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">host</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
 
@@ -1707,14 +1756,14 @@ BaseEventLoop.add_writer(fd, callback, *args)
 
     <span class="n">bstring</span> <span class="o">=</span> <span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">bstring</span><span class="p">:</span><span class="c">###end fo reading</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">bstring</span><span class="p">:</span><span class="c1">###end fo reading</span>
         <span class="n">eventloop</span><span class="o">.</span><span class="n">remove_reader</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
         <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="n">infile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;end of reading&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;end of reading&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">True</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;writing to {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">infile</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;writing to {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">infile</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
         <span class="n">infile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bstring</span><span class="p">)</span>
 
 
@@ -1727,7 +1776,7 @@ BaseEventLoop.add_writer(fd, callback, *args)
 
 <span class="k">def</span> <span class="nf">format_address</span><span class="p">(</span><span class="n">address</span><span class="p">):</span>
     <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">address</span>
-    <span class="k">return</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">host</span> <span class="ow">or</span> <span class="s">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">host</span> <span class="ow">or</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">addresses</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
@@ -1735,8 +1784,8 @@ BaseEventLoop.add_writer(fd, callback, *args)
     <span class="n">eventloop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">sock</span> <span class="ow">in</span> <span class="n">sockets</span><span class="p">:</span>
-        <span class="n">filename</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sock</span><span class="o">.</span><span class="n">getpeername</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s">&#39;.txt&#39;</span>
-        <span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s">&#39;wb&#39;</span><span class="p">)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sock</span><span class="o">.</span><span class="n">getpeername</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;.txt&#39;</span>
+        <span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span>
 
         <span class="n">eventloop</span><span class="o">.</span><span class="n">add_reader</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="n">download_poetry</span><span class="p">,</span><span class="n">eventloop</span><span class="p">,</span><span class="n">sock</span><span class="p">,</span><span class="n">infile</span><span class="p">)</span>
 
@@ -1746,7 +1795,7 @@ BaseEventLoop.add_writer(fd, callback, *args)
         <span class="n">eventloop</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 <p>
@@ -1774,41 +1823,41 @@ if not bstring:###end fo reading
 asyncio模块还提供了很多功能可以让读者不用使用socket模块，而直接更高层的基于协议来编写网络程序。下面是 诗歌服务器第二版，本例子参考了 <a href="http://www.getoffmalawn.com/blog/playing-with-asyncio">这个网页</a> 然后修改而成。
 </p>
 
-<div class="highlight"><pre><span class="c">#!/usr/bin/env python3</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">asyncio</span>
 
 <span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
-    <span class="n">usage</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;usage: %prog [options] poetry-file</span>
+    <span class="n">usage</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;usage: %prog [options] poetry-file</span>
 
-<span class="s">This is the Slow Poetry Server, blocking edition.</span>
-<span class="s">Run it like this:</span>
+<span class="s2">This is the Slow Poetry Server, blocking edition.</span>
+<span class="s2">Run it like this:</span>
 
-<span class="s">  python3 asyncio_slowpoetry3.py ecstasy.txt</span>
+<span class="s2">  python3 asyncio_slowpoetry3.py ecstasy.txt</span>
 
-<span class="s">&quot;&quot;&quot;</span>
+<span class="s2">&quot;&quot;&quot;</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The port to listen on. Default to a random available port.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-p&#39;</span><span class="p">,</span><span class="s">&#39;--port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The port to listen on. Default to a random available port.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span><span class="s1">&#39;--port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The interface to listen on. Default is localhost.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--iface&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;127.0.0.1&#39;</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The interface to listen on. Default is localhost.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--iface&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">)</span>
 
-    <span class="n">help</span> <span class="o">=</span> <span class="s">&quot;The number of bytes to send at a time.&quot;</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--num-bytes&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The number of bytes to send at a time.&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--num-bytes&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">help</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;poetry_file&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;poetry_file&#39;</span><span class="p">)</span>
 
     <span class="n">args</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">())</span>
 
-    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;poetry_file&#39;</span><span class="p">]</span>
+    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;poetry_file&#39;</span><span class="p">]</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">poetry_file</span><span class="p">:</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;No such file: </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">poetry_file</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;No such file: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">poetry_file</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">args</span>
 
@@ -1825,7 +1874,7 @@ asyncio模块还提供了很多功能可以让读者不用使用socket模块，�
         <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">data_received</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;poems&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="n">b</span><span class="s1">&#39;poems&#39;</span><span class="p">:</span>
             <span class="n">poem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_bytes</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">poem</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">poem</span><span class="p">)</span>
@@ -1834,12 +1883,12 @@ asyncio模块还提供了很多功能可以让读者不用使用socket模块，�
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">args</span><span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
-    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;poetry_file&#39;</span><span class="p">]</span>
-    <span class="n">num_bytes</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;num_bytes&#39;</span><span class="p">]</span>
-    <span class="n">port</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;port&#39;</span><span class="p">]</span>
-    <span class="n">iface</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;iface&#39;</span><span class="p">]</span>
+    <span class="n">poetry_file</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;poetry_file&#39;</span><span class="p">]</span>
+    <span class="n">num_bytes</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;num_bytes&#39;</span><span class="p">]</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>
+    <span class="n">iface</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;iface&#39;</span><span class="p">]</span>
 
-    <span class="n">inputf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">poetry_file</span><span class="p">,</span><span class="s">&#39;rb&#39;</span><span class="p">)</span>
+    <span class="n">inputf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">poetry_file</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span>
 
     <span class="n">eventloop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
 
@@ -1855,7 +1904,7 @@ asyncio模块还提供了很多功能可以让读者不用使用socket模块，�
         <span class="n">eventloop</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 <p>
@@ -1892,42 +1941,42 @@ asyncio模块还提供了很多功能可以让读者不用使用socket模块，�
 <p>
 配套的获取诗歌客户端如下所示:
 </p>
-<div class="highlight"><pre><span class="c">#!/usr/bin/env python3</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">datetime</span><span class="o">,</span> <span class="nn">argparse</span>
 <span class="kn">import</span> <span class="nn">asyncio</span>
 
 <span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
-    <span class="n">usage</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;usage: %prog [options] [hostname]:port ...</span>
+    <span class="n">usage</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;usage: %prog [options] [hostname]:port ...</span>
 
-<span class="s">This is the Get Poetry Now! client, blocking edition.</span>
-<span class="s">Run it like this:</span>
+<span class="s2">This is the Get Poetry Now! client, blocking edition.</span>
+<span class="s2">Run it like this:</span>
 
-<span class="s">  python3 select_get_poetry3.py port1 port2 port3 ...</span>
+<span class="s2">  python3 select_get_poetry3.py port1 port2 port3 ...</span>
 
-<span class="s">通过select I/O复用来建立一个异步诗歌下载客户端，可以同时面向多个诗歌服务器来进行下载。</span>
-<span class="s">&quot;&quot;&quot;</span>
+<span class="s2">通过select I/O复用来建立一个异步诗歌下载客户端，可以同时面向多个诗歌服务器来进行下载。</span>
+<span class="s2">&quot;&quot;&quot;</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;port&#39;</span><span class="p">,</span><span class="n">nargs</span><span class="o">=</span><span class="s">&#39;+&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span><span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
 
     <span class="n">args</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">())</span>
-    <span class="n">addresses</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&#39;port&#39;</span><span class="p">]</span>
+    <span class="n">addresses</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">addresses</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">format_help</span><span class="p">())</span>
         <span class="n">parser</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">parse_address</span><span class="p">(</span><span class="n">addr</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s">&#39;:&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">addr</span><span class="p">:</span>
-            <span class="n">host</span> <span class="o">=</span> <span class="s">&#39;127.0.0.1&#39;</span>
+        <span class="k">if</span> <span class="s1">&#39;:&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">addr</span><span class="p">:</span>
+            <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span>
             <span class="n">port</span> <span class="o">=</span> <span class="n">addr</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">addr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">addr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">port</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
-            <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;Ports must be integers.&#39;</span><span class="p">)</span>
+            <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Ports must be integers.&#39;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">host</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
 
@@ -1940,18 +1989,18 @@ asyncio模块还提供了很多功能可以让读者不用使用socket模块，�
         <span class="bp">self</span><span class="o">.</span><span class="n">infile</span> <span class="o">=</span> <span class="n">infile</span>
 
     <span class="k">def</span> <span class="nf">connection_made</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">transport</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">transport</span><span class="o">.</span><span class="n">get_extra_info</span><span class="p">(</span><span class="s">&#39;peername&#39;</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">transport</span><span class="o">.</span><span class="n">get_extra_info</span><span class="p">(</span><span class="s1">&#39;peername&#39;</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">transport</span> <span class="o">=</span> <span class="n">transport</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;poems&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">b</span><span class="s1">&#39;poems&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">data_received</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">&#39;writing to {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">infile</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;writing to {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">infile</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">infile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;poems&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">b</span><span class="s1">&#39;poems&#39;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">eof_received</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">&#39;end of writing&#39;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;end of writing&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">infile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
@@ -1961,8 +2010,8 @@ asyncio模块还提供了很多功能可以让读者不用使用socket模块，�
 
     <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">addresses</span><span class="p">:</span>
         <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">address</span>
-        <span class="n">filename</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">port</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;.txt&#39;</span>
-        <span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s">&#39;wb&#39;</span><span class="p">)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">port</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.txt&#39;</span>
+        <span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span>
         <span class="n">coro</span> <span class="o">=</span> <span class="n">eventloop</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="n">PoetryClientProtocol</span><span class="p">(</span><span class="n">infile</span><span class="p">),</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
         <span class="n">t</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">eventloop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">coro</span><span class="p">)</span>
         <span class="k">print</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
@@ -1973,7 +2022,7 @@ asyncio模块还提供了很多功能可以让读者不用使用socket模块，�
         <span class="n">eventloop</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 

@@ -1,173 +1,133 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-<title>正则表达式入门</title>
-<!-- 2015-11-02 17:39 -->
+<!-- 2016-03-28 一 12:11 -->
 <meta  charset="utf-8">
+<meta  name="viewport" content="width=device-width, initial-scale=1">
+<title>正则表达式入门</title>
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="万泽(德山书生)">
 <meta  name="description" content="制作者邮箱：a358003542@gmail.com"
 >
-<style type="text/css"> /*
- * with_bootstrap.css
- *
- * Copyright 2015 wanze <a358003542@gmail.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
- *
- *
- */
-
-@import url("http://getbootstrap.com/dist/css/bootstrap.min.css");
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    position: relative;
-    min-height: 100%;
-    margin: 0px;
-}
+<style type="text/css">
 body {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
-}
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 60px;
-    background-color: #f5f5f5;
-}
 
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-.container {
-  width: auto;
-  max-width: 750px;
-  padding: 0 15px;
 }
-.container .text-muted {
-  margin: 20px 0;
-}
-
-/* background-color: #f8f8f8; */
-.navbar-default{
-    background-color: #fff;
-}
-/*--------------------*/
-
-#content{
-    margin: 0 auto;
-    max-width: 750px;
-    padding: 17px;
-    line-height:160%;
-    font-size:16px;
-}
-
-h1,h2,h3,h4,h5,h6 {
-    font-family: 'PT Sans Narrow', sans-serif;
-    font-weight: 700;
-    margin-bottom: 1em;
-    margin-top: 1em;
-}
-
-
-pre{line-height:180%;font-size:90%;}
-code,kbd,pre,samp {
-  font-family: monospace, serif;
-}
-
-code{  padding: 2px;}
-p{
-    text-indent:2em;/*段落缩进*/
-    line-height:180%;/*行间距*/
-    }
-
-.title{
-    text-align: center;
-}
-.org-ol li , .org-ul li , org-dl dt{
-    margin-top: 0.5em; /*增大li之间的垂直space*/
-    margin-bottom: 0.5em; /*增大li之间的垂直space*/
-}
-p.verse{
-    margin-left: 3%;
-    text-indent:0em;
-}
-
-.right{
-    margin-left: auto;
-    margin-right: 0px;
-    text-align: right;
-}
-.left{
-    margin-left: 0px;
+@media (min-width: 768px) {
+  body {
+    width: 732px;
+    padding-right: 20px;
+    padding-left: 20px;
     margin-right: auto;
-    text-align: left;
+    margin-left: auto;
+  }
 }
-.center{
+@media (min-width: 992px) {
+  body {
+    width: 880px;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    width: 750px;
+    padding-right: 200px;
+    padding-left: 200px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.title {
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+.center-block {
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
 }
 
 .underline{
     text-decoration: underline;
 }
+   #content {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+code {
+    padding: 2px 4px;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+
+pre {
+    max-width: 100%;
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow : auto;
+}
+
+
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-left: 5px solid #eee;
+}
+
+
+p{
+    text-indent:2em;
+    line-height:150%;
+}
+
+li, dt{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
 
 video{
-    width: 750px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 figure p{
-    text-indent:0em;/*段落缩进*/
+    text-indent:0em;
 }
 img{
-    max-width: 700px;
+    max-width: 100%;
+}
+
+embed{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 figure{
     text-align: center;
 }
 
-table, th, td
-{
-    margin:0 auto;
-    min-width:2em;
-    text-align:center ;
-    padding: 5px;
-}
-
-table{
-    border-top: 2px solid ;
-    border-bottom: 2px solid ;
-}
-thead{
-    border-bottom: 1px solid ;
-}
-
 /*  class  */
-.framed{
-    max-width:700px;
+.FRAMED{
+    max-width:100%;
     border:1px solid ;
     padding: 1em;
     -webkit-box-sizing: border-box;
@@ -175,10 +135,10 @@ thead{
     box-sizing: border-box;
 }
 
-.notecard{
-    width: 320px;
+.NOTECARD{
+    width: 30%;
     position:relative;
-    right: -215px;
+    right: -30%;
     padding: 1em;
     margin:0 auto;
     border: solid 1px;
@@ -188,295 +148,186 @@ thead{
 }
 
 /*
-http://thomasf.github.io/solarized-css/
+table
 */
-
-dfn {
-  font-style: italic;
-}
-dd{
-    margin-left:2em;
-}
-mark {
-  background: #ff0;
-  color: #000;
-}
-
-q {
-  quotes: "\201C" "\201D" "\2018" "\2019";
-}
-small {
-  font-size: 80%;
-}
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sup {
-  top: -0.5em;
-}
-sub {
-  bottom: -0.25em;
-}
-
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 16px 0;
+    empty-cells: show;
+    border: 1px solid #ccc;
+    width: 100%;
+    display: table;
 }
 
-
-
-.tag {
-  background-color: #eee8d5;
-  color: #d33682;
-  padding: 0 0.2em;
+table tr {
+    border-bottom: 1px solid #ddd;
+}
+table th,table td{
+    padding:8px;
 }
 
-
-.todo,
-.next,
-.done {
-  color: #fdf6e3;
-  background-color: #dc322f;
-  padding: 0 0.2em;
+table tr:nth-child(even) {
+    background-color: #f1f1f1;
 }
-.tag {
-  -webkit-border-radius: 0.35em;
-  -moz-border-radius: 0.35em;
-  border-radius: 0.35em;
-}
-.TODO {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #2aa198;
-}
-.NEXT {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #268bd2;
-}
-.ACTIVE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #268bd2;
-}
-.DONE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #859900;
-}
-.WAITING {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #cb4b16;
-}
-.HOLD {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #d33682;
-}
-.NOTE {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #d33682;
-}
-.CANCELLED {
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
-  background-color: #859900;
-}
-
-
-/*
-pygmentize -f html -S colorful -a .highlight
-*/
-
 .highlight .hll { background-color: #ffffcc }
-.highlight  { background: #ffffff; }
-.highlight .c { color: #888888 } /* Comment */
-.highlight .err { color: #FF0000; background-color: #FFAAAA } /* Error */
-.highlight .k { color: #008800; font-weight: bold } /* Keyword */
-.highlight .o { color: #333333 } /* Operator */
-.highlight .cm { color: #888888 } /* Comment.Multiline */
-.highlight .cp { color: #557799 } /* Comment.Preproc */
-.highlight .c1 { color: #888888 } /* Comment.Single */
-.highlight .cs { color: #cc0000; font-weight: bold } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #8f5902; font-style: italic } /* Comment */
+.highlight .err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.highlight .g { color: #000000 } /* Generic */
+.highlight .k { color: #204a87; font-weight: bold } /* Keyword */
+.highlight .l { color: #000000 } /* Literal */
+.highlight .n { color: #000000 } /* Name */
+.highlight .o { color: #ce5c00; font-weight: bold } /* Operator */
+.highlight .x { color: #000000 } /* Other */
+.highlight .p { color: #000000; font-weight: bold } /* Punctuation */
+.highlight .ch { color: #8f5902; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: #8f5902; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #a40000 } /* Generic.Deleted */
+.highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #ef2929 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .go { color: #000000; font-style: italic } /* Generic.Output */
+.highlight .gp { color: #8f5902 } /* Generic.Prompt */
+.highlight .gs { color: #000000; font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #008800; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #008800; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #008800; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #003388; font-weight: bold } /* Keyword.Pseudo */
-.highlight .kr { color: #008800; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #333399; font-weight: bold } /* Keyword.Type */
-.highlight .m { color: #6600EE; font-weight: bold } /* Literal.Number */
-.highlight .s { background-color: #fff0f0 } /* Literal.String */
-.highlight .na { color: #0000CC } /* Name.Attribute */
-.highlight .nb { color: #007020 } /* Name.Builtin */
-.highlight .nc { color: #BB0066; font-weight: bold } /* Name.Class */
-.highlight .no { color: #003366; font-weight: bold } /* Name.Constant */
-.highlight .nd { color: #555555; font-weight: bold } /* Name.Decorator */
-.highlight .ni { color: #880000; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #FF0000; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0066BB; font-weight: bold } /* Name.Function */
-.highlight .nl { color: #997700; font-weight: bold } /* Name.Label */
-.highlight .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #007700 } /* Name.Tag */
-.highlight .nv { color: #996633 } /* Name.Variable */
-.highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #6600EE; font-weight: bold } /* Literal.Number.Bin */
-.highlight .mf { color: #6600EE; font-weight: bold } /* Literal.Number.Float */
-.highlight .mh { color: #005588; font-weight: bold } /* Literal.Number.Hex */
-.highlight .mi { color: #0000DD; font-weight: bold } /* Literal.Number.Integer */
-.highlight .mo { color: #4400EE; font-weight: bold } /* Literal.Number.Oct */
-.highlight .sb { background-color: #fff0f0 } /* Literal.String.Backtick */
-.highlight .sc { color: #0044DD } /* Literal.String.Char */
-.highlight .sd { color: #DD4422 } /* Literal.String.Doc */
-.highlight .s2 { background-color: #fff0f0 } /* Literal.String.Double */
-.highlight .se { color: #666666; font-weight: bold; background-color: #fff0f0 } /* Literal.String.Escape */
-.highlight .sh { background-color: #fff0f0 } /* Literal.String.Heredoc */
-.highlight .si { background-color: #eeeeee } /* Literal.String.Interpol */
-.highlight .sx { color: #DD2200; background-color: #fff0f0 } /* Literal.String.Other */
-.highlight .sr { color: #000000; background-color: #fff0ff } /* Literal.String.Regex */
-.highlight .s1 { background-color: #fff0f0 } /* Literal.String.Single */
-.highlight .ss { color: #AA6600 } /* Literal.String.Symbol */
-.highlight .bp { color: #007020 } /* Name.Builtin.Pseudo */
-.highlight .vc { color: #336699 } /* Name.Variable.Class */
-.highlight .vg { color: #dd7700; font-weight: bold } /* Name.Variable.Global */
-.highlight .vi { color: #3333BB } /* Name.Variable.Instance */
-.highlight .il { color: #0000DD; font-weight: bold } /* Literal.Number.Integer.Long */
-
- </style>
+.highlight .gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.highlight .kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.highlight .ld { color: #000000 } /* Literal.Date */
+.highlight .m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.highlight .s { color: #4e9a06 } /* Literal.String */
+.highlight .na { color: #c4a000 } /* Name.Attribute */
+.highlight .nb { color: #204a87 } /* Name.Builtin */
+.highlight .nc { color: #000000 } /* Name.Class */
+.highlight .no { color: #000000 } /* Name.Constant */
+.highlight .nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.highlight .ni { color: #ce5c00 } /* Name.Entity */
+.highlight .ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #000000 } /* Name.Function */
+.highlight .nl { color: #f57900 } /* Name.Label */
+.highlight .nn { color: #000000 } /* Name.Namespace */
+.highlight .nx { color: #000000 } /* Name.Other */
+.highlight .py { color: #000000 } /* Name.Property */
+.highlight .nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #000000 } /* Name.Variable */
+.highlight .ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.highlight .mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.highlight .mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.highlight .mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.highlight .mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.highlight .mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.highlight .sb { color: #4e9a06 } /* Literal.String.Backtick */
+.highlight .sc { color: #4e9a06 } /* Literal.String.Char */
+.highlight .sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #4e9a06 } /* Literal.String.Double */
+.highlight .se { color: #4e9a06 } /* Literal.String.Escape */
+.highlight .sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.highlight .si { color: #4e9a06 } /* Literal.String.Interpol */
+.highlight .sx { color: #4e9a06 } /* Literal.String.Other */
+.highlight .sr { color: #4e9a06 } /* Literal.String.Regex */
+.highlight .s1 { color: #4e9a06 } /* Literal.String.Single */
+.highlight .ss { color: #4e9a06 } /* Literal.String.Symbol */
+.highlight .bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #000000 } /* Name.Variable.Class */
+.highlight .vg { color: #000000 } /* Name.Variable.Global */
+.highlight .vi { color: #000000 } /* Name.Variable.Instance */
+.highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
+</style>
 <link rel="stylesheet"  href="main.css" />
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-<script type="text/javascript">
-<!--/*--><![CDATA[/*><!--*/
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js","TeX/mhchem.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
         displayAlign: "center",
-        displayIndent: "2em",
+        displayIndent: "0em",
 
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
              }
-        },
-    });
-/*]]>*///-->
+});
 </script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<header class="header">
-<nav class="navbar navbar-default navbar-static-top"><div class="container">
-<div class="navbar-header">
-<a class="navbar-brand" href="http://www.cdwanze.org"><img style="max-width:50px; margin-top: -15px;" src="/templates/images/logo.svg" /></a></div>
-<div id="navbar">
-<ul class="nav navbar-nav"><li class="active"><a href="http://blog.cdwanze.org">博客</a><li><a href="http://blog.cdwanze.org/about.html">关于</a><li><a href="http://blog.cdwanze.org/donate.html">支持</a></div>
-</div>
-</nav></header><div id="content">
+<div id="content">
+<header>
 <h1 class="title">正则表达式入门</h1>
-<nav id="table-of-contents">
+</header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 正则表达式基础</a>
+<li><a href="#orgheadline6">1. 正则表达式基础</a>
 <ul>
-<li><a href="#sec-1-1">1.1. 历史</a></li>
-<li><a href="#sec-1-2">1.2. 正则表达式</a></li>
-<li><a href="#sec-1-3">1.3. 正则表达式测试工具</a></li>
-<li><a href="#sec-1-4">1.4. 基础元字符集</a></li>
-<li><a href="#sec-1-5">1.5. 扩展元字符集</a></li>
+<li><a href="#orgheadline1">1.1. 历史</a></li>
+<li><a href="#orgheadline2">1.2. 正则表达式</a></li>
+<li><a href="#orgheadline3">1.3. 正则表达式测试工具</a></li>
+<li><a href="#orgheadline4">1.4. 基础元字符集</a></li>
+<li><a href="#orgheadline5">1.5. 扩展元字符集</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2. vi和正则表达式</a>
+<li><a href="#orgheadline18">2. vi和正则表达式</a>
 <ul>
-<li><a href="#sec-2-1">2.1. 匹配某个单词</a>
+<li><a href="#orgheadline9">2.1. 匹配某个单词</a>
 <ul>
-<li><a href="#sec-2-1-1">2.1.1. 查找历史</a></li>
-<li><a href="#sec-2-1-2">2.1.2. 反向查找</a></li>
+<li><a href="#orgheadline7">2.1.1. 查找历史</a></li>
+<li><a href="#orgheadline8">2.1.2. 反向查找</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-2">2.2. 锚定行的开始</a></li>
-<li><a href="#sec-2-3">2.3. 锚定行的结尾</a>
+<li><a href="#orgheadline10">2.2. 锚定行的开始</a></li>
+<li><a href="#orgheadline12">2.3. 锚定行的结尾</a>
 <ul>
-<li><a href="#sec-2-3-1">2.3.1. 匹配空行</a></li>
+<li><a href="#orgheadline11">2.3.1. 匹配空行</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-4">2.4. 匹配一个字符</a></li>
-<li><a href="#sec-2-5">2.5. 匹配0个或者多个先前的字符</a></li>
-<li><a href="#sec-2-6">2.6. 匹配多个字符（字符集）</a>
+<li><a href="#orgheadline13">2.4. 匹配一个字符</a></li>
+<li><a href="#orgheadline14">2.5. 匹配0个或者多个先前的字符</a></li>
+<li><a href="#orgheadline17">2.6. 匹配多个字符（字符集）</a>
 <ul>
-<li><a href="#sec-2-6-1">2.6.1. 连续的字符</a></li>
-<li><a href="#sec-2-6-2">2.6.2. 字符集的非逻辑</a></li>
+<li><a href="#orgheadline15">2.6.1. 连续的字符</a></li>
+<li><a href="#orgheadline16">2.6.2. 字符集的非逻辑</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-3">3. grep和正则表达式</a>
+<li><a href="#orgheadline24">3. grep和正则表达式</a>
 <ul>
-<li><a href="#sec-3-1">3.1. 匹配1次或者更多次之前的字符</a></li>
-<li><a href="#sec-3-2">3.2. 匹配0次或1次之前的字符</a></li>
-<li><a href="#sec-3-3">3.3. 或逻辑</a></li>
-<li><a href="#sec-3-4">3.4. 保存子字符串group</a></li>
-<li><a href="#sec-3-5">3.5. 之前的字符重复几次到几次</a></li>
+<li><a href="#orgheadline19">3.1. 匹配1次或者更多次之前的字符</a></li>
+<li><a href="#orgheadline20">3.2. 匹配0次或1次之前的字符</a></li>
+<li><a href="#orgheadline21">3.3. 或逻辑</a></li>
+<li><a href="#orgheadline22">3.4. 保存子字符串group</a></li>
+<li><a href="#orgheadline23">3.5. 之前的字符重复几次到几次</a></li>
 </ul>
 </li>
-<li><a href="#sec-4">4. sed和正则表达式</a>
+<li><a href="#orgheadline30">4. sed和正则表达式</a>
 <ul>
-<li><a href="#sec-4-1">4.1. 打印行</a></li>
-<li><a href="#sec-4-2">4.2. sed中的正则表达式</a></li>
-<li><a href="#sec-4-3">4.3. 替换命令</a>
+<li><a href="#orgheadline25">4.1. 打印行</a></li>
+<li><a href="#orgheadline26">4.2. sed中的正则表达式</a></li>
+<li><a href="#orgheadline28">4.3. 替换命令</a>
 <ul>
-<li><a href="#sec-4-3-1">4.3.1. 替换加上匹配的子字符串</a></li>
+<li><a href="#orgheadline27">4.3.1. 替换加上匹配的子字符串</a></li>
 </ul>
 </li>
-<li><a href="#sec-4-4">4.4. 参考资料</a></li>
+<li><a href="#orgheadline29">4.4. 参考资料</a></li>
 </ul>
 </li>
 </ul>
@@ -484,11 +335,11 @@ pygmentize -f html -S colorful -a .highlight
 </nav>
 
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 正则表达式基础</h2>
+<div class="outline-2">
+<h2 id="orgheadline6">正则表达式基础</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 历史</h3>
+</div><div class="outline-3">
+<h3 id="orgheadline1">历史</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 正则表达式的"祖先"可以一直上溯至对人类神经系统如何工作的早期研究。Warren McCulloch 和 Walter Pitts 这两位神经生理学家研究出一种数学方式来描述这些神经网络。
@@ -509,8 +360,8 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 正则表达式</h3>
+<div class="outline-3">
+<h3 id="orgheadline2">正则表达式</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 正则表达式就是一个字符模板，用来搜索和匹配对应的字符。
@@ -526,37 +377,37 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 </div>
 
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 正则表达式测试工具</h3>
+<div class="outline-3">
+<h3 id="orgheadline3">正则表达式测试工具</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 在linux有一个很好的正则表达式测试工具，强烈推荐。
 </p>
 
-<div class="highlight"><pre>sudo apt-get install kiki
+<div class="highlight"><pre><span></span>sudo apt-get install kiki
 </pre></div>
 </div>
 </div>
 
 
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 基础元字符集</h3>
+<div class="outline-3">
+<h3 id="orgheadline4">基础元字符集</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 同\TeX 一样这些元字符集在这里列出来的意思它们都有额外特别的意思，如果要表示他们，需要用 <strong>\</strong> 符号来转义他们。
 </p>
 
-<pre class="example">
+<pre>
 ^ $ . * [ ]  \
 </pre>
 </div>
 </div>
 
 
-<div id="outline-container-sec-1-5" class="outline-3">
-<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 扩展元字符集</h3>
+<div class="outline-3">
+<h3 id="orgheadline5">扩展元字符集</h3>
 <div class="outline-text-3" id="text-1-5">
-<pre class="example">
+<pre>
 + ?  | ( )  { }
 </pre>
 
@@ -574,8 +425,8 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> vi和正则表达式</h2>
+<div class="outline-2">
+<h2 id="orgheadline18">vi和正则表达式</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 为了后面讲解的方便，请到<a href="http://www.gutenberg.org/files/24039/24039-0.txt">gutenberg</a> 下载老子的txt文件，名字修改为laozi.txt。好，我们开始吧。
@@ -583,14 +434,14 @@ pygmentize -f html -S colorful -a .highlight
 </div>
 
 
-<div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 匹配某个单词</h3>
+<div class="outline-3">
+<h3 id="orgheadline9">匹配某个单词</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 首先：
 </p>
 
-<pre class="example">
+<pre>
 vi laozi.txt
 </pre>
 
@@ -598,7 +449,7 @@ vi laozi.txt
 这样我们就进入vi了。然后我们输入：
 </p>
 
-<pre class="example">
+<pre>
 /Lao Zi
 </pre>
 
@@ -610,7 +461,7 @@ vi laozi.txt
 那么就是继续查找“Lao Zi”，也就是查找下一个。我们看到如果下面出现提示红字那么我们已经将文档查找一边了。然后我们再来查找
 </p>
 
-<pre class="example">
+<pre>
 /老子
 </pre>
 
@@ -619,8 +470,8 @@ vi laozi.txt
 </p>
 </div>
 
-<div id="outline-container-sec-2-1-1" class="outline-4">
-<h4 id="sec-2-1-1"><span class="section-number-4">2.1.1</span> 查找历史</h4>
+<div class="outline-4">
+<h4 id="orgheadline7">查找历史</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 如果输入 <strong>/</strong> 然后按方向键，就如同我们在终端上直接按方向键可以调用上一个命令一样，现在我们可以调用上一次的查找命令。这个有时很有用的。
@@ -629,8 +480,8 @@ vi laozi.txt
 </div>
 
 
-<div id="outline-container-sec-2-1-2" class="outline-4">
-<h4 id="sec-2-1-2"><span class="section-number-4">2.1.2</span> 反向查找</h4>
+<div class="outline-4">
+<h4 id="orgheadline8">反向查找</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 使用问号 <strong>?</strong> 什么就是反向查找。同样 <strong>n</strong> ，下一个也是反向的，你可以理解n是将上一次的查找命令重做一次。
@@ -641,14 +492,14 @@ vi laozi.txt
 
 
 
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 锚定行的开始</h3>
+<div class="outline-3">
+<h3 id="orgheadline10">锚定行的开始</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 <em>^</em> 符号表示一行的开始。现在我们执行如下查找命令：
 </p>
 
-<pre class="example">
+<pre>
 /^Th
 </pre>
 
@@ -659,14 +510,14 @@ vi laozi.txt
 </div>
 
 
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 锚定行的结尾</h3>
+<div class="outline-3">
+<h3 id="orgheadline12">锚定行的结尾</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 <em>$</em> 符号表示一行的结尾。现在让我们匹配以“之。”结尾的文本：
 </p>
 
-<pre class="example">
+<pre>
 /之。$
 </pre>
 
@@ -675,8 +526,8 @@ vi laozi.txt
 </p>
 </div>
 
-<div id="outline-container-sec-2-3-1" class="outline-4">
-<h4 id="sec-2-3-1"><span class="section-number-4">2.3.1</span> 匹配空行</h4>
+<div class="outline-4">
+<h4 id="orgheadline11">匹配空行</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 空行的表示就是 <code>/^$</code> 。这样将会匹配每一条没有任何字符的空行。
@@ -686,8 +537,8 @@ vi laozi.txt
 </div>
 
 
-<div id="outline-container-sec-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 匹配一个字符</h3>
+<div class="outline-3">
+<h3 id="orgheadline13">匹配一个字符</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 <em>.</em> 符号表示任意的一个字符。
@@ -695,8 +546,8 @@ vi laozi.txt
 </div>
 </div>
 
-<div id="outline-container-sec-2-5" class="outline-3">
-<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 匹配0个或者多个先前的字符</h3>
+<div class="outline-3">
+<h3 id="orgheadline14">匹配0个或者多个先前的字符</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 <em>*</em> 符号匹配0个或者多个之前的字符。
@@ -705,8 +556,8 @@ vi laozi.txt
 </div>
 
 
-<div id="outline-container-sec-2-6" class="outline-3">
-<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 匹配多个字符（字符集）</h3>
+<div class="outline-3">
+<h3 id="orgheadline17">匹配多个字符（字符集）</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 <em>[ ]</em>
@@ -714,8 +565,8 @@ vi laozi.txt
 </div>
 
 
-<div id="outline-container-sec-2-6-1" class="outline-4">
-<h4 id="sec-2-6-1"><span class="section-number-4">2.6.1</span> 连续的字符</h4>
+<div class="outline-4">
+<h4 id="orgheadline15">连续的字符</h4>
 <div class="outline-text-4" id="text-2-6-1">
 <p>
 <em>[ - ]</em>
@@ -723,8 +574,8 @@ vi laozi.txt
 </div>
 </div>
 
-<div id="outline-container-sec-2-6-2" class="outline-4">
-<h4 id="sec-2-6-2"><span class="section-number-4">2.6.2</span> 字符集的非逻辑</h4>
+<div class="outline-4">
+<h4 id="orgheadline16">字符集的非逻辑</h4>
 <div class="outline-text-4" id="text-2-6-2">
 <p>
 <code>[^]</code>
@@ -743,14 +594,14 @@ vi编辑器和其他一般的编辑器也有替换操作，不过那些替换操
 </div>
 
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> grep和正则表达式</h2>
+<div class="outline-2">
+<h2 id="orgheadline24">grep和正则表达式</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 grep命令使用的基本格式是：
 </p>
 
-<pre class="example">
+<pre>
 grep [选项]... PATTERN [FILE]...
 </pre>
 
@@ -762,7 +613,7 @@ grep [选项]... PATTERN [FILE]...
 在linux下如果遇到某个程序僵死怎么办，这里结合 <code>ps aux</code> 和grep命令可以快速查询目标程序的进程号。比如你确定某个pdf文件卡死了，那么就执行如下命令查询之：
 </p>
 
-<pre class="example">
+<pre>
 =&gt;ps aux | grep 'pdf'
 </pre>
 
@@ -774,48 +625,48 @@ grep [选项]... PATTERN [FILE]...
 grep -E 扩展元字符集
 </p>
 
-<pre class="example">
+<pre>
 +  ?  | ( ) { }
 </pre>
 </div>
 
 
-<div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 匹配1次或者更多次之前的字符</h3>
+<div class="outline-3">
+<h3 id="orgheadline19">匹配1次或者更多次之前的字符</h3>
 </div>
 
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 匹配0次或1次之前的字符</h3>
+<div class="outline-3">
+<h3 id="orgheadline20">匹配0次或1次之前的字符</h3>
 </div>
 
-<div id="outline-container-sec-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 或逻辑</h3>
+<div class="outline-3">
+<h3 id="orgheadline21">或逻辑</h3>
 </div>
 
-<div id="outline-container-sec-3-4" class="outline-3">
-<h3 id="sec-3-4"><span class="section-number-3">3.4</span> 保存子字符串group</h3>
-</div>
-
-
-<div id="outline-container-sec-3-5" class="outline-3">
-<h3 id="sec-3-5"><span class="section-number-3">3.5</span> 之前的字符重复几次到几次</h3>
-</div>
+<div class="outline-3">
+<h3 id="orgheadline22">保存子字符串group</h3>
 </div>
 
 
+<div class="outline-3">
+<h3 id="orgheadline23">之前的字符重复几次到几次</h3>
+</div>
+</div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> sed和正则表达式</h2>
+
+
+<div class="outline-2">
+<h2 id="orgheadline30">sed和正则表达式</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-sed命令告诉sed对行做什么样的处理：打印、删除或修改等等。对文件的替换等等操作之所以推荐使用sed是因为sed是非破坏性的，它将文件的行<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>存入缓存区，然后进行一些修改，然后打印到终端（或者重定向到某个文件）等，总之就是不会破坏原文件。
+sed命令告诉sed对行做什么样的处理：打印、删除或修改等等。对文件的替换等等操作之所以推荐使用sed是因为sed是非破坏性的，它将文件的行<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>存入缓存区，然后进行一些修改，然后打印到终端（或者重定向到某个文件）等，总之就是不会破坏原文件。
 </p>
 
 <p>
 基本命令格式如下：
 </p>
 
-<pre class="example">
+<pre>
 sed 'command'  filename
 </pre>
 
@@ -824,10 +675,10 @@ sed 'command'  filename
 </p>
 </div>
 
-<div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 打印行</h3>
+<div class="outline-3">
+<h3 id="orgheadline25">打印行</h3>
 <div class="outline-text-3" id="text-4-1">
-<pre class="example">
+<pre>
 =&gt;sed   'p'  test.txt
 </pre>
 
@@ -836,7 +687,7 @@ p就是打印行的意思，我们看到每一行重复了两次，这是因为s
 </p>
 
 
-<pre class="example">
+<pre>
 =&gt;sed -n 'p'  test.txt &gt; test2.txt
 </pre>
 
@@ -844,7 +695,7 @@ p就是打印行的意思，我们看到每一行重复了两次，这是因为s
 现在我们有了一个简单的复制文件的命令了。在sed中数字代表行数， <strong>$</strong> 符号代表最后一行，然后逗号表示一个范围。现在让我们打印第一行和打印第一行到第三行：
 </p>
 
-<pre class="example">
+<pre>
 =&gt;sed -n '1 p'  test.txt
 this is fist line
 =&gt;sed -n '1,3 p'  test.txt
@@ -855,8 +706,8 @@ this is second line
 </div>
 </div>
 
-<div id="outline-container-sec-4-2" class="outline-3">
-<h3 id="sec-4-2"><span class="section-number-3">4.2</span> sed中的正则表达式</h3>
+<div class="outline-3">
+<h3 id="orgheadline26">sed中的正则表达式</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 下面重点说说sed利用正则表达式来进行复杂的文本替换操作，除了前面的基本元字符集之外，sed还有下面的几个元字符（还有一些这里并没有提及）：
@@ -865,10 +716,10 @@ this is second line
 </div>
 </div>
 
-<div id="outline-container-sec-4-3" class="outline-3">
-<h3 id="sec-4-3"><span class="section-number-3">4.3</span> 替换命令</h3>
+<div class="outline-3">
+<h3 id="orgheadline28">替换命令</h3>
 <div class="outline-text-3" id="text-4-3">
-<pre class="example">
+<pre>
 =&gt;sed  's/good/goodmorning/g'  test.txt
 this is fist line
 
@@ -885,15 +736,15 @@ this is third line
 </p>
 </div>
 
-<div id="outline-container-sec-4-3-1" class="outline-4">
-<h4 id="sec-4-3-1"><span class="section-number-4">4.3.1</span> 替换加上匹配的子字符串</h4>
+<div class="outline-4">
+<h4 id="orgheadline27">替换加上匹配的子字符串</h4>
 <div class="outline-text-4" id="text-4-3-1">
 <p>
 在linux下怎么大量将"一串字符"都替换为中文标点的“同样一串字符”。 具体效果就是这样的： "测试文字" → “测试文字”。这个待处理文本很大，显然必须使用批处理的方式。而这里使用sed一个命令就可以搞定。
 </p>
 
 
-<pre class="example">
+<pre>
 sed  's/"\([^"]*\)"/“\1”/g'  test.txt &gt;test2.txt
 </pre>
 
@@ -912,14 +763,12 @@ sed  's/"\([^"]*\)"/“\1”/g'  test.txt &gt;test2.txt
 </div>
 </div>
 
-<div id="outline-container-sec-4-4" class="outline-3">
-<h3 id="sec-4-4"><span class="section-number-3">4.4</span> 参考资料</h3>
+<div class="outline-3">
+<h3 id="orgheadline29">参考资料</h3>
 <div class="outline-text-3" id="text-4-4">
 <ol class="org-ol">
-<li>linux shell实例精解, Ellie Quigley
-</li>
-<li><a href="http://deerchao.net/tutorials/regex/regex.htm">正则表达式30分钟入门教程</a>
-</li>
+<li>linux shell实例精解, Ellie Quigley</li>
+<li><a href="http://deerchao.net/tutorials/regex/regex.htm">正则表达式30分钟入门教程</a></li>
 </ol>
 </div>
 </div>
@@ -928,13 +777,10 @@ sed  's/"\([^"]*\)"/“\1”/g'  test.txt &gt;test2.txt
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p>其内部工作原理是一行一行读取存取处理打印</p></div>
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">其内部工作原理是一行一行读取存取处理打印</div></div>
 
 
 </div>
 </div></div>
-<footer class="footer">
-<div class="container">
-<p class="text-muted">作者: 万泽(德山书生); 编者: 编者:万泽(德山书生); 最后修改时间: 2015-10-17 01:50.</p></div>
 </body>
 </html>
