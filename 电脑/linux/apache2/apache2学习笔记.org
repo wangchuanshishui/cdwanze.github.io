@@ -345,7 +345,24 @@ sudo tasksel install lamp-server
 
 
 
-* 参考资料
+* 附录
+
+** ab工具
+
+apache2的ab工具方便实际测试网页服务器在应对多个请求下的性能。
+
+简单的使用就是:
+#+BEGIN_EXAMPLE
+ab -n 1000 -c 4 http://localhost:8888/
+#+END_EXAMPLE
+
+假设你开了一个本地服务器端口8888，这里 ~-n~ 的意思是多少个请求， ~-c~ 的意思是多少个并发，也就是同时有多少个请求。更多细节请参看 [[https://httpd.apache.org/docs/2.4/programs/ab.html][这里]] 。
+
+
+
+
+
+** 参考资料
 1. [[http://php.freehostingguru.com/][PHP完全中文手册]]
 2. [[http://php.net/manual/zh/][PHP手册]]
 3. 哈佛大学的 [[http://open.163.com/special/opencourse/buildingdynamicwebsites.html][构建动态网页视频教程]] 

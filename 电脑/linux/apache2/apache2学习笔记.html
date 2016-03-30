@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-03-28 一 12:11 -->
+<!-- 2016-03-30 三 18:43 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>apache2学习笔记</title>
@@ -136,7 +136,7 @@ figure{
 }
 
 .NOTECARD{
-    width: 30%;
+    width: 35%;
     position:relative;
     right: -30%;
     padding: 1em;
@@ -277,7 +277,12 @@ table tr:nth-child(even) {
 </ul>
 </li>
 <li><a href="#orgheadline18">13. apt-get安装软件包清单</a></li>
-<li><a href="#orgheadline19">14. 参考资料</a></li>
+<li><a href="#orgheadline21">14. 附录</a>
+<ul>
+<li><a href="#orgheadline19">14.1. ab工具</a></li>
+<li><a href="#orgheadline20">14.2. 参考资料</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </nav>
@@ -839,14 +844,42 @@ sudo tasksel install lamp-server
 
 
 <div class="outline-2">
-<h2 id="orgheadline19">参考资料</h2>
+<h2 id="orgheadline21">附录</h2>
 <div class="outline-text-2" id="text-14">
+</div><div class="outline-3">
+<h3 id="orgheadline19">ab工具</h3>
+<div class="outline-text-3" id="text-14-1">
+<p>
+apache2的ab工具方便实际测试网页服务器在应对多个请求下的性能。
+</p>
+
+<p>
+简单的使用就是:
+</p>
+<pre>
+ab -n 1000 -c 4 http://localhost:8888/
+</pre>
+
+<p>
+假设你开了一个本地服务器端口8888，这里 <code>-n</code> 的意思是多少个请求， <code>-c</code> 的意思是多少个并发，也就是同时有多少个请求。更多细节请参看 <a href="https://httpd.apache.org/docs/2.4/programs/ab.html">这里</a> 。
+</p>
+</div>
+</div>
+
+
+
+
+
+<div class="outline-3">
+<h3 id="orgheadline20">参考资料</h3>
+<div class="outline-text-3" id="text-14-2">
 <ol class="org-ol">
 <li><a href="http://php.freehostingguru.com/">PHP完全中文手册</a></li>
 <li><a href="http://php.net/manual/zh/">PHP手册</a></li>
 <li>哈佛大学的 <a href="http://open.163.com/special/opencourse/buildingdynamicwebsites.html">构建动态网页视频教程</a></li>
 <li><a href="http://blog.csdn.net/hfahe/article/details/5490223">关于a2ensite和a2dissite的讨论</a></li>
 </ol>
+</div>
 </div>
 </div>
 <div id="footnotes">
