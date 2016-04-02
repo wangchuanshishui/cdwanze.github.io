@@ -3,7 +3,7 @@
 #+LATEX_HEADER: \usepackage{article}
 
 
-#+TITLE: algorithms模块
+#+TITLE: 算法入门之数据结构篇
 #+AUTHOR: 万泽(德山书生)
 #+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
 #+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
@@ -13,7 +13,7 @@
 algorithms模块是一个python版的算法教学模块，一直以来我对算法的态度就是待用的工具，实际上我现在也是这么看待各个算法的，如果运气好的话，可能恰好有个算法正好能够解决你当前遇到的某个问题，也可能没有一个算法是合适的，而我们学习的目的，显然就是为了那个可能恰好有用的算法而做的准备工作，因此，学习这些算法，除了弄明白之外，还要多加一条，问问它可能有什么应用场景，这就更好了。
 
 
-该项目的文档在 [[http://algorithms.readthedocs.org/en/latest/][这里]] ，其github地址在 [[https://github.com/nryoung/algorithms][这里]] 。
+该项目的文档在 [[http://algorithms.readthedocs.org/en/latest/][这里]] ，其github地址在 [[https://github.com/nryoung/algorithms][这里]] 。本文的代码很大程度上参考了这个模块的代码，在此一并谢谢该模块的作者了。
 
 
 
@@ -51,10 +51,18 @@ algorithms模块是一个python版的算法教学模块，一直以来我对算�
 
 
 *** 基本结构和插入查找操作
+值得一提的是key的比较大小判断采用的是 ~hash(data)~ 这种形式，就作为键的唯一id的一种方法，这是没有问题的。然后data不可以为sequence。然后需要强调的是这里的比较大小，并不具有某种实际意义。比如:
+#+BEGIN_EXAMPLE
+>>> hash(11)> hash("22")
+True
+#+END_EXAMPLE
+一般具有实际含义的某种比较大小，我们必须确保比较对象是属于同一个类，或者更抽象的讨论，属于同一个概念或同一个聚合类等。
+
+
 #+BEGIN_SRC python
 ### ref http://www.laurentluce.com/posts/binary-search-tree-library-in-python/
 class BSTree(object):
-    '''use hash(str(data)) for support list object etc.'''
+    '''use hash(data) ,but notice the data can not be sequence'''
     def __init__(self, data=None, parent=None):
         self.left = None
         self.right = None
@@ -66,12 +74,12 @@ class BSTree(object):
 
     def insert(self, data):
         '''insert data'''
-        if hash(str(data)) < hash(str(self.data)):
+        if hash(data) < hash(self.data):
             if self.left is None:
                 self.left = BSTree(data,parent=self)
             else:
                 self.left.insert(data)
-        elif hash(str(data)) > hash(str(self.data)):
+        elif hash(data) > hash(self.data):
             if self.right is None:
                 self.right = BSTree(data,parent=self)
             else:
@@ -80,12 +88,12 @@ class BSTree(object):
             self.data = data
 
     def find(self,data):
-        if hash(str(data)) < hash(str(self.data)):
+        if hash(data) < hash(self.data):
             if self.left is None:
                 raise KeyError
             else:
                 return self.left.find(data)
-        elif hash(str(data)) > hash(str(self.data)):
+        elif hash(data) > hash(self.data):
             if self.right is None:
                 raise KeyError
             else:

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-03-28 一 23:12 -->
+<!-- 2016-04-02 六 10:07 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
-<title>algorithms模块</title>
+<title>算法入门之数据结构篇</title>
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="万泽(德山书生)">
 <meta  name="description" content="制作者邮箱：a358003542@gmail.com"
@@ -248,7 +248,7 @@ table tr:nth-child(even) {
 <body>
 <div id="content">
 <header>
-<h1 class="title">algorithms模块</h1>
+<h1 class="title">算法入门之数据结构篇</h1>
 </header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -287,7 +287,7 @@ algorithms模块是一个python版的算法教学模块，一直以来我对算�
 
 
 <p>
-该项目的文档在 <a href="http://algorithms.readthedocs.org/en/latest/">这里</a> ，其github地址在 <a href="https://github.com/nryoung/algorithms">这里</a> 。
+该项目的文档在 <a href="http://algorithms.readthedocs.org/en/latest/">这里</a> ，其github地址在 <a href="https://github.com/nryoung/algorithms">这里</a> 。本文的代码很大程度上参考了这个模块的代码，在此一并谢谢该模块的作者了。
 </p>
 </div>
 </div>
@@ -362,9 +362,21 @@ algorithms模块是一个python版的算法教学模块，一直以来我对算�
 <div class="outline-4">
 <h4 id="orgheadline2">基本结构和插入查找操作</h4>
 <div class="outline-text-4" id="text-2-1-1">
+<p>
+值得一提的是key的比较大小判断采用的是 <code>hash(data)</code> 这种形式，就作为键的唯一id的一种方法，这是没有问题的。然后data不可以为sequence。然后需要强调的是这里的比较大小，并不具有某种实际意义。比如:
+</p>
+<pre>
+&gt;&gt;&gt; hash(11)&gt; hash("22")
+True
+</pre>
+<p>
+一般具有实际含义的某种比较大小，我们必须确保比较对象是属于同一个类，或者更抽象的讨论，属于同一个概念或同一个聚合类等。
+</p>
+
+
 <div class="highlight"><pre><span></span><span class="c1">### ref http://www.laurentluce.com/posts/binary-search-tree-library-in-python/</span>
 <span class="k">class</span> <span class="nc">BSTree</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;use hash(str(data)) for support list object etc.&#39;&#39;&#39;</span>
+    <span class="sd">&#39;&#39;&#39;use hash(data) ,but notice the data can not be sequence&#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">None</span>
@@ -376,12 +388,12 @@ algorithms模块是一个python版的算法教学模块，一直以来我对算�
 
     <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;insert data&#39;&#39;&#39;</span>
-        <span class="k">if</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="o">&lt;</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="nb">hash</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">BSTree</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="o">&gt;</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)):</span>
+        <span class="k">elif</span> <span class="nb">hash</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">BSTree</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
@@ -390,12 +402,12 @@ algorithms模块是一个python版的算法教学模块，一直以来我对算�
             <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
 
     <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="o">&lt;</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="nb">hash</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">KeyError</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="o">&gt;</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)):</span>
+        <span class="k">elif</span> <span class="nb">hash</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">KeyError</span>
             <span class="k">else</span><span class="p">:</span>
