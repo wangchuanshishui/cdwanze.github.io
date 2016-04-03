@@ -110,40 +110,41 @@ class GClass():
 
 
 ** 数学运算
-\subsection{一般加法}
-X + other , \verb+__add__(self,other)+
+*** 一般加法
+X + other ,  ~__add__(self,other)~
 
-\subsection{右侧加法}
+*** 右侧加法
 所谓加法是X+other，如果是右侧加法，则为radd，然后公式是：other+X。一般不区分左右的就用上面的一般加法。
 
-other + X , \verb+__radd__(self,other)+
-\subsection{增强加法}
-X +=other ，\verb+__iadd__(self.other)+
+other + X , ~__radd__(self,other)~
 
-\subsection{一般减法}
-X - other , \verb+__sub__(self,other)+
+*** 增强加法
+X +=other ， ~__iadd__(self.other)~
+
+*** 一般减法
+X - other ,  ~__sub__(self,other)~
 
 同上面情况一样类似的还有rsub和isub。
 
-\subsection{其他数学运算符一览}
+*** 其他数学运算符一览
 然后其他数学运算符下面简要列表之：
-\begin{description}
-\item[*] 乘法，\verb+__mul__(self,other)+，下面的类似的都有右侧运算和增强运算，不再赘述了。
-\item[//] 整除，\verb+__floordiv__+，下面类似的参数都是self和other，不再赘述了。
-\item[/] 除法 ，\verb+__div__+
-\item[\%{}] 取余，\verb+__mod__+
-\item[**] 开方，\verb+__pow__+
-\item[<<] 左移运算，\verb+__lshift__+
-\item[>>] 右移运算，\verb+__rshift__+
-\item[\&{}] 位与，\verb+__and__+
-\item[|] 位或，\verb+__or__+
-\item[\^{}] 位异或\footnote{异或的逻辑是相同取0，不同取1。}，\verb+__xor__+
-\end{description}
+
+- * :: 乘法， ~__mul__(self,other)~ ，下面的类似的都有右侧运算和增强运算，不再赘述了。
+- // ::  整除， ~__floordiv__~ ，下面类似的参数都是self和other，不再赘述了。
+- / ::  除法 ， ~__div__~
+- % :: 取余, ~__mod__~
+- ** ::  开方， ~__pow__~
+- << ::  左移运算， ~__lshift__~
+- >> ::  右移运算， ~__rshift__~
+- & ::  位与， ~__and__~
+- | ::  位或， ~__or__~
+- ^ 位异或 (异或的逻辑是相同取0，不同取1。) ， ~__xor__~
+
 
 类似的右侧运算名字前面加上r，增强运算名字前面加上i，不赘述了。
 
 
-\section{逻辑运算}
+** 逻辑运算
 \subsection{bool函数支持}
 bool(X)  \verb+__bool__(self)+
 
@@ -1135,9 +1136,22 @@ pyout.close()
 
 
 
+** 文件对象的seek方法
+文件对象的seek方法就三种用法，参看了 [[http://www.cnblogs.com/paisen/p/3492768.html][这个网页]] 。
+
+- f.seek(p,0) 就是从文件头开始移动p个字节。注意移动之后如果你执行 ~readline()~ 那么返回的字符串是从当前位置到行尾。第二个参数默认是这个行为。
+
+- f.seek(p,1) 基于当前位置再移动p个字节。
+
+- f.seek(0,2) 这个就是移动到文件尾。然后如果打开默认是 ~b~ 的话，那么还是可以用某个p负值来表示从文件尾向前移动了多少个字节的。
+
 
 
 * 与c语言或c++语言编写的模块集成
+ref https://github.com/yasoob/intermediatePython/blob/master/python_c_extension.rst
+
+
+
 \section{安装和配置}
 \subsection{通过apt安装}
 \begin{tcbbash}[]

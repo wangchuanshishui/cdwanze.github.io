@@ -13,7 +13,81 @@
 * 前言
 本文紧跟着 [[file:套接字编程入门.html][套接字编程入门]]  一文，继续向前探索。在本文开始前，强烈建议读者读读 [[cite1][参考资料1]] ，该文其中说明asyncio模块部分很是重要。
 
-** yield from 关键词
+** 理解协程(coroutine)
+读者请参看 David Beazley [[http://www.dabeaz.com/coroutines/Coroutines.pdf][这篇文章]] 。
+
+我们看到这个例子:
+#+BEGIN_SRC python
+import time
+def follow(thefile):
+    thefile.seek(0,2)
+    while True:
+        line = thefile.readline()
+        if not line:
+            time.sleep(0.1)
+            continue
+
+        yield line
+
+
+logfile = open("test.log")
+for line in follow(logfile):
+    print(line,end='')
+#+END_SRC
+
+然后我们执行:
+#+BEGIN_EXAMPLE
+bash>>> echo "hello" >> test.log
+#+END_EXAMPLE
+
+然后我们开始运行上面的那个python小脚本。
+
+然后我们再执行:
+#+BEGIN_EXAMPLE
+bash>>> echo "hello" >> test.log
+#+END_EXAMPLE
+
+Interesting,这整个过程是怎样的呢。关于生成器函数最基本的东西这里就不罗嗦了，这里要讲的是，python中的每一个函数经过编译之后送入内存，并没有实际执行，而具体调用的时候如果遇到 ~yield~ ，python就会中止该函数的执行，去做其他的事情去了。而这个所谓的生成器函数返回的是一个生成器对象。我们看到 ~follow(logfile)~ 那里其返回的就是一个生成器对象。生成器对象有一个 ~send~ 方法，如果 send 的是 ~None~ ，那么该生成器就开始执行，并返回一个值，然后又遇到一个 ~yield~ 了，生成器又会停止，如此继续，直到返回 ~StopIteration~ 异常，然后我们就直到这个生成器迭代完了。
+
+一般我们编程都尽量避免 ~while True~ 这样的写法的，但在生成器函数里面，却可以这样做，这样就避免了 ~StopIteration~ 异常，然后生成器就好像一个管道 流 监听器一样的东西了。如果说上面这个例子还不太难理解，那么看下面这个例子。
+
+#+BEGIN_SRC python
+def grep(pattern):
+    print("Searching for", pattern)
+    while True:
+        line = (yield)
+        if line is None:
+            print('you send None')
+        elif pattern in line:
+            print(line)
+
+search = grep('coroutine')
+#+END_SRC
+
+search是这么一个生成器对象，我们可以把生成器函数看作一个管道一样的东西，如果说前面的 ~yield what~ 是管道出口，那么这里的 ~(yield)~ 这样的表达就是管道入口。我们send过来的什么东西都将成为返回值。前面我们说 ~send(None)~ 生成器开始执行，实际上send(what)的what都是这里的 ~(yield)~ 的返回值。这样程序 
+
+现在我们运行上面python脚本然后继续输入:
+#+BEGIN_EXAMPLE
+>>> search.send(None)
+Searching for coroutine
+>>> search.send(None)
+you send None
+>>> search.send("test")
+>>> search.send("test coroutine")
+test coroutine
+>>> 
+#+END_EXAMPLE
+
+我们看到第一次send None 生成器函数开始实际执行，然后遇到yield 停顿了。 然后 send None ，这时 line 的值就是 None ，然后等等等等，这个我们建立了一个生成器对象，而这个生成器对象好像一个管道一个长期挂载在那里，可以送信息，也可以输出信息，实在奇妙啊。而所谓的协程就是这种编程风格，基于这里讨论的生成器函数的作用原理，然后我们通过
+
+#+BEGIN_EXAMPLE
+for i in generator:
+    print(i)
+#+END_EXAMPLE
+
+以一种流的风格，慢慢送过来，再慢慢输出。这一块内容很丰富很艰深，我们后面有时间再仅需深入慢慢体会吧。
+
+** 理解 yield from
 在开始前有必要详细说明一下yield from关键词。我们从 [[cite1][参考资料1]] 看到python的内在处理机制是将所谓的协程概念和异步编程概念等都和python中的生成器迭代器概念重合了。实际上我们可以简单地将一个协程看作一个生成器对象，然后Task这个对象是基于Future这个对象的:
 #+BEGIN_EXAMPLE
 class Task(Future):
@@ -402,13 +476,9 @@ print('{} URLs fetched in {:.1f} seconds, achieved concurrency = {}'.format(
     len(urls_seen), time.time() - start, concurrency_achieved))
 #+END_SRC
 
-下面我决定进一步利用python3.4的asyncio模块来改写上面的脚本。值得一提的是前面谈及的协程函数都推荐用 ~@asyncio.coroutine~ 装饰器装饰起来，虽然前面我们看到实际上不用装饰器yield from也能构成某种协程数据的组合逻辑，但如果不加上和asyncio模块的evenloop的一些方法不兼容，比如 ~run_until_complete~ 方法就要求一个加上这个装饰器的所谓的协程函数，然后官方文档也谈及一些兼容性问题。至于python3.5新加入的 ~async def~ 和 ~await~ 关键词这里暂时不考虑了。
 
 
-基于前面的两个例子我写了一个crawler.py程序，其在我写的infome模块的crawl子模块 [[https://github.com/a358003542/infome/tree/master/infome/crawl][那里]] 。
-
-
-* asyncio模块详解
+* asyncio模块简介
 一般首先你需要通过 ~get_event_loop~ 函数来获取一个全局性的事件驱动循环，其返回一个EventLoop对象，asyncio模块为EventLoop对象提供了很多方法，很多任务都可以通过调用这个EventLoop对象的方法来完成，下面简称为loop。
 
 ~run_until_complete~ 方法是本来是要接受一个Future对象，然后将其执行完。如果接受的是一个协程对象（coroutine object），则要将其转变成为Task对象（Task对象是Future对象的子类）。
@@ -529,6 +599,10 @@ gather函数将收集一些协程函数或任务或futures等，等所有的结�
 ~return_excepitons~ 默认是False，也就是其内收集的这些协程如果有一个发生异常了，那么将视为整体发生异常。如果设为True，则允许个别子协程发生异常，而且这些异常被视为结果放入列表中。
 
 然后 ~CancelledError~ 异常，如果是上层Future抛出的cancel信号，则其内所有的子任务都将被cancel，而如果某个子任务被cancel，则会抛出 ~CancelledError~ ，不影响其他子任务。
+
+
+
+
 
 
 

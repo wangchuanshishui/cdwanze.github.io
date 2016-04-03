@@ -10,7 +10,7 @@
 
 
 * 简介
-pyparsing模块是一个不错的超越re模块之上，用BNF思维来思考文本处理的模块，借助pyparsing模块，我们可以写出很强大的text parser。
+pyparsing模块是一个用BNF思维（不同于正则表达式的思维）来进行文本处理的模块，借助pyparsing模块，我们可以写出很强大的text parser。
 
 其最简单的例子如下所示:
 #+BEGIN_SRC python
@@ -108,3 +108,34 @@ pe_elementnum = Group( pe_element("element") + Optional( Word( nums ), default="
 tp_formula = WordStart(cs_formula) + OneOrMore( pe_elementnum ) + WordEnd(cs_formula)
 #+END_EXAMPLE
 
+
+* 刷wikipedia的infobox
+wikipedia的infobox具体的值都有这样的形式:
+#+BEGIN_EXAMPLE
+| SMILES = c1ccccc1
+| EINECS = 200-753-7
+| InChI = 1/C6H6/c1-2-4-6-5-3-1/h1-6H
+#+END_EXAMPLE
+
+我们可以建立如下parser:
+#+BEGIN_SRC python
+equation = Word(alphanums+'-_')("key").setParseAction(lambda s,l,t: t["key"].strip()) + '=' + restOfLine("value").setParseAction(action_value)
+oneline = Group(LineStart() + "|" + equation + LineEnd())
+# parse input string
+token = oneline
+#+END_SRC
+
+这里每一行都由 ~LineStart()~ ~|~ ~equation~ ~LineEnd()~ 组成。
+
+其中 ~LineStart()~ 和 ~LineEnd()~ 定义了一行的开始和一行的结束，基于 ~\n~ 。
+
+然后我们看到 ~equation~ ，注意看 ~Word(alphanums+'-_')("key")~ ，这种表达也就是 ~Word(alphanums+'-_')~ 刷匹配的内容将以 ~key~ 存储进去。后面 ~setParseAction~ 是对该匹配的部分进行额外的动作，我们看到可以通过 ~t["key"]~ 来获得该值。 然后 ~restOfLine()~ 匹配之后到行结束的所有的内容。
+
+* 附录
+** BNF相关
+本小节主要参考了 [[http://eikke.com/text-parsing-formal-grammars-and-bnf-introduction/index.html][这个网页]] 和 [[http://eikke.com/pyparsing-introduction-bnf-to-code/][这个网页]] 。
+
+
+所谓 BNF ，即 Backus–Naur Form ，中文名字叫巴科斯范式。其用来表示一种上下无关文法的语言。
+
+这一块术语挺绕口的，后面有时间再整理一下。

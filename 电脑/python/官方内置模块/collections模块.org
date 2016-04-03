@@ -10,6 +10,8 @@
 
 collections模块里面有一些很有用的数据类型，更多信息请参看 [[https://docs.python.org/3.4/library/collections.html][官方文档]] 。
 
+* Counter对象
+
 
 * namedtuple对象
 namedtuple数据类型你可能已经在某处接触到了，其非常有用。比如说argparse模块里面parse命令行输入之后返回的就是一个namedtuple对象。

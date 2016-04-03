@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-03-28 一 12:10 -->
+<!-- 2016-04-03 日 20:41 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>python3语言学习进阶篇</title>
@@ -136,7 +136,7 @@ figure{
 }
 
 .NOTECARD{
-    width: 30%;
+    width: 35%;
     position:relative;
     right: -30%;
     padding: 1em;
@@ -347,7 +347,7 @@ org_html_manager.setup();  // activate after the parameters are set
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline11">1. 类的高级知识</a>
+<li><a href="#orgheadline17">1. 类的高级知识</a>
 <ul>
 <li><a href="#orgheadline5">1.1. 类内部的字典</a>
 <ul>
@@ -364,14 +364,27 @@ org_html_manager.setup();  // activate after the parameters are set
 <li><a href="#orgheadline8">1.2.3. 属性获取</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline10">1.3. 数学运算</a></li>
+<li><a href="#orgheadline15">1.3. 数学运算</a>
+<ul>
+<li><a href="#orgheadline10">1.3.1. 一般加法</a></li>
+<li><a href="#orgheadline11">1.3.2. 右侧加法</a></li>
+<li><a href="#orgheadline12">1.3.3. 增强加法</a></li>
+<li><a href="#orgheadline13">1.3.4. 一般减法</a></li>
+<li><a href="#orgheadline14">1.3.5. 其他数学运算符一览</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline12">2. 深入理解python3的迭代</a></li>
-<li><a href="#orgheadline13">3. 模块包</a></li>
-<li><a href="#orgheadline14">4. 文件处理高级知识</a></li>
-<li><a href="#orgheadline15">5. 与c语言或c++语言编写的模块集成</a></li>
-<li><a href="#orgheadline16">6. PEP8推荐的风格</a></li>
+<li><a href="#orgheadline16">1.4. 逻辑运算</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline18">2. 深入理解python3的迭代</a></li>
+<li><a href="#orgheadline19">3. 模块包</a></li>
+<li><a href="#orgheadline21">4. 文件处理高级知识</a>
+<ul>
+<li><a href="#orgheadline20">4.1. 文件对象的seek方法</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline22">5. 与c语言或c++语言编写的模块集成</a></li>
+<li><a href="#orgheadline23">6. PEP8推荐的风格</a></li>
 </ul>
 </div>
 </nav>
@@ -382,7 +395,7 @@ org_html_manager.setup();  // activate after the parameters are set
 
 
 <div class="outline-2">
-<h2 id="orgheadline11">类的高级知识</h2>
+<h2 id="orgheadline17">类的高级知识</h2>
 <div class="outline-text-2" id="text-1">
 </div><div class="outline-3">
 <h3 id="orgheadline5">类内部的字典</h3>
@@ -541,57 +554,85 @@ mappingproxy({'__doc__': None, '__init__': &lt;function B.__init__ at
 
 
 <div class="outline-3">
-<h3 id="orgheadline10">数学运算</h3>
+<h3 id="orgheadline15">数学运算</h3>
 <div class="outline-text-3" id="text-1-3">
+</div><div class="outline-4">
+<h4 id="orgheadline10">一般加法</h4>
+<div class="outline-text-4" id="text-1-3-1">
 <p>
-\subsection{一般加法}
-X + other , \verb+__add__(self,other)+
+X + other ,  <code>__add__(self,other)</code>
 </p>
+</div>
+</div>
 
+<div class="outline-4">
+<h4 id="orgheadline11">右侧加法</h4>
+<div class="outline-text-4" id="text-1-3-2">
 <p>
-\subsection{右侧加法}
 所谓加法是X+other，如果是右侧加法，则为radd，然后公式是：other+X。一般不区分左右的就用上面的一般加法。
 </p>
 
 <p>
-other + X , \verb+__radd__(self,other)+
-\subsection{增强加法}
-X ~~=other ，\verb+__iadd__(self.other)~~
+other + X , <code>__radd__(self,other)</code>
 </p>
+</div>
+</div>
 
+<div class="outline-4">
+<h4 id="orgheadline12">增强加法</h4>
+<div class="outline-text-4" id="text-1-3-3">
 <p>
-\subsection{一般减法}
-X - other , \verb+__sub__(self,other)+
+X +=other ， <code>__iadd__(self.other)</code>
+</p>
+</div>
+</div>
+
+<div class="outline-4">
+<h4 id="orgheadline13">一般减法</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<p>
+X - other ,  <code>__sub__(self,other)</code>
 </p>
 
 <p>
 同上面情况一样类似的还有rsub和isub。
 </p>
+</div>
+</div>
 
+<div class="outline-4">
+<h4 id="orgheadline14">其他数学运算符一览</h4>
+<div class="outline-text-4" id="text-1-3-5">
 <p>
-\subsection{其他数学运算符一览}
 然后其他数学运算符下面简要列表之：
 </p>
-\begin{description}
-\item[*] 乘法，\verb+__mul__(self,other)+，下面的类似的都有右侧运算和增强运算，不再赘述了。
-\item[//] 整除，\verb+__floordiv__+，下面类似的参数都是self和other，不再赘述了。
-\item[/] 除法 ，\verb+__div__+
-\item[\%{}] 取余，\verb+__mod__+
-\item[**] 开方，\verb+__pow__+
-\item[<<] 左移运算，\verb+__lshift__+
-\item[>>] 右移运算，\verb+__rshift__+
-\item[\&{}] 位与，\verb+__and__+
-\item[|] 位或，\verb+__or__+
-\item[\^{}] 位异或\footnote{异或的逻辑是相同取0，不同取1。}，\verb+__xor__+
-\end{description}
+
+<dl class="org-dl">
+<dt>*</dt><dd>乘法， <code>__mul__(self,other)</code> ，下面的类似的都有右侧运算和增强运算，不再赘述了。</dd>
+<dt>//</dt><dd>整除， <code>__floordiv__</code> ，下面类似的参数都是self和other，不再赘述了。</dd>
+<dt>/</dt><dd>除法 ， <code>__div__</code></dd>
+<dt>%</dt><dd>取余, <code>__mod__</code></dd>
+<dt>**</dt><dd>开方， <code>__pow__</code></dd>
+<dt>&lt;&lt;</dt><dd>左移运算， <code>__lshift__</code></dd>
+<dt>&gt;&gt;</dt><dd>右移运算， <code>__rshift__</code></dd>
+<dt>&amp;</dt><dd>位与， <code>__and__</code></dd>
+<dt>|</dt><dd>位或， <code>__or__</code></dd>
+<dt>(no term)</dt><dd>^ 位异或 (异或的逻辑是相同取0，不同取1。) ， <code>__xor__</code></dd>
+</dl>
+
 
 <p>
 类似的右侧运算名字前面加上r，增强运算名字前面加上i，不赘述了。
 </p>
+</div>
+</div>
+</div>
 
 
+<div class="outline-3">
+<h3 id="orgheadline16">逻辑运算</h3>
+<div class="outline-text-3" id="text-1-4">
 <p>
-\section{逻辑运算}
 \subsection{bool函数支持}
 bool(X)  \verb+__bool__(self)+
 </p>
@@ -1343,7 +1384,7 @@ test.hello()
 
 
 <div class="outline-2">
-<h2 id="orgheadline12">深入理解python3的迭代</h2>
+<h2 id="orgheadline18">深入理解python3的迭代</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 \label{sec:深入理解python3的迭代}
@@ -1596,7 +1637,7 @@ print(new_x1,new_x2)
 
 
 <div class="outline-2">
-<h2 id="orgheadline13">模块包</h2>
+<h2 id="orgheadline19">模块包</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 多个模块py文件组成一个多文件夹目录的整体就是一个模块包。
@@ -1780,7 +1821,7 @@ myfun函数
 
 
 <div class="outline-2">
-<h2 id="orgheadline14">文件处理高级知识</h2>
+<h2 id="orgheadline21">文件处理高级知识</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 接下来的例子如果涉及到文件的请自己随便创建一个对应文件名的文件，内容随意了。
@@ -1863,15 +1904,38 @@ pyout.close()
 从这里起我们看到如果需要更加复杂的文本处理技巧就需要学习正则表达式和re模块了，请参见re模块这一小节\ref{sec:re模块}。
 </p>
 </div>
+
+
+
+<div class="outline-3">
+<h3 id="orgheadline20">文件对象的seek方法</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+文件对象的seek方法就三种用法，参看了 <a href="http://www.cnblogs.com/paisen/p/3492768.html">这个网页</a> 。
+</p>
+
+<ul class="org-ul">
+<li>f.seek(p,0) 就是从文件头开始移动p个字节。注意移动之后如果你执行 <code>readline()</code> 那么返回的字符串是从当前位置到行尾。第二个参数默认是这个行为。</li>
+
+<li>f.seek(p,1) 基于当前位置再移动p个字节。</li>
+
+<li>f.seek(0,2) 这个就是移动到文件尾。然后如果打开默认是 <code>b</code> 的话，那么还是可以用某个p负值来表示从文件尾向前移动了多少个字节的。</li>
+</ul>
+</div>
+</div>
 </div>
 
 
 
-
-
 <div class="outline-2">
-<h2 id="orgheadline15">与c语言或c++语言编写的模块集成</h2>
+<h2 id="orgheadline22">与c语言或c++语言编写的模块集成</h2>
 <div class="outline-text-2" id="text-5">
+<p>
+ref <a href="https://github.com/yasoob/intermediatePython/blob/master/python_c_extension.rst">https://github.com/yasoob/intermediatePython/blob/master/python_c_extension.rst</a>
+</p>
+
+
+
 <p>
 \section{安装和配置}
 \subsection{通过apt安装}
@@ -2011,7 +2075,7 @@ hello, world
 
 
 <div class="outline-2">
-<h2 id="orgheadline16">PEP8推荐的风格</h2>
+<h2 id="orgheadline23">PEP8推荐的风格</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 <a href="http://intermediate-and-advanced-software-carpentry.readthedocs.org/en/latest/structuring-python.html">参考文档</a> 

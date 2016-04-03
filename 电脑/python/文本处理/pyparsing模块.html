@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-03-28 一 12:09 -->
+<!-- 2016-04-03 日 14:46 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>pyparsing模块</title>
@@ -136,7 +136,7 @@ figure{
 }
 
 .NOTECARD{
-    width: 30%;
+    width: 35%;
     position:relative;
     right: -30%;
     padding: 1em;
@@ -260,6 +260,12 @@ table tr:nth-child(even) {
 <li><a href="#orgheadline5">5. Word类</a></li>
 <li><a href="#orgheadline6">6. 刷float的进阶</a></li>
 <li><a href="#orgheadline7">7. 刷化学分子式</a></li>
+<li><a href="#orgheadline8">8. 刷wikipedia的infobox</a></li>
+<li><a href="#orgheadline10">9. 附录</a>
+<ul>
+<li><a href="#orgheadline9">9.1. BNF相关</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </nav>
@@ -269,7 +275,7 @@ table tr:nth-child(even) {
 <h2 id="orgheadline1">简介</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-pyparsing模块是一个不错的超越re模块之上，用BNF思维来思考文本处理的模块，借助pyparsing模块，我们可以写出很强大的text parser。
+pyparsing模块是一个用BNF思维（不同于正则表达式的思维）来进行文本处理的模块，借助pyparsing模块，我们可以写出很强大的text parser。
 </p>
 
 <p>
@@ -420,6 +426,64 @@ pe_element = Regex("A[cglmrstu]|B[aehikr]?|C[adeflmorsu]?|D[bsy]|"
 pe_elementnum = Group( pe_element("element") + Optional( Word( nums ), default="1" )("num"))
 tp_formula = WordStart(cs_formula) + OneOrMore( pe_elementnum ) + WordEnd(cs_formula)
 </pre>
+</div>
+</div>
+
+
+<div class="outline-2">
+<h2 id="orgheadline8">刷wikipedia的infobox</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+wikipedia的infobox具体的值都有这样的形式:
+</p>
+<pre>
+| SMILES = c1ccccc1
+| EINECS = 200-753-7
+| InChI = 1/C6H6/c1-2-4-6-5-3-1/h1-6H
+</pre>
+
+<p>
+我们可以建立如下parser:
+</p>
+<div class="highlight"><pre><span></span><span class="n">equation</span> <span class="o">=</span> <span class="n">Word</span><span class="p">(</span><span class="n">alphanums</span><span class="o">+</span><span class="s1">&#39;-_&#39;</span><span class="p">)(</span><span class="s2">&quot;key&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setParseAction</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">+</span> <span class="n">restOfLine</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setParseAction</span><span class="p">(</span><span class="n">action_value</span><span class="p">)</span>
+<span class="n">oneline</span> <span class="o">=</span> <span class="n">Group</span><span class="p">(</span><span class="n">LineStart</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span> <span class="o">+</span> <span class="n">equation</span> <span class="o">+</span> <span class="n">LineEnd</span><span class="p">())</span>
+<span class="c1"># parse input string</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">oneline</span>
+</pre></div>
+
+<p>
+这里每一行都由 <code>LineStart()</code> <code>|</code> <code>equation</code> <code>LineEnd()</code> 组成。
+</p>
+
+<p>
+其中 <code>LineStart()</code> 和 <code>LineEnd()</code> 定义了一行的开始和一行的结束，基于 <code>\n</code> 。
+</p>
+
+<p>
+然后我们看到 <code>equation</code> ，注意看 <code>Word(alphanums+'-_')("key")</code> ，这种表达也就是 <code>Word(alphanums+'-_')</code> 刷匹配的内容将以 <code>key</code> 存储进去。后面 <code>setParseAction</code> 是对该匹配的部分进行额外的动作，我们看到可以通过 <code>t["key"]</code> 来获得该值。 然后 <code>restOfLine()</code> 匹配之后到行结束的所有的内容。
+</p>
+</div>
+</div>
+
+<div class="outline-2">
+<h2 id="orgheadline10">附录</h2>
+<div class="outline-text-2" id="text-9">
+</div><div class="outline-3">
+<h3 id="orgheadline9">BNF相关</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+本小节主要参考了 <a href="http://eikke.com/text-parsing-formal-grammars-and-bnf-introduction/index.html">这个网页</a> 和 <a href="http://eikke.com/pyparsing-introduction-bnf-to-code/">这个网页</a> 。
+</p>
+
+
+<p>
+所谓 BNF ，即 Backus–Naur Form ，中文名字叫巴科斯范式。其用来表示一种上下无关文法的语言。
+</p>
+
+<p>
+这一块术语挺绕口的，后面有时间再整理一下。
+</p>
+</div>
 </div>
 </div>
 </div>

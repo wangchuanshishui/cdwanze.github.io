@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-03-28 一 12:08 -->
+<!-- 2016-04-03 日 21:15 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>事件驱动编程</title>
@@ -136,7 +136,7 @@ figure{
 }
 
 .NOTECARD{
-    width: 30%;
+    width: 35%;
     position:relative;
     right: -30%;
     padding: 1em;
@@ -253,34 +253,35 @@ table tr:nth-child(even) {
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline4">1. 前言</a>
+<li><a href="#orgheadline5">1. 前言</a>
 <ul>
-<li><a href="#orgheadline1">1.1. yield from 关键词</a></li>
-<li><a href="#orgheadline2">1.2. loop-with-callbacks</a></li>
-<li><a href="#orgheadline3">1.3. loop-with-coroutines</a></li>
+<li><a href="#orgheadline1">1.1. 理解协程(coroutine)</a></li>
+<li><a href="#orgheadline2">1.2. 理解 yield from</a></li>
+<li><a href="#orgheadline3">1.3. loop-with-callbacks</a></li>
+<li><a href="#orgheadline4">1.4. loop-with-coroutines</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline15">2. asyncio模块详解</a>
+<li><a href="#orgheadline16">2. asyncio模块简介</a>
 <ul>
-<li><a href="#orgheadline9">2.1. 添加回调</a>
+<li><a href="#orgheadline10">2.1. 添加回调</a>
 <ul>
-<li><a href="#orgheadline5">2.1.1. add_reader方法</a></li>
-<li><a href="#orgheadline6">2.1.2. remove_reader方法</a></li>
-<li><a href="#orgheadline7">2.1.3. add_writer方法</a></li>
-<li><a href="#orgheadline8">2.1.4. remove_writer方法</a></li>
+<li><a href="#orgheadline6">2.1.1. add_reader方法</a></li>
+<li><a href="#orgheadline7">2.1.2. remove_reader方法</a></li>
+<li><a href="#orgheadline8">2.1.3. add_writer方法</a></li>
+<li><a href="#orgheadline9">2.1.4. remove_writer方法</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline10">2.2. 自定义协议</a></li>
-<li><a href="#orgheadline11">2.3. 添加Task</a></li>
-<li><a href="#orgheadline14">2.4. 协程任务结果聚合</a>
+<li><a href="#orgheadline11">2.2. 自定义协议</a></li>
+<li><a href="#orgheadline12">2.3. 添加Task</a></li>
+<li><a href="#orgheadline15">2.4. 协程任务结果聚合</a>
 <ul>
-<li><a href="#orgheadline12">2.4.1. 使用Queue</a></li>
-<li><a href="#orgheadline13">2.4.2. 使用gather函数</a></li>
+<li><a href="#orgheadline13">2.4.1. 使用Queue</a></li>
+<li><a href="#orgheadline14">2.4.2. 使用gather函数</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline16">3. 参考资料</a></li>
+<li><a href="#orgheadline17">3. 参考资料</a></li>
 </ul>
 </div>
 </nav>
@@ -288,7 +289,7 @@ table tr:nth-child(even) {
 
 
 <div class="outline-2">
-<h2 id="orgheadline4">前言</h2>
+<h2 id="orgheadline5">前言</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 本文紧跟着 <a href="套接字编程入门.html">套接字编程入门</a>  一文，继续向前探索。在本文开始前，强烈建议读者读读 <a href="#orgtarget1">参考资料1</a> ，该文其中说明asyncio模块部分很是重要。
@@ -296,8 +297,106 @@ table tr:nth-child(even) {
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline1">yield from 关键词</h3>
+<h3 id="orgheadline1">理解协程(coroutine)</h3>
 <div class="outline-text-3" id="text-1-1">
+<p>
+读者请参看 David Beazley <a href="http://www.dabeaz.com/coroutines/Coroutines.pdf">这篇文章</a> 。
+</p>
+
+<p>
+我们看到这个例子:
+</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="k">def</span> <span class="nf">follow</span><span class="p">(</span><span class="n">thefile</span><span class="p">):</span>
+    <span class="n">thefile</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">thefile</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="k">yield</span> <span class="n">line</span>
+
+
+<span class="n">logfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;test.log&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">follow</span><span class="p">(</span><span class="n">logfile</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>
+然后我们执行:
+</p>
+<pre>
+bash&gt;&gt;&gt; echo "hello" &gt;&gt; test.log
+</pre>
+
+<p>
+然后我们开始运行上面的那个python小脚本。
+</p>
+
+<p>
+然后我们再执行:
+</p>
+<pre>
+bash&gt;&gt;&gt; echo "hello" &gt;&gt; test.log
+</pre>
+
+<p>
+Interesting,这整个过程是怎样的呢。关于生成器函数最基本的东西这里就不罗嗦了，这里要讲的是，python中的每一个函数经过编译之后送入内存，并没有实际执行，而具体调用的时候如果遇到 <code>yield</code> ，python就会中止该函数的执行，去做其他的事情去了。而这个所谓的生成器函数返回的是一个生成器对象。我们看到 <code>follow(logfile)</code> 那里其返回的就是一个生成器对象。生成器对象有一个 <code>send</code> 方法，如果 send 的是 <code>None</code> ，那么该生成器就开始执行，并返回一个值，然后又遇到一个 <code>yield</code> 了，生成器又会停止，如此继续，直到返回 <code>StopIteration</code> 异常，然后我们就直到这个生成器迭代完了。
+</p>
+
+<p>
+一般我们编程都尽量避免 <code>while True</code> 这样的写法的，但在生成器函数里面，却可以这样做，这样就避免了 <code>StopIteration</code> 异常，然后生成器就好像一个管道 流 监听器一样的东西了。如果说上面这个例子还不太难理解，那么看下面这个例子。
+</p>
+
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grep</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Searching for&quot;</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;you send None&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+<span class="n">search</span> <span class="o">=</span> <span class="n">grep</span><span class="p">(</span><span class="s1">&#39;coroutine&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>
+search是这么一个生成器对象，我们可以把生成器函数看作一个管道一样的东西，如果说前面的 <code>yield what</code> 是管道出口，那么这里的 <code>(yield)</code> 这样的表达就是管道入口。我们send过来的什么东西都将成为返回值。前面我们说 <code>send(None)</code> 生成器开始执行，实际上send(what)的what都是这里的 <code>(yield)</code> 的返回值。这样程序 
+</p>
+
+<p>
+现在我们运行上面python脚本然后继续输入:
+</p>
+<pre>
+&gt;&gt;&gt; search.send(None)
+Searching for coroutine
+&gt;&gt;&gt; search.send(None)
+you send None
+&gt;&gt;&gt; search.send("test")
+&gt;&gt;&gt; search.send("test coroutine")
+test coroutine
+&gt;&gt;&gt;
+</pre>
+
+<p>
+我们看到第一次send None 生成器函数开始实际执行，然后遇到yield 停顿了。 然后 send None ，这时 line 的值就是 None ，然后等等等等，这个我们建立了一个生成器对象，而这个生成器对象好像一个管道一个长期挂载在那里，可以送信息，也可以输出信息，实在奇妙啊。而所谓的协程就是这种编程风格，基于这里讨论的生成器函数的作用原理，然后我们通过
+</p>
+
+<pre>
+for i in generator:
+    print(i)
+</pre>
+
+<p>
+以一种流的风格，慢慢送过来，再慢慢输出。这一块内容很丰富很艰深，我们后面有时间再仅需深入慢慢体会吧。
+</p>
+</div>
+</div>
+
+<div class="outline-3">
+<h3 id="orgheadline2">理解 yield from</h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
 在开始前有必要详细说明一下yield from关键词。我们从 <a href="#orgtarget1">参考资料1</a> 看到python的内在处理机制是将所谓的协程概念和异步编程概念等都和python中的生成器迭代器概念重合了。实际上我们可以简单地将一个协程看作一个生成器对象，然后Task这个对象是基于Future这个对象的:
 </p>
@@ -436,8 +535,8 @@ True
 
 
 <div class="outline-3">
-<h3 id="orgheadline2">loop-with-callbacks</h3>
-<div class="outline-text-3" id="text-1-2">
+<h3 id="orgheadline3">loop-with-callbacks</h3>
+<div class="outline-text-3" id="text-1-3">
 <p>
 通过DefaultSelector构建起来的事件循环还有基于套接字的操作，下面代码来自 <a href="https://github.com/aosabook/500lines">500lines</a> 。若读者已经读过前面的套接字编程入门一文，那么理解这个脚本应该不成问题了。其中值得注意的是其刷url和处理重复url的python方法较好，值得我们学习。
 </p>
@@ -555,8 +654,8 @@ True
 
 
 <div class="outline-3">
-<h3 id="orgheadline3">loop-with-coroutines</h3>
-<div class="outline-text-3" id="text-1-3">
+<h3 id="orgheadline4">loop-with-coroutines</h3>
+<div class="outline-text-3" id="text-1-4">
 <p>
 如果读者理解了yield from关键词，那么下面的代码也是很好理解的。这段代码基于上面的代码然后稍作修改而来。
 </p>
@@ -724,22 +823,14 @@ True
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{} URLs fetched in {:.1f} seconds, achieved concurrency = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
     <span class="nb">len</span><span class="p">(</span><span class="n">urls_seen</span><span class="p">),</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="n">concurrency_achieved</span><span class="p">))</span>
 </pre></div>
-
-<p>
-下面我决定进一步利用python3.4的asyncio模块来改写上面的脚本。值得一提的是前面谈及的协程函数都推荐用 <code>@asyncio.coroutine</code> 装饰器装饰起来，虽然前面我们看到实际上不用装饰器yield from也能构成某种协程数据的组合逻辑，但如果不加上和asyncio模块的evenloop的一些方法不兼容，比如 <code>run_until_complete</code> 方法就要求一个加上这个装饰器的所谓的协程函数，然后官方文档也谈及一些兼容性问题。至于python3.5新加入的 <code>async def</code> 和 <code>await</code> 关键词这里暂时不考虑了。
-</p>
-
-
-<p>
-基于前面的两个例子我写了一个crawler.py程序，其在我写的infome模块的crawl子模块 <a href="https://github.com/a358003542/infome/tree/master/infome/crawl">那里</a> 。
-</p>
 </div>
 </div>
 </div>
+
 
 
 <div class="outline-2">
-<h2 id="orgheadline15">asyncio模块详解</h2>
+<h2 id="orgheadline16">asyncio模块简介</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 一般首先你需要通过 <code>get_event_loop</code> 函数来获取一个全局性的事件驱动循环，其返回一个EventLoop对象，asyncio模块为EventLoop对象提供了很多方法，很多任务都可以通过调用这个EventLoop对象的方法来完成，下面简称为loop。
@@ -759,10 +850,10 @@ loop的 <code>close</code> 方法，关闭事件循环。loop的 <code>stop</cod
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline9">添加回调</h3>
+<h3 id="orgheadline10">添加回调</h3>
 <div class="outline-text-3" id="text-2-1">
 </div><div class="outline-4">
-<h4 id="orgheadline5">add_reader方法</h4>
+<h4 id="orgheadline6">add_reader方法</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <pre>
 BaseEventLoop.add_reader(fd, callback, *args)
@@ -775,7 +866,7 @@ BaseEventLoop.add_reader(fd, callback, *args)
 </div>
 
 <div class="outline-4">
-<h4 id="orgheadline6">remove_reader方法</h4>
+<h4 id="orgheadline7">remove_reader方法</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 移除某个reader。
@@ -784,7 +875,7 @@ BaseEventLoop.add_reader(fd, callback, *args)
 </div>
 
 <div class="outline-4">
-<h4 id="orgheadline7">add_writer方法</h4>
+<h4 id="orgheadline8">add_writer方法</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 监听可写事件。
@@ -797,7 +888,7 @@ BaseEventLoop.add_writer(fd, callback, *args)
 </div>
 
 <div class="outline-4">
-<h4 id="orgheadline8">remove_writer方法</h4>
+<h4 id="orgheadline9">remove_writer方法</h4>
 <div class="outline-text-4" id="text-2-1-4">
 <p>
 移除某个writer。
@@ -807,7 +898,7 @@ BaseEventLoop.add_writer(fd, callback, *args)
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline10">自定义协议</h3>
+<h3 id="orgheadline11">自定义协议</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 自定义的协议继承自Protocol类，然后其调用loop的 <code>create_server</code> 来接受这个协议类来时间创建一个协程式的服务器程序:
@@ -882,7 +973,7 @@ a
 
 
 <div class="outline-3">
-<h3 id="orgheadline11">添加Task</h3>
+<h3 id="orgheadline12">添加Task</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 通过loop的 <code>create_task</code> 方法来给事件循环添加一个Task任务。一般我们使用不用再去考虑Future的概念了，简单理解就是给loop事件循环添加一个待执行的协程任务，然后这个任务对象可以内部可以添加计划多个任务流，大抵如此。
@@ -895,10 +986,10 @@ BaseEventLoop.create_task(coro)
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline14">协程任务结果聚合</h3>
+<h3 id="orgheadline15">协程任务结果聚合</h3>
 <div class="outline-text-3" id="text-2-4">
 </div><div class="outline-4">
-<h4 id="orgheadline12">使用Queue</h4>
+<h4 id="orgheadline13">使用Queue</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <pre>
 from asyncio import JoinableQueue as Queue
@@ -928,7 +1019,7 @@ queue = Queue(loop=self.loop)
 
 
 <div class="outline-4">
-<h4 id="orgheadline13">使用gather函数</h4>
+<h4 id="orgheadline14">使用gather函数</h4>
 <div class="outline-text-4" id="text-2-4-2">
 <pre>
 asyncio.gather(*coros_or_futures, loop=None, return_exceptions=False)
@@ -951,8 +1042,12 @@ gather函数将收集一些协程函数或任务或futures等，等所有的结�
 
 
 
+
+
+
+
 <div class="outline-2">
-<h2 id="orgheadline16">参考资料</h2>
+<h2 id="orgheadline17">参考资料</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>a-web-crawler-with-asyncio-coroutines <a href="http://aosabook.org/en/500L/a-web-crawler-with-asyncio-coroutines.html">这种原英文网页</a> , <a href="http://damnever.github.io/2015/10/12/a-web-crawler-with-asyncio-coroutines/">这里有个中文翻译网页</a> 。 <a id="orgtarget1"></a></li>

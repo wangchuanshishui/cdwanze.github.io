@@ -163,3 +163,11 @@ config['topsecret.server.com'] = {}
 with open('example.ini', 'w') as configfile:
     config.write(configfile)
 #+END_EXAMPLE
+
+* 不默认更改大小写
+具体请参看 [[http://stackoverflow.com/questions/19359556/configparser-reads-capital-keys-and-make-them-lower-case][这个网页]] ，configparser模块默认吧option name也就是每个section的key name改成小写，我不太喜欢这种风格，因为将configparser刷成字典值时，我们通常认为字典的key大小写是区分的，可以如下改动，然后就不自动进行小写操作了:
+
+#+BEGIN_SRC python
+self.cfg = configparser.ConfigParser()
+self.cfg.optionxform = str## not auto make it lowercase
+#+END_SRC

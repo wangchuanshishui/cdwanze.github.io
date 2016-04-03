@@ -8,11 +8,12 @@
 #+CREATOR: 编者:wanze(<a href="mailto:a358003542@163.com">a358003542@163.com</a>)
 #+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
 
-本文停写了，后面的代码将完全基于python3，不会考虑这些问题了。
+
+ref https://github.com/yasoob/intermediatePython/blob/master/targeting_python_2_3.rst
+
 
 * 前言
-本文主要讨论python2和python3的区别，以及如何从python2移植到python3或者如何写出更具python3兼容性的python2代码等等。
-
+本文将进一步重写，立足python3，然后尽可能的推出python2和python3多个python版本兼容python代码的尝试的解决方案。
 
 
 * 2to3内置模块

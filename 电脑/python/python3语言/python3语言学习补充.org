@@ -9,6 +9,43 @@
 
 
 
+* 快速更新类的本地变量
+ref : https://github.com/yasoob/intermediatePython/blob/master/one_liners.rst
+#+BEGIN_EXAMPLE
+class A(object):
+    def __init__(self, a, b, c, d, e, f):
+        self.__dict__.update({k: v for k, v in locals().items() if k != 'self'})
+#+END_EXAMPLE
+
+* 可迭代对象flatten 
+#+BEGIN_EXAMPLE
+a_list = [[1, 2], [3, 4], [5, 6]]
+print(list(itertools.chain.from_iterable(a_list)))
+# Output: [1, 2, 3, 4, 5, 6]
+
+# or
+print(list(itertools.chain(*a_list)))
+# Output: [1, 2, 3, 4, 5, 6]
+#+END_EXAMPLE
+
+
+
+* __slots__ 方法
+请参看 [[https://github.com/yasoob/intermediatePython/blob/master/__slots__magic.rst][这个网页]] 。
+
+我多少对这个不太感兴趣，因为我观察python程序大部分情况下，RAM用的并不多，有的时候我们甚至要考虑强制使用RAM来提高程序的运算速度。但了解一下吧。
+
+
+
+* 三元运算符
+也就是类似这样的结构:
+#+BEGIN_EXAMPLE
+loop = loop if loop is not None else get_event_loop()
+#+END_EXAMPLE
+
+通常我们在处理函数的入口参数实现默认值的情况的时候会用到，比如上面一般函数参数那里写着 ~loop=None~ ，用上面这种一行形式更简洁一些。而我们不直接在函数定义的那里采用默认值可能有两种情况，一是该默认值并不方便作为默认值，而最好默认为None
+；还有一种情况是默认值是需要通过某个函数等运算得到的。
+
 * __missing__ 方法
 对于字典或者字典的子类，你可以通过定义 ~__missing__~ 方法来回避找不到键值而抛出的 ~KeyError~ ，参考了 [[http://stackoverflow.com/questions/635483/what-is-the-best-way-to-implement-nested-dictionaries-in-python][这个网页]] 。如下所示:
 
@@ -252,6 +289,10 @@ http://stackoverflow.com/questions/2349991/python-how-to-import-other-python-fil
 
 
 * 上下文环境确认with语句
+参看了 [[https://github.com/yasoob/intermediatePython/blob/master/context_managers.rst][这个网页]] 。
+
+__enter__   __exit__ 类方法
+
 
 
 * 函数装饰器
