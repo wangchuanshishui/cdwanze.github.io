@@ -1,0 +1,28 @@
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:[11pt,oneside]
+#+LATEX_HEADER: \usepackage{article}
+
+
+#+TITLE: flask学习补充
+#+AUTHOR: 万泽(德山书生)
+#+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
+#+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
+
+
+* path模糊处理结尾的slash
+参看 [[http://stackoverflow.com/questions/33241050/trailing-slash-triggers-404-in-flask-path-rule][这个网页]] 。
+
+#+BEGIN_SRC python
+@app.route('/users', strict_slashes=False)
+@app.route('/users/<path:path>')
+def users(path=None):
+    return str(path)
+
+c = app.test_client()
+print(c.get('/users'))  # 200 OK
+print(c.get('/users/'))  # 200 OK
+print(c.get('/users/test'))  # 200 OK
+#+END_SRC
+
+
+

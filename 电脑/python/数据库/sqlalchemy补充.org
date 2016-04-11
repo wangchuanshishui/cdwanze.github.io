@@ -1,0 +1,70 @@
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:[11pt,oneside]
+#+LATEX_HEADER: \usepackage{article}
+
+
+#+TITLE: sqlalchemy补充
+#+AUTHOR: 万泽(德山书生)
+#+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
+#+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
+
+* 额外的属性支持
+所谓的额外的属性并不是基于SQL表格的某一列的属性，而是在ORM之上建立起来的额外的属性，其一般是基于SQL表格的某一列或某些列的，是ORM封装之上提供的更加便利的属性接口。
+
+#+BEGIN_SRC python
+class EmailAddress(Base):
+    __tablename__ = 'email_address'
+
+    id = Column(Integer, primary_key=True)
+
+    _email = Column("email", String)
+
+    @hybrid_property
+    def email(self):
+        """Return the value of _email up until the last twelve
+        characters."""
+
+        return self._email[:-12]
+
+    @email.setter
+    def email(self, email):
+        """Set the value of _email, tacking on the twelve character
+        value @example.com."""
+
+        self._email = email + "@example.com"
+#+END_SRC
+
+
+* 某一列的额外的别名
+这里所谓的某一列额外的别名指并没有创建额外的列，而是在ORM层针对某一列可以用额外的别名来做类似的操作。
+#+BEGIN_SRC python
+from sqlalchemy.ext.declarative import synonym_for
+
+class MyClass(Base):
+    __tablename__ = 'my_table'
+
+    id = Column(Integer, primary_key=True)
+    status = Column(String(50))
+
+    @synonym_for("status")
+    @property
+    def job_status(self):
+        return "Status: " + self.status
+#+END_SRC
+
+其等于:
+#+BEGIN_SRC python
+class MyClass(Base):
+    __tablename__ = 'my_table'
+
+    id = Column(Integer, primary_key=True)
+    status = Column(String(50))
+
+    @property
+    def job_status(self):
+        return "Status: " + self.status
+
+    job_status = synonym("status", descriptor=job_status)
+#+END_SRC
+
+也就是具体该列在ORM层可以通过 ~status~ 或者 ~job_status~ 来操作。具体参考 [[http://docs.sqlalchemy.org/en/latest/orm/mapped_attributes.html][这里]] 。
