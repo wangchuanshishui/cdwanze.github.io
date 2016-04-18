@@ -9,4 +9,8 @@
 #+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
 
 
-* org模式入门
+* 万泽的编程日记00005
+
+#+BEGIN_HTML
+<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://static.hdslb.com/miniloader.swf" flashvars="aid=4343716&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
+#+END_HTML
