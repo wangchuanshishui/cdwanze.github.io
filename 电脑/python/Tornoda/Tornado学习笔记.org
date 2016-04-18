@@ -9,14 +9,6 @@
 #+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
 
 * 前言
-tornado是一个异步webapp框架，其从内部工作原理上应该说更加接近于aiohttp，其内部有一个事件循环，是可以挂载到python官方的asyncio的主事件循环上的，而aiohttp的client部分也是基于asyncio的事件循环的，所以这几个模块是可以统一起来的。然后tornado有自己的模板，websocket和国际化等等解决方案，是一个不错的产品级的异步webapp框架。
-
-虽然tornado也支持将自己进行wsgi接口封装，但我估计没谁这么做吧。可能会有某些人把flask编写的webapp稍作修改对接进tornado里面去，这样做的人都是flask的插件和生态圈的爱好者，我大体也是其中一员吧。唯一的疑问就是这种做法效率到底提升了多少，从 [[https://gist.github.com/andreif/6088558][这篇文章]] 看来，似乎效率的提升不是很明显。同时tornado和flask的混杂丢失了一些东西，比如异步机制，然后websocket之类的。然后我看到了 [[http://stackoverflow.com/questions/8143141/using-flask-and-tornado-together/8247457#8247457][这篇文章]] ，其做法似乎做到了更加完美的揉合了tornado和flask，我很是喜欢，更多详细细节后面再讨论。
-
-
-正如前面所述及的，tornado这个框架里面内容是很丰富的，但是有些内容不一定要使用tornado，比如说web client层，同步的就可以考虑使用不错的requests模块，而异步则使用aiohttp也是不错的；然后还有其他一些底层的tcpclient或tcpserver类等，实际上用asyncio里面的某些功能来实现也是可以的，这个倒不用拘泥；然后比如tornado提供了queues结构，asyncio里面也有类似的Queue结构，也不一定要使用tornado的那个；等等。不过就最顶层的webapp 视图层还是推荐全部在tornado框架下编写。
-
-
 
 ** 安装
 #+BEGIN_SRC sh
@@ -46,6 +38,7 @@ if __name__ == "__main__":
 这是一个同步的webapp框架，可能后面会用的较少，这里主要了解一下tornado编写的webapp的基本结构:
 
 1. 开启tornado的事件驱动循环:
+
 #+BEGIN_EXAMPLE
     tornado.ioloop.IOLoop.current().start()
 #+END_EXAMPLE
@@ -77,7 +70,7 @@ def make_app():
         (r"/", MainHandler),
     ])
 #+END_EXAMPLE
-然后从上面的代码我们就已经看到，根据不同的URL将分发不同的Handler，这个类似于flask的URL和视图函数分发过程。所以我们也可以把这里的 MainHandler看作一个视图处理类。
+然后从上面的代码我们就已经看到，根据不同的URL将分发不同的Handler，这个类似于flask的URL和视图函数分发过程。所以我们也可以把这里的 MainHandler 看作一个视图处理类。
 
 3. 编写各个视图处理类:
 #+BEGIN_EXAMPLE
@@ -86,8 +79,6 @@ class MainHandler(tornado.web.RequestHandler):
         self.write("Hello, world")
 #+END_EXAMPLE
 视图处理类里面很多细节后面再详细讨论之，我们从上面的例子可以看到大体分发了HTTP ~get~ 请求，然后write了什么信息。
-
-
 
 
 
@@ -127,10 +118,69 @@ if __name__ == '__main__':
 ** tornado.gen.coroutine vs asyncio.coroutine 
 请参看官方文档的 [[http://www.tornadoweb.org/en/stable/guide/coroutines.html][这里]] ，实际上我试了一下，将 ~@gen.coroutine~ 替换为 ~@asyncio.coroutine~ webapp也是可以正常运行的。
 
-正如官方文档所说，这里主要是兼容性的考虑，Tornado的coroutine runner更通用，可以适应其他框架，而asyncio的coroutine runner并不接受其他框架的corotine。所以如果你并没有兼容其他框架的考虑，就直接使用 ~@asyncio.coroutine~ 也是可以的。
+正如官方文档所说，这里主要是兼容性的考虑，Tornado的coroutine runner更通用，可以适应其他框架，而asyncio的coroutine runner并不接受其他框架的corotine。一般还是推荐使用tornado提供的装饰器 ~@gen.coroutine~ 吧。
 
 
-* tornado plus flask
+
+* Application对象
+#+BEGIN_EXAMPLE
+tornado.web.Application(handlers=None, default_host='', transforms=None, **settings)
+#+END_EXAMPLE
+
+** url分发部分
+上面的handlers参数主要进行url分发工作，其是一个列表，里面是一些所谓的 ~URLSpec~ 对象:
+#+BEGIN_EXAMPLE
+tornado.web.URLSpec(pattern, handler, kwargs=None, name=None)
+#+END_EXAMPLE
+
+- pattern就是一个匹配url分发的正则表达式
+- handler是 ~RequestHandler~ 的子类，定义了具体url分发过来之后做些什么。
+- kwargs，字典值，这个值将传递给handler的 ~initialize~ 方法，这个后面再说。
+- name，确切来说是给这个url分发规则取个名字，等下可以用 ~Application.reverse_url(name,*args)~ 来解析出具体的某个url，这个大体类似于flask的 url_for 和 endpoint的概念。
+
+然后pattern正则表达式我们知道有那个圆括号包围起来的group的概念，比如:
+#+BEGIN_EXAMPLE
+r"/story/([0-9]+)"
+#+END_EXAMPLE
+
+这里group匹配到的参数，将作为入口参数传递个 ~RequestHandler~ 对象的 HTTP method，也就是 ~get~ ~post~ 等。
+
+然后我们看到 ~Application.reverse_url(name,*args)~ 其后接受的一些参数也对应这里的正则表达式匹配，其反向解析url将进行匹配子group的替换操作。
+
+然后kwargs这个字典值，传递给 ~initialize~ 方法大致如下所示:
+#+BEGIN_SRC python
+class StoryHandler(RequestHandler):
+    def initialize(self, db):
+        self.db = db
+
+    def get(self, story_id):
+        self.write("this is story %s" % story_id)
+
+app = Application([
+    url(r"/story/([0-9]+)", StoryHandler, dict(db=db), name="story")
+    ])
+#+END_SRC
+
+** 配置部分
+~**settings~ 收集一系列的有关Application的配置信息，具体有很多，不一而足，下面列出一些:
+
+- debug :: 是否开启debug模式
+- template_path :: 定义模板文件夹所在位置
+- static_path :: 定义静态文件夹所在位置
+
+
+** listen方法
+为这个application开启一个HTTP Server，然后指定监听端口。
+
+
+
+* RequestHandler对象
+每一个请求过来都将创建一个 ~RequestHandler~ 对象，然后其将执行 ~initialize~ 方法；然后其将执行 ~prepare~ 方法，prepare方法是HTTP协议具体方法无关的；然后其将执行具体某个HTTP协议的方法，比如 ~get~ ~post~ ~put~ 等等，url正则表达式匹配的子group也将作为参数传进去，这个前面有所提及的；然后其将执行 ~on_finish~ 方法。
+
+
+
+* 附录
+** tornado plus flask
 主要参考了 [[http://stackoverflow.com/questions/8143141/using-flask-and-tornado-together/8247457#8247457][这个网站]] 。
 
 #+BEGIN_SRC python
@@ -155,14 +205,7 @@ if __name__ == "__main__":
   IOLoop.instance().start()
 #+END_SRC
 
-
-* Application对象
-18
-
-
-
-
-* 参考资料
+** 参考资料
 1. [[http://www.tornadoweb.org/en/stable/index.html][官方文档]] ，其他的中文翻译版本可能有点过时了。
 
 

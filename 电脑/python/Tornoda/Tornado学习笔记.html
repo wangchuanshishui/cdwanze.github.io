@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-03-28 一 12:11 -->
+<!-- 2016-04-18 一 22:59 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>Tornado学习笔记</title>
@@ -136,7 +136,7 @@ figure{
 }
 
 .NOTECARD{
-    width: 30%;
+    width: 35%;
     position:relative;
     right: -30%;
     padding: 1em;
@@ -261,9 +261,20 @@ table tr:nth-child(even) {
 <li><a href="#orgheadline4">1.4. tornado.gen.coroutine vs asyncio.coroutine</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline6">2. tornado plus flask</a></li>
-<li><a href="#orgheadline7">3. Application对象</a></li>
-<li><a href="#orgheadline8">4. 参考资料</a></li>
+<li><a href="#orgheadline9">2. Application对象</a>
+<ul>
+<li><a href="#orgheadline6">2.1. url分发部分</a></li>
+<li><a href="#orgheadline7">2.2. 配置部分</a></li>
+<li><a href="#orgheadline8">2.3. listen方法</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline10">3. RequestHandler对象</a></li>
+<li><a href="#orgheadline13">4. 附录</a>
+<ul>
+<li><a href="#orgheadline11">4.1. tornado plus flask</a></li>
+<li><a href="#orgheadline12">4.2. 参考资料</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </nav>
@@ -271,23 +282,7 @@ table tr:nth-child(even) {
 <div class="outline-2">
 <h2 id="orgheadline5">前言</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-tornado是一个异步webapp框架，其从内部工作原理上应该说更加接近于aiohttp，其内部有一个事件循环，是可以挂载到python官方的asyncio的主事件循环上的，而aiohttp的client部分也是基于asyncio的事件循环的，所以这几个模块是可以统一起来的。然后tornado有自己的模板，websocket和国际化等等解决方案，是一个不错的产品级的异步webapp框架。
-</p>
-
-<p>
-虽然tornado也支持将自己进行wsgi接口封装，但我估计没谁这么做吧。可能会有某些人把flask编写的webapp稍作修改对接进tornado里面去，这样做的人都是flask的插件和生态圈的爱好者，我大体也是其中一员吧。唯一的疑问就是这种做法效率到底提升了多少，从 <a href="https://gist.github.com/andreif/6088558">这篇文章</a> 看来，似乎效率的提升不是很明显。同时tornado和flask的混杂丢失了一些东西，比如异步机制，然后websocket之类的。然后我看到了 <a href="http://stackoverflow.com/questions/8143141/using-flask-and-tornado-together/8247457#8247457">这篇文章</a> ，其做法似乎做到了更加完美的揉合了tornado和flask，我很是喜欢，更多详细细节后面再讨论。
-</p>
-
-
-<p>
-正如前面所述及的，tornado这个框架里面内容是很丰富的，但是有些内容不一定要使用tornado，比如说web client层，同步的就可以考虑使用不错的requests模块，而异步则使用aiohttp也是不错的；然后还有其他一些底层的tcpclient或tcpserver类等，实际上用asyncio里面的某些功能来实现也是可以的，这个倒不用拘泥；然后比如tornado提供了queues结构，asyncio里面也有类似的Queue结构，也不一定要使用tornado的那个；等等。不过就最顶层的webapp 视图层还是推荐全部在tornado框架下编写。
-</p>
-</div>
-
-
-
-<div class="outline-3">
+</div><div class="outline-3">
 <h3 id="orgheadline1">安装</h3>
 <div class="outline-text-3" id="text-1-1">
 <div class="highlight"><pre><span></span>pip3 install tornado
@@ -323,6 +318,7 @@ tornado是一个异步webapp框架，其从内部工作原理上应该说更加�
 <ol class="org-ol">
 <li>开启tornado的事件驱动循环:</li>
 </ol>
+
 <pre>
 tornado.ioloop.IOLoop.current().start()
 </pre>
@@ -365,7 +361,7 @@ def make_app():
     ])
 </pre>
 <p>
-然后从上面的代码我们就已经看到，根据不同的URL将分发不同的Handler，这个类似于flask的URL和视图函数分发过程。所以我们也可以把这里的 MainHandler看作一个视图处理类。
+然后从上面的代码我们就已经看到，根据不同的URL将分发不同的Handler，这个类似于flask的URL和视图函数分发过程。所以我们也可以把这里的 MainHandler 看作一个视图处理类。
 </p>
 
 <ol class="org-ol">
@@ -381,8 +377,6 @@ class MainHandler(tornado.web.RequestHandler):
 </p>
 </div>
 </div>
-
-
 
 
 
@@ -432,16 +426,116 @@ class MainHandler(tornado.web.RequestHandler):
 </p>
 
 <p>
-正如官方文档所说，这里主要是兼容性的考虑，Tornado的coroutine runner更通用，可以适应其他框架，而asyncio的coroutine runner并不接受其他框架的corotine。所以如果你并没有兼容其他框架的考虑，就直接使用 <code>@asyncio.coroutine</code> 也是可以的。
+正如官方文档所说，这里主要是兼容性的考虑，Tornado的coroutine runner更通用，可以适应其他框架，而asyncio的coroutine runner并不接受其他框架的corotine。一般还是推荐使用tornado提供的装饰器 <code>@gen.coroutine</code> 吧。
 </p>
 </div>
 </div>
 </div>
 
 
+
 <div class="outline-2">
-<h2 id="orgheadline6">tornado plus flask</h2>
+<h2 id="orgheadline9">Application对象</h2>
 <div class="outline-text-2" id="text-2">
+<pre>
+tornado.web.Application(handlers=None, default_host='', transforms=None, **settings)
+</pre>
+</div>
+
+<div class="outline-3">
+<h3 id="orgheadline6">url分发部分</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+上面的handlers参数主要进行url分发工作，其是一个列表，里面是一些所谓的 <code>URLSpec</code> 对象:
+</p>
+<pre>
+tornado.web.URLSpec(pattern, handler, kwargs=None, name=None)
+</pre>
+
+<ul class="org-ul">
+<li>pattern就是一个匹配url分发的正则表达式</li>
+<li>handler是 <code>RequestHandler</code> 的子类，定义了具体url分发过来之后做些什么。</li>
+<li>kwargs，字典值，这个值将传递给handler的 <code>initialize</code> 方法，这个后面再说。</li>
+<li>name，确切来说是给这个url分发规则取个名字，等下可以用 <code>Application.reverse_url(name,*args)</code> 来解析出具体的某个url，这个大体类似于flask的 url_for 和 endpoint的概念。</li>
+</ul>
+
+<p>
+然后pattern正则表达式我们知道有那个圆括号包围起来的group的概念，比如:
+</p>
+<pre>
+r"/story/([0-9]+)"
+</pre>
+
+<p>
+这里group匹配到的参数，将作为入口参数传递个 <code>RequestHandler</code> 对象的 HTTP method，也就是 <code>get</code> <code>post</code> 等。
+</p>
+
+<p>
+然后我们看到 <code>Application.reverse_url(name,*args)</code> 其后接受的一些参数也对应这里的正则表达式匹配，其反向解析url将进行匹配子group的替换操作。
+</p>
+
+<p>
+然后kwargs这个字典值，传递给 <code>initialize</code> 方法大致如下所示:
+</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">StoryHandler</span><span class="p">(</span><span class="n">RequestHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">db</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">story_id</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;this is story </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">story_id</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">([</span>
+    <span class="n">url</span><span class="p">(</span><span class="s2">r&quot;/story/([0-9]+)&quot;</span><span class="p">,</span> <span class="n">StoryHandler</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;story&quot;</span><span class="p">)</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+
+<div class="outline-3">
+<h3 id="orgheadline7">配置部分</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+<code>**settings</code> 收集一系列的有关Application的配置信息，具体有很多，不一而足，下面列出一些:
+</p>
+
+<dl class="org-dl">
+<dt>debug</dt><dd>是否开启debug模式</dd>
+<dt>template_path</dt><dd>定义模板文件夹所在位置</dd>
+<dt>static_path</dt><dd>定义静态文件夹所在位置</dd>
+</dl>
+</div>
+</div>
+
+
+<div class="outline-3">
+<h3 id="orgheadline8">listen方法</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+为这个application开启一个HTTP Server，然后指定监听端口。
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div class="outline-2">
+<h2 id="orgheadline10">RequestHandler对象</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+每一个请求过来都将创建一个 <code>RequestHandler</code> 对象，然后其将执行 <code>initialize</code> 方法；然后其将执行 <code>prepare</code> 方法，prepare方法是HTTP协议具体方法无关的；然后其将执行具体某个HTTP协议的方法，比如 <code>get</code> <code>post</code> <code>put</code> 等等，url正则表达式匹配的子group也将作为参数传进去，这个前面有所提及的；然后其将执行 <code>on_finish</code> 方法。
+</p>
+</div>
+</div>
+
+
+
+<div class="outline-2">
+<h2 id="orgheadline13">附录</h2>
+<div class="outline-text-2" id="text-4">
+</div><div class="outline-3">
+<h3 id="orgheadline11">tornado plus flask</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
 主要参考了 <a href="http://stackoverflow.com/questions/8143141/using-flask-and-tornado-together/8247457#8247457">这个网站</a> 。
 </p>
@@ -469,25 +563,13 @@ class MainHandler(tornado.web.RequestHandler):
 </div>
 </div>
 
-
-<div class="outline-2">
-<h2 id="orgheadline7">Application对象</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-18
-</p>
-</div>
-</div>
-
-
-
-
-<div class="outline-2">
-<h2 id="orgheadline8">参考资料</h2>
-<div class="outline-text-2" id="text-4">
+<div class="outline-3">
+<h3 id="orgheadline12">参考资料</h3>
+<div class="outline-text-3" id="text-4-2">
 <ol class="org-ol">
 <li><a href="http://www.tornadoweb.org/en/stable/index.html">官方文档</a> ，其他的中文翻译版本可能有点过时了。</li>
 </ol>
+</div>
 </div>
 </div>
 </div>
