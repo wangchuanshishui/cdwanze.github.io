@@ -1,0 +1,27 @@
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:[11pt,oneside]
+#+LATEX_HEADER: \usepackage{article}
+
+
+#+TITLE: FileSaver库
+#+AUTHOR: 万泽(德山书生)
+#+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
+#+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
+
+
+* 简介
+FileSaver库方便你把网页上的一些内容下载到本地，该项目的github地址在 [[https://github.com/eligrey/FileSaver.js][这里]] 。
+
+具体使用就是一个 ~saveAs~ 函数。
+
+#+BEGIN_EXAMPLE
+saveAs(Blob data, DOMString filename, optional Boolean disableAutoBOM)
+#+END_EXAMPLE
+
+如下所示:
+#+BEGIN_EXAMPLE
+var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
+saveAs(blob, "hello world.txt");
+#+END_EXAMPLE
+
+然后javascript的Blob对象，如果你希望保存html富文本形式，type最好设置为: ~{ "type" : "text/xml" }~ 。

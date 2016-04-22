@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-04-03 日 20:41 -->
+<!-- 2016-04-20 三 14:27 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>python3编程指南补充</title>
@@ -275,66 +275,95 @@ table tr:nth-child(even) {
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. 快速更新类的本地变量</a></li>
-<li><a href="#orgheadline2">2. 可迭代对象flatten</a></li>
-<li><a href="#orgheadline3">3. __slots__ 方法</a></li>
-<li><a href="#orgheadline4">4. 三元运算符</a></li>
-<li><a href="#orgheadline5">5. __missing__ 方法</a></li>
-<li><a href="#orgheadline8">6. 字符串比较大小</a>
+<li><a href="#orgheadline1">1. all和any关键词</a></li>
+<li><a href="#orgheadline2">2. 快速更新类的本地变量</a></li>
+<li><a href="#orgheadline3">3. 可迭代对象flatten</a></li>
+<li><a href="#orgheadline4">4. __slots__ 方法</a></li>
+<li><a href="#orgheadline5">5. 三元运算符</a></li>
+<li><a href="#orgheadline6">6. __missing__ 方法</a></li>
+<li><a href="#orgheadline9">7. 字符串比较大小</a>
 <ul>
-<li><a href="#orgheadline6">6.1. 中文比较大小？</a></li>
-<li><a href="#orgheadline7">6.2. ord和chr函数</a></li>
+<li><a href="#orgheadline7">7.1. 中文比较大小？</a></li>
+<li><a href="#orgheadline8">7.2. ord和chr函数</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline10">7. exec和eval</a>
+<li><a href="#orgheadline11">8. exec和eval</a>
 <ul>
-<li><a href="#orgheadline9">7.1. 如果执行import语句</a></li>
+<li><a href="#orgheadline10">8.1. 如果执行import语句</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline11">8. assert语句</a></li>
-<li><a href="#orgheadline12">9. 属性管理的函数</a></li>
-<li><a href="#orgheadline13">10. __name__和__file__</a></li>
-<li><a href="#orgheadline14">11. locals和globals</a></li>
-<li><a href="#orgheadline15">12. product函数</a></li>
-<li><a href="#orgheadline16">13. @property装饰器</a></li>
-<li><a href="#orgheadline17">14. datetime.datetime类型转变成为time.time类型</a></li>
-<li><a href="#orgheadline18">15. __import__函数</a></li>
-<li><a href="#orgheadline19">16. 上下文环境确认with语句</a></li>
-<li><a href="#orgheadline22">17. 函数装饰器</a>
+<li><a href="#orgheadline12">9. assert语句</a></li>
+<li><a href="#orgheadline13">10. 属性管理的函数</a></li>
+<li><a href="#orgheadline14">11. __name__和__file__</a></li>
+<li><a href="#orgheadline15">12. locals和globals</a></li>
+<li><a href="#orgheadline16">13. product函数</a></li>
+<li><a href="#orgheadline17">14. @property装饰器</a></li>
+<li><a href="#orgheadline18">15. datetime.datetime类型转变成为time.time类型</a></li>
+<li><a href="#orgheadline19">16. __import__函数</a></li>
+<li><a href="#orgheadline20">17. 上下文环境确认with语句</a></li>
+<li><a href="#orgheadline23">18. 函数装饰器</a>
 <ul>
-<li><a href="#orgheadline20">17.1. 没有参数的函数装饰器</a></li>
-<li><a href="#orgheadline21">17.2. 有参数的函数装饰器</a></li>
+<li><a href="#orgheadline21">18.1. 没有参数的函数装饰器</a></li>
+<li><a href="#orgheadline22">18.2. 有参数的函数装饰器</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline25">18. 类装饰器</a>
+<li><a href="#orgheadline26">19. 类装饰器</a>
 <ul>
-<li><a href="#orgheadline23">18.1. 无参数装饰器</a></li>
-<li><a href="#orgheadline24">18.2. 有参数的装饰器</a></li>
+<li><a href="#orgheadline24">19.1. 无参数装饰器</a></li>
+<li><a href="#orgheadline25">19.2. 有参数的装饰器</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline26">19. and or not的运算优先级</a></li>
-<li><a href="#orgheadline29">20. 多进程</a>
+<li><a href="#orgheadline27">20. and or not的运算优先级</a></li>
+<li><a href="#orgheadline30">21. 多进程</a>
 <ul>
-<li><a href="#orgheadline27">20.1. 进程fork</a></li>
-<li><a href="#orgheadline28">20.2. 子进程和父进程分开</a></li>
+<li><a href="#orgheadline28">21.1. 进程fork</a></li>
+<li><a href="#orgheadline29">21.2. 子进程和父进程分开</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline33">21. 多线程</a>
+<li><a href="#orgheadline34">22. 多线程</a>
 <ul>
-<li><a href="#orgheadline30">21.1. 后台警报线程</a></li>
-<li><a href="#orgheadline31">21.2. 多线程: 一个定时器</a></li>
-<li><a href="#orgheadline32">21.3. 多线程下载大文件</a></li>
+<li><a href="#orgheadline31">22.1. 后台警报线程</a></li>
+<li><a href="#orgheadline32">22.2. 多线程: 一个定时器</a></li>
+<li><a href="#orgheadline33">22.3. 多线程下载大文件</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
+<div class="outline-2">
+<h2 id="orgheadline1">all和any关键词</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+这是python语言里面的关键词函数，源码很简单，下面列出来，看一下就清楚了:
+</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">any</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="bp">False</span>
+</pre></div>
+
+<p>
+如果用语言表述的话是:
+</p>
+<ul class="org-ul">
+<li>all，都是True，则返回True，否则返回False</li>
+<li>any，只要有一个True则返回True，否则返回False。</li>
+</ul>
+</div>
+</div>
 
 
 <div class="outline-2">
-<h2 id="orgheadline1">快速更新类的本地变量</h2>
-<div class="outline-text-2" id="text-1">
+<h2 id="orgheadline2">快速更新类的本地变量</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 ref : <a href="https://github.com/yasoob/intermediatePython/blob/master/one_liners.rst">https://github.com/yasoob/intermediatePython/blob/master/one_liners.rst</a>
 </p>
@@ -347,8 +376,8 @@ class A(object):
 </div>
 
 <div class="outline-2">
-<h2 id="orgheadline2">可迭代对象flatten</h2>
-<div class="outline-text-2" id="text-2">
+<h2 id="orgheadline3">可迭代对象flatten</h2>
+<div class="outline-text-2" id="text-3">
 <pre>
 a_list = [[1, 2], [3, 4], [5, 6]]
 print(list(itertools.chain.from_iterable(a_list)))
@@ -364,8 +393,8 @@ print(list(itertools.chain(*a_list)))
 
 
 <div class="outline-2">
-<h2 id="orgheadline3">__slots__ 方法</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="orgheadline4">__slots__ 方法</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 请参看 <a href="https://github.com/yasoob/intermediatePython/blob/master/__slots__magic.rst">这个网页</a> 。
 </p>
@@ -379,8 +408,8 @@ print(list(itertools.chain(*a_list)))
 
 
 <div class="outline-2">
-<h2 id="orgheadline4">三元运算符</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="orgheadline5">三元运算符</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 也就是类似这样的结构:
 </p>
@@ -396,8 +425,8 @@ loop = loop if loop is not None else get_event_loop()
 </div>
 
 <div class="outline-2">
-<h2 id="orgheadline5">__missing__ 方法</h2>
-<div class="outline-text-2" id="text-5">
+<h2 id="orgheadline6">__missing__ 方法</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 对于字典或者字典的子类，你可以通过定义 <code>__missing__</code> 方法来回避找不到键值而抛出的 <code>KeyError</code> ，参考了 <a href="http://stackoverflow.com/questions/635483/what-is-the-best-way-to-implement-nested-dictionaries-in-python">这个网页</a> 。如下所示:
 </p>
@@ -438,8 +467,8 @@ loop = loop if loop is not None else get_event_loop()
 </div>
 
 <div class="outline-2">
-<h2 id="orgheadline8">字符串比较大小</h2>
-<div class="outline-text-2" id="text-6">
+<h2 id="orgheadline9">字符串比较大小</h2>
+<div class="outline-text-2" id="text-7">
 <p>
 读者可以实验一下python中字符串之间是可以比较大小的：
 </p>
@@ -464,8 +493,8 @@ True
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline6">中文比较大小？</h3>
-<div class="outline-text-3" id="text-6-1">
+<h3 id="orgheadline7">中文比较大小？</h3>
+<div class="outline-text-3" id="text-7-1">
 <p>
 读者这时会想到，既然python中字符串都默认是unicode编码（utf-8），那么中文应该也是能够比较大小的吧，事实确实如此：
 </p>
@@ -490,8 +519,8 @@ False
 
 
 <div class="outline-3">
-<h3 id="orgheadline7">ord和chr函数</h3>
-<div class="outline-text-3" id="text-6-2">
+<h3 id="orgheadline8">ord和chr函数</h3>
+<div class="outline-text-3" id="text-7-2">
 <p>
 ord函数接受 <em>一个</em> 字符，然后返回其unicode编码，十进制的。chr函数是ord函数的反向，比如你输入24352这个十进制uniocde，就返回了对应的字符。
 </p>
@@ -510,8 +539,8 @@ ord函数接受 <em>一个</em> 字符，然后返回其unicode编码，十进�
 
 
 <div class="outline-2">
-<h2 id="orgheadline10">exec和eval</h2>
-<div class="outline-text-2" id="text-7">
+<h2 id="orgheadline11">exec和eval</h2>
+<div class="outline-text-2" id="text-8">
 <p>
 exec和eval都可以用来执行python代码的字符串形式，exec没有返回值，eval有返回值。不过这两个函数使用都要慎重，按照diveintopython3  <a href="http://www.diveintopython3.net/advanced-iterators.html">第8章第九节</a> 的讲解，这些代码如果混入网络服务器中确实会很危险，如果一定要用，必须对输入字符串进行严格正则限定。
 </p>
@@ -566,8 +595,8 @@ exec和eval都可以用来执行python代码的字符串形式，exec没有返�
 
 
 <div class="outline-3">
-<h3 id="orgheadline9">如果执行import语句</h3>
-<div class="outline-text-3" id="text-7-1">
+<h3 id="orgheadline10">如果执行import语句</h3>
+<div class="outline-text-3" id="text-8-1">
 <p>
 参考了 <a href="http://stackoverflow.com/questions/12505047/in-python-why-doesnt-an-import-in-an-exec-in-a-function-work">这个网页</a> ，如果在exec语句里面使用import语句，具体引入的变量名希望被外围程序使用，则需要如下所示。这里globals()返回当前全局变量值字典。
 </p>
@@ -581,8 +610,8 @@ exec('from youget.{0} import youget'.format(target), globals())
 
 
 <div class="outline-2">
-<h2 id="orgheadline11">assert语句</h2>
-<div class="outline-text-2" id="text-8">
+<h2 id="orgheadline12">assert语句</h2>
+<div class="outline-text-2" id="text-9">
 <p>
 assert语句简单的理解就是 <code>assert True</code> ，正常刷过去，而 <code>assert False</code> 将抛出 <code>AssertionError</code> 。
 </p>
@@ -591,8 +620,8 @@ assert语句简单的理解就是 <code>assert True</code> ，正常刷过去，
 
 
 <div class="outline-2">
-<h2 id="orgheadline12">属性管理的函数</h2>
-<div class="outline-text-2" id="text-9">
+<h2 id="orgheadline13">属性管理的函数</h2>
+<div class="outline-text-2" id="text-10">
 <p>
 hasattr，setattr，getattr，delattr，这些函数都属于关于python中各个对象的属性管理函数，其都是内置函数。
 </p>
@@ -602,15 +631,15 @@ hasattr，setattr，getattr，delattr，这些函数都属于关于python中各�
 </p>
 
 <p>
-setattr(object, name, value)用于设置某个对象的某个属性为某个值，\verb+setattr(x,a,3)+ 对应 \verb+x.a = 3+ 这样的语法。
+setattr(object, name, value)用于设置某个对象的某个属性为某个值， <code>setattr(x,a,3)</code> 对应 <code>x.a = 3</code> 这样的语法。
 </p>
 
 <p>
-getattr(object, name[, default])用于取某个对象的某个属性的值，对应 \verb+object.name+ 这样的语法。
+getattr(object, name[, default])用于取某个对象的某个属性的值，对应 <code>object.name</code> 这样的语法。
 </p>
 
 <p>
-delattr(object,name)用于删除某个对象的某个属性，对应\verb+del object.name+ 这样的语法。
+delattr(object,name)用于删除某个对象的某个属性，对应 <code>del object.name</code> 这样的语法。
 </p>
 </div>
 </div>
@@ -618,8 +647,8 @@ delattr(object,name)用于删除某个对象的某个属性，对应\verb+del ob
 
 
 <div class="outline-2">
-<h2 id="orgheadline13">__name__和__file__</h2>
-<div class="outline-text-2" id="text-10">
+<h2 id="orgheadline14">__name__和__file__</h2>
+<div class="outline-text-2" id="text-11">
 <p>
 这里所谓脚本被引入是指用import或者from语句被另外一个脚本引入进去，而这里所谓的脚本被执行是指直接如 <code>python test.py</code> 这样的形式执行该py脚本。
 </p>
@@ -647,8 +676,8 @@ delattr(object,name)用于删除某个对象的某个属性，对应\verb+del ob
 
 
 <div class="outline-2">
-<h2 id="orgheadline14">locals和globals</h2>
-<div class="outline-text-2" id="text-11">
+<h2 id="orgheadline15">locals和globals</h2>
+<div class="outline-text-2" id="text-12">
 <p>
 python的 <code>locals()</code> 返回本函数内的局部变量字典值，而 <code>globals()</code> 则返回本模块文件的全局变量。 <code>locals</code> 是只读的，而 <code>globals()</code> 不是，我们可以利用 <code>globals()</code> 对脚本文件玩出一些新花样。
 </p>
@@ -657,8 +686,8 @@ python的 <code>locals()</code> 返回本函数内的局部变量字典值，而
 
 
 <div class="outline-2">
-<h2 id="orgheadline15">product函数</h2>
-<div class="outline-text-2" id="text-12">
+<h2 id="orgheadline16">product函数</h2>
+<div class="outline-text-2" id="text-13">
 <p>
 product函数在 <code>itertools</code> 模块里面，按照官方文档的说明是product(A, B)返回值等价于((x,y) for x in A for y in B)，也就是各种可能的组合情况（类似于笛卡尔积的概念）:
 </p>
@@ -691,8 +720,8 @@ product函数在 <code>itertools</code> 模块里面，按照官方文档的说�
 
 
 <div class="outline-2">
-<h2 id="orgheadline16">@property装饰器</h2>
-<div class="outline-text-2" id="text-13">
+<h2 id="orgheadline17">@property装饰器</h2>
+<div class="outline-text-2" id="text-14">
 <p>
 简单的理解就是如下所示:
 </p>
@@ -727,8 +756,8 @@ AttributeError: can't set attribute
 
 
 <div class="outline-2">
-<h2 id="orgheadline17">datetime.datetime类型转变成为time.time类型</h2>
-<div class="outline-text-2" id="text-14">
+<h2 id="orgheadline18">datetime.datetime类型转变成为time.time类型</h2>
+<div class="outline-text-2" id="text-15">
 <p>
 <a href="http://stackoverflow.com/questions/8022161/python-converting-from-datetime-datetime-to-time-time">http://stackoverflow.com/questions/8022161/python-converting-from-datetime-datetime-to-time-time</a>
 </p>
@@ -746,8 +775,8 @@ datetime.datetime(2011, 11, 5, 11, 26, 15, 37496)
 
 
 <div class="outline-2">
-<h2 id="orgheadline18">__import__函数</h2>
-<div class="outline-text-2" id="text-15">
+<h2 id="orgheadline19">__import__函数</h2>
+<div class="outline-text-2" id="text-16">
 <p>
 <a href="http://stackoverflow.com/questions/2349991/python-how-to-import-other-python-files">http://stackoverflow.com/questions/2349991/python-how-to-import-other-python-files</a>
 </p>
@@ -756,8 +785,8 @@ datetime.datetime(2011, 11, 5, 11, 26, 15, 37496)
 
 
 <div class="outline-2">
-<h2 id="orgheadline19">上下文环境确认with语句</h2>
-<div class="outline-text-2" id="text-16">
+<h2 id="orgheadline20">上下文环境确认with语句</h2>
+<div class="outline-text-2" id="text-17">
 <p>
 参看了 <a href="https://github.com/yasoob/intermediatePython/blob/master/context_managers.rst">这个网页</a> 。
 </p>
@@ -771,11 +800,11 @@ __enter__   <span class="underline"><span class="underline">exit</span></span> �
 
 
 <div class="outline-2">
-<h2 id="orgheadline22">函数装饰器</h2>
-<div class="outline-text-2" id="text-17">
+<h2 id="orgheadline23">函数装饰器</h2>
+<div class="outline-text-2" id="text-18">
 </div><div class="outline-3">
-<h3 id="orgheadline20">没有参数的函数装饰器</h3>
-<div class="outline-text-3" id="text-17-1">
+<h3 id="orgheadline21">没有参数的函数装饰器</h3>
+<div class="outline-text-3" id="text-18-1">
 <pre>
 def mydecorator(function):
     def _mydecorator(*args,**kargs):
@@ -790,8 +819,8 @@ def mydecorator(function):
 
 
 <div class="outline-3">
-<h3 id="orgheadline21">有参数的函数装饰器</h3>
-<div class="outline-text-3" id="text-17-2">
+<h3 id="orgheadline22">有参数的函数装饰器</h3>
+<div class="outline-text-3" id="text-18-2">
 <p>
 有参数的函数装饰器用到的情况更少了，稍微了解下即可，需要使用二级封装。arg1进入装饰器函数是以类似lisp中自由变量的形式存在的。
 </p>
@@ -812,16 +841,16 @@ def mydecorator(arg1, arg2):
 
 
 <div class="outline-2">
-<h2 id="orgheadline25">类装饰器</h2>
-<div class="outline-text-2" id="text-18">
+<h2 id="orgheadline26">类装饰器</h2>
+<div class="outline-text-2" id="text-19">
 <p>
 装饰器在python中扮演着非常重要的地位，下面简要介绍之。
 </p>
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline23">无参数装饰器</h3>
-<div class="outline-text-3" id="text-18-1">
+<h3 id="orgheadline24">无参数装饰器</h3>
+<div class="outline-text-3" id="text-19-1">
 <p>
 如果你的装饰器不需要参数，那么就简单用一个函数装饰器即可。
 </p>
@@ -838,8 +867,8 @@ def mydecorator(arg1, arg2):
 
 
 <div class="outline-3">
-<h3 id="orgheadline24">有参数的装饰器</h3>
-<div class="outline-text-3" id="text-18-2">
+<h3 id="orgheadline25">有参数的装饰器</h3>
+<div class="outline-text-3" id="text-19-2">
 <p>
 或者 有状态的装饰器 一律采用 内置类对象的风格，这样更加清晰。
 </p>
@@ -899,8 +928,8 @@ job(name) = Plan(job,. .. .. ..)(name)
 </div>
 
 <div class="outline-2">
-<h2 id="orgheadline26">and or not的运算优先级</h2>
-<div class="outline-text-2" id="text-19">
+<h2 id="orgheadline27">and or not的运算优先级</h2>
+<div class="outline-text-2" id="text-20">
 <p>
 一般是推荐用括号清晰表达，然后not我们知道优先级是最高的。我们再看下面这个例子:
 </p>
@@ -918,8 +947,8 @@ True
 
 
 <div class="outline-2">
-<h2 id="orgheadline29">多进程</h2>
-<div class="outline-text-2" id="text-20">
+<h2 id="orgheadline30">多进程</h2>
+<div class="outline-text-2" id="text-21">
 <p>
 进程的定义是: 一个正在执行的程序实例。每个进程都有一个唯一的进程ID，也就是所谓的 <strong>PID</strong> 。使用 <code>ps</code> 命令的第一个列就是每个进程的PID属性。在python中你可以使用 <code>os.getpid()</code> 来查看当前进程的PID。
 </p>
@@ -930,8 +959,8 @@ True
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline27">进程fork</h3>
-<div class="outline-text-3" id="text-20-1">
+<h3 id="orgheadline28">进程fork</h3>
+<div class="outline-text-3" id="text-21-1">
 <p>
 进程fork简单来说就类似于git某个项目的fork，进行了一些基本代码信息和其他配置以及其他相关信息的复制或注册。这就相当于在当前代码环境下，你有两个分别单独运行的程序实例了。
 </p>
@@ -963,8 +992,8 @@ True
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline28">子进程和父进程分开</h3>
-<div class="outline-text-3" id="text-20-2">
+<h3 id="orgheadline29">子进程和父进程分开</h3>
+<div class="outline-text-3" id="text-21-2">
 <p>
 请看下面的代码: 
 </p>
@@ -1007,8 +1036,8 @@ after fork
 
 
 <div class="outline-2">
-<h2 id="orgheadline33">多线程</h2>
-<div class="outline-text-2" id="text-21">
+<h2 id="orgheadline34">多线程</h2>
+<div class="outline-text-2" id="text-22">
 <p>
 线程的内部实施细节其实比进程要更加复杂，一般通俗的说法就是线程是轻量级进程，这里不深入讨论具体线程的细节。
 </p>
@@ -1053,8 +1082,8 @@ thread: 7
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline30">后台警报线程</h3>
-<div class="outline-text-3" id="text-21-1">
+<h3 id="orgheadline31">后台警报线程</h3>
+<div class="outline-text-3" id="text-22-1">
 <p>
 下面的函数实现了一个后台警报线程，不会阻塞主程序。
 </p>
@@ -1139,8 +1168,8 @@ for t in threads:
 
 
 <div class="outline-3">
-<h3 id="orgheadline31">多线程: 一个定时器</h3>
-<div class="outline-text-3" id="text-21-2">
+<h3 id="orgheadline32">多线程: 一个定时器</h3>
+<div class="outline-text-3" id="text-22-2">
 <p>
 这个例子主要参考了 <a href="https://mail.python.org/pipermail/tutor/2004-November/033333.html">这个网页</a> 。
 </p>
@@ -1193,8 +1222,8 @@ for t in threads:
 
 
 <div class="outline-3">
-<h3 id="orgheadline32">多线程下载大文件</h3>
-<div class="outline-text-3" id="text-21-3">
+<h3 id="orgheadline33">多线程下载大文件</h3>
+<div class="outline-text-3" id="text-22-3">
 <p>
 本小节参考了 <a href="http://stackoverflow.com/questions/13973188/requests-with-multiple-connections">这个网页</a> 和 <a href="http://stackoverflow.com/questions/16694907/how-to-download-large-file-in-python-with-requests-py">这个网页</a> 。
 </p>

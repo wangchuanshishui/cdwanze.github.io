@@ -7,6 +7,25 @@
 #+CREATOR: wanze(<a href="mailto:a358003542@163.com">a358003542@163.com</a>)
 #+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
 
+* all和any关键词
+这是python语言里面的关键词函数，源码很简单，下面列出来，看一下就清楚了:
+#+BEGIN_SRC python
+def all(iterable):
+    for element in iterable:
+        if not element:
+            return False
+    return True
+
+def any(iterable):
+    for element in iterable:
+        if element:
+            return True
+    return False
+#+END_SRC
+
+如果用语言表述的话是:
+- all，都是True，则返回True，否则返回False
+- any，只要有一个True则返回True，否则返回False。
 
 
 * 快速更新类的本地变量
@@ -191,11 +210,11 @@ hasattr，setattr，getattr，delattr，这些函数都属于关于python中各�
 
 其中hasattr(object, name)检测某个对象有没有某个属性。
 
-setattr(object, name, value)用于设置某个对象的某个属性为某个值，\verb+setattr(x,a,3)+ 对应 \verb+x.a = 3+ 这样的语法。
+setattr(object, name, value)用于设置某个对象的某个属性为某个值， ~setattr(x,a,3)~ 对应 ~x.a = 3~ 这样的语法。
 
-getattr(object, name[, default])用于取某个对象的某个属性的值，对应 \verb+object.name+ 这样的语法。
+getattr(object, name[, default])用于取某个对象的某个属性的值，对应 ~object.name~ 这样的语法。
 
-delattr(object,name)用于删除某个对象的某个属性，对应\verb+del object.name+ 这样的语法。
+delattr(object,name)用于删除某个对象的某个属性，对应 ~del object.name~ 这样的语法。
 
 
 

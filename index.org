@@ -47,12 +47,10 @@
 ** 庄子
 1. [[file:思想/庄子/庄子.pdf][庄子.pdf]]
 ** 德山书生
-1. [[file:思想/德山书生/论五权分立.pdf][论五权分立.pdf]]
-2. [[file:思想/德山书生/人工智能的为和不为.html][人工智能的为和不为.html]]
-3. [[file:思想/德山书生/论五权分立.html][论五权分立.html]]
-*** 演讲稿
-1. [[file:思想/德山书生/演讲稿/穷人的国和富人的国.html][穷人的国和富人的国.html]]
-2. [[file:思想/德山书生/演讲稿/大陆人的命运.html][大陆人的命运.html]]
+1. [[file:思想/德山书生/穷人的国和富人的国.html][穷人的国和富人的国.html]]
+2. [[file:思想/德山书生/论五权分立.pdf][论五权分立.pdf]]
+3. [[file:思想/德山书生/人工智能的为和不为.html][人工智能的为和不为.html]]
+4. [[file:思想/德山书生/论五权分立.html][论五权分立.html]]
 ** 新阶级
 1. [[file:思想/新阶级/新阶级.html][新阶级.html]]
 2. [[file:思想/新阶级/新阶级.pdf][新阶级.pdf]]
@@ -99,9 +97,6 @@
 ** 人物传记
 *** 玻尔兹曼
 1. [[file:教育/人物传记/玻尔兹曼/玻尔兹曼.pdf][玻尔兹曼.pdf]]
-** 德山书生
-1. [[file:教育/德山书生/万泽的编程日记第一季.html][万泽的编程日记第一季.html]]
-2. [[file:教育/德山书生/万泽的编程日记第二季.html][万泽的编程日记第二季.html]]
 ** 科普
 *** 上帝与新物理学
 1. [[file:教育/科普/上帝与新物理学/上帝与新物理学.pdf][上帝与新物理学.pdf]]
@@ -168,6 +163,8 @@
 ** 活出意义来
 1. [[file:文学/活出意义来/活出意义来.pdf][活出意义来.pdf]]
 2. [[file:文学/活出意义来/活出意义来.html][活出意义来.html]]
+* 术数
+1. [[file:术数/周易之摇卦.html][周易之摇卦.html]]
 * 电脑
 ** c语言
 1. [[file:电脑/c语言/Practical C Programming.pdf][Practical C Programming.pdf]]
@@ -197,6 +194,8 @@
 3. [[file:电脑/html5/jquery学习笔记.html][jquery学习笔记.html]]
 4. [[file:电脑/html5/html5进阶.html][html5进阶.html]]
 5. [[file:电脑/html5/stackoverflow精彩问题收录.html][stackoverflow精彩问题收录.html]]
+*** javascript库
+1. [[file:电脑/html5/javascript库/FileSaver库.html][FileSaver库.html]]
 *** javascript语言
 1. [[file:电脑/html5/javascript语言/javascript语言学习基础篇.html][javascript语言学习基础篇.html]]
 *** mathjax
@@ -361,17 +360,12 @@
 1. [[file:电脑/python/数据处理/皮尔森相关度.html][皮尔森相关度.html]]
 2. [[file:电脑/python/数据处理/Python-for-Data-Analysis.pdf][Python-for-Data-Analysis.pdf]]
 3. [[file:电脑/python/数据处理/Doing Math with Python.pdf][Doing Math with Python.pdf]]
-4. [[file:电脑/python/数据处理/numpy-ref-1.8.1.pdf][numpy-ref-1.8.1.pdf]]
-5. [[file:电脑/python/数据处理/数据处理入门.html][数据处理入门.html]]
-6. [[file:电脑/python/数据处理/numpy-user-1.8.1.pdf][numpy-user-1.8.1.pdf]]
-7. [[file:电脑/python/数据处理/scipy模块.html][scipy模块.html]]
-8. [[file:电脑/python/数据处理/numpy模块.html][numpy模块.html]]
-9. [[file:电脑/python/数据处理/matplotlib模块.html][matplotlib模块.html]]
-10. [[file:电脑/python/数据处理/scipy-ref-0.14.0.pdf][scipy-ref-0.14.0.pdf]]
-11. [[file:电脑/python/数据处理/Introduction to Python for Econometrics, Statistics and Data Analysis.pdf][Introduction to Python for Econometrics, Statistics and Data Analysis.pdf]]
-12. [[file:电脑/python/数据处理/pandas.pdf][pandas.pdf]]
-13. [[file:电脑/python/数据处理/Matplotlib.pdf][Matplotlib.pdf]]
-14. [[file:电脑/python/数据处理/python和统计学.html][python和统计学.html]]
+4. [[file:电脑/python/数据处理/数据处理入门.html][数据处理入门.html]]
+5. [[file:电脑/python/数据处理/scipy模块.html][scipy模块.html]]
+6. [[file:电脑/python/数据处理/numpy模块.html][numpy模块.html]]
+7. [[file:电脑/python/数据处理/matplotlib模块.html][matplotlib模块.html]]
+8. [[file:电脑/python/数据处理/Introduction to Python for Econometrics, Statistics and Data Analysis.pdf][Introduction to Python for Econometrics, Statistics and Data Analysis.pdf]]
+9. [[file:电脑/python/数据处理/python和统计学.html][python和统计学.html]]
 *** 数据库
 1. [[file:电脑/python/数据库/postgresql基础.html][postgresql基础.html]]
 2. [[file:电脑/python/数据库/Using SQLite.pdf][Using SQLite.pdf]]
