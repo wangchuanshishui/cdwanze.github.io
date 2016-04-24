@@ -9,6 +9,10 @@
 #+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
 
 * 前言
+nginx的官方文档在 [[http://nginx.org/en/docs/][这里]] ，有问题主要还是参看官方文档吧。
+
+
+* nginx配置基础
 nginx的配置就是在 ~/etc/nginx/sites-available~ 那里新建一个配置文件，然后这样创建一个符号链接到 ~sites-enabled~ 那里。
 
 #+BEGIN_EXAMPLE
@@ -82,7 +86,9 @@ Connection: Upgrade
 
 
 
-* client_max_body_size
+
+* FAQ
+** client_max_body_size
 nginx请求实体过大错误信息:
 #+BEGIN_EXAMPLE
 Nginx 413 Request Entity Too Large
@@ -99,5 +105,4 @@ client_max_body_size 2M;
 
 
 
-* 参考资料
-1. mastering nginx 
+* 附录
