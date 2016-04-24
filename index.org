@@ -260,9 +260,7 @@
 *** makefile
 1. [[file:电脑/linux/makefile/makefile学习笔记.html][makefile学习笔记.html]]
 *** nginx
-1. [[file:电脑/linux/nginx/Nginx HTTP Server, 2nd Edition.pdf][Nginx HTTP Server, 2nd Edition.pdf]]
-2. [[file:电脑/linux/nginx/nginx学习笔记.html][nginx学习笔记.html]]
-3. [[file:电脑/linux/nginx/Mastering Nginx.pdf][Mastering Nginx.pdf]]
+1. [[file:电脑/linux/nginx/nginx学习笔记.html][nginx学习笔记.html]]
 *** svn
 1. [[file:电脑/linux/svn/svn基础.html][svn基础.html]]
 *** ubuntu
