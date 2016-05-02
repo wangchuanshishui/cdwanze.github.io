@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-04-18 一 22:59 -->
+<!-- 2016-05-01 日 18:18 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>Tornado学习笔记</title>
@@ -91,15 +91,35 @@ blockquote {
     border-left: 5px solid #eee;
 }
 
+li{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
 
 p{
     text-indent:2em;
     line-height:150%;
 }
 
-li, dt{
+/* dl */
+dl {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+dt {
+    font-weight: 700;
+    line-height: 150%;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+}
+dd {
+    line-height: 150%;
+}
+
+@media (min-width: 768px) {
+  dt {
+    white-space: nowrap;
+  }
 }
 
 video{
@@ -269,10 +289,11 @@ table tr:nth-child(even) {
 </ul>
 </li>
 <li><a href="#orgheadline10">3. RequestHandler对象</a></li>
-<li><a href="#orgheadline13">4. 附录</a>
+<li><a href="#orgheadline11">4. 单元测试</a></li>
+<li><a href="#orgheadline14">5. 附录</a>
 <ul>
-<li><a href="#orgheadline11">4.1. tornado plus flask</a></li>
-<li><a href="#orgheadline12">4.2. 参考资料</a></li>
+<li><a href="#orgheadline12">5.1. tornado plus flask</a></li>
+<li><a href="#orgheadline13">5.2. 参考资料</a></li>
 </ul>
 </li>
 </ul>
@@ -285,31 +306,14 @@ table tr:nth-child(even) {
 </div><div class="outline-3">
 <h3 id="orgheadline1">安装</h3>
 <div class="outline-text-3" id="text-1-1">
-<div class="highlight"><pre><span></span>pip3 install tornado
-</pre></div>
+/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
 </div>
 </div>
 
 <div class="outline-3">
 <h3 id="orgheadline2">第一个例子</h3>
 <div class="outline-text-3" id="text-1-2">
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tornado.ioloop</span>
-<span class="kn">import</span> <span class="nn">tornado.web</span>
-
-<span class="k">class</span> <span class="nc">MainHandler</span><span class="p">(</span><span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello, world&quot;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">make_app</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">Application</span><span class="p">([</span>
-        <span class="p">(</span><span class="s2">r&quot;/&quot;</span><span class="p">,</span> <span class="n">MainHandler</span><span class="p">),</span>
-    <span class="p">])</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">app</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">()</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">8888</span><span class="p">)</span>
-    <span class="n">tornado</span><span class="o">.</span><span class="n">ioloop</span><span class="o">.</span><span class="n">IOLoop</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</pre></div>
+/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
 
 <p>
 这是一个同步的webapp框架，可能后面会用的较少，这里主要了解一下tornado编写的webapp的基本结构:
@@ -383,34 +387,7 @@ class MainHandler(tornado.web.RequestHandler):
 <div class="outline-3">
 <h3 id="orgheadline3">一个简单的异步例子</h3>
 <div class="outline-text-3" id="text-1-3">
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">tornado.platform.asyncio</span> <span class="kn">import</span> <span class="n">AsyncIOMainLoop</span>
-<span class="kn">import</span> <span class="nn">tornado.web</span>
-<span class="kn">import</span> <span class="nn">aiohttp</span>
-<span class="kn">from</span> <span class="nn">expython.web.coroutine</span> <span class="kn">import</span> <span class="n">aiowget_images</span>
-
-
-<span class="k">class</span> <span class="nc">MainHandler</span><span class="p">(</span><span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
-    <span class="nd">@asyncio.coroutine</span>
-    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">aiowget_images</span><span class="p">(</span><span class="s1">&#39;http://tu.duowan.com/m/meinv&#39;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&lt;img src={} /&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">img</span><span class="p">))</span>
-
-<span class="k">def</span> <span class="nf">make_app</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">Application</span><span class="p">([</span>
-        <span class="p">(</span><span class="s2">r&quot;/&quot;</span><span class="p">,</span> <span class="n">MainHandler</span><span class="p">),</span>
-    <span class="p">],</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-
-
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">AsyncIOMainLoop</span><span class="p">()</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
-    <span class="n">app</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">()</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">9999</span><span class="p">)</span>
-
-    <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span><span class="o">.</span><span class="n">run_forever</span><span class="p">()</span>
-</pre></div>
+/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
 <p>
 这个例子将tornado的事件循环和asyncio的事件循环合并了，然后我们看到程序结构大体和同步风格没有太大差异，除了视图处理类里面的某些函数变成了协程函数，从而其可以不阻塞的接受多个网络对应的方法的请求了。上面的aiowget_images是我写的一个异步的抓取某个网页的图片链接函数，读者有兴趣可以了解下。
 </p>
@@ -477,17 +454,7 @@ r"/story/([0-9]+)"
 <p>
 然后kwargs这个字典值，传递给 <code>initialize</code> 方法大致如下所示:
 </p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">StoryHandler</span><span class="p">(</span><span class="n">RequestHandler</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">db</span>
-
-    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">story_id</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;this is story </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">story_id</span><span class="p">)</span>
-
-<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">([</span>
-    <span class="n">url</span><span class="p">(</span><span class="s2">r&quot;/story/([0-9]+)&quot;</span><span class="p">,</span> <span class="n">StoryHandler</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;story&quot;</span><span class="p">)</span>
-    <span class="p">])</span>
-</pre></div>
+/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
 </div>
 </div>
 
@@ -528,44 +495,46 @@ r"/story/([0-9]+)"
 </div>
 </div>
 
+<div class="outline-2">
+<h2 id="orgheadline11">单元测试</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+tornado的单元测试样例如下:
+</p>
 
+<p>
+这是 <code>api.py</code> 文件:
+</p>
+/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+
+<p>
+这是 <code>test_api.py</code> 文件:
+</p>
+/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+
+<p>
+请参看 <a href="http://stackoverflow.com/questions/36928232/how-to-do-unit-test-on-tornado">这个网页</a> ，这里讲到 <code>self.fetch</code> 方法已经默认会进行 <code>self.get_url</code> 操作了。
+</p>
+</div>
+</div>
 
 <div class="outline-2">
-<h2 id="orgheadline13">附录</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="orgheadline14">附录</h2>
+<div class="outline-text-2" id="text-5">
 </div><div class="outline-3">
-<h3 id="orgheadline11">tornado plus flask</h3>
-<div class="outline-text-3" id="text-4-1">
+<h3 id="orgheadline12">tornado plus flask</h3>
+<div class="outline-text-3" id="text-5-1">
 <p>
 主要参考了 <a href="http://stackoverflow.com/questions/8143141/using-flask-and-tornado-together/8247457#8247457">这个网站</a> 。
 </p>
 
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tornado.wsgi</span> <span class="kn">import</span> <span class="n">WSGIContainer</span>
-<span class="kn">from</span> <span class="nn">tornado.ioloop</span> <span class="kn">import</span> <span class="n">IOLoop</span>
-<span class="kn">from</span> <span class="nn">tornado.web</span> <span class="kn">import</span> <span class="n">FallbackHandler</span><span class="p">,</span> <span class="n">RequestHandler</span><span class="p">,</span> <span class="n">Application</span>
-<span class="kn">from</span> <span class="nn">flasky</span> <span class="kn">import</span> <span class="n">app</span>
-
-<span class="k">class</span> <span class="nc">MainHandler</span><span class="p">(</span><span class="n">RequestHandler</span><span class="p">):</span>
-  <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;This message comes from Tornado ^_^&quot;</span><span class="p">)</span>
-
-<span class="n">tr</span> <span class="o">=</span> <span class="n">WSGIContainer</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-
-<span class="n">application</span> <span class="o">=</span> <span class="n">Application</span><span class="p">([</span>
-<span class="p">(</span><span class="s2">r&quot;/tornado&quot;</span><span class="p">,</span> <span class="n">MainHandler</span><span class="p">),</span>
-<span class="p">(</span><span class="s2">r&quot;.*&quot;</span><span class="p">,</span> <span class="n">FallbackHandler</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">fallback</span><span class="o">=</span><span class="n">tr</span><span class="p">)),</span>
-<span class="p">])</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-  <span class="n">application</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">8000</span><span class="p">)</span>
-  <span class="n">IOLoop</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</pre></div>
+/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
 </div>
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline12">参考资料</h3>
-<div class="outline-text-3" id="text-4-2">
+<h3 id="orgheadline13">参考资料</h3>
+<div class="outline-text-3" id="text-5-2">
 <ol class="org-ol">
 <li><a href="http://www.tornadoweb.org/en/stable/index.html">官方文档</a> ，其他的中文翻译版本可能有点过时了。</li>
 </ol>

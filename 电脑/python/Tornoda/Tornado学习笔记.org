@@ -177,7 +177,57 @@ app = Application([
 * RequestHandler对象
 每一个请求过来都将创建一个 ~RequestHandler~ 对象，然后其将执行 ~initialize~ 方法；然后其将执行 ~prepare~ 方法，prepare方法是HTTP协议具体方法无关的；然后其将执行具体某个HTTP协议的方法，比如 ~get~ ~post~ ~put~ 等等，url正则表达式匹配的子group也将作为参数传进去，这个前面有所提及的；然后其将执行 ~on_finish~ 方法。
 
+* 单元测试
+tornado的单元测试样例如下:
 
+这是 ~api.py~ 文件:
+#+BEGIN_SRC python
+import tornado
+import logging
+from tornado.web import RequestHandler
+import time
+
+
+class AnalyticsBWSpecificHour(RequestHandler):
+    def get(self):
+        return self.write({'message':'no get method'})
+
+
+class Application(tornado.web.Application):
+    def __init__(self,**kwargs):
+        api_handlers = [
+            (r"/", AnalyticsBWSpecificHour),
+        ]
+
+        logging.debug(api_handlers)
+
+        super(Application, self).__init__(api_handlers, **kwargs)
+#+END_SRC
+
+这是 ~test_api.py~ 文件:
+#+BEGIN_SRC python
+from api import Application
+
+from tornado.testing import AsyncHTTPTestCase
+import tornado
+import logging
+logging.basicConfig(level=logging.DEBUG)
+import unittest
+
+class ApiTestCase(AsyncHTTPTestCase):
+   def get_app(self):
+        self.app = Application()
+        return self.app
+
+    def test_status(self):
+        response = self.fetch('/',method='GET')
+        self.assertEqual(response.code,200)
+
+if __name__ == '__main__':
+    unittest.main()
+#+END_SRC
+
+请参看 [[http://stackoverflow.com/questions/36928232/how-to-do-unit-test-on-tornado][这个网页]] ，这里讲到 ~self.fetch~ 方法已经默认会进行 ~self.get_url~ 操作了。
 
 * 附录
 ** tornado plus flask

@@ -103,6 +103,8 @@ client_max_body_size 2M;
 
 然后重启nginx或者reload nginx即可。
 
+** 403没有权限访问错误
+我需要在本用户的主文件夹下的随便某个文件夹来写一些网页，然后nginx的server的 ~root~ 配置好后可能会出现 403错误，这很有可能是你 ~nginx.conf~ 文件的 ~user~ 配置，没有设置为本用户，所以才无权限操作。ubuntu下那个user好像默认的是var-www这个。将其改为你的用户名即可。参看了 [[http://zoroeye.iteye.com/blog/2166174][这个网页]] 。
 
 
 * 附录

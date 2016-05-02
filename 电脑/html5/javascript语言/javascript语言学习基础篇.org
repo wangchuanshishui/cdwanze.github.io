@@ -234,6 +234,24 @@ var arr = ['A', 'B', 'C', 1, 2, 3];
 arr.join('-'); // 'A-B-C-1-2-3'
 #+END_EXAMPLE
 
+*** 比较两个数组是否相同
+参考了 [[http://stackoverflow.com/questions/3115982/how-to-check-if-two-arrays-are-equal-with-javascript][这个网页]] 。
+
+#+BEGIN_SRC js
+function arraysEqual(a, b) {
+  if (a === b) return true;
+  if (a == null || b == null) return false;
+  if (a.length != b.length) return false;
+
+  // If you don't care about the order of the elements inside
+  // the array, you should sort both arrays here.
+
+  for (var i = 0; i < a.length; ++i) {
+    if (a[i] !== b[i]) return false;
+  }
+  return true;
+}
+#+END_SRC
 
 ** 对象类型简介
 其大致可以对应到python中的字典的概念。

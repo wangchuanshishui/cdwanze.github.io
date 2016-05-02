@@ -68,3 +68,36 @@ class MyClass(Base):
 #+END_SRC
 
 也就是具体该列在ORM层可以通过 ~status~ 或者 ~job_status~ 来操作。具体参考 [[http://docs.sqlalchemy.org/en/latest/orm/mapped_attributes.html][这里]] 。
+
+* 多列组合唯一性约束
+请参看 [[http://stackoverflow.com/questions/10059345/sqlalchemy-unique-across-multiple-columns][这个网页]] 。
+
+如果是ORM层，则是:
+#+BEGIN_EXAMPLE
+class Location(Base):
+    __tablename__ = 'locations'
+    id = Column(Integer, primary_key = True)
+    customer_id = Column(Integer, ForeignKey('customers.customer_id'), nullable=False)
+    location_code = Column(Unicode(10), nullable=False)
+    __table_args__ = (UniqueConstraint('customer_id', 'location_code', name='_customer_location_uc'),
+                     )
+#+END_EXAMPLE
+
+上面flask_sqlalchemy的话可以使用 ~db.UniqueConstraint~ 。 比如:
+#+BEGIN_EXAMPLE
+    __table_args__ = (
+        db.UniqueConstraint("main_directory", "sub_directory","filename",
+            "filext"),
+        )
+#+END_EXAMPLE
+
+如果是Core层，则是:
+#+BEGIN_EXAMPLE
+mytable = Table('mytable', meta,
+    # ...
+    Column('customer_id', Integer, ForeignKey('customers.customer_id')),
+    Column('location_code', Unicode(10)),
+
+    UniqueConstraint('customer_id', 'location_code', name='uix_1')
+    )
+#+END_EXAMPLE

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-04-24 日 09:35 -->
+<!-- 2016-05-01 日 00:19 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>nginx学习笔记</title>
@@ -91,15 +91,35 @@ blockquote {
     border-left: 5px solid #eee;
 }
 
+li{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
 
 p{
     text-indent:2em;
     line-height:150%;
 }
 
-li, dt{
+/* dl */
+dl {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+dt {
+    font-weight: 700;
+    line-height: 150%;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+}
+dd {
+    line-height: 150%;
+}
+
+@media (min-width: 768px) {
+  dt {
+    white-space: nowrap;
+  }
 }
 
 video{
@@ -267,12 +287,13 @@ table tr:nth-child(even) {
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline10">4. FAQ</a>
+<li><a href="#orgheadline11">4. FAQ</a>
 <ul>
 <li><a href="#orgheadline9">4.1. client_max_body_size</a></li>
+<li><a href="#orgheadline10">4.2. 403没有权限访问错误</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline11">5. 附录</a></li>
+<li><a href="#orgheadline12">5. 附录</a></li>
 </ul>
 </div>
 </nav>
@@ -415,7 +436,7 @@ Connection: Upgrade
 
 
 <div class="outline-2">
-<h2 id="orgheadline10">FAQ</h2>
+<h2 id="orgheadline11">FAQ</h2>
 <div class="outline-text-2" id="text-4">
 </div><div class="outline-3">
 <h3 id="orgheadline9">client_max_body_size</h3>
@@ -441,12 +462,20 @@ client_max_body_size 2M;
 </p>
 </div>
 </div>
+
+<div class="outline-3">
+<h3 id="orgheadline10">403没有权限访问错误</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+我需要在本用户的主文件夹下的随便某个文件夹来写一些网页，然后nginx的server的 <code>root</code> 配置好后可能会出现 403错误，这很有可能是你 <code>nginx.conf</code> 文件的 <code>user</code> 配置，没有设置为本用户，所以才无权限操作。ubuntu下那个user好像默认的是var-www这个。将其改为你的用户名即可。参看了 <a href="http://zoroeye.iteye.com/blog/2166174">这个网页</a> 。
+</p>
+</div>
+</div>
 </div>
 
 
-
 <div class="outline-2">
-<h2 id="orgheadline11">附录</h2>
+<h2 id="orgheadline12">附录</h2>
 </div>
 </div>
 </body>
