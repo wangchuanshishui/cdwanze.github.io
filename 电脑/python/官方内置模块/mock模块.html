@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-05-02 一 13:12 -->
+<!-- 2016-05-08 日 13:31 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
-<title>成就还是自由</title>
+<title>mock模块</title>
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="万泽(德山书生)">
 <meta  name="description" content="制作者邮箱：a358003542@gmail.com"
@@ -268,64 +268,101 @@ table tr:nth-child(even) {
 <body>
 <div id="content">
 <header>
-<h1 class="title">成就还是自由</h1>
-</header><p>
-成就难得还是自由难得呢？
+<h1 class="title">mock模块</h1>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. 简介</a></li>
+<li><a href="#orgheadline2">2. 参考资料</a></li>
+</ul>
+</div>
+</nav>
+
+
+<div class="outline-2">
+<h2 id="orgheadline1">简介</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+从python3.3开始mock模块已经成为python标准模块的一部分了，在unittest.mock那里。python2则要考虑单独按照mock模块。
 </p>
 
 <p>
-也许一切成就都终将消散，而当下我还拥有: 免于悲伤的自由，免于孤独沮丧的自由，锻炼身体的自由，聆听音乐的自由，阅读的自由，写作的自由。
+刚开始接触mock模块可能会比较困惑，恩，这东西很神奇，但有什么用。其就是方便做单元测试的，所以要理解mock模块就必须从单元测试的各个需求入手。结果官方文档里面介绍很多的Mock还有MagicMock对象并不怎么常用，我们更常用的是mock的patch功能。而我们在单元测试的时候，使用mock模块很大一部分需求就是我们的单元测试代码对数据库操作或者网络请求部分等，有很大的不可重现性和干扰性，所以我们会patch原有的数据库连接行为，或者网络请求行为，然后修改某些属性，从而达到更便利的单元测试的目的。
 </p>
 
 <p>
-我们真的要成就什么吗？还是自由更可贵可难得？
+刚开始了解mock，这个例子是要弄懂的:
+</p>
+
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">mymodule</span> <span class="kn">import</span> <span class="n">rm</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">mock</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">mock</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">RmTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="nd">@mock.patch</span><span class="p">(</span><span class="s">&#39;mymodule.os.path&#39;</span><span class="p">)</span>
+    <span class="nd">@mock.patch</span><span class="p">(</span><span class="s">&#39;mymodule.os&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_rm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mock_os</span><span class="p">,</span><span class="n">mock_path</span><span class="p">):</span>
+        <span class="n">mock_path</span><span class="o">.</span><span class="n">isfile</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="n">mock_os</span><span class="o">.</span><span class="n">remove</span><span class="o">.</span><span class="n">called</span><span class="p">,</span> <span class="s">&quot;Failed to not remove the file if not present.&quot;</span><span class="p">)</span>
+        <span class="n">mock_path</span><span class="o">.</span><span class="n">isfile</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">rm</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="p">)</span>
+        <span class="c"># test that rm called os.remove with the right parameters</span>
+        <span class="n">mock_os</span><span class="o">.</span><span class="n">remove</span><span class="o">.</span><span class="n">assert_called_with</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<p>
+这里本测试脚本要使用 mymodule 模块里面的 os.path ，那么如上patch一下，然后装饰在函数上面，则将会自动传递一个Mock对象进去，mock文档里面有很大篇幅讨论的Mock对象的使用方法这就用的上了。
 </p>
 
 <p>
-当然，我们拥有有限的自由，在这里，也许是更少的自由，但在那有限的自由下，我们是去继续追求那份自由？还是做梦某种伟大的成就？
+一般patch的引用原则是:
 </p>
+
+<blockquote>
+<p>
+Mock an item where it is used, not where it came from.
+</p>
+</blockquote>
 
 <p>
-同样的行为，就以看电影为例，若为成就，则是自我幻想满足自己，若为自由，则是自己自由幻想的行为。何者更为可贵？
+然后这一般是patch的模块下面的某个属性，如果是patch某个类下的某个属性，则使用 <code>patch.object</code> ，其可以专门定制某个类下的某个属性，不过 <code>__init__</code> 方法不可以这样做，然后我发现可以通过这样的写法，来重载原类的 <code>__init__</code> 定义:
 </p>
+
+<pre>
+@mock.patch('api_server.SQLAlchemyProxy', TestSQLAlchemyProxy)
+def test_post(self):
+</pre>
 
 <p>
-就以追求名声，是追求名声的成就，还是只是自我的坚守的自由？
+这里的 TestSQLAlchemyProxy 类可以继承自原类，然后重载 <code>__init__</code> 方法。这种写法指定new参数之后，后面函数就不会接受参数。
 </p>
-
-<p>
-我又陷入苦闷，悲伤于自己为何而活，活在这个孤苦的人人苦苦营生逐利的世界，就好像一只虫子一样。
-</p>
-
-<p>
-而今日我的内心，没有宗教的感动了，也没有周易的神秘力量，或者科学的某种幻想，或者什么说教，或者什么享乐电影的陶醉，最后我发现，我只剩下自由，而剩不下任何所谓的意义的成就。
-</p>
-
-<p>
-所以也许人生本就没有意义，人生真的有我值得追求和炫耀的成就吗，一个人孤独而来，在浩渺宇宙中昙花一现，然后烟消云散。
-</p>
-
-<p>
-哦，上帝啊，请让我这个蛆虫拥有那点仅存的自由吧，在自我狭小的核桃壳子里面，珍视自己的那点微弱的自由，而聊以自慰吧。﻿
-</p>
+</div>
+</div>
 
 
-<p>
-在上帝眼里，我们这些渺小人类的成就算的了什么呢？可是想到，我们人类在这个浩渺宇宙中，从思维到行为，拥有如此罕见的自由，就好像，每一个凡人，一次自由的呼吸，上帝都在认真倾听，这难道不是世上最可贵的东西吗? ﻿
-</p>
 
 
-<p>
-对于每一次掷色子的过程，在我们人看来是随机的，可是对于我们这个宇宙，从整体角度来考量，其并不是随机的，这个观点应该大部分物理学家都是认同的。
-</p>
 
-<p>
-自由意志是什么？有的人否认人具有自由意志，但显然人具有有种自由决策的能力，不是某种随机过程。人的自由决策是掷色子的随机过程根本不可等同，这就好比整个宇宙就在等着我们每个人，每个小宇宙的决策反馈，然后再决定如何行动。这不是大哉伟哉的事情吗？
-</p>
-
-<p>
-这个自由和人那些渺小的成就比起来简直就不可同日而语，这就好比蚂蚁要和太阳比较谁大，于成就伟业，任何一桩，太阳都远胜过我们这些蚂蚁，但于自由，我们则是如此特殊，远远胜过太阳啊。﻿
-</p>
+<div class="outline-2">
+<h2 id="orgheadline2">参考资料</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li><a href="https://www.toptal.com/python/an-introduction-to-mocking-in-python">an introduction to mocking in python</a></li>
+<li><a href="http://python-mock-tutorial.readthedocs.io/en/latest/mock.html">python mock tutorial</a></li>
+</ol>
+</div>
+</div>
 </div>
 </body>
 </html>

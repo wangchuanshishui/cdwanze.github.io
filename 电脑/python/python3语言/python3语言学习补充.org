@@ -289,7 +289,77 @@ AttributeError: can't set attribute
 请参看 [[http://stackoverflow.com/questions/17330160/how-does-the-property-decorator-work][这个网页]] ，这里讲到了 ~@color.setter~ 装饰器，来装饰某个函数之后，通过这个函数来修改color属性。然后还有 ~@color.deleter~ 装饰某个函数之后，来通过这个函数来删除某个属性。这里deleter的使用可能较少，一般 ~@property~ 就能满足大部分需求了，有的觉得需要修改某个属性则定义setter。
  
 
-* datetime.datetime类型转变成为time.time类型
+* 缓存属性
+如果读者研究额上面的 property 装饰器，那么我们可以继承这个property class来写出一个具有缓存特性的属性:
+#+BEGIN_SRC python
+import logging
+
+class memorized_property(property):
+    def __init__(self,*args,**kwargs):
+        super(memorized_property,self).__init__(*args,**kwargs)
+        self.name = '_{}'.format(self.fget.__name__)
+
+    def __get__(self, obj, objtype=None):
+        if obj is None:
+            return self
+        if self.fget is None:
+            raise AttributeError("unreadable attribute")
+
+
+        if self.name in obj.__dict__:
+            logging.debug('from memory------------------------------')
+            return obj.__dict__[self.name]
+        else:
+            logging.debug('from computing##########################')
+            value = obj.__dict__[self.name] = self.fget(obj)
+            return value
+
+    def __set__(self, obj, value):
+        if self.fset is None:
+            raise AttributeError("can't set attribute")
+        obj.__dict__[self.name] = value
+
+    def __delete__(self, obj):
+        if self.fdel is None:
+            raise AttributeError("can't delete attribute")
+        del obj.__dict__[self.name]
+
+import time
+
+class Test(object):
+    def __init__(self):
+        pass
+
+    @memorized_property
+    def x(self):
+        return time.time()
+
+    @x.setter
+    def x(self,value):
+        pass
+    @x.deleter
+    def x(self):
+        pass
+
+if __name__ == '__main__':
+    logging.basicConfig(level = logging.DEBUG)
+    t =  Test()
+#+END_SRC
+
+
+* datetime object转变成为time_struct object
+** time_struct object to datetime object
+[[http://stackoverflow.com/questions/1697815/how-do-you-convert-a-python-time-struct-time-object-into-a-datetime-object][参考这个网页]] 
+
+#+BEGIN_EXAMPLE
+from time import mktime
+from datetime import datetime
+
+dt = datetime.fromtimestamp(mktime(struct))
+#+END_EXAMPLE
+
+** datetime object to time_struct object
+
 http://stackoverflow.com/questions/8022161/python-converting-from-datetime-datetime-to-time-time
 
 #+BEGIN_EXAMPLE

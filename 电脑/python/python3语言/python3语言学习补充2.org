@@ -1,0 +1,47 @@
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:[11pt,oneside]
+#+LATEX_HEADER: \usepackage{article}
+
+
+#+TITLE: python3语言学习补充补充
+#+AUTHOR: 万泽(德山书生)
+#+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
+#+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
+
+
+* reversed函数
+我学过python有段时间了，竟然第一次听过这个函数，而且这个函数还是python语言的关键词内置函数。学过一点python的懂得炫技的同学都会这样来进行列表反序操作:
+#+BEGIN_EXAMPLE
+lst[::-1]
+#+END_EXAMPLE
+
+而推荐的做法是直接用reversed函数来做:
+#+BEGIN_EXAMPLE
+reversed(lst)
+#+END_EXAMPLE
+
+然后我们马上就想到，列表有 ~reverse~ 方法，其是破坏型的方法，然后类似的还有 ~sort~ 方法，破坏型的，其对应非破坏型方法有 ~sorted~ 。一般使用没有特别需求是都应该使用非破坏型方法，reversed，sorted等等。
+
+* deque结构
+本小节主要参考了 [[http://python3-cookbook.readthedocs.io/zh_CN/latest/c01/p03_keep_last_n_items.html][这个网页]] 。
+
+我想读者可能已经接触过queue结构了吧，queue结构是一端进data，然后另一端出data，这样形成了先进先出的数据流。而deque结构两端都可以进两端都可以出，这看上有点古怪，如果你只使用一端的话，那么其好像一个堆栈结构，是先进后出的；而如果一端只是进，另一端只是出，其又好像一个queue结构。那么其有什么优势呢？deque结构最大的优势，也就是我们需要使用它的原因是: 其两端插入元素和删除元素的时间复杂度是O(1)，是一个常数级，而列表开头插入或删除元素的时间复杂度是O(N)，所以如果我们需要一个类似列表的数据存储结构，而这个数据结构中，开头的几个元素和末尾的几个元素都比较重要，经常被访问，那么就应该使用deque结构。
+
+上面的网页介绍了这么一个函数，用来返回一个文件最后的几行:
+#+BEGIN_SRC python
+from collections import deque
+def tail(filename, n=10):
+    'Return the last n lines of a file'
+    with open(filename) as f:
+        return deque(f, n)
+#+END_SRC
+
+其是利用了deque还有一个size定长的概念，输入的队列进入deque时较老的元素会被丢弃。我不太清楚这种做法效率如何，不过这种写法还是很优雅的。
+
+
+* 参考资料
+1. 编写高质量代码 改善Python程序的91个建议 张颖 赖勇浩 著
+
+
+
+
