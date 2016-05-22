@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-05-01 日 18:00 -->
+<!-- 2016-05-22 日 13:49 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>javascript学习基础篇</title>
@@ -274,77 +274,78 @@ table tr:nth-child(even) {
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgheadline1">1. 前言</a></li>
-<li><a href="#orgheadline31">2. javascript语言简介</a>
+<li><a href="#orgheadline32">2. javascript语言简介</a>
 <ul>
 <li><a href="#orgheadline2">2.1. 注释</a></li>
 <li><a href="#orgheadline3">2.2. javascript代码放在那里</a></li>
-<li><a href="#orgheadline4">2.3. alert函数</a></li>
-<li><a href="#orgheadline5">2.4. console.log函数</a></li>
-<li><a href="#orgheadline6">2.5. confirm函数</a></li>
-<li><a href="#orgheadline7">2.6. prompt函数</a></li>
-<li><a href="#orgheadline8">2.7. 数据类型简介</a></li>
-<li><a href="#orgheadline9">2.8. 声明变量</a></li>
-<li><a href="#orgheadline10">2.9. typeof函数</a></li>
-<li><a href="#orgheadline11">2.10. 数值型简介</a></li>
-<li><a href="#orgheadline14">2.11. 字符串型简介</a>
+<li><a href="#orgheadline4">2.3. 严格模式</a></li>
+<li><a href="#orgheadline5">2.4. alert函数</a></li>
+<li><a href="#orgheadline6">2.5. console.log函数</a></li>
+<li><a href="#orgheadline7">2.6. confirm函数</a></li>
+<li><a href="#orgheadline8">2.7. prompt函数</a></li>
+<li><a href="#orgheadline9">2.8. 数据类型简介</a></li>
+<li><a href="#orgheadline10">2.9. 声明变量</a></li>
+<li><a href="#orgheadline11">2.10. typeof函数</a></li>
+<li><a href="#orgheadline12">2.11. 数值型简介</a></li>
+<li><a href="#orgheadline15">2.12. 字符串型简介</a>
 <ul>
-<li><a href="#orgheadline12">2.11.1. 多行字符串</a></li>
-<li><a href="#orgheadline13">2.11.2. 字符串的一些方法清单</a></li>
+<li><a href="#orgheadline13">2.12.1. 多行字符串</a></li>
+<li><a href="#orgheadline14">2.12.2. 字符串的一些方法清单</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">2.12. 数组</a>
+<li><a href="#orgheadline18">2.13. 数组</a>
 <ul>
-<li><a href="#orgheadline15">2.12.1. 数组的一些方法清单</a></li>
-<li><a href="#orgheadline16">2.12.2. 比较两个数组是否相同</a></li>
+<li><a href="#orgheadline16">2.13.1. 数组的一些方法清单</a></li>
+<li><a href="#orgheadline17">2.13.2. 比较两个数组是否相同</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline21">2.13. 对象类型简介</a>
+<li><a href="#orgheadline22">2.14. 对象类型简介</a>
 <ul>
-<li><a href="#orgheadline18">2.13.1. in语句</a></li>
-<li><a href="#orgheadline19">2.13.2. delete语句</a></li>
-<li><a href="#orgheadline20">2.13.3. hasOwnProperty方法</a></li>
+<li><a href="#orgheadline19">2.14.1. in语句</a></li>
+<li><a href="#orgheadline20">2.14.2. delete语句</a></li>
+<li><a href="#orgheadline21">2.14.3. hasOwnProperty方法</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline22">2.14. 布尔值</a></li>
-<li><a href="#orgheadline23">2.15. null</a></li>
-<li><a href="#orgheadline24">2.16. 条件判断结构</a></li>
-<li><a href="#orgheadline26">2.17. 循环结构</a>
+<li><a href="#orgheadline23">2.15. 布尔值</a></li>
+<li><a href="#orgheadline24">2.16. null</a></li>
+<li><a href="#orgheadline25">2.17. 条件判断结构</a></li>
+<li><a href="#orgheadline27">2.18. 循环结构</a>
 <ul>
-<li><a href="#orgheadline25">2.17.1. while语句</a></li>
+<li><a href="#orgheadline26">2.18.1. while语句</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline27">2.18. 定义函数</a></li>
-<li><a href="#orgheadline28">2.19. arguments用法</a></li>
-<li><a href="#orgheadline29">2.20. rest用法</a></li>
-<li><a href="#orgheadline30">2.21. 箭头函数</a></li>
+<li><a href="#orgheadline28">2.19. 定义函数</a></li>
+<li><a href="#orgheadline29">2.20. arguments用法</a></li>
+<li><a href="#orgheadline30">2.21. rest用法</a></li>
+<li><a href="#orgheadline31">2.22. 箭头函数</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline40">3. 面向DOM的操作</a>
+<li><a href="#orgheadline41">3. 面向DOM的操作</a>
 <ul>
-<li><a href="#orgheadline32">3.1. window</a></li>
-<li><a href="#orgheadline33">3.2. navigator</a></li>
-<li><a href="#orgheadline34">3.3. screen</a></li>
-<li><a href="#orgheadline35">3.4. location</a></li>
-<li><a href="#orgheadline39">3.5. document</a>
+<li><a href="#orgheadline33">3.1. window</a></li>
+<li><a href="#orgheadline34">3.2. navigator</a></li>
+<li><a href="#orgheadline35">3.3. screen</a></li>
+<li><a href="#orgheadline36">3.4. location</a></li>
+<li><a href="#orgheadline40">3.5. document</a>
 <ul>
-<li><a href="#orgheadline36">3.5.1. getAttribute函数</a></li>
-<li><a href="#orgheadline37">3.5.2. setAttribute函数</a></li>
-<li><a href="#orgheadline38">3.5.3. 修改节点的文本内容</a></li>
+<li><a href="#orgheadline37">3.5.1. getAttribute函数</a></li>
+<li><a href="#orgheadline38">3.5.2. setAttribute函数</a></li>
+<li><a href="#orgheadline39">3.5.3. 修改节点的文本内容</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline41">4. 表单相关</a></li>
-<li><a href="#orgheadline42">5. AJAX技术</a></li>
-<li><a href="#orgheadline50">6. 附录</a>
+<li><a href="#orgheadline42">4. 表单相关</a></li>
+<li><a href="#orgheadline43">5. AJAX技术</a></li>
+<li><a href="#orgheadline51">6. 附录</a>
 <ul>
-<li><a href="#orgheadline43">6.1. windows加载事件</a></li>
-<li><a href="#orgheadline44">6.2. this关键词</a></li>
-<li><a href="#orgheadline45">6.3. hello方法</a></li>
-<li><a href="#orgheadline46">6.4. name属性</a></li>
-<li><a href="#orgheadline47">6.5. 集合</a></li>
-<li><a href="#orgheadline48">6.6. Date对象</a></li>
-<li><a href="#orgheadline49">6.7. 参考资料</a></li>
+<li><a href="#orgheadline44">6.1. windows加载事件</a></li>
+<li><a href="#orgheadline45">6.2. this关键词</a></li>
+<li><a href="#orgheadline46">6.3. hello方法</a></li>
+<li><a href="#orgheadline47">6.4. name属性</a></li>
+<li><a href="#orgheadline48">6.5. 集合</a></li>
+<li><a href="#orgheadline49">6.6. Date对象</a></li>
+<li><a href="#orgheadline50">6.7. 参考资料</a></li>
 </ul>
 </li>
 </ul>
@@ -363,7 +364,7 @@ table tr:nth-child(even) {
 
 
 <div class="outline-2">
-<h2 id="orgheadline31">javascript语言简介</h2>
+<h2 id="orgheadline32">javascript语言简介</h2>
 <div class="outline-text-2" id="text-2">
 </div><div class="outline-3">
 <h3 id="orgheadline2">注释</h3>
@@ -371,7 +372,9 @@ table tr:nth-child(even) {
 <p>
 用 <code>//</code> 来标记一行注释。
 </p>
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="c1">// This is a comment that the computer will ignore. </span>
+<span class="c1">// It is for your eyes only!</span>
+</pre></div>
 
 <p>
 用 <code>/*   */</code> 来标记多行注释，不过用 <code>//</code> 来标记多行注释也是可以的，这个看编辑器方不方便。
@@ -407,8 +410,22 @@ your awesome javascript code
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline4">alert函数</h3>
+<h3 id="orgheadline4">严格模式</h3>
 <div class="outline-text-3" id="text-2-3">
+<p>
+这个也不是必须的，不写也不能说你错，写上了当然更好。一般推荐编写javascript代码打开严格模式。
+</p>
+<pre>
+"use strict";
+</pre>
+</div>
+</div>
+
+
+
+<div class="outline-3">
+<h3 id="orgheadline5">alert函数</h3>
+<div class="outline-text-3" id="text-2-4">
 <p>
 弹出一段警告信息
 </p>
@@ -419,8 +436,8 @@ alert("hello")
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline5">console.log函数</h3>
-<div class="outline-text-3" id="text-2-4">
+<h3 id="orgheadline6">console.log函数</h3>
+<div class="outline-text-3" id="text-2-5">
 <p>
 不同于alert函数，这个函数是在开发者工具的控制台那里显示。更加方便调试和debug javascript程序。
 </p>
@@ -431,8 +448,8 @@ console.log("hello")
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline6">confirm函数</h3>
-<div class="outline-text-3" id="text-2-5">
+<h3 id="orgheadline7">confirm函数</h3>
+<div class="outline-text-3" id="text-2-6">
 <p>
 弹出一个对话框，可以和用户互动点击确定或取消。根据用户的点击返回true或false。
 </p>
@@ -443,8 +460,8 @@ confirm('This is an example of using JS to create some interaction on a website.
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline7">prompt函数</h3>
-<div class="outline-text-3" id="text-2-6">
+<h3 id="orgheadline8">prompt函数</h3>
+<div class="outline-text-3" id="text-2-7">
 <p>
 弹出一个对话框，具体是一个输入框，输入的值就是该函数的返回值。
 </p>
@@ -456,8 +473,8 @@ var age = prompt("what's your age");
 
 
 <div class="outline-3">
-<h3 id="orgheadline8">数据类型简介</h3>
-<div class="outline-text-3" id="text-2-7">
+<h3 id="orgheadline9">数据类型简介</h3>
+<div class="outline-text-3" id="text-2-8">
 <p>
 数值型，字符串型（javascript同python一样单引号双引号都可以），布尔型（javascript是 <code>true</code> 和 <code>false</code> ），然后其他常规数值运算和逻辑运算（如 <code>&amp;&amp;</code> <code>||</code> <code>!</code> 之类）和比较运算（这里值得一提的是和python的 <code>==</code> 对应的javascript的比较运算符应该是 <code>===</code> ，三个等号，这算是javascript的一个历史遗留语法瑕疵问题。）等都大体相同。python中的None对应的是javascript的 <code>null</code> 。
 </p>
@@ -502,12 +519,14 @@ person.name
 
 
 <div class="outline-3">
-<h3 id="orgheadline9">声明变量</h3>
-<div class="outline-text-3" id="text-2-8">
+<h3 id="orgheadline10">声明变量</h3>
+<div class="outline-text-3" id="text-2-9">
 <p>
 很多资料都会谈论这个问题，javascript代码声明变量都推荐加上 <code>var</code> 这个关键词，如下所示。
 </p>
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">x</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
 <p>
 这样的话变量的作用域就很符合我们在其他编程语言中的常识，比如在函数里面就是局部变量等。
 </p>
@@ -515,8 +534,8 @@ person.name
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline10">typeof函数</h3>
-<div class="outline-text-3" id="text-2-9">
+<h3 id="orgheadline11">typeof函数</h3>
+<div class="outline-text-3" id="text-2-10">
 <p>
 相当于python中的 <code>type</code> 函数，查看某个对象的对象类型。
 </p>
@@ -524,8 +543,8 @@ person.name
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline11">数值型简介</h3>
-<div class="outline-text-3" id="text-2-10">
+<h3 id="orgheadline12">数值型简介</h3>
+<div class="outline-text-3" id="text-2-11">
 <p>
 javascript整数和浮点数都不分了，都统一表示为Number，然后数值型那些运算，比如加减乘除之类的就不用多说了。其中 <code>%</code> 和python一样也是求余操作。在python3中有 <code>5//2</code> 是求商的概念，javascript没有这个概念，我们需要如下来获得类似的效果。
 </p>
@@ -538,8 +557,8 @@ console.log(parseInt(5/2))
 
 
 <div class="outline-3">
-<h3 id="orgheadline14">字符串型简介</h3>
-<div class="outline-text-3" id="text-2-11">
+<h3 id="orgheadline15">字符串型简介</h3>
+<div class="outline-text-3" id="text-2-12">
 <p>
 javascript的字符串类型和python非常类似，比如 <code>string[0]</code> 是支持的。然后不可以这样用string[0:2]，幸运的是javascript提供了类似python中的那种切片概念，就是使用 <code>slice</code> 方法
 </p>
@@ -555,8 +574,8 @@ console.log([1,3,4,5].slice(0,2))
 </div>
 
 <div class="outline-4">
-<h4 id="orgheadline12">多行字符串</h4>
-<div class="outline-text-4" id="text-2-11-1">
+<h4 id="orgheadline13">多行字符串</h4>
+<div class="outline-text-4" id="text-2-12-1">
 <p>
 这个对应的是python的 ''' 三引号情况。javascript是这样表示的:
 </p>
@@ -574,8 +593,8 @@ console.log([1,3,4,5].slice(0,2))
 </div>
 
 <div class="outline-4">
-<h4 id="orgheadline13">字符串的一些方法清单</h4>
-<div class="outline-text-4" id="text-2-11-2">
+<h4 id="orgheadline14">字符串的一些方法清单</h4>
+<div class="outline-text-4" id="text-2-12-2">
 <dl class="org-dl">
 <dt>length</dt><dd>字符串长度</dd>
 <dt>toUpperCase</dt><dd>变成大写</dd>
@@ -590,8 +609,8 @@ console.log([1,3,4,5].slice(0,2))
 
 
 <div class="outline-3">
-<h3 id="orgheadline17">数组</h3>
-<div class="outline-text-3" id="text-2-12">
+<h3 id="orgheadline18">数组</h3>
+<div class="outline-text-3" id="text-2-13">
 <p>
 对应于python中的列表，javascript这里称为数组。如下所示我们看到其也是可变的。
 </p>
@@ -606,8 +625,8 @@ lst
 </div>
 
 <div class="outline-4">
-<h4 id="orgheadline15">数组的一些方法清单</h4>
-<div class="outline-text-4" id="text-2-12-1">
+<h4 id="orgheadline16">数组的一些方法清单</h4>
+<div class="outline-text-4" id="text-2-13-1">
 <dl class="org-dl">
 <dt>length</dt><dd>数组长度</dd>
 <dt>indexOf</dt><dd>返回数组某个子元素的索引位置</dd>
@@ -703,20 +722,33 @@ arr.join('-'); // 'A-B-C-1-2-3'
 </div>
 
 <div class="outline-4">
-<h4 id="orgheadline16">比较两个数组是否相同</h4>
-<div class="outline-text-4" id="text-2-12-2">
+<h4 id="orgheadline17">比较两个数组是否相同</h4>
+<div class="outline-text-4" id="text-2-13-2">
 <p>
 参考了 <a href="http://stackoverflow.com/questions/3115982/how-to-check-if-two-arrays-are-equal-with-javascript">这个网页</a> 。
 </p>
 
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">arraysEqual</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">b</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">length</span> <span class="o">!=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+
+  <span class="c1">// If you don&#39;t care about the order of the elements inside</span>
+  <span class="c1">// the array, you should sort both arrays here.</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">b</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 </div>
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline21">对象类型简介</h3>
-<div class="outline-text-3" id="text-2-13">
+<h3 id="orgheadline22">对象类型简介</h3>
+<div class="outline-text-3" id="text-2-14">
 <p>
 其大致可以对应到python中的字典的概念。
 </p>
@@ -738,8 +770,8 @@ javascript的对象的value还可以是某个函数，这样的话其实际上�
 
 
 <div class="outline-4">
-<h4 id="orgheadline18">in语句</h4>
-<div class="outline-text-4" id="text-2-13-1">
+<h4 id="orgheadline19">in语句</h4>
+<div class="outline-text-4" id="text-2-14-1">
 <pre>
 'name' in xiaoming;
 </pre>
@@ -759,8 +791,8 @@ true
 </div>
 
 <div class="outline-4">
-<h4 id="orgheadline19">delete语句</h4>
-<div class="outline-text-4" id="text-2-13-2">
+<h4 id="orgheadline20">delete语句</h4>
+<div class="outline-text-4" id="text-2-14-2">
 <p>
 其对应的就是python的del语句。然后我们看到javascript的 <code>delete</code> 语句删除不存在键也不会报错。
 </p>
@@ -781,8 +813,8 @@ Object {}
 
 
 <div class="outline-4">
-<h4 id="orgheadline20">hasOwnProperty方法</h4>
-<div class="outline-text-4" id="text-2-13-3">
+<h4 id="orgheadline21">hasOwnProperty方法</h4>
+<div class="outline-text-4" id="text-2-14-3">
 <p>
 对应于python2的has_key方法，不过python2已经移除了，推荐用in语句。
 </p>
@@ -798,8 +830,8 @@ true
 
 
 <div class="outline-3">
-<h3 id="orgheadline22">布尔值</h3>
-<div class="outline-text-3" id="text-2-14">
+<h3 id="orgheadline23">布尔值</h3>
+<div class="outline-text-3" id="text-2-15">
 <p>
 javascript的布尔值是 <code>true</code> 和 <code>false</code> 。然后需要额外强调的是，类似python的比较判断（==）符号在javascript中是 <code>===</code> ，三个等号，这不是什么别出心裁，也没有任何实际的好处，就是javascript的历史遗留问题罢了。
 </p>
@@ -811,8 +843,8 @@ javascript的布尔值是 <code>true</code> 和 <code>false</code> 。然后需�
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline23">null</h3>
-<div class="outline-text-3" id="text-2-15">
+<h3 id="orgheadline24">null</h3>
+<div class="outline-text-3" id="text-2-16">
 <p>
 javascript的是 <code>null</code> 。其也是一个单独的对象。类似于python的 <code>None</code> ，然后还有一个什么 <code>undefined</code> 。比如函数没有明确return值就会默认返回 <code>undefined</code> ，感兴趣的可能查一下这两个的区别，我看了一下，觉得挺无聊的。上面谈到 <code>==</code> 和 <code>===</code> 的区别，如果用 <code>===</code> ，则 <code>undefined</code> 是不等于 <code>null</code> 的，如果用 <code>==</code> ，则javascript会额外做一些类型转换工作，这两个又会看作相等的。所以一个简单的做法就是:
 </p>
@@ -829,17 +861,29 @@ result == null
 
 
 <div class="outline-3">
-<h3 id="orgheadline24">条件判断结构</h3>
-<div class="outline-text-3" id="text-2-16">
+<h3 id="orgheadline25">条件判断结构</h3>
+<div class="outline-text-3" id="text-2-17">
 <p>
 条件判断结构，和python大同小异，除了那些圆括号（记住这个圆括号必须加上）和花括号。
 </p>
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">feedback</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">feedback</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Thank you! We should race at the next concert!&quot;</span><span class="p">)}</span>
+<span class="k">else</span><span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;I&#39;ll keep practicing coding and racing.&quot;</span><span class="p">)}</span>
+</pre></div>
 
 <p>
 虽然javascript不像python那样强制缩进风格，但还是推荐用缩进来增强你的代码可读性和逻辑清晰性，如:
 </p>
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="nx">age</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">age</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;kid&#39;</span><span class="p">)}</span>
+<span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;adult&#39;</span><span class="p">)}</span>
+<span class="k">else</span><span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;teenager&#39;</span><span class="p">)}</span>
+</pre></div>
 
 <p>
 这种写法使得代码更加接近python风格，然后我们可以把第一个花括号视作python缩进区块开始的冒号，然后后面的花括号视作某个区块部分语句结束的标识。
@@ -848,17 +892,52 @@ result == null
 <p>
 所以我们下面写一个更加复杂点的例子（具体这些小脚本的试验推荐在ubuntu下安装nodejs，然后执行 <code>nodejs test.js</code> 即可。）。原python脚本如下:
 </p>
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="n">x</span><span class="o">=-</span><span class="mi">2</span>
+<span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;x大于0&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;x&gt;2&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;0&lt;x&lt;2&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;x=2&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;x小于0&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;x等于0&#39;</span><span class="p">)</span>
+</pre></div>
 
 <p>
 改写成为:
 </p>
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;x大于0&#39;</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;x&gt;2&#39;</span><span class="p">)}</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;0&lt;x&lt;2&#39;</span><span class="p">)}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;x=2&#39;</span><span class="p">)}}</span>
+<span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;x小于0&#39;</span><span class="p">)}</span>
+<span class="k">else</span><span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;x等于0&#39;</span><span class="p">)}</span>
+</pre></div>
 
 <p>
 读者可以用不同的x值来测试一下，这里的关键性问题不是区块开始那里，而是区块什么时候结束。然后就是程序结构最好清清晰晰的用 if else 或者 if else if else if else 等这类语句表达出来。关于多个else if语句的组合平行表达，读者可以自己试验一下，我简单写了下面这个例子:
 </p>
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="nx">age</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">age</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;age 小于 6&#39;</span><span class="p">)}</span>
+<span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">25</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;age 大于等于 25&#39;</span><span class="p">)}</span>
+<span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;age 大于等于18且小于25&#39;</span><span class="p">)}</span>
+<span class="k">else</span><span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;age 大于等于6且小于18&#39;</span><span class="p">)}</span>
+</pre></div>
 
 <p>
 javascript有switch语句，作为我们pythoner你懂的，用多个else if语句也是可以的。
@@ -867,46 +946,55 @@ javascript有switch语句，作为我们pythoner你懂的，用多个else if语�
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline26">循环结构</h3>
-<div class="outline-text-3" id="text-2-17">
+<h3 id="orgheadline27">循环结构</h3>
+<div class="outline-text-3" id="text-2-18">
 <p>
-javascript和python都有while语句，但while语句用的较少，更多的是使用for语句。javascript的for语句老式风格和c语句接近，而现在有新式的for语句风格了，更接近python的风格。如下所示:
+javascript和python都有while语句，但while语句用的较少，更多的是使用for语句。
 </p>
 
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
 
-<p>
-需要注意的有两点: 一是括号和花括号；二是变量的var声明（记得javascript里面不管是本地变量还是全局变量等，只要名字是新出来的，都要var声明一下）。
-</p>
+
 
 <p>
 然后递归遍历字典的key也是可以的:
 </p>
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="o">:</span><span class="mi">2</span><span class="p">}){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">)}</span>
+</pre></div>
 </div>
 
 <div class="outline-4">
-<h4 id="orgheadline25">while语句</h4>
-<div class="outline-text-4" id="text-2-17-1">
+<h4 id="orgheadline26">while语句</h4>
+<div class="outline-text-4" id="text-2-18-1">
 <p>
 while语句简单了解下吧，熟悉c语言的简单看一下就清楚了。
 </p>
 
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">n</span><span class="p">;</span>
+    <span class="nx">n</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
 
 <p>
 还有do while 语句
 </p>
 
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">do</span> <span class="p">{</span>
+    <span class="nx">n</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span><span class="k">while</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">);</span>
+</pre></div>
 </div>
 </div>
 </div>
 
 
 <div class="outline-3">
-<h3 id="orgheadline27">定义函数</h3>
-<div class="outline-text-3" id="text-2-18">
+<h3 id="orgheadline28">定义函数</h3>
+<div class="outline-text-3" id="text-2-19">
 <p>
 一个简单的函数定义和使用如下所示:
 </p>
@@ -919,7 +1007,13 @@ greeting('hello')
 <p>
 我们看到javascript明确将函数名作为一个变量，这是唯一要值得注意的，不过你也可以采用这种写法，这样更加为我们所熟悉了:
 </p>
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">abs</span><span class="p">(</span><span class="nx">x</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nx">x</span><span class="p">;}</span> 
+    <span class="k">else</span><span class="p">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="nx">x</span><span class="p">;}</span>
+<span class="p">}</span>
+</pre></div>
 
 <p>
 这两种定义风格是完全等价的。这里值得一提的是如果函数没有确定return值，则视作返回的undefined。
@@ -928,8 +1022,8 @@ greeting('hello')
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline28">arguments用法</h3>
-<div class="outline-text-3" id="text-2-19">
+<h3 id="orgheadline29">arguments用法</h3>
+<div class="outline-text-3" id="text-2-20">
 <p>
 javascript的函数内部可以直接使用arguments这个变量，其不是一个Array，但可以如下使用:
 </p>
@@ -944,8 +1038,8 @@ arguments.length
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline29">rest用法</h3>
-<div class="outline-text-3" id="text-2-20">
+<h3 id="orgheadline30">rest用法</h3>
+<div class="outline-text-3" id="text-2-21">
 <p>
 这个有点类似于lisp语言的rest参量控制概念，也就是如下
 </p>
@@ -964,8 +1058,8 @@ rest是表示除了a和b之外的所有其余参量。注意前面三个点号: 
 
 
 <div class="outline-3">
-<h3 id="orgheadline30">箭头函数</h3>
-<div class="outline-text-3" id="text-2-21">
+<h3 id="orgheadline31">箭头函数</h3>
+<div class="outline-text-3" id="text-2-22">
 <p>
 就是匿名函数lambda的一种写法。暂时不太关心、
 </p>
@@ -975,7 +1069,7 @@ rest是表示除了a和b之外的所有其余参量。注意前面三个点号: 
 
 
 <div class="outline-2">
-<h2 id="orgheadline40">面向DOM的操作</h2>
+<h2 id="orgheadline41">面向DOM的操作</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 如果读者熟悉python的beautifulsoup或者类似的爬取网页领域，那么对于javascript所谈论的DOM是个什么东西是无需多言的。下面开始介绍那些对象吧。
@@ -984,7 +1078,7 @@ rest是表示除了a和b之外的所有其余参量。注意前面三个点号: 
 
 
 <div class="outline-3">
-<h3 id="orgheadline32">window</h3>
+<h3 id="orgheadline33">window</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 window是一个全局变量，表示本浏览器的窗口。
@@ -1000,7 +1094,7 @@ window是一个全局变量，表示本浏览器的窗口。
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline33">navigator</h3>
+<h3 id="orgheadline34">navigator</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 其有属性如下所示:
@@ -1016,7 +1110,7 @@ window是一个全局变量，表示本浏览器的窗口。
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline34">screen</h3>
+<h3 id="orgheadline35">screen</h3>
 <div class="outline-text-3" id="text-3-3">
 <dl class="org-dl">
 <dt>width</dt><dd>屏幕宽度</dd>
@@ -1027,7 +1121,7 @@ window是一个全局变量，表示本浏览器的窗口。
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline35">location</h3>
+<h3 id="orgheadline36">location</h3>
 <div class="outline-text-3" id="text-3-4">
 <dl class="org-dl">
 <dt>href</dt><dd>完整路径</dd>
@@ -1056,12 +1150,14 @@ window是一个全局变量，表示本浏览器的窗口。
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline39">document</h3>
+<h3 id="orgheadline40">document</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 你可以认为这是beautifulsoup刷过之后的网页文档树，这是以后我们操作文档的主要交互对象。比如简单的写入html代码:
 </p>
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;This is a heading&lt;/h1&gt;&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;This is a paragraph.&lt;/p&gt;&quot;</span><span class="p">);</span>
+</pre></div>
 
 <p>
 这会在网页文档里面附加一些内容。
@@ -1070,12 +1166,22 @@ window是一个全局变量，表示本浏览器的窗口。
 <p>
 按钮点击一下则执行什么javascript代码。
 </p>
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;alert(&#39;Welcome!&#39;)&quot;</span><span class="o">&gt;</span><span class="err">点击这里</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+</pre></div>
 
 <p>
 javascript改变HTML内容
 </p>
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="nt">&lt;script&gt;</span>
+<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="nx">x</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;demo&quot;</span><span class="p">);</span>  <span class="c1">// 找到元素</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">innerHTML</span><span class="o">=</span><span class="s2">&quot;Hello JavaScript!&quot;</span><span class="p">;</span>    <span class="c1">// 改变内容</span>
+<span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">onclick=</span><span class="s">&quot;myFunction()&quot;</span><span class="nt">&gt;</span>点击这里<span class="nt">&lt;/button&gt;</span>
+</pre></div>
 
 
 <dl class="org-dl">
@@ -1110,7 +1216,7 @@ document.querySelector('a').href
 </div>
 
 <div class="outline-4">
-<h4 id="orgheadline36">getAttribute函数</h4>
+<h4 id="orgheadline37">getAttribute函数</h4>
 <div class="outline-text-4" id="text-3-5-1">
 <p>
 找到元素之后我们可以使用 <code>getAttribute</code> 函数来获取其属性。比如获取title属性:
@@ -1122,7 +1228,7 @@ object.getAttribute("title")
 </div>
 
 <div class="outline-4">
-<h4 id="orgheadline37">setAttribute函数</h4>
+<h4 id="orgheadline38">setAttribute函数</h4>
 <div class="outline-text-4" id="text-3-5-2">
 <p>
 设置某个元素节点的属性值。
@@ -1135,7 +1241,7 @@ object.setAttribute(attribute,value)
 </div>
 
 <div class="outline-4">
-<h4 id="orgheadline38">修改节点的文本内容</h4>
+<h4 id="orgheadline39">修改节点的文本内容</h4>
 <div class="outline-text-4" id="text-3-5-3">
 <dl class="org-dl">
 <dt>innerHTML</dt><dd>对应该DOM节点标签内的文本内容</dd>
@@ -1166,7 +1272,16 @@ parentElement.insertBefore(newElement, referenceElement);
 <dt>insertAfter()</dt><dd>javascript原生没有，需要自己定义:</dd>
 </dl>
 
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">insertAfter</span><span class="p">(</span><span class="nx">newElement</span><span class="p">,</span> <span class="nx">targetElement</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">parent</span> <span class="o">=</span> <span class="nx">targetElement</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">parent</span><span class="p">.</span><span class="nx">lastChild</span> <span class="o">==</span> <span class="nx">targetElement</span><span class="p">){</span>
+        <span class="nx">parent</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">newElement</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="nx">parent</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">newElement</span><span class="p">,</span> <span class="nx">targetElement</span><span class="p">.</span><span class="nx">nextSibling</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 
 <dl class="org-dl">
 <dt>parentElement</dt><dd>返回本标签元素对象的父标签元素对象</dd>
@@ -1183,7 +1298,7 @@ parentElement.insertBefore(newElement, referenceElement);
 
 
 <div class="outline-2">
-<h2 id="orgheadline41">表单相关</h2>
+<h2 id="orgheadline42">表单相关</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499922277b890fd537901490a84fc24b2b8b8867e000">http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499922277b890fd537901490a84fc24b2b8b8867e000</a>
@@ -1193,7 +1308,7 @@ parentElement.insertBefore(newElement, referenceElement);
 
 
 <div class="outline-2">
-<h2 id="orgheadline42">AJAX技术</h2>
+<h2 id="orgheadline43">AJAX技术</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 AJAX技术英文全名是: Asynchronous JavaScript and XML ，什么异步的JavaScript与XML技术。简单的了解就是网页开着，然后javascript开启了某个类似于python的requests模块的网页请求，一般是向本地的网页服务器发送的吧，但也可以跨站请求。然后其是异步的，如果不异步，那么网页阻塞了，用户无法继续阅读或点击了，这当然是不行的。
@@ -1314,7 +1429,7 @@ request.onreadystatechange = function () { // 状态发生变化时，函数被�
 
 
 <div class="outline-2">
-<h2 id="orgheadline50">附录</h2>
+<h2 id="orgheadline51">附录</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 一些零碎的东西拾遗。
@@ -1322,14 +1437,27 @@ request.onreadystatechange = function () { // 状态发生变化时，函数被�
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline43">windows加载事件</h3>
+<h3 id="orgheadline44">windows加载事件</h3>
 <div class="outline-text-3" id="text-6-1">
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">addLoadEvent</span><span class="p">(</span><span class="nx">func</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;window onload event&quot;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">oldonload</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">!=</span> <span class="s1">&#39;function&#39;</span><span class="p">){</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="nx">func</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(){</span>
+            <span class="nx">oldonload</span><span class="p">();</span>
+            <span class="nx">func</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline44">this关键词</h3>
+<h3 id="orgheadline45">this关键词</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 this关键词的内容挺丰富的，总的来说this就是指对象本身:
@@ -1345,7 +1473,7 @@ this关键词的内容挺丰富的，总的来说this就是指对象本身:
 
 
 <div class="outline-3">
-<h3 id="orgheadline45">hello方法</h3>
+<h3 id="orgheadline46">hello方法</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 重定义hello方法相当于python的重定义 <code>__init__</code> 方法，其为该对象的重构函数，这样你就可以使用 <code>new</code> 来新建一个实例了。
@@ -1357,7 +1485,7 @@ s = new Student('John')
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline46">name属性</h3>
+<h3 id="orgheadline47">name属性</h3>
 <div class="outline-text-3" id="text-6-4">
 <p>
 name属性是一个特殊的属性，常用来表示该对象的名字。
@@ -1368,7 +1496,7 @@ name属性是一个特殊的属性，常用来表示该对象的名字。
 
 
 <div class="outline-3">
-<h3 id="orgheadline47">集合</h3>
+<h3 id="orgheadline48">集合</h3>
 <div class="outline-text-3" id="text-6-5">
 <p>
 javascript中的集合Set大体也和python中的集合概念相近。
@@ -1386,7 +1514,7 @@ var s2 = new Set([1, 2, 3]); // 含1, 2, 3
 
 
 <div class="outline-3">
-<h3 id="orgheadline48">Date对象</h3>
+<h3 id="orgheadline49">Date对象</h3>
 <div class="outline-text-3" id="text-6-6">
 <pre>
 var now = new Date();
@@ -1405,7 +1533,7 @@ now.getTime(); // 1435146562875, 以number形式表示的时间戳
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline49">参考资料</h3>
+<h3 id="orgheadline50">参考资料</h3>
 <div class="outline-text-3" id="text-6-7">
 <ol class="org-ol">
 <li><a href="https://www.codecademy.com/">https://www.codecademy.com/</a></li>

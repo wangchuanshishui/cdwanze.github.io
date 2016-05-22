@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-05-22 日 15:03 -->
+<!-- 2016-05-12 四 17:44 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
-<title>python3语言学习补充补充</title>
+<title>Sentry学习笔记</title>
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="万泽(德山书生)">
 <meta  name="description" content="制作者邮箱：a358003542@gmail.com"
@@ -268,159 +268,85 @@ table tr:nth-child(even) {
 <body>
 <div id="content">
 <header>
-<h1 class="title">python3语言学习补充补充</h1>
+<h1 class="title">Sentry学习笔记</h1>
 </header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. reversed函数</a></li>
-<li><a href="#orgheadline2">2. deque结构</a></li>
-<li><a href="#orgheadline3">3. 大规模字符串连接推荐使用join方法</a></li>
-<li><a href="#orgheadline4">4. 查找多个最大最小元素的情况</a></li>
-<li><a href="#orgheadline5">5. 元组和列表的比较大小</a></li>
-<li><a href="#orgheadline6">6. 参考资料</a></li>
+<li><a href="#orgheadline1">1. 获取项目DSN地址</a></li>
+<li><a href="#orgheadline2">2. 和flask整合</a></li>
+<li><a href="#orgheadline3">3. 和logging模块整合</a></li>
 </ul>
 </div>
 </nav>
 
 
 <div class="outline-2">
-<h2 id="orgheadline1">reversed函数</h2>
+<h2 id="orgheadline1">获取项目DSN地址</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-我学过python有段时间了，竟然第一次听过这个函数，而且这个函数还是python语言的关键词内置函数。学过一点python的懂得炫技的同学都会这样来进行列表反序操作:
-</p>
-<pre>
-lst[::-1]
-</pre>
-
-<p>
-而推荐的做法是直接用reversed函数来做:
-</p>
-<pre>
-reversed(lst)
-</pre>
-
-<p>
-然后我们马上就想到，列表有 <code>reverse</code> 方法，其是破坏型的方法，然后类似的还有 <code>sort</code> 方法，破坏型的，其对应非破坏型方法有 <code>sorted</code> 。一般使用没有特别需求是都应该使用非破坏型方法，reversed，sorted等等。
+在Sentry服务器上创建项目，然后获取DSN地址。
 </p>
 </div>
 </div>
+
 
 <div class="outline-2">
-<h2 id="orgheadline2">deque结构</h2>
+<h2 id="orgheadline2">和flask整合</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-本小节主要参考了 <a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c01/p03_keep_last_n_items.html">这个网页</a> 。
+flask整合如下所示:
 </p>
 
-<p>
-我想读者可能已经接触过queue结构了吧，queue结构是一端进data，然后另一端出data，这样形成了先进先出的数据流。而deque结构两端都可以进两端都可以出，这看上有点古怪，如果你只使用一端的话，那么其好像一个堆栈结构，是先进后出的；而如果一端只是进，另一端只是出，其又好像一个queue结构。那么其有什么优势呢？deque结构最大的优势，也就是我们需要使用它的原因是: 其两端插入元素和删除元素的时间复杂度是O(1)，是一个常数级，而列表开头插入或删除元素的时间复杂度是O(N)，所以如果我们需要一个类似列表的数据存储结构，而这个数据结构中，开头的几个元素和末尾的几个元素都比较重要，经常被访问，那么就应该使用deque结构。
-</p>
+<pre>
+pip install raven[flask]
+</pre>
+
+<pre>
+from raven.contrib.flask import Sentry
+sentry = Sentry(app, dsn='https://&lt;key&gt;:&lt;secret&gt;@app.getsentry.com/&lt;project&gt;')
+</pre>
 
 <p>
-上面的网页介绍了这么一个函数，用来返回一个文件最后的几行:
-</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
-<span class="k">def</span> <span class="nf">tail</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="s">&#39;Return the last n lines of a file&#39;</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">deque</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-</pre></div>
-
-<p>
-其是利用了deque还有一个size定长的概念，输入的队列进入deque时较老的元素会被丢弃。我不太清楚这种做法效率如何，不过这种写法还是很优雅的。
+如果这里没有指定dsn值，则会自动在flask的settings里面读取 <code>SENTRY_DSN</code> 的值。
 </p>
 </div>
 </div>
 
 
 <div class="outline-2">
-<h2 id="orgheadline3">大规模字符串连接推荐使用join方法</h2>
+<h2 id="orgheadline3">和logging模块整合</h2>
 <div class="outline-text-2" id="text-3">
-<p>
-参看参考资料1的建议27。大规模字符串连接，join方法更有效率。
-</p>
-</div>
-</div>
+<div class="highlight"><pre><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
 
-<div class="outline-2">
-<h2 id="orgheadline4">查找多个最大最小元素的情况</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-如果只是想要获知某些数据的一个最大值或者一个最小值，那么当然用 <code>max</code> 或 <code>min</code> 方法就可以了。这里讨论的情况是如果你想要获知某些数据的多个最大值或多个最小值。一般想到的就是先对这些数据进行排序，然后进行切片操作。参考资料2的第一章第四节讨论的方法实际上是利用最小堆结构进行堆排序然后提出最大或最小的那个几个元素。
-</p>
+    <span class="s">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;console&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;level&#39;</span><span class="p">:</span> <span class="s">&#39;DEBUG&#39;</span><span class="p">,</span>
+            <span class="s">&#39;class&#39;</span><span class="p">:</span> <span class="s">&#39;logging.StreamHandler&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="s">&#39;sentry&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;level&#39;</span><span class="p">:</span> <span class="s">&#39;INFO&#39;</span><span class="p">,</span>
+            <span class="s">&#39;class&#39;</span><span class="p">:</span> <span class="s">&#39;raven.handlers.logging.SentryHandler&#39;</span><span class="p">,</span>
+            <span class="s">&#39;dsn&#39;</span><span class="p">:</span> <span class="n">SENTRY_DSN</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
 
-<p>
-大体过程就是:
-</p>
-<pre>
-lst = [1, 8, 2, 23, 7, -4, 18, 23, 42, 37, 2]
-import heapq
-heapq.heapify(lst)
-heapq.nlargest(3,lst)
-heapq.nsmallest(3,lst)
-</pre>
-</div>
-</div>
+    <span class="s">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;console&#39;</span><span class="p">,</span> <span class="s">&#39;sentry&#39;</span><span class="p">],</span>
+            <span class="s">&#39;level&#39;</span><span class="p">:</span> <span class="s">&#39;INFO&#39;</span><span class="p">,</span>
+            <span class="s">&#39;propagate&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+            <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<div class="outline-2">
-<h2 id="orgheadline5">元组和列表的比较大小</h2>
-<div class="outline-text-2" id="text-5">
-<p>
-元组和列表的相等判断还是很好理解的，而对于这样的东西:
-</p>
-
-<pre>
-&gt;&gt;&gt; (1,-1) &lt; (2,-2)
-</pre>
-
-<p>
-确实就有点古怪了。请读者参考 <a href="http://stackoverflow.com/questions/5292303/python-tuple-comparison">这个网页</a> ，按照官方文档的说明:
-</p>
-<blockquote>
-<p>
-Tuples and lists are compared lexicographically using comparison of corresponding elements. This means that to compare equal, each element must compare equal and the two sequences must be of the same type and have the same length.
-</p>
-</blockquote>
-
-<p>
-官方文档对于大于小于的情况并没有说得很清楚，然后我们从字里行间大体领会的精神是:
-</p>
-
-<ol class="org-ol">
-<li>可迭代对象比较大小，是逐个比较的。</li>
-<li>逐个比较首先比较是不是相等，如果相等则跳过这个元素的比较，直到遇到某两个不相等的元素，然后返回的就是这两个元素的比较结果。</li>
-<li>最后快比较完了（以最小的可迭代对象长度为准），然后如果是相等判断操作，则长度相等就返回相等了。而如果是大小判断操作，则认为长度更长的那个对象更大。</li>
-</ol>
-
-<p>
-下面是一些例子:
-</p>
-<pre>
-&gt;&gt;&gt; (1,-1) &lt; (2,-2)
-True
-&gt;&gt;&gt; (1,-1) &lt; (-1,-2)
-False
-&gt;&gt;&gt; (1,-1,-3) &lt; (1,-1)
-False
-&gt;&gt;&gt; (1,-1,) &lt; (1,-1,0)
-True
-</pre>
-
-<p>
-我们再来看到参考资料第一章第五节的内容，其主要利用两个东西来实现了一种优先级队列。第一个就是前面谈及的最小堆结构，第二个就是这样的 <code>(priority, index, item)</code> 三元元组，有了上面的讨论，我想读者马上就看出这其中的最小堆的挤出逻辑了: 那就是优先级最小的先出来，如果优先级相同则索引值最小的先出来，然后索引值没有重复的了。
-</p>
-</div>
-</div>
-
-<div class="outline-2">
-<h2 id="orgheadline6">参考资料</h2>
-<div class="outline-text-2" id="text-6">
-<ol class="org-ol">
-<li>编写高质量代码 改善Python程序的91个建议 张颖 赖勇浩 著</li>
-<li><a href="http://python3-cookbook.readthedocs.io/">python3 cookbook</a></li>
-</ol>
+<span class="c"># 在应用初始化的地方</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">logging.config</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">LOGGING</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </div>

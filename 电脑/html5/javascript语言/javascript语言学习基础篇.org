@@ -40,6 +40,14 @@ your awesome javascript code
 
 然后一个网页内如果没有特别的理由的话，那么javascript代码最好就放在一个文件里面，方便网页加载。
 
+** 严格模式
+这个也不是必须的，不写也不能说你错，写上了当然更好。一般推荐编写javascript代码打开严格模式。
+#+BEGIN_EXAMPLE
+"use strict";
+#+END_EXAMPLE
+
+
+
 ** alert函数
 弹出一段警告信息
 #+BEGIN_EXAMPLE
@@ -402,14 +410,10 @@ else{
 javascript有switch语句，作为我们pythoner你懂的，用多个else if语句也是可以的。
 
 ** 循环结构
-javascript和python都有while语句，但while语句用的较少，更多的是使用for语句。javascript的for语句老式风格和c语句接近，而现在有新式的for语句风格了，更接近python的风格。如下所示:
+javascript和python都有while语句，但while语句用的较少，更多的是使用for语句。
 
-#+BEGIN_SRC js
-for(var i in [1,2,3]){
-    console.log(i)}
-#+END_SRC
 
-需要注意的有两点: 一是括号和花括号；二是变量的var声明（记得javascript里面不管是本地变量还是全局变量等，只要名字是新出来的，都要var声明一下）。
+
 
 然后递归遍历字典的key也是可以的:
 #+BEGIN_SRC js
