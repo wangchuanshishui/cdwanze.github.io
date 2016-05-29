@@ -177,6 +177,7 @@ app = Application([
 * RequestHandler对象
 每一个请求过来都将创建一个 ~RequestHandler~ 对象，然后其将执行 ~initialize~ 方法；然后其将执行 ~prepare~ 方法，prepare方法是HTTP协议具体方法无关的；然后其将执行具体某个HTTP协议的方法，比如 ~get~ ~post~ ~put~ 等等，url正则表达式匹配的子group也将作为参数传进去，这个前面有所提及的；然后其将执行 ~on_finish~ 方法。
 
+
 * 单元测试
 tornado的单元测试样例如下:
 
@@ -228,6 +229,10 @@ if __name__ == '__main__':
 #+END_SRC
 
 请参看 [[http://stackoverflow.com/questions/36928232/how-to-do-unit-test-on-tornado][这个网页]] ，这里讲到 ~self.fetch~ 方法已经默认会进行 ~self.get_url~ 操作了。
+
+
+* tornado异常输出完全json风格化
+tornado app 如果发生异常了，其会调用对应的 RequestHandler 的 ~write_error~ 方法，你可以自定义这个方法，从而使其返回 json 格式的信息。更多信息请参看 [[http://nanvel.name/2014/12/handle-errors-in-tornado-application][这个网页]] 。
 
 * 附录
 ** tornado plus flask

@@ -101,3 +101,28 @@ mytable = Table('mytable', meta,
     UniqueConstraint('customer_id', 'location_code', name='uix_1')
     )
 #+END_EXAMPLE
+
+
+* ORM层的内省
+Table层直接利用已经存在的数据库表格就是 ~reflect~ 的概念，因为ORM层多了很多额外的东西，其中最关键的是 relationship 的概念，而sqlalchemy的Automap这一章主要就是解决ORM层内省这个问题的。更详细的讨论请参看 [[http://docs.sqlalchemy.org/en/rel_1_0/orm/extensions/automap.html][官方文档]] 。
+
+最基本的应用就是 建立一个 ~automap_base~ 对象: 
+#+BEGIN_EXAMPLE
+from sqlalchemy.ext.automap import automap_base
+
+Base = automap_base()
+#+END_EXAMPLE
+
+然后运行其 ~prepare~ 方法进行内省:
+#+BEGIN_EXAMPLE
+Base.prepare(engine, reflect=True)
+#+END_EXAMPLE
+
+然后对应的sqlalchemy ORM层的那些类就可以如下获得了:
+#+BEGIN_EXAMPLE
+User = Base.classes.user
+#或 Base.classes.get('user')
+#+END_EXAMPLE
+
+对于一般的属性引用，这是没有问题的。就是relationship可能还是有问题，那么我们可以预先定义一些属性，在 ~prepare~ 之前，那么预先定义的那些东西也将覆盖后面的自动reflect那部分定义，这可以起到矫正的作用。然后预先定义的那个类就是后面要使用的类了，就不要用 ~Base.classes.what~ 这种风格再获取了。
+

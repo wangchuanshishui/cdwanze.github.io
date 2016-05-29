@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-05-01 日 18:23 -->
+<!-- 2016-05-29 日 20:51 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>sqlalchemy补充</title>
@@ -276,6 +276,7 @@ table tr:nth-child(even) {
 <li><a href="#orgheadline1">1. 额外的属性支持</a></li>
 <li><a href="#orgheadline2">2. 某一列的额外的别名</a></li>
 <li><a href="#orgheadline3">3. 多列组合唯一性约束</a></li>
+<li><a href="#orgheadline4">4. ORM层的内省</a></li>
 </ul>
 </div>
 </nav>
@@ -287,7 +288,27 @@ table tr:nth-child(even) {
 所谓的额外的属性并不是基于SQL表格的某一列的属性，而是在ORM之上建立起来的额外的属性，其一般是基于SQL表格的某一列或某些列的，是ORM封装之上提供的更加便利的属性接口。
 </p>
 
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">EmailAddress</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&#39;email_address&#39;</span>
+
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="n">_email</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">,</span> <span class="n">String</span><span class="p">)</span>
+
+    <span class="nd">@hybrid_property</span>
+    <span class="k">def</span> <span class="nf">email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the value of _email up until the last twelve</span>
+<span class="sd">        characters.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_email</span><span class="p">[:</span><span class="o">-</span><span class="mi">12</span><span class="p">]</span>
+
+    <span class="nd">@email.setter</span>
+    <span class="k">def</span> <span class="nf">email</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the value of _email, tacking on the twelve character</span>
+<span class="sd">        value @example.com.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_email</span> <span class="o">=</span> <span class="n">email</span> <span class="o">+</span> <span class="s">&quot;@example.com&quot;</span>
+</pre></div>
 </div>
 </div>
 
@@ -298,12 +319,35 @@ table tr:nth-child(even) {
 <p>
 这里所谓的某一列额外的别名指并没有创建额外的列，而是在ORM层针对某一列可以用额外的别名来做类似的操作。
 </p>
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">synonym_for</span>
+
+<span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&#39;my_table&#39;</span>
+
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+
+    <span class="nd">@synonym_for</span><span class="p">(</span><span class="s">&quot;status&quot;</span><span class="p">)</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">job_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;Status: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span>
+</pre></div>
 
 <p>
 其等于:
 </p>
-/bin/bash: /usr/local/bin/pygmentize: /usr/local/bin/python3.5: 解释器错误: 没有那个文件或目录
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&#39;my_table&#39;</span>
+
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">job_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;Status: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span>
+
+    <span class="n">job_status</span> <span class="o">=</span> <span class="n">synonym</span><span class="p">(</span><span class="s">&quot;status&quot;</span><span class="p">,</span> <span class="n">descriptor</span><span class="o">=</span><span class="n">job_status</span><span class="p">)</span>
+</pre></div>
 
 <p>
 也就是具体该列在ORM层可以通过 <code>status</code> 或者 <code>job_status</code> 来操作。具体参考 <a href="http://docs.sqlalchemy.org/en/latest/orm/mapped_attributes.html">这里</a> 。
@@ -353,6 +397,44 @@ mytable = Table('mytable', meta,
     UniqueConstraint('customer_id', 'location_code', name='uix_1')
     )
 </pre>
+</div>
+</div>
+
+
+<div class="outline-2">
+<h2 id="orgheadline4">ORM层的内省</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Table层直接利用已经存在的数据库表格就是 <code>reflect</code> 的概念，因为ORM层多了很多额外的东西，其中最关键的是 relationship 的概念，而sqlalchemy的Automap这一章主要就是解决ORM层内省这个问题的。更详细的讨论请参看 <a href="http://docs.sqlalchemy.org/en/rel_1_0/orm/extensions/automap.html">官方文档</a> 。
+</p>
+
+<p>
+最基本的应用就是 建立一个 <code>automap_base</code> 对象: 
+</p>
+<pre>
+from sqlalchemy.ext.automap import automap_base
+
+Base = automap_base()
+</pre>
+
+<p>
+然后运行其 <code>prepare</code> 方法进行内省:
+</p>
+<pre>
+Base.prepare(engine, reflect=True)
+</pre>
+
+<p>
+然后对应的sqlalchemy ORM层的那些类就可以如下获得了:
+</p>
+<pre>
+User = Base.classes.user
+#或 Base.classes.get('user')
+</pre>
+
+<p>
+对于一般的属性引用，这是没有问题的。就是relationship可能还是有问题，那么我们可以预先定义一些属性，在 <code>prepare</code> 之前，那么预先定义的那些东西也将覆盖后面的自动reflect那部分定义，这可以起到矫正的作用。然后预先定义的那个类就是后面要使用的类了，就不要用 <code>Base.classes.what</code> 这种风格再获取了。
+</p>
 </div>
 </div>
 </div>

@@ -124,6 +124,7 @@ console.log(parseInt(5/2))
 #+END_EXAMPLE
 
 
+
 ** 字符串型简介 
 javascript的字符串类型和python非常类似，比如 ~string[0]~ 是支持的。然后不可以这样用string[0:2]，幸运的是javascript提供了类似python中的那种切片概念，就是使用 ~slice~ 方法
 
@@ -153,6 +154,9 @@ console.log([1,3,4,5].slice(0,2))
 - substring :: 返回子字符串，如果熟悉python的那种切片规则的话，那么推荐就直接使用 ~slice~ 方法。
 
 
+
+*** toString方法
+javascript的数值、布尔值、对象和字符串都有一个 ~toString~ 方法，大体类似于python的 ~str~ 函数。不过推荐类似的也使用 ~String~ 来将某个javascript对象转变成为字符串。
 
 ** 数组
 对应于python中的列表，javascript这里称为数组。如下所示我们看到其也是可变的。

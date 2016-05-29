@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-05-22 日 15:03 -->
+<!-- 2016-05-29 日 08:58 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>python3语言学习补充补充</title>
@@ -278,7 +278,8 @@ table tr:nth-child(even) {
 <li><a href="#orgheadline3">3. 大规模字符串连接推荐使用join方法</a></li>
 <li><a href="#orgheadline4">4. 查找多个最大最小元素的情况</a></li>
 <li><a href="#orgheadline5">5. 元组和列表的比较大小</a></li>
-<li><a href="#orgheadline6">6. 参考资料</a></li>
+<li><a href="#orgheadline6">6. 获取一个月最后的一天</a></li>
+<li><a href="#orgheadline7">7. 参考资料</a></li>
 </ul>
 </div>
 </nav>
@@ -414,9 +415,40 @@ True
 </div>
 </div>
 
+
 <div class="outline-2">
-<h2 id="orgheadline6">参考资料</h2>
+<h2 id="orgheadline6">获取一个月最后的一天</h2>
 <div class="outline-text-2" id="text-6">
+<p>
+首先要说的是利用python的datetime和timedelta对于 <code>days</code> 的加减操作是能够很好地支持跨月问题的:
+</p>
+
+<pre>
+&gt;&gt;&gt; from datetime import datetime
+&gt;&gt;&gt; d = datetime.now()
+&gt;&gt;&gt; d
+datetime.datetime(2016, 5, 29, 8, 50, 20, 337204)
+&gt;&gt;&gt; from datetime import timedelta
+&gt;&gt;&gt; d - timedelta(days = 29)
+datetime.datetime(2016, 4, 30, 8, 50, 20, 337204)
+&gt;&gt;&gt; d - timedelta(days = 28)
+datetime.datetime(2016, 5, 1, 8, 50, 20, 337204)
+</pre>
+
+<p>
+但是有的时候你就是需要直接获知某个月份的最后一天是30还是31等等，然后利用replace来获得一个月的最后一天。这个时候你需要利用 calendar 的 <code>monthrange</code> 函数。参考了<a href="http://stackoverflow.com/questions/42950/get-last-day-of-the-month-in-python">这个网页</a> 。
+</p>
+
+<pre>
+&gt;&gt;&gt; d.replace(year = 2016,month=4,day = monthrange(2016,4)[-1])
+datetime.datetime(2016, 4, 30, 8, 50, 20, 337204)
+</pre>
+</div>
+</div>
+
+<div class="outline-2">
+<h2 id="orgheadline7">参考资料</h2>
+<div class="outline-text-2" id="text-7">
 <ol class="org-ol">
 <li>编写高质量代码 改善Python程序的91个建议 张颖 赖勇浩 著</li>
 <li><a href="http://python3-cookbook.readthedocs.io/">python3 cookbook</a></li>

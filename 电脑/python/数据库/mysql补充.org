@@ -1,0 +1,37 @@
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:[11pt,oneside]
+#+LATEX_HEADER: \usepackage{article}
+
+
+#+TITLE: mysql补充
+#+AUTHOR: 万泽(德山书生)
+#+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
+#+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
+
+
+* 备份和还原
+mysql的备份操作就是使用 ~mysqldump~ 命令，其将生成一个sql文件，然后还原实际上就是加载这个sql文件即可。还原过程如下所示:
+
+#+BEGIN_EXAMPLE
+mysql -u root test < test.sql
+#+END_EXAMPLE
+
+下面主要说下 ~mysqldump~ 命令
+#+BEGIN_EXAMPLE
+mysqldump -u user -h 127.0.0.1 -P 8888 -v -p test > test.sql 
+#+END_EXAMPLE
+
+- ~-u~ :: 设置登录用户名
+- ~-h~ :: 要连接的数据库服务器地址
+- ~-P~ :: 要连接的数据库服务器端口
+- ~-v~ :: 显示聒噪信息
+- ~-p~ :: 和mysql命令类似，等下输入密码
+
+其后必填参数是你想要dump的某个database名字。
+
+本小节参考了 [[http://www.thegeekstuff.com/2008/09/backup-and-restore-mysql-database-using-mysqldump/][这个网页]] 。
+
+
+
+
+

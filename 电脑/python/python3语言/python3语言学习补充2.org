@@ -86,6 +86,29 @@ True
 
 我们再来看到参考资料第一章第五节的内容，其主要利用两个东西来实现了一种优先级队列。第一个就是前面谈及的最小堆结构，第二个就是这样的 ~(priority, index, item)~ 三元元组，有了上面的讨论，我想读者马上就看出这其中的最小堆的挤出逻辑了: 那就是优先级最小的先出来，如果优先级相同则索引值最小的先出来，然后索引值没有重复的了。
 
+
+* 获取一个月最后的一天
+首先要说的是利用python的datetime和timedelta对于 ~days~ 的加减操作是能够很好地支持跨月问题的:
+
+#+BEGIN_EXAMPLE
+>>> from datetime import datetime
+>>> d = datetime.now()
+>>> d
+datetime.datetime(2016, 5, 29, 8, 50, 20, 337204)
+>>> from datetime import timedelta
+>>> d - timedelta(days = 29)
+datetime.datetime(2016, 4, 30, 8, 50, 20, 337204)
+>>> d - timedelta(days = 28)
+datetime.datetime(2016, 5, 1, 8, 50, 20, 337204)
+#+END_EXAMPLE
+
+但是有的时候你就是需要直接获知某个月份的最后一天是30还是31等等，然后利用replace来获得一个月的最后一天。这个时候你需要利用 calendar 的 ~monthrange~ 函数。参考了[[http://stackoverflow.com/questions/42950/get-last-day-of-the-month-in-python][这个网页]] 。
+
+#+BEGIN_EXAMPLE
+>>> d.replace(year = 2016,month=4,day = monthrange(2016,4)[-1])
+datetime.datetime(2016, 4, 30, 8, 50, 20, 337204)
+#+END_EXAMPLE
+
 * 参考资料
 1. 编写高质量代码 改善Python程序的91个建议 张颖 赖勇浩 著
 2. [[http://python3-cookbook.readthedocs.io/][python3 cookbook]] 
