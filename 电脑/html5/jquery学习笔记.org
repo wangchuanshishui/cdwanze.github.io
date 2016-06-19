@@ -3,77 +3,123 @@
 #+LATEX_HEADER: \usepackage{article}
 
 
-#+TITLE: title
+#+TITLE: jquery学习笔记
 #+AUTHOR: 万泽(德山书生)
 #+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
 #+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
 
-
-
-
-* jquery
+* jquery选择语法
+jquery的选择语法和beautifulsoup的那种选择语法很是类似，这里不赘述了。唯一值得提醒的就是jquery这样:
 #+BEGIN_EXAMPLE
-$('#abc')
+$(selector)
 #+END_EXAMPLE
-就可以获得类似
-#+BEGIN_EXAMPLE
-document.getElementById('abc')
-#+END_EXAMPLE
-的效果，注意只是类似。
+选择之后返回是一个数组类型。后面也许某些有特色的选择风格会加在下面。
 
-$实际上是一个函数，其将返回一个数组，里面装着jquery对象（如果没有命中则返回空数组）。你可以用 ~$(DOMobject)~ 来讲某个javascript原DOM对象转变成为jquery对象。
 
-按照多个class查找:
-#+BEGIN_EXAMPLE
-var a = $('.red.green'); // 注意没有空格！
-// 符合条件的节点：
-// <div class="red green">...</div>
-// <div class="blue green red">...</div>
-#+END_EXAMPLE
+* 文档初始化之后执行的动作
+#+BEGIN_SRC js
+$(document).ready(function(){
 
-按照属性查找:
-#+BEGIN_EXAMPLE
-var icons = $('[name^=icon]'); // 找出所有name属性值以icon开头的DOM
-// 例如: name="icon-1", name="icon-2"
-var names = $('[name$=with]'); // 找出所有name属性值以with结尾的DOM
-// 例如: name="startswith", name="endswith"
-#+END_EXAMPLE
+   // jQuery methods go here...
 
-组合查找
-#+BEGIN_EXAMPLE
-$('p,div'); // 把<p>和<div>都选出来
-$('p.red,p.green'); // 把<p class="red">和<p class="green">都选出来
-#+END_EXAMPLE
+});
+#+END_SRC
 
-层级查找
+
+* 获取屏幕的宽度和高度
+#+BEGIN_SRC js
+var width = $(window).width()
+var height = $(window).height()
+#+END_SRC
+
+* hide方法
+实际上就是css设置 ~display:none~ 。
+#+BEGIN_SRC js
+$('#test').hide()
+#+END_SRC
+
+这样将隐藏所有id为test的元素。
+
+
+* 给某个元素添加点击事件并绑定某个函数动作
 #+BEGIN_EXAMPLE
-$('ul.lang li.lang-javascript'); // [<li class="lang-javascript">JavaScript</li>]
-$('div.testing li.lang-javascript'); // [<li class="lang-javascript">JavaScript</li>] 
+$(selector).click(function)
 #+END_EXAMPLE
 
-子选择器
+类似的事件还有:
+- dbclick :: 双击事件
+- focus :: 焦点事件
+- mousemove :: 鼠标悬停事件
+
+
+** 鼠标事件
+- click :: 鼠标单击时触发；
+- dblclick :: 鼠标双击时触发；
+- mouseenter :: 鼠标进入时触发；
+- mouseleave :: 鼠标移出时触发；
+- mousemove :: 鼠标在DOM内部移动时触发 （接受e ，e.pageX是鼠标x值，e.pageY是鼠标Y值）
+- hover :: 鼠标进入和退出时触发两个函数，相当于mouseenter加上mouseleave。
+
+** 键盘事件
+键盘事件仅作用在当前焦点的DOM上，通常是<input>和<textarea>。
+
+- keydown :: 键盘按下时触发；
+- keyup :: 键盘松开时触发；
+- keypress :: 按一次键后触发。
+
+
+** 其他事件
+focus：当DOM获得焦点时触发；
+blur：当DOM失去焦点时触发；
+change：当<input>、<select>或<textarea>的内容改变时触发；
+submit：当<form>提交时触发；
+ready：当页面被载入并且DOM树完成初始化后触发。
+
+
+** 取消某个事件绑定
 #+BEGIN_EXAMPLE
-$('ul.lang>li.lang-javascript'); // 可以选出[<li class="lang-javascript">JavaScript</li>]
-$('div.testing>li.lang-javascript'); // [], 无法选出，因为<div>和<li>不构成父子关系
+a.off('click', hello);
 #+END_EXAMPLE
 
-这些语法都是css选择中的高级语法，这里都略过了。
 
-jquery对象有下面这些属性:
+* jquery的DOM操作
 
-- find() :: 进一步查找
-- parent() :: 获得父节点
-- next() :: 同一层级下一个节点
-- prev() :: 同一层级前一个节点
-- filter() :: 过滤掉某些节点
-上面这几个方法都可以接受和之前描述一样的css选择语法。
+** text方法
+返回所选元素的文本信息。如果选中了多个元素，所有的元素的字符串将合并。
 
------
+设置字符串具体就是在 ~text()~ 方法里面，所有选中的元素的innerText都将更改。
 
-- text() :: 本jquery对象标签元素所含文本
-- html() :: 该jquery对象标签元素所含html
+** html方法
+类似上面的text方法，包括HTML标记。
 
------
+** val方法
+是针对form 表单元素提取其value属性值或设置value值的。
+
+** attr方法
+获取某个元素的某个属性值。
+
+设置值如下所示:
+#+BEGIN_EXAMPLE
+$("button").click(function(){
+  $("#w3s").attr("href","http://www.w3school.com.cn/jquery");
+});
+#+END_EXAMPLE
+
+** removeAttr方法 
+删除属性
+#+BEGIN_EXAMPLE
+// <div id="test-div" name="Test" start="1">...</div>
+var div = $('#test-div');
+div.hasAttr('name'); // true
+div.attr('name'); // 'Test'
+div.attr('name', 'Hello'); // div的name属性变为'Hello'
+div.removeAttr('name'); // 删除name属性
+div.attr('name'); // undefined
+#+END_EXAMPLE
+
+
+
+
 - css() :: 修改css属性
 #+BEGIN_EXAMPLE
 $('#test-css li.dy>span').css('background-color', '#ffd351').css('color', 'red');
@@ -86,19 +132,6 @@ div.addClass('highlight'); // 添加highlight这个class
 div.removeClass('highlight'); // 删除highlight这个class
 #+END_EXAMPLE
 
-- attr() :: 修改属性
-- removeAttr() :: 删除属性
-#+BEGIN_EXAMPLE
-// <div id="test-div" name="Test" start="1">...</div>
-var div = $('#test-div');
-div.hasAttr('name'); // true
-div.attr('name'); // 'Test'
-div.attr('name', 'Hello'); // div的name属性变为'Hello'
-div.removeAttr('name'); // 删除name属性
-div.attr('name'); // undefined
-#+END_EXAMPLE
-
-- val() :: 获取某个表单元素input的value值
 
 
 -----
@@ -110,97 +143,9 @@ div.attr('name'); // undefined
 - remove() :: 删除某个节点
 
 
-** 显示或隐藏
-#+BEGIN_EXAMPLE
-var a = $('a[target=_blank]');
-a.hide(); // 隐藏
-a.show(); // 显示
-#+END_EXAMPLE
 
 
-** 事件
-
-超链接被点击就触发了click事件，某个标签元素可以如下定义:
-#+BEGIN_EXAMPLE
-a.on('click', function () {
-    alert('Hello!');
-});
-#+END_EXAMPLE
-
-~on~ 某个事件，则执行某个动作。
-或者:
-#+BEGIN_EXAMPLE
-a.click(function () {
-    alert('Hello!');
-});
-#+END_EXAMPLE
-
-
-*** 鼠标事件
-- click :: 鼠标单击时触发；
-- dblclick :: 鼠标双击时触发；
-- mouseenter :: 鼠标进入时触发；
-- mouseleave :: 鼠标移出时触发；
-- mousemove :: 鼠标在DOM内部移动时触发 （接受e ，e.pageX是鼠标x值，e.pageY是鼠标Y值）
-- hover :: 鼠标进入和退出时触发两个函数，相当于mouseenter加上mouseleave。
-
-*** 键盘事件
-键盘事件仅作用在当前焦点的DOM上，通常是<input>和<textarea>。
-
-- keydown :: 键盘按下时触发；
-- keyup :: 键盘松开时触发；
-- keypress :: 按一次键后触发。
-
-
-*** 其他事件
-focus：当DOM获得焦点时触发；
-blur：当DOM失去焦点时触发；
-change：当<input>、<select>或<textarea>的内容改变时触发；
-submit：当<form>提交时触发；
-ready：当页面被载入并且DOM树完成初始化后触发。
-
-文档初始化事件: 
-#+BEGIN_EXAMPLE
-$(function () {
-    // init...
-});
-#+END_EXAMPLE
-这种写法就是处理document的ready事件的。
-
-*** 取消某个事件绑定
-#+BEGIN_EXAMPLE
-a.off('click', hello);
-#+END_EXAMPLE
-
-** ajax函数
-~$.ajax()~ 提供ajax支持。
-
-
-
-
-* json
-json之前了解过一些了:
-#+BEGIN_EXAMPLE
-number：和JavaScript的number完全一致；
-boolean：就是JavaScript的true或false；
-string：就是JavaScript的string；
-null：就是JavaScript的null；
-array：就是JavaScript的Array表示方式——[]；
-object：就是JavaScript的{ ... }表示方式。
-#+END_EXAMPLE
-
-** stringify函数
-某个javascript对象字符串化。
-#+BEGIN_EXAMPLE
-JSON.stringify(xiaoming, null, '  ');
-#+END_EXAMPLE
-
-
-** parse函数
-将某个javascript对象刷成json对象。
-#+BEGIN_EXAMPLE
-JSON.parse('[1,2,3,true]'); 
-#+END_EXAMPLE
+* ajax
 
 
 

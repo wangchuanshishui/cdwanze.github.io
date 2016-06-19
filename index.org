@@ -197,9 +197,12 @@
 *** javascript库
 1. [[file:电脑/html5/javascript库/FileSaver库.html][FileSaver库.html]]
 *** javascript语言
-1. [[file:电脑/html5/javascript语言/javascript语言学习基础篇.html][javascript语言学习基础篇.html]]
+1. [[file:电脑/html5/javascript语言/javascript语言学习进阶.html][javascript语言学习进阶.html]]
+2. [[file:电脑/html5/javascript语言/javascript语言学习基础篇.html][javascript语言学习基础篇.html]]
 *** mathjax
 1. [[file:电脑/html5/mathjax/mathjax.pdf][mathjax.pdf]]
+*** 前端
+1. [[file:电脑/html5/前端/前端修炼日记.html][前端修炼日记.html]]
 ** java
 1. [[file:电脑/java/java语言学习笔记.html][java语言学习笔记.html]]
 2. [[file:电脑/java/android开发学习笔记.html][android开发学习笔记.html]]

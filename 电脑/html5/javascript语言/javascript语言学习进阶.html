@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-06-19 日 19:40 -->
+<!-- 2016-06-19 日 18:57 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
-<title>jquery学习笔记</title>
+<title>javascript语言学习进阶</title>
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="万泽(德山书生)">
 <meta  name="description" content="制作者邮箱：a358003542@gmail.com"
@@ -268,269 +268,63 @@ table tr:nth-child(even) {
 <body>
 <div id="content">
 <header>
-<h1 class="title">jquery学习笔记</h1>
+<h1 class="title">javascript语言学习进阶</h1>
 </header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. jquery选择语法</a></li>
-<li><a href="#orgheadline2">2. 文档初始化之后执行的动作</a></li>
-<li><a href="#orgheadline3">3. 获取屏幕的宽度和高度</a></li>
-<li><a href="#orgheadline4">4. hide方法</a></li>
-<li><a href="#orgheadline9">5. 给某个元素添加点击事件并绑定某个函数动作</a>
+<li><a href="#orgheadline3">1. JSON对象</a>
 <ul>
-<li><a href="#orgheadline5">5.1. 鼠标事件</a></li>
-<li><a href="#orgheadline6">5.2. 键盘事件</a></li>
-<li><a href="#orgheadline7">5.3. 其他事件</a></li>
-<li><a href="#orgheadline8">5.4. 取消某个事件绑定</a></li>
+<li><a href="#orgheadline1">1.1. stringify函数</a></li>
+<li><a href="#orgheadline2">1.2. parse函数</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline15">6. jquery的DOM操作</a>
-<ul>
-<li><a href="#orgheadline10">6.1. text方法</a></li>
-<li><a href="#orgheadline11">6.2. html方法</a></li>
-<li><a href="#orgheadline12">6.3. val方法</a></li>
-<li><a href="#orgheadline13">6.4. attr方法</a></li>
-<li><a href="#orgheadline14">6.5. removeAttr方法</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline16">7. ajax</a></li>
 </ul>
 </div>
 </nav>
 
+
+
 <div class="outline-2">
-<h2 id="orgheadline1">jquery选择语法</h2>
+<h2 id="orgheadline3">JSON对象</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-jquery的选择语法和beautifulsoup的那种选择语法很是类似，这里不赘述了。唯一值得提醒的就是jquery这样:
+json之前了解过一些了:
 </p>
 <pre>
-$(selector)
-</pre>
-<p>
-选择之后返回是一个数组类型。后面也许某些有特色的选择风格会加在下面。
-</p>
-</div>
-</div>
-
-
-<div class="outline-2">
-<h2 id="orgheadline2">文档初始化之后执行的动作</h2>
-<div class="outline-text-2" id="text-2">
-<div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-
-   <span class="c1">// jQuery methods go here...</span>
-
-<span class="p">});</span>
-</pre></div>
-</div>
-</div>
-
-
-<div class="outline-2">
-<h2 id="orgheadline3">获取屏幕的宽度和高度</h2>
-<div class="outline-text-2" id="text-3">
-<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">width</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">width</span><span class="p">()</span>
-<span class="kd">var</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">height</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-
-<div class="outline-2">
-<h2 id="orgheadline4">hide方法</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-实际上就是css设置 <code>display:none</code> 。
-</p>
-<div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#test&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">()</span>
-</pre></div>
-
-<p>
-这样将隐藏所有id为test的元素。
-</p>
-</div>
-</div>
-
-
-<div class="outline-2">
-<h2 id="orgheadline9">给某个元素添加点击事件并绑定某个函数动作</h2>
-<div class="outline-text-2" id="text-5">
-<pre>
-$(selector).click(function)
-</pre>
-
-<p>
-类似的事件还有:
-</p>
-<dl class="org-dl">
-<dt>dbclick</dt><dd>双击事件</dd>
-<dt>focus</dt><dd>焦点事件</dd>
-<dt>mousemove</dt><dd>鼠标悬停事件</dd>
-</dl>
-</div>
-
-
-<div class="outline-3">
-<h3 id="orgheadline5">鼠标事件</h3>
-<div class="outline-text-3" id="text-5-1">
-<dl class="org-dl">
-<dt>click</dt><dd>鼠标单击时触发；</dd>
-<dt>dblclick</dt><dd>鼠标双击时触发；</dd>
-<dt>mouseenter</dt><dd>鼠标进入时触发；</dd>
-<dt>mouseleave</dt><dd>鼠标移出时触发；</dd>
-<dt>mousemove</dt><dd>鼠标在DOM内部移动时触发 （接受e ，e.pageX是鼠标x值，e.pageY是鼠标Y值）</dd>
-<dt>hover</dt><dd>鼠标进入和退出时触发两个函数，相当于mouseenter加上mouseleave。</dd>
-</dl>
-</div>
-</div>
-
-<div class="outline-3">
-<h3 id="orgheadline6">键盘事件</h3>
-<div class="outline-text-3" id="text-5-2">
-<p>
-键盘事件仅作用在当前焦点的DOM上，通常是&lt;input&gt;和&lt;textarea&gt;。
-</p>
-
-<dl class="org-dl">
-<dt>keydown</dt><dd>键盘按下时触发；</dd>
-<dt>keyup</dt><dd>键盘松开时触发；</dd>
-<dt>keypress</dt><dd>按一次键后触发。</dd>
-</dl>
-</div>
-</div>
-
-
-<div class="outline-3">
-<h3 id="orgheadline7">其他事件</h3>
-<div class="outline-text-3" id="text-5-3">
-<p>
-focus：当DOM获得焦点时触发；
-blur：当DOM失去焦点时触发；
-change：当&lt;input&gt;、&lt;select&gt;或&lt;textarea&gt;的内容改变时触发；
-submit：当&lt;form&gt;提交时触发；
-ready：当页面被载入并且DOM树完成初始化后触发。
-</p>
-</div>
-</div>
-
-
-<div class="outline-3">
-<h3 id="orgheadline8">取消某个事件绑定</h3>
-<div class="outline-text-3" id="text-5-4">
-<pre>
-a.off('click', hello);
+number：和JavaScript的number完全一致；
+boolean：就是JavaScript的true或false；
+string：就是JavaScript的string；
+null：就是JavaScript的null；
+array：就是JavaScript的Array表示方式——[]；
+object：就是JavaScript的{ ... }表示方式。
 </pre>
 </div>
-</div>
-</div>
-
-
-<div class="outline-2">
-<h2 id="orgheadline15">jquery的DOM操作</h2>
-<div class="outline-text-2" id="text-6">
-</div><div class="outline-3">
-<h3 id="orgheadline10">text方法</h3>
-<div class="outline-text-3" id="text-6-1">
-<p>
-返回所选元素的文本信息。如果选中了多个元素，所有的元素的字符串将合并。
-</p>
-
-<p>
-设置字符串具体就是在 <code>text()</code> 方法里面，所有选中的元素的innerText都将更改。
-</p>
-</div>
-</div>
 
 <div class="outline-3">
-<h3 id="orgheadline11">html方法</h3>
-<div class="outline-text-3" id="text-6-2">
+<h3 id="orgheadline1">stringify函数</h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
-类似上面的text方法，包括HTML标记。
-</p>
-</div>
-</div>
-
-<div class="outline-3">
-<h3 id="orgheadline12">val方法</h3>
-<div class="outline-text-3" id="text-6-3">
-<p>
-是针对form 表单元素提取其value属性值或设置value值的。
-</p>
-</div>
-</div>
-
-<div class="outline-3">
-<h3 id="orgheadline13">attr方法</h3>
-<div class="outline-text-3" id="text-6-4">
-<p>
-获取某个元素的某个属性值。
-</p>
-
-<p>
-设置值如下所示:
+某个javascript对象字符串化。
 </p>
 <pre>
-$("button").click(function(){
-  $("#w3s").attr("href","http://www.w3school.com.cn/jquery");
-});
+JSON.stringify(xiaoming, null, '  ');
 </pre>
 </div>
 </div>
 
+
 <div class="outline-3">
-<h3 id="orgheadline14">removeAttr方法</h3>
-<div class="outline-text-3" id="text-6-5">
+<h3 id="orgheadline2">parse函数</h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
-删除属性
+将某个javascript对象刷成json对象。
 </p>
 <pre>
-// &lt;div id="test-div" name="Test" start="1"&gt;...&lt;/div&gt;
-var div = $('#test-div');
-div.hasAttr('name'); // true
-div.attr('name'); // 'Test'
-div.attr('name', 'Hello'); // div的name属性变为'Hello'
-div.removeAttr('name'); // 删除name属性
-div.attr('name'); // undefined
+JSON.parse('[1,2,3,true]');
 </pre>
-
-
-
-
-<dl class="org-dl">
-<dt>css()</dt><dd>修改css属性</dd>
-</dl>
-<pre>
-$('#test-css li.dy&gt;span').css('background-color', '#ffd351').css('color', 'red');
-</pre>
-
-<pre>
-var div = $('#test-div');
-div.hasClass('highlight'); // false， class是否包含highlight
-div.addClass('highlight'); // 添加highlight这个class
-div.removeClass('highlight'); // 删除highlight这个class
-</pre>
-
-
-
-<hr >
-
-<dl class="org-dl">
-<dt>append()</dt><dd>添加一个子节点</dd>
-<dt>prepend()</dt><dd>添加一个子节点，到最前。</dd>
-<dt>before()</dt><dd>某个节点之前插入</dd>
-<dt>after()</dt><dd>某个节点之后插入</dd>
-<dt>remove()</dt><dd>删除某个节点</dd>
-</dl>
 </div>
 </div>
-</div>
-
-
-
-
-<div class="outline-2">
-<h2 id="orgheadline16">ajax</h2>
 </div>
 </div>
 </body>
