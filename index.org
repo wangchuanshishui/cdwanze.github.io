@@ -256,8 +256,9 @@
 1. [[file:电脑/linux/gunicorn/gunicorn-docs.pdf][gunicorn-docs.pdf]]
 2. [[file:电脑/linux/gunicorn/gunicorn how to.html][gunicorn how to.html]]
 *** linux系统进阶
-1. [[file:电脑/linux/linux系统进阶/linux系统进阶.html][linux系统进阶.html]]
-2. [[file:电脑/linux/linux系统进阶/linux其他知识.html][linux其他知识.html]]
+1. [[file:电脑/linux/linux系统进阶/linux系统进阶2.html][linux系统进阶2.html]]
+2. [[file:电脑/linux/linux系统进阶/linux系统进阶.html][linux系统进阶.html]]
+3. [[file:电脑/linux/linux系统进阶/linux其他知识.html][linux其他知识.html]]
 *** makefile
 1. [[file:电脑/linux/makefile/makefile学习笔记.html][makefile学习笔记.html]]
 *** nginx
@@ -276,6 +277,17 @@
 ** python
 1. [[file:电脑/python/Testing Python.pdf][Testing Python.pdf]]
 2. [[file:电脑/python/Python Projects.pdf][Python Projects.pdf]]
+*** Django
+1. [[file:电脑/python/Django/django学习笔记.html][django学习笔记.html]]
+*** Flask
+1. [[file:电脑/python/Flask/flask-socketio.html][flask-socketio.html]]
+2. [[file:电脑/python/Flask/flask-user.html][flask-user.html]]
+3. [[file:电脑/python/Flask/精通flask.html][精通flask.html]]
+4. [[file:电脑/python/Flask/jinja2模板系统.html][jinja2模板系统.html]]
+5. [[file:电脑/python/Flask/flask学习补充.html][flask学习补充.html]]
+6. [[file:电脑/python/Flask/flask-wtf.html][flask-wtf.html]]
+7. [[file:电脑/python/Flask/Werkzeug模块.html][Werkzeug模块.html]]
+8. [[file:电脑/python/Flask/flask-restful.html][flask-restful.html]]
 *** Odoo
 1. [[file:电脑/python/Odoo/OpenERP 应用和开发基础.pdf][OpenERP 应用和开发基础.pdf]]
 2. [[file:电脑/python/Odoo/OpenERP不花钱.pdf][OpenERP不花钱.pdf]]
@@ -294,19 +306,10 @@
 2. [[file:电脑/python/Qt/C++ GUI Qt4 编程.pdf][C++ GUI Qt4 编程.pdf]]
 3. [[file:电脑/python/Qt/C++-GUI-Programming-with-Qt-4.pdf][C++-GUI-Programming-with-Qt-4.pdf]]
 4. [[file:电脑/python/Qt/The Book of Qt 4 - The Art of Building Qt Applications.pdf][The Book of Qt 4 - The Art of Building Qt Applications.pdf]]
-*** Tornoda
-1. [[file:电脑/python/Tornoda/Tornado学习笔记.html][Tornado学习笔记.html]]
+*** Tornado
+1. [[file:电脑/python/Tornado/Tornado学习笔记.html][Tornado学习笔记.html]]
 *** api对接
 1. [[file:电脑/python/api对接/api对接的设计原则.html][api对接的设计原则.html]]
-*** flask
-1. [[file:电脑/python/flask/flask-socketio.html][flask-socketio.html]]
-2. [[file:电脑/python/flask/flask-user.html][flask-user.html]]
-3. [[file:电脑/python/flask/精通flask.html][精通flask.html]]
-4. [[file:电脑/python/flask/jinja2模板系统.html][jinja2模板系统.html]]
-5. [[file:电脑/python/flask/flask学习补充.html][flask学习补充.html]]
-6. [[file:电脑/python/flask/flask-wtf.html][flask-wtf.html]]
-7. [[file:电脑/python/flask/Werkzeug模块.html][Werkzeug模块.html]]
-8. [[file:电脑/python/flask/flask-restful.html][flask-restful.html]]
 *** hacker修道院
 1. [[file:电脑/python/hacker修道院/hacker修道院入门.html][hacker修道院入门.html]]
 *** python3语言
@@ -408,11 +411,12 @@
 5. [[file:电脑/python/第三方模块/dateutil.pdf][dateutil.pdf]]
 6. [[file:电脑/python/第三方模块/python-magic模块.html][python-magic模块.html]]
 7. [[file:电脑/python/第三方模块/paramiko模块.html][paramiko模块.html]]
-8. [[file:电脑/python/第三方模块/click模块.html][click模块.html]]
-9. [[file:电脑/python/第三方模块/pint.pdf][pint.pdf]]
-10. [[file:电脑/python/第三方模块/virtualenv模块.html][virtualenv模块.html]]
-11. [[file:电脑/python/第三方模块/luigi框架.html][luigi框架.html]]
-12. [[file:电脑/python/第三方模块/setuptools模块.html][setuptools模块.html]]
+8. [[file:电脑/python/第三方模块/pytest模块.html][pytest模块.html]]
+9. [[file:电脑/python/第三方模块/click模块.html][click模块.html]]
+10. [[file:电脑/python/第三方模块/pint.pdf][pint.pdf]]
+11. [[file:电脑/python/第三方模块/virtualenv模块.html][virtualenv模块.html]]
+12. [[file:电脑/python/第三方模块/luigi框架.html][luigi框架.html]]
+13. [[file:电脑/python/第三方模块/setuptools模块.html][setuptools模块.html]]
 *** 算法
 1. [[file:电脑/python/算法/算法入门之查找篇.html][算法入门之查找篇.html]]
 2. [[file:电脑/python/算法/算法入门之数据结构篇.html][算法入门之数据结构篇.html]]
