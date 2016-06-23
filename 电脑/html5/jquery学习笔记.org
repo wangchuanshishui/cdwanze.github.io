@@ -32,6 +32,10 @@ var width = $(window).width()
 var height = $(window).height()
 #+END_SRC
 
+这两个方法更确切的描述是返回所选元素的宽度或高度。此外还有 ~innerWidth~ 和 ~innerHeight~ 方法（包含内边距）， ~outerWidth~ 和 ~outerHeight~ 包含内边距和边框。
+
+
+
 * hide方法
 实际上就是css设置 ~display:none~ 。
 #+BEGIN_SRC js
@@ -119,12 +123,32 @@ div.attr('name'); // undefined
 
 
 
+** append方法
+在所有被选中的元素末尾添加一个子节点元素
 
-- css() :: 修改css属性
+** prepend方法
+在所有被选中的元素前面添加一个子节点。
+
+** before方法
+在所有被选中的元素之前（平行）添加某个节点
+
+** after方法
+在所有被选中的元素之后（平行）添加某个节点
+
+** remove方法
+删除选中的节点，包括子节点
+
+** empty方法
+删除选中的节点所有的子节点，选中的节点属性都还在。
+
+
+** css方法
+修改css属性
 #+BEGIN_EXAMPLE
 $('#test-css li.dy>span').css('background-color', '#ffd351').css('color', 'red');
 #+END_EXAMPLE
 
+** 其他css操作方法
 #+BEGIN_EXAMPLE
 var div = $('#test-div');
 div.hasClass('highlight'); // false， class是否包含highlight
@@ -134,20 +158,20 @@ div.removeClass('highlight'); // 删除highlight这个class
 
 
 
------
-
-- append() :: 添加一个子节点
-- prepend() :: 添加一个子节点，到最前。
-- before() :: 某个节点之前插入
-- after() :: 某个节点之后插入
-- remove() :: 删除某个节点
-
 
 
 
 * ajax
+** GET
+#+BEGIN_EXAMPLE
+$.get(URL, callback);
+#+END_EXAMPLE
+
+回调函数接受两个参数，传回来的data和状态码。
 
 
-
-
+** POST
+#+BEGIN_EXAMPLE
+$.post(URL,data,callback);
+#+END_EXAMPLE
 

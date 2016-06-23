@@ -1,4 +1,4 @@
-#+LATEX_CLASS: article
+                                                                                                                                                                                                                                           #+LATEX_CLASS: article
 #+LATEX_CLASS_OPTIONS:[11pt,oneside]
 #+LATEX_HEADER: \usepackage{article}
 

@@ -1,0 +1,170 @@
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:[11pt,oneside]
+#+LATEX_HEADER: \usepackage{article}
+
+
+#+TITLE: 基本内置模块熟悉
+#+AUTHOR: 万泽(德山书生)
+#+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
+#+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
+
+
+* pickle模块
+pickle模块可以将某一个复杂的对象永久存入一个文件中，以后再导入这个文件，这样自动将这个复杂的对象导入进来了。
+
+** 将对象存入文件
+#+BEGIN_SRC python
+import pickle
+
+class Test:
+    def __init__(self):
+        self.a=0
+        self.b=0
+        self.c=1
+        self.d=1
+
+    def __str__(self):
+        return str(self.__dict__)
+
+if __name__ == '__main__':
+    test001=Test()
+    print(test001)
+    testfile=open('data.pkl','wb')
+    pickle.dump(test001,testfile)
+    testfile.close()
+#+END_SRC
+
+
+** 从文件中取出对象
+值得一提的是从文件中取出对象，原来的类的定义还是必须存在，也就是声明一次在内存中的，否则会出错。
+#+BEGIN_SRC python
+import pickle
+
+class Test:
+    def __init__(self):
+        self.a=0
+        self.b=0
+        self.c=1
+        self.d=1
+
+    def __str__(self):
+        return str(self.__dict__)
+
+if __name__ == '__main__':
+    testfile=open('data.pkl','rb')
+    test001=pickle.load(testfile)
+    print(test001)
+    testfile.close()
+#+END_SRC
+
+pickle模块的基本使用就是用dump函数将某个对象存入某个文件中，然后这个文件以后可以用load函数来加载，然后之前的那个对象会自动返回出来。
+
+
+
+* shelve模块
+shelve模块是基于pickle模块的，也就是只有pickle模块支持的对象它才支持。 之前提及pickle模块只能针对一个对象，如果你有多个对象要处理，可以考虑使用shelve模块，而shelve模块就好像是自动将这些对象用字典的形式包装起来了。除此之外shelve模块的使用更加简便了。
+
+** 存入多个对象
+#+BEGIN_SRC python
+import shelve
+from Hero import Garen
+
+if __name__ == '__main__':
+    garen1=Garen()
+    garen2=Garen('red')
+    garen3=Garen('yellow')
+    db=shelve.open('test.db')
+    for (key,item) in [('garen1',garen1),('garen2',garen2),('garen3',garen3)]:
+        db[key]=item
+    db.close()
+#+END_SRC
+
+
+我们看到整个过程的代码变得非常的简洁了，然后一个个对象是以字典的形式存入进去的。
+
+** 读取这些对象
+读取这些对象的代码也很简洁，就是用shelve模块的open函数打开数据库文件，open函数会自动返回一个字典对象，这个字典对象里面的数据就对应着之前存入的键值和对象。
+
+同时通过这个例子我发现，如果自己定义的类，将他们提取出来放入另外一个文件，那么shelve模块读取文件时候是不需要再引入之前的定义。这一点值得我们注意，因为shelve模块内部也采用的是pickle的机制，所以可以猜测之前pickle的那个例子类的定义写在写入文件代码的里面，所以不能载入数据库；而如果将这些类的定义放入一个文件，然后这些类以模块或说模块载入的形式引入，那么读取这些对象就可以以一种更优雅的形式实现。如下所示：
+#+BEGIN_SRC python
+import shelve
+
+if __name__ == '__main__':
+    db=shelve.open('test.db')
+    for key in sorted(db):
+        print(db[key])
+    db.close()
+#+END_SRC
+
+我们看到就作为简单的程序或者原型程序的数据库，shelve模块已经很好用而且够用了。
+
+
+* sys模块
+sys模块有一些功能很常用，其实在前面我们就看到过一些了。
+
+** sys.argv
+在刚开始说明python执行脚本参数传递的问题时就已经讲了sys.argv这个变量。这是一个由字符串组成的列表。
+#+BEGIN_SRC python
+import sys
+print(sys.argv)
+for i in range(len(sys.argv)):
+    print(sys.argv[i])
+#+END_SRC
+
+
+比如新建上面的一个test.py文件，然后执行：
+#+BEGIN_EXAMPLE
+python3 test.py test1 test2
+['test.py', 'test1', 'test2']
+test.py
+test1
+test2
+#+END_EXAMPLE
+
+
+我们可以看到 ~sys.argv[0]~ 就是这个脚本的文件名，然后后面依次是各个参数。
+
+** exit函数
+这个我们在编写GUI程序的时候经常看到，在其他脚本程序中也很常用。如果不带参数的话那么直接退出程序，还可以带一个字符串参数，返回错误提示信息，或者带一个数字，这里的详细讨论略过。
+
+#+BEGIN_SRC bash
+>>> import sys
+>>> sys.exit('出错了')
+出错了
+#+END_SRC
+
+
+** sys.platform
+返回当前脚本执行的操作系统环境。
+
+Linux 返回字符串值：linux；Windows返回win32；Mac OS X 返回darwin。
+
+** sys.path
+一连串字符串列表，是python脚本模块的搜索路径，所以我们自定义的python模块，只需要在sys.path这个列表上新加一个字符串路径即可。
+
+** 标准输入输出错误输出文件
+sys.stdin，sys.stdout，sys.stderr这三个文件对象对应的就是linux系统所谓的标准输入标准输出和错误输出文件流对象。
+
+** sys.version
+sys.version输出当前python的版本信息和编译环境的详细信息。
+
+~sys.version_info[0]~ 返回当前python主版本的标识，比如python3就返回数字3。
+
+** sys.maxsize
+返回当前计算环境下整数(int)类型的最大值，32位系统是 $2**31-1$ 。
+#+BEGIN_EXAMPLE
+>>> 2**31-1
+2147483647
+>>> import sys
+>>> sys.maxsize
+2147483647
+#+END_EXAMPLE
+
+
+** sys.stdin.isatty()
+测试输入流是不是终端。如果是终端，则返回True。
+
+
+#+BEGIN_NOTECARD
+更多内容请参见 [[https://docs.python.org/3/library/sys.html][官方文档]] 。
+#+END_NOTECARD

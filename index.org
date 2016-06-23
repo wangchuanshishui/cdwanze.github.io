@@ -193,7 +193,9 @@
 2. [[file:电脑/html5/html5-cheat-sheet.pdf][html5-cheat-sheet.pdf]]
 3. [[file:电脑/html5/jquery学习笔记.html][jquery学习笔记.html]]
 4. [[file:电脑/html5/html5进阶.html][html5进阶.html]]
-5. [[file:电脑/html5/stackoverflow精彩问题收录.html][stackoverflow精彩问题收录.html]]
+5. [[file:电脑/html5/nodejs学习笔记.html][nodejs学习笔记.html]]
+6. [[file:电脑/html5/stackoverflow精彩问题收录.html][stackoverflow精彩问题收录.html]]
+7. [[file:电脑/html5/css学习进阶.html][css学习进阶.html]]
 *** javascript库
 1. [[file:电脑/html5/javascript库/FileSaver库.html][FileSaver库.html]]
 *** javascript语言
@@ -282,6 +284,7 @@
 2. [[file:电脑/python/Python Projects.pdf][Python Projects.pdf]]
 *** Django
 1. [[file:电脑/python/Django/django学习笔记.html][django学习笔记.html]]
+2. [[file:电脑/python/Django/Django_REST_framework学习笔记.html][Django_REST_framework学习笔记.html]]
 *** Flask
 1. [[file:电脑/python/Flask/flask-socketio.html][flask-socketio.html]]
 2. [[file:电脑/python/Flask/flask-user.html][flask-user.html]]
@@ -314,7 +317,8 @@
 *** api对接
 1. [[file:电脑/python/api对接/api对接的设计原则.html][api对接的设计原则.html]]
 *** hacker修道院
-1. [[file:电脑/python/hacker修道院/hacker修道院入门.html][hacker修道院入门.html]]
+1. [[file:电脑/python/hacker修道院/wifi模块.html][wifi模块.html]]
+2. [[file:电脑/python/hacker修道院/hacker修道院入门.html][hacker修道院入门.html]]
 *** python3语言
 1. [[file:电脑/python/python3语言/python cookbook.pdf][python cookbook.pdf]]
 2. [[file:电脑/python/python3语言/intermediate-and-advanced-software-carpentry.pdf][intermediate-and-advanced-software-carpentry.pdf]]
@@ -350,19 +354,21 @@
 1. [[file:电脑/python/官方内置模块/logging模块.html][logging模块.html]]
 2. [[file:电脑/python/官方内置模块/collections模块.html][collections模块.html]]
 3. [[file:电脑/python/官方内置模块/csv模块.html][csv模块.html]]
-4. [[file:电脑/python/官方内置模块/mock模块.html][mock模块.html]]
-5. [[file:电脑/python/官方内置模块/fcntl模块.html][fcntl模块.html]]
-6. [[file:电脑/python/官方内置模块/functools模块.html][functools模块.html]]
-7. [[file:电脑/python/官方内置模块/configparser模块.html][configparser模块.html]]
-8. [[file:电脑/python/官方内置模块/ast模块.html][ast模块.html]]
-9. [[file:电脑/python/官方内置模块/argparse模块.html][argparse模块.html]]
-10. [[file:电脑/python/官方内置模块/json模块.html][json模块.html]]
-11. [[file:电脑/python/官方内置模块/pathlib模块.html][pathlib模块.html]]
-12. [[file:电脑/python/官方内置模块/datetime模块.html][datetime模块.html]]
-13. [[file:电脑/python/官方内置模块/tempfile模块.html][tempfile模块.html]]
-14. [[file:电脑/python/官方内置模块/heapq模块.html][heapq模块.html]]
-15. [[file:电脑/python/官方内置模块/unittest模块.html][unittest模块.html]]
-16. [[file:电脑/python/官方内置模块/inspect模块.html][inspect模块.html]]
+4. [[file:电脑/python/官方内置模块/timer模块.html][timer模块.html]]
+5. [[file:电脑/python/官方内置模块/基本内置模块熟悉.html][基本内置模块熟悉.html]]
+6. [[file:电脑/python/官方内置模块/mock模块.html][mock模块.html]]
+7. [[file:电脑/python/官方内置模块/fcntl模块.html][fcntl模块.html]]
+8. [[file:电脑/python/官方内置模块/functools模块.html][functools模块.html]]
+9. [[file:电脑/python/官方内置模块/configparser模块.html][configparser模块.html]]
+10. [[file:电脑/python/官方内置模块/ast模块.html][ast模块.html]]
+11. [[file:电脑/python/官方内置模块/argparse模块.html][argparse模块.html]]
+12. [[file:电脑/python/官方内置模块/json模块.html][json模块.html]]
+13. [[file:电脑/python/官方内置模块/pathlib模块.html][pathlib模块.html]]
+14. [[file:电脑/python/官方内置模块/datetime模块.html][datetime模块.html]]
+15. [[file:电脑/python/官方内置模块/tempfile模块.html][tempfile模块.html]]
+16. [[file:电脑/python/官方内置模块/heapq模块.html][heapq模块.html]]
+17. [[file:电脑/python/官方内置模块/unittest模块.html][unittest模块.html]]
+18. [[file:电脑/python/官方内置模块/inspect模块.html][inspect模块.html]]
 *** 数据处理
 1. [[file:电脑/python/数据处理/皮尔森相关度.html][皮尔森相关度.html]]
 2. [[file:电脑/python/数据处理/Python for Finance.pdf][Python for Finance.pdf]]
@@ -398,8 +404,12 @@
 1. [[file:电脑/python/文本处理/用Python进行自然语言处理.pdf][用Python进行自然语言处理.pdf]]
 2. [[file:电脑/python/文本处理/pyparsing模块.html][pyparsing模块.html]]
 3. [[file:电脑/python/文本处理/Mastering Python Regular Expressions.pdf][Mastering Python Regular Expressions.pdf]]
-4. [[file:电脑/python/文本处理/NLTK Essentials.pdf][NLTK Essentials.pdf]]
-5. [[file:电脑/python/文本处理/Natural Language Processing with Python.pdf][Natural Language Processing with Python.pdf]]
+4. [[file:电脑/python/文本处理/结巴分词.html][结巴分词.html]]
+5. [[file:电脑/python/文本处理/NLTK Essentials.pdf][NLTK Essentials.pdf]]
+6. [[file:电脑/python/文本处理/Natural Language Processing with Python.pdf][Natural Language Processing with Python.pdf]]
+*** 文档处理
+1. [[file:电脑/python/文档处理/pypandoc模块.html][pypandoc模块.html]]
+2. [[file:电脑/python/文档处理/驱动libreoffice.html][驱动libreoffice.html]]
 *** 机器学习
 1. [[file:电脑/python/机器学习/Python Machine Learning.pdf][Python Machine Learning.pdf]]
 2. [[file:电脑/python/机器学习/scikit-learn-docs.pdf][scikit-learn-docs.pdf]]
