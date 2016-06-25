@@ -327,6 +327,7 @@ qs = qs1 | qs2 | qs3
 qs = qs.distinct()
 #+END_EXAMPLE
 
+
 * 国际化
 国际化或者说一些语言地区的配置。
 #+BEGIN_EXAMPLE
@@ -346,13 +347,64 @@ USE_TZ = True
 
 POST 某个方法之后 redirect ，然后需要显示某个动作
 
-* 网页模板
-django有自己的网页模板方法，和jinja2还是很类似的。
+
+* 表单
+首先定义一个表单对象，如下面这种写法很是简洁，但不清楚和 ~forms.Form~ 那种写法比较起来有何局限。
+
+#+BEGIN_EXAMPLE
+from django.forms import ModelForm
+from .models import YourModel
 
 
+class Game2048InfoForm(ModelForm):
 
+    class Meta:
+        model = YourModel
+        fields = ['target_field_name'...]
+#+END_EXAMPLE
 
+在模板文件里面的使用如下:
+#+BEGIN_EXAMPLE
+{{ form.name }}
+#+END_EXAMPLE
+对应的就是
+#+BEGIN_EXAMPLE
+<input type="what" ...>
+#+END_EXAMPLE
 
+然后注意form下面要加上:
+#+BEGIN_EXAMPLE
+{% csrf_token %}
+#+END_EXAMPLE
+
+其他就常规html编写风格吧。然后视图层那边，先看一下下面这个样例代码。
+#+BEGIN_SRC python
+def index(request):
+    if request.method == 'POST':# 当提交表单时
+     
+        form = AddForm(request.POST) # form 包含提交的数据
+         
+        if form.is_valid():
+            form.save()
+        else:
+            logging.warning('form invalid')
+    else:# 当正常访问时
+        form = AddForm()
+    return render(request, 'index.html', {'form': form})
+#+END_SRC
+
+如果要提交文件的话，模板form那边记得加上:
+#+BEGIN_EXAMPLE
+enctype="multipart/form-data"
+#+END_EXAMPLE
+
+然后form对象初始化如下所示:
+#+BEGIN_EXAMPLE
+        form = Game2048InfoForm(
+            request.POST, request.FILES, instance=target_info)
+#+END_EXAMPLE
+
+上面例子还有个很有用的Tips，就是你运行下面的 ~form.save()~ 。如果你希望更好的对接数据库操作，那么就如上指定具体本form对象对应数据库中的那个model instance。这个在前面可以通过 ~get_or_create~ 来获得。这样就可以更精确地对应响应的模型的某条记录修改那些属性了。
 
 * 参考资料
 1. [[http://tutorial.djangogirls.org/zh/installation/][django girls]]

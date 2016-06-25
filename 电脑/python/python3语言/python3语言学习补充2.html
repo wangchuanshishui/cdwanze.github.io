@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-06-23 四 13:35 -->
+<!-- 2016-06-23 四 22:22 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>python3语言学习补充补充</title>
@@ -988,7 +988,9 @@ h2.footnotes{
 <li><a href="#orgheadline4">4. 查找多个最大最小元素的情况</a></li>
 <li><a href="#orgheadline5">5. 元组和列表的比较大小</a></li>
 <li><a href="#orgheadline6">6. 获取一个月最后的一天</a></li>
-<li><a href="#orgheadline7">7. 参考资料</a></li>
+<li><a href="#orgheadline7">7. OrderedDict类</a></li>
+<li><a href="#orgheadline8">8. Counter类</a></li>
+<li><a href="#orgheadline9">9. 参考资料</a></li>
 </ul>
 </div>
 </nav>
@@ -1155,9 +1157,87 @@ datetime.datetime(2016, 4, 30, 8, 50, 20, 337204)
 </div>
 </div>
 
+
 <div class="outline-2">
-<h2 id="orgheadline7">参考资料</h2>
+<h2 id="orgheadline7">OrderedDict类</h2>
 <div class="outline-text-2" id="text-7">
+<p>
+字典一般没有排序的需求吧，就是有也可以输出的时候再排序，再说OrderedDict和一般字典比较起来存储开销大了一倍，能不用就不用吧。不过在某些情况下，用这个类确实能带来一些便利。我第一次遇到这种情况大体是在bilibili的api对接那里，其计算密钥需要将所有参数排序然后urlencode为字符串然后再基于这个字符串进行一些计算。（B站以前的API，似乎后来取消这种机制了。）
+</p>
+
+<pre>
+params = OrderedDict(sorted(params.items(), key=lambda t: t[0]))
+string = urlencode(params)
+</pre>
+
+<p>
+大体在某些情况下，总是要求某个字典值变量按照某个顺序输出，那么用OrderedDict还是很便利的。其顺序就是按照其插入顺序来的，所以进入之前我们还是要做字典排序工作，所以我们可以看作这是一个自动进行了某种操作的便捷对象吧。
+</p>
+</div>
+</div>
+
+
+<div class="outline-2">
+<h2 id="orgheadline8">Counter类</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Counter类是真有用，而且还不是一般的好用。下面的例子来自参考资料2，不多说，看看代码大体就了解了:
+</p>
+
+<pre>
+words = [
+    'look', 'into', 'my', 'eyes', 'look', 'into', 'my', 'eyes',
+    'the', 'eyes', 'the', 'eyes', 'the', 'eyes', 'not', 'around', 'the',
+    'eyes', "don't", 'look', 'around', 'the', 'eyes', 'look', 'into',
+    'my', 'eyes', "you're", 'under'
+]
+from collections import Counter
+word_counts = Counter(words)
+# 出现频率最高的3个单词
+top_three = word_counts.most_common(3)
+print(top_three)
+# Outputs [('eyes', 8), ('the', 5), ('look', 4)]
+</pre>
+
+<p>
+Counter 对象是字典的子类，所以字典的一般方法它都有，下面就不赘述了。然后 <code>update</code> 方法我们应该理解为同key之间的加法， 此外还有 <code>subtract</code> 方法可以看作同key之间的减法。此外你还可以做:
+</p>
+
+<p>
+这种加减运算和上面提及的 update 方法和 subtract 方法还是有点区别的，加法大体类似，主要是减法将会自动去掉计数小于等于零的项，而 <code>subtract</code> 方法不会。
+</p>
+<pre>
+&gt;&gt;&gt; a = Counter(words)
+&gt;&gt;&gt; b = Counter(morewords)
+&gt;&gt;&gt; a
+Counter({'eyes': 8, 'the': 5, 'look': 4, 'into': 3, 'my': 3, 'around': 2,
+"you're": 1, "don't": 1, 'under': 1, 'not': 1})
+&gt;&gt;&gt; b
+Counter({'eyes': 1, 'looking': 1, 'are': 1, 'in': 1, 'not': 1, 'you': 1,
+'my': 1, 'why': 1})
+&gt;&gt;&gt; # Combine counts
+&gt;&gt;&gt; c = a + b
+&gt;&gt;&gt; c
+Counter({'eyes': 9, 'the': 5, 'look': 4, 'my': 4, 'into': 3, 'not': 2,
+'around': 2, "you're": 1, "don't": 1, 'in': 1, 'why': 1,
+'looking': 1, 'are': 1, 'under': 1, 'you': 1})
+&gt;&gt;&gt; # Subtract counts
+&gt;&gt;&gt; d = a - b
+&gt;&gt;&gt; d
+Counter({'eyes': 7, 'the': 5, 'look': 4, 'into': 3, 'my': 2, 'around': 2,
+"you're": 1, "don't": 1, 'under': 1})
+&gt;&gt;&gt;
+</pre>
+
+<p>
+这个数据结构最为人们数值的统计频数了，通过调用 <code>most_common(n)</code> 方法，n是排行榜的前n名。
+</p>
+</div>
+</div>
+
+<div class="outline-2">
+<h2 id="orgheadline9">参考资料</h2>
+<div class="outline-text-2" id="text-9">
 <ol class="org-ol">
 <li>编写高质量代码 改善Python程序的91个建议 张颖 赖勇浩 著</li>
 <li><a href="http://python3-cookbook.readthedocs.io/">python3 cookbook</a></li>

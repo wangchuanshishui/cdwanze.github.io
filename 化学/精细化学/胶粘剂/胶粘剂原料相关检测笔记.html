@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-06-23 四 23:24 -->
+<!-- 2016-06-24 五 22:51 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
-<title>django学习笔记</title>
+<title>胶粘剂原料相关检测笔记</title>
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="万泽(德山书生)">
 <meta  name="description" content="制作者邮箱：a358003542@gmail.com"
@@ -874,11 +874,6 @@ h2.footnotes{
     display:none;
 }
 
-.footnum, .footref{
-    color: #2980b9;
-    font-size: 170%;
-    font-family:"Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
-}
 
 .footnum:before, .footref:before{
     content:"[";
@@ -977,614 +972,248 @@ h2.footnotes{
 <body>
 <div id="content">
 <header>
-<h1 class="title">django学习笔记</h1>
+<h1 class="title">胶粘剂原料相关检测笔记</h1>
 </header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgheadline1">1. 前言</a></li>
-<li><a href="#orgheadline8">2. 一些命令</a>
-<ul>
-<li><a href="#orgheadline2">2.1. 新建一个项目</a></li>
-<li><a href="#orgheadline3">2.2. 新建一个app</a></li>
-<li><a href="#orgheadline4">2.3. 数据库操作</a></li>
-<li><a href="#orgheadline5">2.4. 交互式环境</a></li>
-<li><a href="#orgheadline6">2.5. 创建超级用户</a></li>
-<li><a href="#orgheadline7">2.6. 运行网络服务器</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline9">3. url分发</a></li>
-<li><a href="#orgheadline16">4. 模型</a>
-<ul>
-<li><a href="#orgheadline10">4.1. 默认创建的表格</a></li>
-<li><a href="#orgheadline11">4.2. 字段类型</a></li>
-<li><a href="#orgheadline12">4.3. 通用可选项</a></li>
-<li><a href="#orgheadline13">4.4. 数据库中的关系</a></li>
-<li><a href="#orgheadline15">4.5. ORM层的使用方法</a>
-<ul>
-<li><a href="#orgheadline14">4.5.1. 去重</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgheadline17">5. 国际化</a></li>
-<li><a href="#orgheadline18">6. 表单</a></li>
-<li><a href="#orgheadline19">7. 参考资料</a></li>
+<li><a href="#orgheadline2">2. 挥发分的测定</a></li>
 </ul>
 </div>
 </nav>
-
 
 <div class="outline-2">
 <h2 id="orgheadline1">前言</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-已经之前接触flask有一段时间了，所以关于web框架的一些基本概念这里都忽略了。
+原料检测方法大多已经固定，似乎并没有什么新鲜可言，但就是那份将小事做到极致的认真也是我们值得追求的，这种极致坚持下来，必然提升整个工厂的产品质量，从而带来巨大的商业价值。而且因为其是源头上的QC，相对于产品后期的QC来说，是更加值得我们重视的一个领域。
+</p>
+
+<p>
+在具体检测方法上的优化是没有止境的，是值得读者认真钻研学习！
+</p>
+
+<p>
+本文除了常规讨论外，还有考虑额外加上一些html5交互运算组件来让这个文章更有趣一点。
 </p>
 </div>
 </div>
 
 
+
 <div class="outline-2">
-<h2 id="orgheadline8">一些命令</h2>
+<h2 id="orgheadline2">挥发分的测定</h2>
 <div class="outline-text-2" id="text-2">
-</div><div class="outline-3">
-<h3 id="orgheadline2">新建一个项目</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-一开始需要新建一个项目
-</p>
-<pre>
-django-admin startproject project-name
-</pre>
-</div>
-</div>
-
-<div class="outline-3">
-<h3 id="orgheadline3">新建一个app</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-然后就是新建一个app
-</p>
-<pre>
-python manage.py startapp app_name
-</pre>
-</div>
-</div>
-
-<div class="outline-3">
-<h3 id="orgheadline4">数据库操作</h3>
-<div class="outline-text-3" id="text-2-3">
-<p>
-定义模型之后，你需要运行:
-</p>
-<pre>
-python manage.py makemigrations app_name
-</pre>
-
-<p>
-这个过程将自动根据你创建的模型在数据库中创建表格。然后后面你可能改动了模型的一些内容，则要执行:
-</p>
-
-<pre>
-python manage.py migrate
-</pre>
-<p>
-也就是所谓的数据库迁移操作，不过大家都知道，数据库迁移并不是万能的，在某些情况下可能需要你手工单独处理的。
-</p>
-</div>
-</div>
-
-<div class="outline-3">
-<h3 id="orgheadline5">交互式环境</h3>
-<div class="outline-text-3" id="text-2-4">
-<p>
-进入python交互环境，这个和纯python交互环境的区别就是里面可以直接使用django里面的一些东西了，比如你定义的模型对象就可以直接使用了。
-</p>
-<pre>
-python manage.py shell
-</pre>
-
-<p>
-或者进入sql实现的交互环境:
-</p>
-<pre>
-python manage.py dbshell
-</pre>
-</div>
-</div>
-
-<div class="outline-3">
-<h3 id="orgheadline6">创建超级用户</h3>
-<div class="outline-text-3" id="text-2-5">
-<pre>
-python manage.py createsuperuser
-</pre>
-<p>
-创建的超级用户可以用于登录和登录django的 admin 界面。
-</p>
-</div>
-</div>
-
-
-<div class="outline-3">
-<h3 id="orgheadline7">运行网络服务器</h3>
-<div class="outline-text-3" id="text-2-6">
-<p>
-最后当然是最重要的主角了，开启网络服务器:
-</p>
-<pre>
-python manage.py runserver
-</pre>
-</div>
-</div>
-</div>
-
-
-<div class="outline-2">
-<h2 id="orgheadline9">url分发</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-web框架的一个核心功能就是完成url分发工作，我们先来看下django的这块内容。
-</p>
-
-<p>
-基本过程是在你的 project 的 <code>urls.py</code> 那里定义好整个项目的url分发规则。默认的内容如下:
-</p>
-
-<pre>
-from django.conf.urls import url
-from django.contrib import admin
-
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-]
-</pre>
-
-<p>
-读者有兴趣可以先看下那个admin页，在 <code>/admin</code> 那边。请确认已经执行前面的数据库操作 <code>makemigrations</code> 和 <code>migrate</code> 了，然后已经创建超级用户了 <code>createsuperuser</code> 。这样你就可以看到django默认自动创建的admin支持页面了。
-</p>
-
-<p>
-然后接下来就是类似这样的在这里插入你自己的 app的 各个 urls定义。一般如下简单写上即可:
-</p>
-<pre>
-from django.conf.urls import include
-    ....
-    url(r'', include('app_name.urls')),
-    ....
-</pre>
-
-<p>
-下面重点来了，具体在某个app下的 <code>urls.py</code> 就会定义各个具体的url分发规则。其语法如下所示:
-</p>
-
-<pre>
-from django.conf.urls import url
-
-from . import views
-
-urlpatterns = [
-    url(r'^$', views.index, name='index'),
-]
-</pre>
-
-<p>
-views下面定义这具体的视图函数，这里最核心的内容就是: url这个函数和理解正则匹配规则。
-</p>
-
 <ol class="org-ol">
-<li>这个正则匹配规则和Tornado框架的url分发很类似，除了在风格上，Django这边开头都不写 <code>/</code> 然后带个开头 <code>^</code> 的正则符号。然后里面都很类似。比如url可以接受参数:</li>
-</ol>
-
-<pre>
-from django.conf.urls import url
-
-from . import views
-
-urlpatterns = [
-    url(r'^add/([\d]+)/([\d]+)$', views.add, name='add'),
-]
-</pre>
-
-<p>
-这里参数将逐个传递个视图函数，唯一值得一提的是django的视图函数默认第一个函数是传递进去的 <code>request</code> 参量。在 <code>views.py</code> 里面的内容如下:
-</p>
-
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
-<span class="c1"># Create your views here.</span>
-
-
-<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
-</pre></div>
-
-<ol class="org-ol">
-<li><code>name</code> 这个参量大体类似于flask的 <code>endpoint</code> 的概念，然后django还有的 <code>reverse</code> 函数，其大体类似于flask的 <code>url_for</code> 的概念。</li>
+<li>称取剪好的塑料杯的重量 = 杯子重</li>
+<li>称好样品加上塑料杯的重量，一般在1g到2g左右 = 前重</li>
+<li>在105度烘箱里面放置3个小时，然后称量烘干之后的杯子加上样品的重量 = 后重</li>
 </ol>
 
 <p>
-比如上面视图函数的 add 对应的url我们可以如下获得:
-</p>
-<pre>
-from django.core.urlresolvers import reverse
-reverse('add',args=(1,2))
-</pre>
-
-<p>
-然后在模板中有:
-</p>
-<pre>
-&lt;a href="{% url 'add' 1 2 %}"&gt;link&lt;/a&gt;
-</pre>
-</div>
-</div>
-
-
-
-<div class="outline-2">
-<h2 id="orgheadline16">模型</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-django的模板和sqlalchemy还是有很多地方类似的，不过还是有一些区别吧。在项目文件夹的 <code>settings.py</code> 文件里面现在有些配置需要了解了:
+计算公式是: (前重 - 后重) / (前重 - 杯子重)
 </p>
 
-<dl class="org-dl">
-<dt>INSTALLED_APPS</dt><dd>你需要加上你新加入的 app 的名字，这个应该和django管理各个项目模型文件有关吧。</dd>
-<dt>DATABASES</dt><dd>默认会创建一个sqlite3数据库，也能满足基本的需求了，如果你想要使用mysql等数据库，则参考样例修改这里的配置。比如连接mysql的样例是:</dd>
-</dl>
-<pre>
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get("DB_NAME", "database_name"),
-        'USER': os.environ.get("DB_USER", "root"),
-        'PASSWORD': os.environ.get("DB_PW", ""),
-        'HOST': os.environ.get("DB_HOST", "localhost"), 
-        'PORT': os.environ.get("DB_PORT", "3306"),
-    }
+<lable>前重</label>
+<input type="text" name="before_weight"/>
+
+<lable>后重</label>
+<input type="text" name="after_weight"/>
+
+<lable>杯子重</label>
+<input type="text" name="cup_weight"/>
+
+<button onclick="calc_volatilize_ratio();">计算</button>
+<label id="result"></label>
+
+<script>
+function calc_volatilize_ratio(){
+    var before_weight = parseFloat(document.querySelector('input[name="before_weight"]').value)
+    var after_weight = parseFloat(document.querySelector('input[name="after_weight"]').value)
+    var cup_weight = parseFloat(document.querySelector('input[name="cup_weight"]').value)
+
+    var ratio = (before_weight - after_weight) / (before_weight - cup_weight)
+    console.log(ratio)
+    document.querySelector('#result').innerText = ratio.toString();
 }
-</pre>
-</div>
+</script>
 
-<div class="outline-3">
-<h3 id="orgheadline10">默认创建的表格</h3>
-<div class="outline-text-3" id="text-4-1">
+<hr >
+
 <p>
-什么模型定义都不写，django大概就会创建十个表格，简单了解一下这些表格还是很有用的。比如说:
+挥发比是分析检测学科很基础的一个概念。
 </p>
-<dl class="org-dl">
-<dt>auth_user</dt><dd>这是django用户登录管理的默认user表格，你会看到之前你创建的superuser信息就在这里。然后还有几个表格都和用户的群组权限管理相关。</dd>
-<dt>django_migrations</dt><dd>存储着你的数据库迁移信息。</dd>
-<dt>django_session</dt><dd>这个表格很有意思，如果你不登录你是看不到这个表格的，而且里面的内容是动态的。这就要讲到django的session机制不是基于传统的cookie，而是在这里数据库里面管理的。后面我们会继续深入了解django的session和middleware中间套件机制。</dd>
-</dl>
 
 
 <p>
-好了，开始实际定义自己的模型了。首先基本语法如下:
-</p>
-<pre>
-from django.db import models
-
-
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
-</pre>
-
-<p>
-这个熟悉sqlalchemy的对这段代码不会很陌生，下面进一步了解一些细节吧。
-</p>
-</div>
-</div>
-
-
-
-<div class="outline-3">
-<h3 id="orgheadline11">字段类型</h3>
-<div class="outline-text-3" id="text-4-2">
-<dl class="org-dl">
-<dt>IntegerField</dt><dd>整型</dd>
-<dt>BigIntegerField</dt><dd>大整数</dd>
-<dt>BinaryField</dt><dd>raw data</dd>
-<dt>BooleanField</dt><dd>bool 值</dd>
-
-<dt>CharField</dt><dd>定义字符串类型，常用的参数设置 <code>max_length</code> ，设置最大长度。对应的表单类型是 <code>TextInput</code> ，这个后面再说。</dd>
-<dt>TextField</dt><dd>大段文字用这个，对应的表单类型是 <code>Textarea</code></dd>
-<dt>DateField</dt><dd>对应python中的 <code>datetime.date</code> 对象。</dd>
-<dt>TextField</dt><dd>python的 <code>datetime.time</code> object</dd>
-<dt>DateTimeField</dt><dd>对应python中的 <code>datetime.datetime</code> 对象。</dd>
-</dl>
-<p>
-一个有用的基类:
+2．固含量的测定
+和挥发分的测定类似，不同在于计算是：
+图片 
 </p>
 
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BaseModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-        <span class="n">abstract</span> <span class="o">=</span> <span class="bp">True</span>
-
-    <span class="n">updated_datetime</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">created_datetime</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-</pre></div>
-
-<p>
-后面的模型都可以继承自该基类，基类是不会创建表格的，通过 <code>class Meta</code> 然后 <code>abstract=True</code> 来获得。这里的 <code>auto_now</code> 设置为 <code>True</code> 意思是该字段每次 <code>save</code> 操作都会自动更新最新日期。 <code>auto_now_add</code> 设置为 <code>True</code> 即该对象第一次创建时设置最新的日期。
-</p>
-
-<dl class="org-dl">
-<dt>DecimalField</dt><dd>对应python中的 Decimal object</dd>
-<dt>DurationField</dt><dd>对应python中的 timedelta object</dd>
-<dt>FilePathField</dt><dd>对应python的 float object</dd>
-</dl>
-
-
-<ul class="org-ul">
-<li>EmailField</li>
-<li>FileField</li>
-<li>FilePathField</li>
-<li>ImageField</li>
-<li>GenericIPAddressField</li>
-<li>NullBooleanField</li>
-
-<li>PositiveIntegerField</li>
-<li>PositiveSmallIntegerField</li>
-<li>SlugField</li>
-<li>SmallIntegerField</li>
-<li>URLField</li>
-<li>UUIDField</li>
-</ul>
-</div>
-</div>
-
-
-
-<div class="outline-3">
-<h3 id="orgheadline12">通用可选项</h3>
-<div class="outline-text-3" id="text-4-3">
-<p>
-字段声明控制中有一些通用可选项参量:
-</p>
-<dl class="org-dl">
-<dt>default</dt><dd>设置该字段的默认值，注意default还可以接受一个函数对象。</dd>
-<dt>null</dt><dd>设置为True，则该自动会自动填充sql中的NULL值，字符串类型字段最好默认空字符。</dd>
-<dt>blank</dt><dd>如果设置为True，则空值也是允许的，否则需要一个明确的值。</dd>
-<dt>choices</dt><dd>该字段的可选值。</dd>
-</dl>
-
-<pre>
-from django.db import models
-
-class Student(models.Model):
-    YEAR_IN_SCHOOL_CHOICES = (
-        (FRESHMAN, 'Freshman'),
-        (SOPHOMORE, 'Sophomore'),
-        (JUNIOR, 'Junior'),
-        (SENIOR, 'Senior'),
-    )
-</pre>
-
-<dl class="org-dl">
-<dt>db_column</dt><dd>设置该字段具体在数据库中的名字。</dd>
-
-<dt>db_index</dt><dd>设置为 <code>True</code> 则表示该字段开启索引。</dd>
-
-<dt>primary_key</dt><dd>主键，值得一提的是 <code>pk</code> 在django的models里面有特殊含义，其一定对应的就是该表格的主键，一般推荐使用 <code>pk</code> ，因为有时某些表格的主键名字不叫 <code>id</code> 。</dd>
-</dl>
-
-
-<dl class="org-dl">
-<dt>unique</dt><dd>唯一</dd>
-<dt>unique_for_date</dt><dd>比如title字段设置:</dd>
-</dl>
-<pre>
-unique_for_date="pub_date"
-</pre>
-<p>
-则 title字段和 pub_date 字段都不能相同。也就是在某个日期内某个title只能有唯一值。可以看作一种 <code>unique_together</code> 的应用吧:
-</p>
-</div>
-</div>
-
-<div class="outline-3">
-<h3 id="orgheadline13">数据库中的关系</h3>
-<div class="outline-text-3" id="text-4-4">
-<dl class="org-dl">
-<dt>ForeignKey</dt><dd>外键引用，如果该字段的名字是user，那么实际存储在表格中的名字是user_id，然后你可以以ORM风格设置该字段如:</dd>
-</dl>
-<pre>
-user = User(...)
-</pre>
-
-<ul class="org-ul">
-<li>ManyToManyField</li>
-<li>OneToOneField</li>
-</ul>
-</div>
-</div>
-
-
-<div class="outline-3">
-<h3 id="orgheadline15">ORM层的使用方法</h3>
-<div class="outline-text-3" id="text-4-5">
-<p>
-不废话，上代码，看一下就清楚了。
-</p>
-
-<pre>
-from people.models import Person
-Person.objects.create(name="WeizhongTu", age=24)
-
-
-Person.objects.get(name="WeizhongTu")
-
-p.save()
-
-Person.objects.get_or_create(name="WZT", age=23) 
-# 返回一个元组，第一个为Person对象，第二个为True或False, 新建时返回的是True, 已经存在时返回False.
-
-Person.objects.all()
-
-Person.objects.filter(name="abc")
-# 等于Person.objects.filter(name__exact="abc") 名称严格等于 "abc" 的人
-
-Person.objects.filter(name__iexact="abc") 
-# 名称为 abc 但是不区分大小写，可以找到 ABC, Abc, aBC，这些都符合条件
-
-Person.objects.filter(name__regex="^abc") # 正则表达式查询
-
-Person.objects.filter(name__iregex="^abc")# 正则表达式不区分大小写
-
-Person.objects.filter(name__icontains="abc") #名称中包含 "abc"，且abc不区分大小写
-Person.objects.filter(name__contains="abc") # 名称中包含 "abc"的人
-
-Person.objects.exclude(name__contains="WZ") # 排除包含 WZ 的Person对象
-
-Person.objects.filter(name__contains="abc").exclude(age=23) 
-# 找出名称含有abc, 但是排除年龄是23岁
-
-Author.objects.all().order_by('name')
-Author.objects.all().order_by('-name') # 在 column name 前加一个负号，可以实现倒序
-
-Author.objects.filter(name__contains="WeizhongTu").filter(email="tuweizhong@163.com")
-Author.objects.filter(name__contains="Wei").exclude(email="tuweizhong@163.com")
-
-Author.objects.order_by('-id')[:20] # 反向索引
-</pre>
-</div>
-
-<div class="outline-4">
-<h4 id="orgheadline14">去重</h4>
-<div class="outline-text-4" id="text-4-5-1">
-<pre>
-qs1 = Pathway.objects.filter(label__name='x')
-qs2 = Pathway.objects.filter(reaction__name='A + B &gt;&gt; C')
-qs3 = Pathway.objects.filter(inputer__name='WeizhongTu')
- 
-# 合并到一起
-qs = qs1 | qs2 | qs3
-这个时候就有可能出现重复的
- 
-# 去重方法
-qs = qs.distinct()
-</pre>
-</div>
-</div>
-</div>
-</div>
-
-
-<div class="outline-2">
-<h2 id="orgheadline17">国际化</h2>
-<div class="outline-text-2" id="text-5">
-<p>
-国际化或者说一些语言地区的配置。
-</p>
-<pre>
-LANGUAGE_CODE = 'zh'
-
-TIME_ZONE = 'Asia/Shanghai'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-</pre>
-
-
-
-
-<p>
-POST 某个方法之后 redirect ，然后需要显示某个动作
-</p>
-</div>
-</div>
-
-
-<div class="outline-2">
-<h2 id="orgheadline18">表单</h2>
-<div class="outline-text-2" id="text-6">
-<p>
-首先定义一个表单对象，如下面这种写法很是简洁，但不清楚和 <code>forms.Form</code> 那种写法比较起来有何局限。
-</p>
-
-<pre>
-from django.forms import ModelForm
-from .models import YourModel
-
-
-class Game2048InfoForm(ModelForm):
-
-    class Meta:
-        model = YourModel
-        fields = ['target_field_name'...]
-</pre>
-
-<p>
-在模板文件里面的使用如下:
-</p>
-<pre>
-{{ form.name }}
-</pre>
-<p>
-对应的就是
-</p>
-<pre>
-&lt;input type="what" ...&gt;
-</pre>
-
-<p>
-然后注意form下面要加上:
-</p>
-<pre>
-{% csrf_token %}
-</pre>
-
-<p>
-其他就常规html编写风格吧。然后视图层那边，先看一下下面这个样例代码。
-</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span><span class="c1"># 当提交表单时</span>
-
-        <span class="n">form</span> <span class="o">=</span> <span class="n">AddForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span> <span class="c1"># form 包含提交的数据</span>
-
-        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
-            <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;form invalid&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span><span class="c1"># 当正常访问时</span>
-        <span class="n">form</span> <span class="o">=</span> <span class="n">AddForm</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
-</pre></div>
-
-<p>
-如果要提交文件的话，模板form那边记得加上:
-</p>
-<pre>
-enctype="multipart/form-data"
-</pre>
-
-<p>
-然后form对象初始化如下所示:
-</p>
-<pre>
-form = Game2048InfoForm(
-    request.POST, request.FILES, instance=target_info)
-</pre>
-
-<p>
-上面例子还有个很有用的Tips，就是你运行下面的 <code>form.save()</code> 。如果你希望更好的对接数据库操作，那么就如上指定具体本form对象对应数据库中的那个model instance。这个在前面可以通过 <code>get_or_create</code> 来获得。这样就可以更精确地对应响应的模型的某条记录修改那些属性了。
-</p>
-</div>
-</div>
-
-<div class="outline-2">
-<h2 id="orgheadline19">参考资料</h2>
-<div class="outline-text-2" id="text-7">
 <ol class="org-ol">
-<li><a href="http://tutorial.djangogirls.org/zh/installation/">django girls</a></li>
-<li><a href="http://www.ziqiangxuetang.com/django/django-tutorial.html">django基础教程</a></li>
+<li>环氧值的测定</li>
+</ol>
+<p>
+首先拿3个锥形瓶，第一个做空白（必须做），第二个第三个放入0.6g-0.8g的环氧树脂
+在塑料杯里面混入80ml丙酮和2ml盐酸
+用移液管移入20ml盐酸丙酮溶液，摇匀，加盖，放置一个小时让其充分反应。
+加甲基红三滴，用NaOH标准溶液滴定为红色至黄色。
+计算：
+环氧值= 图片
+</p>
+
+<p>
+环氧当量一般意义的换算是环氧当量=100/环氧值
+</p>
+
+<ol class="org-ol">
+<li>黏度的测定</li>
+</ol>
+<p>
+详细知识由专人指导，有的成品测定方法已经固定需要注意。
+</p>
+
+<ol class="org-ol">
+<li>气相色谱仪</li>
+</ol>
+<p>
+首先打开氮气，氮气是保护气，防止色谱柱在高温下被老化。所以要第一个打开。
+然后设置炉温，进样口温度，检测器温度。
+如果是程序升温那么不设置炉温，而是设置后面的初始温度，初始时间，升温速率，最终温度，最终时间这几个项目。程序升温的好处在于某些高沸点组分能够分离开来。但是程序升温时间一般为10分钟，如果基线不稳的话，误差较大，在计算是一些明显的基线峰要加入进去。
+设置软件对应的样品，打开通道A，并运行。
+待到基线稳定的时候开始进样。
+关机的顺序是氢气可以马上关闭，而氮气必须在色谱柱温度降到40度时候关闭。
+</p>
+
+<p>
+气相的日常维护：
+汽化室一定时间之后需要进行清洗工作，
+进样口塞子需要常换
+色谱柱使用几个月之后，两端可能发生了一定的氧化，剪去之后仍可继续使用。
+色谱柱伸入汽化室前端出口为2-3cm，伸入检测器的出口为顶住然后后拉伸1cm即可。
+</p>
+
+<ol class="org-ol">
+<li>树脂软化点的测定</li>
+</ol>
+<p>
+这里一般选择甘油做加热介质
+首先将样品熔化然后倒入钢球定位器
+然后温度计放好，记录并开始测定钢球碰到承板时的温度
+</p>
+
+<ol class="org-ol">
+<li>溶解性的测定</li>
+</ol>
+<p>
+这个请参照标准中树脂和溶剂的配比进行
+</p>
+
+<ol class="org-ol">
+<li>胺值的测定</li>
+</ol>
+<p>
+首先称取样品0.1-0.2g左右，放入锥形瓶中
+然后加入40ml无水乙醇（工业乙醇不行，蒸馏乙醇可以）
+待样品完全溶解之后，加2-3滴溴酚蓝-乙醇指示液
+用已知浓度的盐酸乙醇溶液滴定至黄色
+计算：图片
+</p>
+
+<ol class="org-ol">
+<li>碳酸钠和碳酸氢钠含量的测定</li>
+</ol>
+<p>
+首先加入酚酞，用HCl滴定，知道酚酞红色褪去，此时碳酸钠变为碳酸氢钠，滴定的体积为V1
+再加入甲基橙，用HCl滴定，黄色变为橙色，滴定的体积为V2
+碳酸氢钠含量= 图片
+</p>
+
+
+<ol class="org-ol">
+<li>氧化镁含量的测定</li>
+</ol>
+<p>
+准备的试剂有：
+盐酸 1:1
+氨水 1:1
+三乙醇胺 1:3
+铵盐缓冲液 54g氯化铵到200ml水，再加入350ml25%的氨水，然后定容至1L
+EDTA标准溶液  浓度大约为0.02mol/L
+测定：
+首先称取5g试样，在250ml烧杯中加入少量水，然后缓慢加入50mlHCl，盖上表面皿，煮沸3-5min，过滤，用热水洗涤。然后溶液放入到500ml容量瓶中定容。
+再移取25ml上述溶液，定容到250ml容量瓶中
+再移取25ml上述溶液于锥形瓶中，加入50ml水，用氨水调PH到3-4（大约3-4滴），再加入15ml三乙醇胺溶液，10ml缓冲液，10滴铬黑T指示液，然后用EDTA滴定，颜色为紫红色变为纯蓝色。
+计算：
+氧化镁的含量（将可能的氧化钙视作氧化镁）的简单计算公式为：
+图片 
+   m为之前称的5g的精确质量
+</p>
+
+<p>
+10 EDTA溶液的标定
+精确称量0.5g左右碳酸钙，然后加入1小米粒的氧化镁，加入HCl溶解，于250ml容量瓶中，加水至刻线，放置1h，然后加水至刻线，摇匀。
+吸取上述溶液25ml，加入1%的NaOH5-6ml大约4吸管。然后加入1小米粒的钙指示剂，用EDTA滴定至红色变为蓝色。
+浓度的计算为
+Cedta=  
+图片
+</p>
+
+<p>
+分子上的V为25ml
+</p>
+
+<ol class="org-ol">
+<li>硫代硫酸钠标准溶液的配置请参照书籍</li>
+<li>水基胶填充剂量的确认</li>
+</ol>
+<p>
+首先在烧杯中加入mg胶水  大约6-7g
+然后加入200ml水
+然后超声让其成为均匀悬浮液体
+然后抽滤 
+</p>
+
+<ol class="org-ol">
+<li>聚乙烯醇溶解黏度的测定</li>
+</ol>
+<p>
+首先是让聚乙烯醇溶解，聚乙烯醇88系列的溶解温度为85度，99系列的溶解温度为90度
+然后搅拌半个小时到1个小时大概就溶解完全了。
+然后让液体冷却至25度测量黏度
+</p>
+
+<ol class="org-ol">
+<li>邻苯二甲酸类酯含量的测定</li>
+</ol>
+<p>
+首先在可以防止冷凝管的磨口锥形瓶中称取0.2-0.3g样品，然后加入10mlKOH乙醇溶液（浓度约0.5mol/L），再加入10ml乙醇，3ml水，在100度油浴锅中反应1.5h，冷凝装置装上。
+反应完之后用35ml水洗冷凝管和锥形瓶。
+类似的做空白
+</p>
+
+<p>
+计算公式考虑酸度都比较小，近似公式为：
+X= 图片
+</p>
+
+
+<p>
+M=278，v0为空白，v1为样品滴定的量 m为之前称量的样品质量
+</p>
+
+<ol class="org-ol">
+<li>甲醛含量的测定</li>
+</ol>
+<p>
+需要说明的是H2SO4溶液的配置，配置的是C（1/2H2SO4）=0.5mol/L左右，然后配置方法是参照书籍的C（1/2H2SO4）=0.5的配置方法。滴定就简单用氢氧化钠标准溶液滴定。
+然后甲醛含量的计算公式中C硫酸的浓度就是0.5的那个，而不是化为C（H2SO4）=0.25的那个。
+</p>
+
+<ol class="org-ol">
+<li></li>
 </ol>
 </div>
 </div>

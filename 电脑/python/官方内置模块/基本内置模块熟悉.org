@@ -168,3 +168,613 @@ sys.version输出当前python的版本信息和编译环境的详细信息。
 #+BEGIN_NOTECARD
 更多内容请参见 [[https://docs.python.org/3/library/sys.html][官方文档]] 。
 #+END_NOTECARD
+
+* fileinput模块
+fileinput模块提供了便捷的多文件处理方案。
+
+** input函数
+#+BEGIN_EXAMPLE
+fileinput.input(files=None, inplace=False)
+#+END_EXAMPLE
+
+input函数最常用的两个参数如上所示，如果不带参数，那么就是默认的命令行的 ~sys.argv[1:]~ 接受到的一系列文件。如果命令行也没有输入文件参数，那么就是默认的sys.stdin标准输入。特定的文件输入用 ~files~ 来指定，参数为文件名字符值的列表。
+
+~inplace~ 默认是False，也就是原文件没有被修改，如果设置为True，那么对于line的一些操作是会原地修改原文件的。具体请看下面的例子：
+#+BEGIN_SRC python
+allfile = [os.path.join(path,f) for path,dirs,files in os.walk('.')
+        if files for f in files]
+def process(line):
+    return line.replace('skeleton',project_name)
+with fileinput.input(files=allfile,inplace=1) as f:
+    for line in f:
+        print(process(line),end='')
+#+END_SRC
+
+上面代码第一行使用用os.walk来生成本文件夹下所有的文件名路径。然后作为参数输入给files，这里一般定义一个process函数来处理每一行，然后返回处理后的值。用print函数打印具体的处理的效果。如果这里inpalce没有设置为True那么结果只是打印在终端上，设置为True之后，原文件对应行将被修改。inplace参数很有用。 （[[http://ruslanspivak.com/2010/10/20/in-place-file-rewrite-with-fileinput/][参考网站]] ，在你确认操作结果的情况下慎重使用。）
+
+
+* os.path模块
+前面提到sys.argv只能返回当前python脚本的文件名，而我们常常需要这个python脚本在系统中的具体位置。前面如os.getcwd等也能获得当前python脚本的所在目录，不过os.path模块的一个优点就是跨平台特性支持很好，也就是一般我们通过其他方式获得的path路径都会用这个模块的函数辅助处理一下。
+
+我们来看下面的例子：
+#+BEGIN_SRC python
+import os
+
+print(os.path.abspath(__file__))
+print(os.path.dirname(os.path.abspath(__file__)))
+
+print(os.path.basename(__file__))
+print(os.path.basename(os.environ['HOME']))
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+/home/wanze/桌面/test.py
+/home/wanze/桌面
+test.py
+wanze
+#+END_EXAMPLE
+
+
+其中 ~__file__~ 表示当前脚本文件所在的路径。
+
+** abspath函数
+abspath函数接受一个path路径值然后返回一个正规的普适的路径地址。具体效果类似于执行了: ~normpath(join(os.getcwd(), path))~ 。
+
+再看下面的例子演示了空字符串默认当前工作目录，然后也接受绝对路径等。
+#+BEGIN_EXAMPLE
+>>> import os
+>>> os.path.abspath('')
+'/home/wanze'
+>>> os.path.abspath('test')
+'/home/wanze/test'
+>>> os.path.abspath('/test')
+'/test'
+>>> os.path.abspath('test/')
+'/home/wanze/test'
+#+END_EXAMPLE
+
+我们看到如果abspath接收的是空字符串，其定位是当前脚本的工作目录，那么是引用的模块里面的 ~os.path.abspath('')~ ，具体对应的也是当前脚本的工作目录。然后os.path.abspath(".")返回的是当前脚本工作目录。
+
+
+** dirname函数
+dirname函数接受一个路径值然后返回这个路径除开最后一个元素的前面的路径值。比如上面的例子，路径指向文件，那么dirname函数返回的是除开这个文件名的前面的路径；而如果接受的路径指向目录，那么返回的是除开最后一个文件夹名的前面的路径值。
+
+** basename函数
+如上面例子所示，basename函数接受一个路径值然后返回路径的最后一个元素，如果路径指向文件，那么返回的是文件名；如果路径指向目录，那么返回的是最后那个目录的文件夹名。比如下面实现了从绝对路径提取出文件名的功能。
+#+BEGIN_EXAMPLE
+>>> import os.path
+>>> string = '/home/wanze/test.txt'
+>>> fileName,fileExtension = os.path.splitext(os.path.basename(string))
+>>> fileName
+'test'
+#+END_EXAMPLE
+
+
+** split函数
+将路径path字符串分割，可以视作dirname和basename的组合。
+#+BEGIN_EXAMPLE
+>>> os.path.split('/usr/local/bin/test.txt')
+('/usr/local/bin', 'test.txt')
+>>> os.path.dirname('/usr/local/bin/test.txt')
+'/usr/local/bin'
+>>> os.path.basename('/usr/local/bin/test.txt')
+'test.txt'
+#+END_EXAMPLE
+
+
+** splitext函数
+将某个路径path的后缀分开，这里主要是针对文件名为输入的时候，那么第一个为该文件的名字，输出数组的第二个值是该文件的后缀。这个函数在提取文件名后缀和前面的名字的时候很有用，方便组合出新的文件名。
+#+BEGIN_EXAMPLE
+>>> import os
+>>> fileName, fileExtension = os.path.splitext('/path/to/somefile.ext')
+>>> fileName
+'/path/to/somefile'
+>>> fileExtension
+'.ext'
+#+END_EXAMPLE
+
+
+
+** join函数
+用于连接多个路径值合并成一个新的路径值，同样相对于简单的字符串拼接，用这个函数处理路径组合具有操作系统普适性和灵活性。
+#+BEGIN_EXAMPLE
+>>> os.path.join(os.path.expanduser('~'),'test','lib')
+'/home/wanze/test/lib'
+#+END_EXAMPLE
+
+上面join函数多个参数生成的新path在windows下又是不同的输出的。
+
+
+** expanduser函数
+#+BEGIN_EXAMPLE
+>>> import os
+>>> os.path.expanduser('~')
+'/home/wanze'
+>>> os.path.expanduser('~/pymf')
+'/home/wanze/pymf'
+>>> os.path.join(os.path.expanduser('~'),'pymf','mymodule')
+'/home/wanze/pymf/mymodule'
+#+END_EXAMPLE
+
+"~" 这个符号可以在这里使用，从而展开为以/home/wanze为基础的绝对路径，兼容大部分系统（在windows下也可以使用。）
+
+同时我们看到join函数可以接受很多不定量的参数，然后将他们组合成为一个新的路径，而且不用你费心是 ~/~ 还是 ~\~ ，你不需要写这些了，用join函数自然料理好一切。
+
+
+** exists函数
+os.path.exists(path)：测试路径或文件等是否存在。如果存在返回True，否则返回False。
+
+** isfile和isdir还有islink}
+os.path.isfile(path)：接受一个字符串路径变量，如果是文件那么返回True，否则返回False（也就是文件不存在或者不是文件是文件夹等情况都会返回False）。
+
+类似的有isdir和islink函数。
+
+** samefile函数
+os.path.samefile(path1,path2)：如果两个文件或路径相同则返回True，否则返回False。
+
+** getmtime函数
+os.path.getmtime(path)
+
+返回文件的最后修改时间，返回值是多少多少秒，可用time模块的ctime或localtime函数将其转换成 ~time.struct_time~ 对象，然后使用strftime来进行更好的格式输出。
+
+** getctime函数
+类似getmtime，返回文件的最后创建时间。在unix系统中是指最后文件的元信息更改的时间。
+
+#+BEGIN_NOTECARD
+更多内容请参见 [[https://docs.python.org/3/library/os.path.html][官方文档]] 。
+#+END_NOTECARD
+
+
+
+* glob模块
+glob模块用法很简单，初步学习就是一个glob函数，接受一个pathname路径值，然后返回这个路径下某些文件名组成的列表。支持 ~* ?~ 符号表达。
+
+
+意思是任意数量的字符或者任意的一个字符，然后 ~[?]~ 明确表示问号。
+#+BEGIN_EXAMPLE
+>>> import glob
+>>> glob.glob('*.py')
+['re_subst.py', 're_sub.py', 'test2.py']
+#+END_EXAMPLE
+
+
+* subprocess模块
+我想大家都注意到了现在的计算机都是多任务的，这种多任务的实现机制就是所谓的多个进程同时运行，因为计算机只有一个CPU（现在多核的越来越普及了，它们内部的工作原理我没了解过。）所有计算机一次只能处理一个进程，而这种多进程的实现有点类似你人脑（当然不排除某些极个别现象），你不能一边看电影一边写作业，但是可以写一会作业然后再看一会电影（当然不推荐这么做、），计算机的多进程实现机制也和这个类似，就是一会干这个进程，一会儿做那个进程。
+
+计算机的一个进程里面还可以分为很多个线程，这个较为复杂，就不谈了。比如你编写的一个脚本程序，系统就会给它分配一个进程号之类的，然后cpu有时就会转过头来执行它一下（计算机各个进程之间的切换很快的，所以才会给我们一种多任务的错觉。）而你的脚本程序里面还可以再开出其他的子进程出来， python的subprocess模块主要负责这方面的工作。
+
+** call函数
+#+BEGIN_SRC python
+import subprocess
+
+subprocess.call(["echo", "hello world"])
+subprocess.call(["echo", "$HOME"])
+subprocess.call('echo $HOME',shell=True)
+
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+hello world
+$HOME
+/home/wanze
+#+END_EXAMPLE
+
+
+其中使用shell=True选项后用法较简单较直观，但网上提及安全性和兼容性可能有问题，他们推荐一般不适用shell=True这个选项。（[[http://stackoverflow.com/questions/3172470/actual-meaning-of-shell-true-in-subprocess][参考网站]]）
+
+如果不使用shell=True这个选项的，比如这里 ~$HOME~ 这个系统变量就无法正确翻译过来，如果实在需要home路径，需要使用os.path的expanduser函数。
+
+
+
+** getoutput函数
+取出某个进程命令的输出，返回的是字符串形式。
+#+BEGIN_EXAMPLE
+import subprocess
+
+name=subprocess.getoutput('whoami')
+print(name)
+#+END_EXAMPLE
+
+
+** getstatusoutput函数
+某个进程执行的状态。
+
+
+** Popen类
+根据Popen类创建一个进程管理实例，可以进行进程的沟通，暂停，关闭等等操作。前面的函数的实现是基于Popen类的，这是较高级的课题，这里暂时略过。
+
+#+BEGIN_NOTECARD
+更多内容请参见 [[https://docs.python.org/3/library/subprocess.html][官方文档]] 。
+#+END_NOTECARD
+
+
+
+* os模块
+** getcwd函数
+不管你在终端运行python还是运行某个python脚本，总有一个变量存储着当前工作目录的位置。你可以通过getcwd命令来查看当前工作目录。
+
+#+BEGIN_EXAMPLE
+import os
+print(os.getcwd())
+#+END_EXAMPLE
+
+如果是终端调用python就是你终端的当前工作目录所在，你可以用pwd命令来查看。如下所示：
+#+BEGIN_EXAMPLE
+=>pwd
+/home/wanze
+=>python3
+>>> import os
+>>> print(os.getcwd())
+/home/wanze
+#+END_EXAMPLE
+
+
+** mkdir函数
+新建一个文件夹。
+#+BEGIN_EXAMPLE
+os.mkdir(str)
+#+END_EXAMPLE
+
+
+
+** chdir函数
+os模块里有一个chdir函数来更改当前工作目录所在地。
+
+可以使用 ~.~ 和 ~..~ 语法，也可以使用简单的"test"调转到test文件夹。
+#+BEGIN_EXAMPLE
+>>> os.chdir('/home/wanze/pymf')
+>>> print(os.getcwd())
+/home/wanze/pymf
+#+END_EXAMPLE
+
+
+** remove函数
+#+BEGIN_EXAMPLE
+os.remove(path)
+#+END_EXAMPLE
+
+支持相对路径表达。如果路径是目录将会抛出一个OSError异常。
+
+** rename函数
+#+BEGIN_EXAMPLE
+os.rename(src, dst)
+#+END_EXAMPLE
+
+第一个参数是目标文件或目录，第二个参数是要替换成为的名字。这个命令一方面可以重命名文件，此外可以移动文件。
+ 
+支持相对路径语法表达，rename在windows下不一定替换原文件，repalce一定替换文件。
+
+** repalce函数
+#+BEGIN_EXAMPLE
+os.replace(src, dst)
+#+END_EXAMPLE
+
+rename在windows下不一定替换原文件，repalce一定替换文件。
+
+支持相对路径语法表达。
+
+** rmdir函数
+#+BEGIN_EXAMPLE
+os.rmdir(path)
+#+END_EXAMPLE
+
+支持相对路径语法表达，只能删除空目录。如果要删除整个目录，请使用 ~shutil.rmtree(path)~ 。
+
+** listdir命令
+#+BEGIN_EXAMPLE
+os.listdir(path='.')
+#+END_EXAMPLE
+
+相当于简单的ls命令，将返回一个字符串列表，其内包含本path下所有的文件和文件夹名（包括链接文件）。
+
+
+** walk函数
+#+BEGIN_EXAMPLE
+os.walk('.')
+#+END_EXAMPLE
+
+
+产生一个生成器对象，具体数值含义如下：（dirpath, dirnames, filenames），其中dirpath和filenames可以合并出本目录下所有文件的具体文件名路径，而dirpath和dirnames可以合并出本目录下所有目录的具体路径名。
+
+根据这个os.walk函数我写了一个 ~gen_file~ 函数，其是一个生成器函数，会遍历目录树，并返回本目录下的文件信息。具体代码如下所示:
+
+#+BEGIN_SRC python
+def gen_file(startpath='.',filetype=""):
+    '''利用os.walk 遍历某个目录，收集其内的文件，返回
+    (文件路径列表, 本路径下的文件列表)
+    比如:
+    (['shortly'], ['shortly.py'])
+(['shortly', 'templates'], ['shortly.py'])
+(['shortly', 'static'], ['shortly.py'])
+
+    第一个可选参数 startpath  默认值 '.'
+    第二个参数  filetype  正则表达式模板 默认值是"" 其作用是只选择某些文件
+    如果是空值，则所有的文件都将被选中。比如 "html$|pdf$" 将只选中 html和pdf文件。
+    '''
+    for root, dirs, files in os.walk(startpath):
+        filelist = []
+        for f in files:
+            fileName,fileExt = os.path.splitext(f)
+            if filetype:
+                if re.search(filetype,fileExt):
+                    filelist.append(f)
+            else:
+                filelist = files
+        if filelist:#空文件夹不加入
+            dirlist = root.split(os.path.sep)
+            dirlist = dirlist[1:]
+            if dirlist:
+                yield (dirlist, filelist)
+            else:
+                yield (['.'], filelist)
+#+END_SRC
+
+
+这个函数可以帮助你管理本目录下（可以通过正则表达式过滤）你感兴趣的文件，都刷一边。然后继续必要的操作，比如查找等等之类的。
+
+** environ函数
+os.environ，返回一个字典值，这个字典值里面存储着当前shell的一些变量和值。比如系统中“HOME”所具体的路径名是：
+#+BEGIN_EXAMPLE
+import os
+print(os.environ['HOME'])
+#+END_EXAMPLE
+
+
+** getpid函数
+os.getpid函数，返回当前运行的进程的pid。
+
+** stat函数
+返回文件的一些信息。比如 ~st_size~ 是文件的大小，单位是字节。此外还有:
+
+- ~st_mtime~ :: 最后文件修改的时间。
+
+- ~st_ctime~ :: 最后文件创建的时间，在windows下是严格的最初文件创建时间，在unix下是最后文件metadata的改变时间。
+
+
+** 给进程发送信号
+可以通过os模块的kill函数来给某个进程发送某个信号。
+#+BEGIN_EXAMPLE
+os.kill(pid, sig)
+#+END_EXAMPLE
+
+
+函数第一个参数是进程的pid，第二个参数是具体发送的信号。比如:
+#+BEGIN_EXAMPLE
+os.kill(pid, signal.SIGSTOP)
+#+END_EXAMPLE
+
+就是暂停某个进程，然后
+
+#+BEGIN_EXAMPLE
+os.kill(pid, signal.SIGCONT)
+#+END_EXAMPLE
+
+是继续某个进程。 然后 ~killpg~ 函数能够对某个进程包括其子进程发送某个信号，参考了 [[http://kernelcheck.blogspot.com/2009/07/pausestop-process-in-python.html][这个网页]] 。
+
+除此之外还有 ~SIGINT~ （正常终止进程信号）和 ~SIGKILL~ （强制终止进程信号） 等等，更多信号请参看关于unix信号那块，比如 [[http://en.wikipedia.org/wiki/Unix_signal][这个wiki页面]] 。
+
+
+
+#+BEGIN_NOTECARD
+更多os模块内容请参见 [[https://docs.python.org/3.4/library/os.html][官方文档]] 。
+#+END_NOTECARD
+
+* shutil模块
+相当于os模块的补充，shutil模块进一步提供了一些系统级别的文件或文件夹的复制，删除，移动等等操作。
+
+** 复制文件
+#+BEGIN_EXAMPLE
+shutil.copyfile(src, dst)
+shutil.copy(src, dst)
+shutil.copy2(src, dst)
+#+END_EXAMPLE
+
+其中 ~copyfile~ 的src和dst两个参量都是完整文件路径名，第一个参量是待复制的文件，第二个参量是复制后的文件名；而 ~copy~ 函数的第一个参量是待复制的文件，但是第二个参量是目标文件夹路径； ~copy2~ 函数和copy函数类似，不同的是它能尝试保留文件的所有元信息metadata（模块开头有说明是理论上但不尽然）。
+
+** 复制文件夹
+#+BEGIN_EXAMPLE
+shutil.copytree(src, dst)
+#+END_EXAMPLE
+
+~copytree~ 函数第一个参量是待复制的文件夹路径名，第二个参量是目标文件夹路径名，其将被创建不应该存在。
+
+** 删除整个目录
+#+BEGIN_EXAMPLE
+shutil.rmtree(path)
+#+END_EXAMPLE
+
+~rmtree~ 函数用于删除整个文件夹，path就是目标文件夹的路径名。
+
+** 移动文件夹
+#+BEGIN_EXAMPLE
+shutil.move(src,dst)
+#+END_EXAMPLE
+
+~move~ 函数把一个文件或者一个文件夹移动到一个文件夹内。
+
+
+** chown函数
+#+BEGIN_EXAMPLE
+shutil.chown(path, user=None, group=None)
+#+END_EXAMPLE
+
+~chown~ 函数类似的linux系统下的chown函数，这个函数基于os.chown函数，不过接口更友好。
+
+
+** which函数
+#+BEGIN_EXAMPLE
+shutil.which(cmd)
+#+END_EXAMPLE
+
+~which~ 函数类似的linux系统下的which函数。
+
+
+#+BEGIN_NOTECARD
+更多shutil模块内容请参见 [[https://docs.python.org/3.4/library/shutil.html][官方文档]] 。
+#+END_NOTECARD
+
+
+* tarfile和zipfile模块
+tarfile是gzip，bz2和lzma压缩文件读写的解决方案，zipfile模块是zip压缩文件的解决方案， /值得一提的是pip管理的egg文件也可以通过zipfile模块来管理/ 。
+
+** 制作gz压缩文件
+请看下面的例子：
+#+BEGIN_SRC python
+import tarfile
+with tarfile.open("skeleton.tar.gz", "w:gz") as tar:
+    for name in ["setup.py","LICENSE","README.md","skeleton", "docs"]:
+        tar.add(name)
+#+END_SRC
+
+这里首先用tarfile模块的 ~open~ 函数来返回一个TarFile对象，其中第一个参数是你的压缩文件的名字，第二个参数是处理模式。
+
+模式可接受的参数如下：
+
+- r :: 默认值是r，就是只读某个压缩文件。类似有 ~r:gz~ ， ~r:bz2~ 和 ~r:xz~ ，这里的意思就是具体设置好要读的压缩文件的格式（gzip，bzip2和lzma）。
+- w :: 类似的还有 ~w:gz~  ， ~w:bz2~ ， ~w:xz~ 。这里 ~w~ 或者 ~w:~ 官方文档的说明是（Open for uncompressed writing），我对这个无压缩方式写不是很理解。
+- a :: 还有 ~a:~ ， Open for appending with no compression. 文件如果不存在将被创建。
+
+*** TarFile的add方法
+然后接下来就是往压缩文件里面添加内容（文件或者整个目录），具体就是用创建的TarFile对象的add方法，如上例子所示。
+
+** 解压缩gz压缩文件
+最简单的例子如下所示：
+#+BEGIN_SRC python
+with tarfile.open("skeleton.tar.gz") as tar:
+    tar.extractall()
+#+END_SRC
+
+用tarfile模块的open函数打开那个压缩文件，用返回的TarFile对象的extractall方法解压缩这个文件，注意用os.chdir来控制当前工作目录。
+
+
+#+BEGIN_NOTECARD
+更多tarfile模块内容请参见 [[https://docs.python.org/3.4/library/tarfile.html][官方文档]] 。
+#+END_NOTECARD
+
+
+** 提取egg文件中的内容
+简单的例子如下所示：
+#+BEGIN_SRC python
+zip=zipfile.ZipFile("test.egg")
+zip.extract('test.txt')
+#+END_SRC
+
+这里用zipfile模块的ZipFile构造函数创建了一个ZipFile对象，然后用ZipFile的 ~extract~ 方法提取出了test.txt文件在当前工作目录。
+
+相关的 ~extractall~ 方法将会提取出压缩文件中所有的内容。
+
+** 制作zip压缩文件
+简单的示例如下：
+#+BEGIN_SRC python
+with zipfile.ZipFile('test.zip','w') as zip:
+    zip.write('test2.png')
+#+END_SRC
+
+首先用zipfile模块的ZipFile构造函数创建一个ZipFile对象，这里mode需要使用 'w'，然后使用ZipFile对象的write方法来添加内容。你可以猜到如果模式是 'a' 的话write方法是给这个压缩文件添加内容（a模式同文件操作含义如果原压缩文件不存在也是可以创建的）。
+
+
+
+#+BEGIN_NOTECARD
+更多zipfile模块内容请参见 [[https://docs.python.org/3.4/library/zipfile.html][官方文档]] 。
+#+END_NOTECARD
+
+
+* itertools模块
+** repeat函数
+其定义函数如下：
+#+BEGIN_SRC python
+def repeat(object, times=None):
+    # repeat(10, 3) --> 10 10 10
+    if times is None:
+        while True:
+            yield object
+    else:
+        for i in range(times):
+            yield object
+#+END_SRC
+
+也就是返回一个可迭代对象，这么封装最大的一个用处是用于填充map函数或者zip函数的某个常数值。因为你填写repeat(5)之后将一个返回一个可迭代对象，不停的返回数字5而不需要你考虑长度问题。
+
+** starmap函数
+starmap函数具体定义如下所示：
+#+BEGIN_SRC python
+def starmap(function, iterable):
+    # starmap(pow, [(2,5), (3,2), (10,3)]) --> 32 9 1000
+    for args in iterable:
+        yield function(*args)
+#+END_SRC
+
+其接受一个可迭代对象，然后逐个将可迭代对象中的元素解包之后送入函数当参数（最后当然函数也执行了）。
+
+
+* multiprocessing模块
+multiprocessing为python提供了多进程（或者多线程）的解决方案。
+
+** Pool类
+#+BEGIN_EXAMPLE
+from multiprocessing import Pool
+
+def f(x):
+    return x*x
+
+if __name__ == '__main__':
+    with Pool(5) as p:
+        print(p.map(f, [1, 2, 3]))
+#+END_EXAMPLE
+
+这里Pool的第一个参数是可选项 ~processes~ ，如果不设置，则默认的是 ~os.cpu_count()~ ，即当前系统的cpu数。
+
+一般cpu密集型的任务推荐使用多进程处理，当然前提是你有多个cpu的情况下，如果你并没有相关硬件条件，追求时髦动用多进程还不如用单进程，集中精力用好的算法办好一件事。不过不同进程（不同程序）之间的通信还是很有用的。
+
+这里的map是Pool对象的 ~map~ 方法，其除了接受第一个列表参数，然后用多进程分别处理这些列表中的元素之外，并不能在额外接受其他参数了。如果你想要接受一些参数，推荐使用 ~starmap~ 方法。
+
+*** starmap方法
+starmap类似map方法，不过其接受的是一系列的函数参数。值得注意的是python的itertools模块里面提供的starmap，repeat还有python语言的zip和map函数等在此处有时会很有用，可能是你感兴趣的。
+#+BEGIN_SRC python
+from multiprocessing import Pool
+
+def f(x,y):
+    return (x*x+y*y)
+
+if __name__ == '__main__':
+    with Pool(5) as p:
+        print(p.starmap(f, [(1,1),(2,2),(3,3)]))
+#+END_SRC
+
+
+在看一个有可选参数的情况：
+#+BEGIN_SRC python
+from multiprocessing.dummy import Pool as ThreadPool
+from itertools import repeat
+
+urls = get_all_urls(base_url,model_url)
+
+with ThreadPool(6) as tp:
+    imgs = tp.starmap(get_url_imgs,zip(urls,repeat(inclass))
+#+END_SRC
+
+
+这里的 ~get_url_imgs~ 除了接受第一个url参数之外，还接受一个可选参数inclass，这里通过repeat封装之后将这两个参数用zip函数封装即能达到这样的执行效果：
+
+#+BEGIN_EXAMPLE
+get_url_imgs(url,inclass)
+get_url_imgs(url,inclass)
+get_url_imgs(url,inclass)
+.....
+#+END_EXAMPLE
+
+然后这些都是多线程运行的。
+
+
+** ThreadPool类
+一般和网络相关的I/O密集型任务推荐使用多线程处理，但也不是线程设置得越多越好，一般设置为当前CPU数*2+2左右，再多并没有起到提速效果，有时反而会降低速度。
+
+multiprocessing还有一个dummy子模块，其提供了和multiprocessing一样的API [[fn::请参看这个 [[http://segmentfault.com/blog/caspar/1190000000414339b][网页]] 。] ，不同的是multiprocessing作用于进程，而dummy子模块是作用于线程的。
+
+
+#+BEGIN_EXAMPLE
+from multiprocessing.dummy import Pool as ThreadPool
+
+with ThreadPool(6) as tp:
+    imgs = tp.map(partial_get_url_imgs,urls)
+#+END_EXAMPLE

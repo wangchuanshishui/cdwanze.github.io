@@ -9,8 +9,110 @@
 #+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
 
 
-* 
+* 前言
+
+#+BEGIN_EXAMPLE
+pip install djangorestframework
+#+END_EXAMPLE
+
+然后在目标django项目上的 ~settings~ 那边加上
+#+BEGIN_EXAMPLE
+INSTALLED_APPS = (
+    ...
+    'rest_framework',
+)
+#+END_EXAMPLE
 
 
+* 理解序列化的类
+django rest framework的序列化类类似于django的表单类，不同的是django的表单类是用于沟通django的Model和网页form之间的桥梁；而序列化类是用于沟通django的Model类和JSON数据格式之间的桥梁。
+
+#+BEGIN_EXAMPLE
+注: Model -> Serializer （其data挂载的是python的dict字典值了）
+
+serializer = SnippetSerializer(snippet)
+serializer.data
+# {'pk': 2, 'title': u'', 'code': u'print "hello, world"\n', 'linenos': False, 'language': u'python', 'style': u'friendly'}
+#+END_EXAMPLE
+
+注意 ~created~ 这个字段的值不在了，这是因为上面定义的SnippetSerializer自动忽略它了，然后就是 DateTime object不太好JSON格式化。一般日期时间类如果不需要的话将自动忽略，如果确实有需要则再考虑另外的处理，简单的处理方案就是按照格式将日期时间字符串化，然后再按照这种格式反解析即可。这个视具体需求来的。
+
+然后将这个字典值JSON化，大体类似于json.dumps的意思吧:
+#+BEGIN_EXAMPLE
+>>> content = JSONRenderer().render(serializer.data)
+>>> content
+b'{"pk":2,"title":"","code":"print(\\"hello world!\\"\\n)","linenos":false,"language":"python","style":"friendly"}'
+#+END_EXAMPLE
+
+这个就可以直接送入api进行传输了。然后我比较了其和json.dumps的区别，大体是这个过程:
+#+BEGIN_EXAMPLE
+json.dumps(serializer.data).encode('utf-8')
+#+END_EXAMPLE
+不过具体其字节流并不完全一致，但数据是无误的，我们后面会看到。
+
+接下来就是将这个字节流变成python的字典值，也就是json.loads的功能，大体是:
+#+BEGIN_EXAMPLE
+json.loads(content.decode('utf-8'))
+#+END_EXAMPLE
+
+教程里给出的一个方法是:
+#+BEGIN_EXAMPLE
+from django.utils.six import BytesIO
+
+stream = BytesIO(content)
+data = JSONParser().parse(stream)
+#+END_EXAMPLE
+
+不清楚这个JSONParser有何过人之处，后来我比较了下:
+#+BEGIN_EXAMPLE
+>>> json.loads(content.decode('utf-8')) == serializer.data
+True
+#+END_EXAMPLE
+
+可以看到这个字节流反序列为python对象的过程是没有错误的。
+
+然后下面就是将该python对象变成serializer对象，如下所示:
+#+BEGIN_EXAMPLE
+serializer = SnippetSerializer(data=data)
+#+END_EXAMPLE
+用的还是上面定义的那个SnippetSerializer类，然后存储数据库是:
+#+BEGIN_EXAMPLE
+serializer.save()
+#+END_EXAMPLE
+
+** 多个查询集的操作
+#+BEGIN_EXAMPLE
+serializer = SnippetSerializer(Snippet.objects.all(), many=True)
+serializer.data
+#+END_EXAMPLE
+
+** ModelSerializer
+类似于django的表单类，可以利用 ~ModelSerializer~ 类来更快地创建序列化类。
+
+#+BEGIN_SRC python
+from rest_framework import serializers
+
+class SnippetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Snippet
+        fields = ('id', 'title', 'code', 'linenos', 'language', 'style')
+#+END_SRC
+
+为了证明这种简便写法对于上面的任务（包括create和update方法都会自动实现的）是完全应付得过来的。上面在shell里的代码再撸一遍。
+
+#+BEGIN_EXAMPLE
+>>> from snippets.models import Snippet
+>>> snippet = Snippet(code='print "hello, world2"\n')
+>>> from snippets.serializers import SnippetSerializer
+>>> snippet.save()
+>>> serializer = SnippetSerializer(snippet)
+>>> serializer.data
+{'language': 'python', 'linenos': False, 'id': 3, 'title': '', 'code': 'print "hello, world2"\n', 'style': 'friendly'}
+>>> 
+#+END_EXAMPLE
+
+比较之后还是发现有些区别的，字典顺序都随便，主要是这里的 'id' ，在之前是改成了 'pk' 的。
 
 
+* 参考资料
+1. [[https://whatwewant.gitbooks.io/django-rest-framework-tutorial-cn/content/1.Serialization.html][django rest framework教程中文版]] 

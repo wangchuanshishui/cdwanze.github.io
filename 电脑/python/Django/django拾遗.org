@@ -1,0 +1,22 @@
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:[11pt,oneside]
+#+LATEX_HEADER: \usepackage{article}
+
+
+#+TITLE: django拾遗
+#+AUTHOR: 万泽(德山书生)
+#+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
+#+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
+
+
+* 如何根据django的模型对象来获取其对应的表格的名字
+参看 [[http://stackoverflow.com/questions/233045/how-to-read-the-database-table-name-of-a-model-instance][这个网页]] 。
+
+答: 
+#+BEGIN_EXAMPLE
+model_instance._meta.db_table
+#+END_EXAMPLE
+
+
+
+
