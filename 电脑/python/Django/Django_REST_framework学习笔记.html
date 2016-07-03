@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-06-24 五 16:57 -->
+<!-- 2016-07-03 日 21:00 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>Django REST framework学习笔记</title>
@@ -874,11 +874,6 @@ h2.footnotes{
     display:none;
 }
 
-.footnum, .footref{
-    color: #2980b9;
-    font-size: 170%;
-    font-family:"Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
-}
 
 .footnum:before, .footref:before{
     content:"[";
@@ -983,13 +978,15 @@ h2.footnotes{
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgheadline1">1. 前言</a></li>
-<li><a href="#orgheadline4">2. 理解序列化的类</a>
+<li><a href="#orgheadline5">2. 理解序列化的类</a>
 <ul>
 <li><a href="#orgheadline2">2.1. 多个查询集的操作</a></li>
 <li><a href="#orgheadline3">2.2. ModelSerializer</a></li>
+<li><a href="#orgheadline4">2.3. 初步实现API接口</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline5">3. 参考资料</a></li>
+<li><a href="#orgheadline6">3. API权限管理</a></li>
+<li><a href="#orgheadline7">4. 参考资料</a></li>
 </ul>
 </div>
 </nav>
@@ -1016,7 +1013,7 @@ INSTALLED_APPS = (
 
 
 <div class="outline-2">
-<h2 id="orgheadline4">理解序列化的类</h2>
+<h2 id="orgheadline5">理解序列化的类</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 django rest framework的序列化类类似于django的表单类，不同的是django的表单类是用于沟通django的Model和网页form之间的桥梁；而序列化类是用于沟通django的Model类和JSON数据格式之间的桥梁。
@@ -1120,14 +1117,170 @@ serializer.data
         <span class="n">model</span> <span class="o">=</span> <span class="n">Snippet</span>
         <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;linenos&#39;</span><span class="p">,</span> <span class="s1">&#39;language&#39;</span><span class="p">,</span> <span class="s1">&#39;style&#39;</span><span class="p">)</span>
 </pre></div>
+
+<p>
+为了证明这种简便写法对于上面的任务（包括create和update方法都会自动实现的）是完全应付得过来的。上面在shell里的代码再撸一遍。
+</p>
+
+<pre>
+&gt;&gt;&gt; from snippets.models import Snippet
+&gt;&gt;&gt; snippet = Snippet(code='print "hello, world2"\n')
+&gt;&gt;&gt; from snippets.serializers import SnippetSerializer
+&gt;&gt;&gt; snippet.save()
+&gt;&gt;&gt; serializer = SnippetSerializer(snippet)
+&gt;&gt;&gt; serializer.data
+{'language': 'python', 'linenos': False, 'id': 3, 'title': '', 'code': 'print "hello, world2"\n', 'style': 'friendly'}
+&gt;&gt;&gt;
+</pre>
+
+<p>
+比较之后还是发现有些区别的，字典顺序都随便，主要是这里的 'id' ，在之前是改成了 'pk' 的。
+</p>
+</div>
+</div>
+
+
+<div class="outline-3">
+<h3 id="orgheadline4">初步实现API接口</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+这里直接引入基于类的API接口编写风格。具体代码如下:
+</p>
+
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">snippets.models</span> <span class="kn">import</span> <span class="n">Snippet</span>
+<span class="kn">from</span> <span class="nn">snippets.serializers</span> <span class="kn">import</span> <span class="n">SnippetSerializer</span>
+
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">Http404</span>
+<span class="kn">from</span> <span class="nn">rest_framework.views</span> <span class="kn">import</span> <span class="n">APIView</span>
+<span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">status</span>
+
+
+<span class="k">class</span> <span class="nc">SnippetList</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    List all snippets, or create a new snippet.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">snippets</span> <span class="o">=</span> <span class="n">Snippet</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">(</span><span class="n">snippets</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">serializer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_400_BAD_REQUEST</span><span class="p">)</span>
+</pre></div>
+<p>
+这里的 <code>request.data</code> 大体类似于 <code>request.POST</code> ，但更加通用，对于PUT等方法也适用。
+</p>
+
+<p>
+大概是这个意思恩。然后用 <code>rest_framework</code> 提供的 <code>Response</code> 类封装一下返回内容使其成为json友好的格式。
+</p>
+
+<p>
+然后 <code>urls.py</code> 如下所示，django项目相关urls.py配置这里就不赘述了。
+</p>
+
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">url</span>
+<span class="kn">from</span> <span class="nn">snippets</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">url</span><span class="p">(</span><span class="s1">r&#39;^snippets/$&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">SnippetList</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>
+<span class="p">]</span>
+</pre></div>
+
+<p>
+这样我们就有了如下所示的API接口:
+</p>
+
+<ul class="org-ul">
+<li>这是新插入一个记录</li>
+</ul>
+<pre>
+bash&gt;&gt;&gt; http POST http://127.0.0.1:8000/snippets/ code="new print"
+</pre>
+
+<ul class="org-ul">
+<li>这是显示所有的记录</li>
+</ul>
+<pre>
+bash&gt;&gt;&gt; http http://127.0.0.1:8000/snippets/
+</pre>
+
+<p>
+这里的 <code>is_valid</code> 使用来检测某个序列化类存入数据库是否会有错误，如果有错误则 <code>is_valid()</code> 返回的是False，然后错误存入了 <code>serializer.errors</code>
+</p>
+
+<p>
+然后就是各个状态码的选中，要如上面例子所示的这样做，这样更加专业和规范。
+</p>
+
+
+<p>
+然后参考资料1那边继续给出的所谓的restful-api的针对某个特定item的操作:
+</p>
+
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SnippetDetail</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieve, update or delete a snippet instance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">get_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pk</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Snippet</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">Snippet</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">Http404</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">pk</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">snippet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">pk</span><span class="p">)</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">(</span><span class="n">snippet</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">pk</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">snippet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">pk</span><span class="p">)</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">(</span><span class="n">snippet</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">serializer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_400_BAD_REQUEST</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">pk</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">snippet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">pk</span><span class="p">)</span>
+        <span class="n">snippet</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_204_NO_CONTENT</span><span class="p">)</span>
+</pre></div>
+
+<p>
+urls.py那边加上的是:
+</p>
+<pre>
+url(r'^snippets/(?P&lt;pk&gt;[0-9]+)/$', views.SnippetDetail.as_view()),
+</pre>
+
+<p>
+这里正则表达式 <code>(?P&lt;pk&gt;[0-9]+)</code> 的意思是收集某一串数字，这一串数字被命名为 <code>pk</code> 。
+</p>
+
+
+<p>
+然后还有什么后缀控制，还有什么minin类后面再说吧。
+</p>
 </div>
 </div>
 </div>
 
 
 <div class="outline-2">
-<h2 id="orgheadline5">参考资料</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="orgheadline6">API权限管理</h2>
+</div>
+
+
+
+<div class="outline-2">
+<h2 id="orgheadline7">参考资料</h2>
+<div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li><a href="https://whatwewant.gitbooks.io/django-rest-framework-tutorial-cn/content/1.Serialization.html">django rest framework教程中文版</a></li>
 </ol>

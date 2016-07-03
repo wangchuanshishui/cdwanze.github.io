@@ -114,5 +114,113 @@ class SnippetSerializer(serializers.ModelSerializer):
 比较之后还是发现有些区别的，字典顺序都随便，主要是这里的 'id' ，在之前是改成了 'pk' 的。
 
 
+** 初步实现API接口
+这里直接引入基于类的API接口编写风格。具体代码如下:
+
+#+BEGIN_SRC python
+from snippets.models import Snippet
+from snippets.serializers import SnippetSerializer
+
+from django.http import Http404
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+
+
+class SnippetList(APIView):
+    """
+    List all snippets, or create a new snippet.
+    """
+    def get(self, request, format=None):
+        snippets = Snippet.objects.all()
+        serializer = SnippetSerializer(snippets, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = SnippetSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#+END_SRC
+这里的 ~request.data~ 大体类似于 ~request.POST~ ，但更加通用，对于PUT等方法也适用。
+
+大概是这个意思恩。然后用 ~rest_framework~ 提供的 ~Response~ 类封装一下返回内容使其成为json友好的格式。
+
+然后 ~urls.py~ 如下所示，django项目相关urls.py配置这里就不赘述了。
+
+#+BEGIN_SRC python
+from django.conf.urls import url
+from snippets import views
+
+urlpatterns = [
+    url(r'^snippets/$', views.SnippetList.as_view()),
+]
+#+END_SRC
+
+这样我们就有了如下所示的API接口:
+
+- 这是新插入一个记录
+#+BEGIN_EXAMPLE
+bash>>> http POST http://127.0.0.1:8000/snippets/ code="new print"
+#+END_EXAMPLE
+
+- 这是显示所有的记录
+#+BEGIN_EXAMPLE
+bash>>> http http://127.0.0.1:8000/snippets/
+#+END_EXAMPLE
+
+这里的 ~is_valid~ 使用来检测某个序列化类存入数据库是否会有错误，如果有错误则 ~is_valid()~ 返回的是False，然后错误存入了 ~serializer.errors~
+
+然后就是各个状态码的选中，要如上面例子所示的这样做，这样更加专业和规范。
+
+
+然后参考资料1那边继续给出的所谓的restful-api的针对某个特定item的操作:
+
+#+BEGIN_SRC python
+class SnippetDetail(APIView):
+    """
+    Retrieve, update or delete a snippet instance.
+    """
+    def get_object(self, pk):
+        try:
+            return Snippet.objects.get(pk=pk)
+        except Snippet.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        serializer = SnippetSerializer(snippet)
+        return Response(serializer.data)
+
+    def put(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        serializer = SnippetSerializer(snippet, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        snippet.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+#+END_SRC
+
+urls.py那边加上的是:
+#+BEGIN_EXAMPLE
+url(r'^snippets/(?P<pk>[0-9]+)/$', views.SnippetDetail.as_view()),
+#+END_EXAMPLE
+
+这里正则表达式 ~(?P<pk>[0-9]+)~ 的意思是收集某一串数字，这一串数字被命名为 ~pk~ 。
+
+
+然后还有什么后缀控制，还有什么minin类后面再说吧。
+
+
+* API权限管理
+
+
+
 * 参考资料
 1. [[https://whatwewant.gitbooks.io/django-rest-framework-tutorial-cn/content/1.Serialization.html][django rest framework教程中文版]] 

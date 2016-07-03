@@ -7,7 +7,6 @@
 #+AUTHOR: 歌德(译:韩耀成)
 #+CREATOR: 编者:万泽
 #+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
-#+INFOJS_OPT: view:showall toc:nil
 
 
 * 引言
