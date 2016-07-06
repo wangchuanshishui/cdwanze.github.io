@@ -406,6 +406,28 @@ enctype="multipart/form-data"
 
 上面例子还有个很有用的Tips，就是你运行下面的 ~form.save()~ 。如果你希望更好的对接数据库操作，那么就如上指定具体本form对象对应数据库中的那个model instance。这个在前面可以通过 ~get_or_create~ 来获得。这样就可以更精确地对应响应的模型的某条记录修改那些属性了。
 
+
+** 表单的css样式控制
+主要参考了 [[http://stackoverflow.com/questions/5827590/css-styling-in-django-forms][这个网页]] ，该网页介绍了几种风格吧，我更喜欢下面这种写法:
+
+#+BEGIN_SRC python
+class Game2048InfoForm(ModelForm):
+    class Meta:
+        model = Game2048Info
+        fields = ['banner', 'banner_mobile', 'footer', 'footer_mobile',
+                  'title', 'info', 'guize']
+
+    def __init__(self, *args, **kwargs):
+        super(Game2048InfoForm, self).__init__(*args, **kwargs)
+        self.fields['title'].widget.attrs.update({'class' : 'form-control'})
+        self.fields['info'].widget.attrs.update({'class' : 'form-control'})
+        self.fields['guize'].widget.attrs.update({'class' : 'form-control'})
+#+END_SRC
+
+具体我们大体可以猜到每个field都有一个widget属性，其有attrs属性，这是一个字典值。
+
+
+
 * 参考资料
 1. [[http://tutorial.djangogirls.org/zh/installation/][django girls]]
 2. [[http://www.ziqiangxuetang.com/django/django-tutorial.html][django基础教程]] 

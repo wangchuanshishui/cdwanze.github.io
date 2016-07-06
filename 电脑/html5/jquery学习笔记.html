@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-06-23 四 13:36 -->
+<!-- 2016-07-06 三 16:01 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>jquery学习笔记</title>
@@ -874,11 +874,6 @@ h2.footnotes{
     display:none;
 }
 
-.footnum, .footref{
-    color: #2980b9;
-    font-size: 170%;
-    font-family:"Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
-}
 
 .footnum:before, .footref:before{
     content:"[";
@@ -994,7 +989,7 @@ h2.footnotes{
 <li><a href="#orgheadline8">5.4. 取消某个事件绑定</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline23">6. jquery的DOM操作</a>
+<li><a href="#orgheadline24">6. jquery的DOM操作</a>
 <ul>
 <li><a href="#orgheadline10">6.1. text方法</a></li>
 <li><a href="#orgheadline11">6.2. html方法</a></li>
@@ -1009,12 +1004,13 @@ h2.footnotes{
 <li><a href="#orgheadline20">6.11. empty方法</a></li>
 <li><a href="#orgheadline21">6.12. css方法</a></li>
 <li><a href="#orgheadline22">6.13. 其他css操作方法</a></li>
+<li><a href="#orgheadline23">6.14. 新建一个dom对象</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline26">7. ajax</a>
+<li><a href="#orgheadline27">7. ajax</a>
 <ul>
-<li><a href="#orgheadline24">7.1. GET</a></li>
-<li><a href="#orgheadline25">7.2. POST</a></li>
+<li><a href="#orgheadline25">7.1. GET</a></li>
+<li><a href="#orgheadline26">7.2. POST</a></li>
 </ul>
 </li>
 </ul>
@@ -1155,7 +1151,7 @@ a.off('click', hello);
 
 
 <div class="outline-2">
-<h2 id="orgheadline23">jquery的DOM操作</h2>
+<h2 id="orgheadline24">jquery的DOM操作</h2>
 <div class="outline-text-2" id="text-6">
 </div><div class="outline-3">
 <h3 id="orgheadline10">text方法</h3>
@@ -1304,18 +1300,35 @@ div.removeClass('highlight'); // 删除highlight这个class
 </pre>
 </div>
 </div>
+
+
+
+
+
+<div class="outline-3">
+<h3 id="orgheadline23">新建一个dom对象</h3>
+<div class="outline-text-3" id="text-6-14">
+<p>
+这里参考了 <a href="http://stackoverflow.com/questions/759887/how-to-create-a-dom-node-as-an-object">这个网页</a> ，样例如下: 
+</p>
+<pre>
+var e = $("&lt;ul&gt;&lt;li&gt;&lt;div class='bar'&gt;bla&lt;/div&gt;&lt;/li&gt;&lt;/ul&gt;");
+$('li', e).attr('id','a1234');  // set the attribute 
+$('body').append(e); // put it into the DOM
+</pre>
+
+<p>
+其中第一句是创建一个对应结构的dom元素，第二句也很重要，实际上可以取代find方法，也就是在对应的dom元素上执行进一步的查找操作。
+</p>
+</div>
+</div>
 </div>
 
-
-
-
-
-
 <div class="outline-2">
-<h2 id="orgheadline26">ajax</h2>
+<h2 id="orgheadline27">ajax</h2>
 <div class="outline-text-2" id="text-7">
 </div><div class="outline-3">
-<h3 id="orgheadline24">GET</h3>
+<h3 id="orgheadline25">GET</h3>
 <div class="outline-text-3" id="text-7-1">
 <pre>
 $.get(URL, callback);
@@ -1329,7 +1342,7 @@ $.get(URL, callback);
 
 
 <div class="outline-3">
-<h3 id="orgheadline25">POST</h3>
+<h3 id="orgheadline26">POST</h3>
 <div class="outline-text-3" id="text-7-2">
 <pre>
 $.post(URL,data,callback);

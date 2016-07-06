@@ -197,6 +197,8 @@
 5. [[file:电脑/html5/nodejs学习笔记.html][nodejs学习笔记.html]]
 6. [[file:电脑/html5/stackoverflow精彩问题收录.html][stackoverflow精彩问题收录.html]]
 7. [[file:电脑/html5/css学习进阶.html][css学习进阶.html]]
+*** htm5应用
+1. [[file:电脑/html5/htm5应用/html5应用沉思.html][html5应用沉思.html]]
 *** javascript库
 1. [[file:电脑/html5/javascript库/FileSaver库.html][FileSaver库.html]]
 *** javascript语言

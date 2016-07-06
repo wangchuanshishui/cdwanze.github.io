@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-06-23 四 23:24 -->
+<!-- 2016-07-06 三 15:49 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>django学习笔记</title>
@@ -874,11 +874,6 @@ h2.footnotes{
     display:none;
 }
 
-.footnum, .footref{
-    color: #2980b9;
-    font-size: 170%;
-    font-family:"Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
-}
 
 .footnum:before, .footref:before{
     content:"[";
@@ -1008,8 +1003,12 @@ h2.footnotes{
 </ul>
 </li>
 <li><a href="#orgheadline17">5. 国际化</a></li>
-<li><a href="#orgheadline18">6. 表单</a></li>
-<li><a href="#orgheadline19">7. 参考资料</a></li>
+<li><a href="#orgheadline19">6. 表单</a>
+<ul>
+<li><a href="#orgheadline18">6.1. 表单的css样式控制</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline20">7. 参考资料</a></li>
 </ul>
 </div>
 </nav>
@@ -1503,7 +1502,7 @@ POST 某个方法之后 redirect ，然后需要显示某个动作
 
 
 <div class="outline-2">
-<h2 id="orgheadline18">表单</h2>
+<h2 id="orgheadline19">表单</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 首先定义一个表单对象，如下面这种写法很是简洁，但不清楚和 <code>forms.Form</code> 那种写法比较起来有何局限。
@@ -1577,10 +1576,39 @@ form = Game2048InfoForm(
 上面例子还有个很有用的Tips，就是你运行下面的 <code>form.save()</code> 。如果你希望更好的对接数据库操作，那么就如上指定具体本form对象对应数据库中的那个model instance。这个在前面可以通过 <code>get_or_create</code> 来获得。这样就可以更精确地对应响应的模型的某条记录修改那些属性了。
 </p>
 </div>
+
+
+<div class="outline-3">
+<h3 id="orgheadline18">表单的css样式控制</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+主要参考了 <a href="http://stackoverflow.com/questions/5827590/css-styling-in-django-forms">这个网页</a> ，该网页介绍了几种风格吧，我更喜欢下面这种写法:
+</p>
+
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Game2048InfoForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Game2048Info</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;banner&#39;</span><span class="p">,</span> <span class="s1">&#39;banner_mobile&#39;</span><span class="p">,</span> <span class="s1">&#39;footer&#39;</span><span class="p">,</span> <span class="s1">&#39;footer_mobile&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="s1">&#39;guize&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Game2048InfoForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;class&#39;</span> <span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;class&#39;</span> <span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;guize&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;class&#39;</span> <span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+</pre></div>
+
+<p>
+具体我们大体可以猜到每个field都有一个widget属性，其有attrs属性，这是一个字典值。
+</p>
+</div>
+</div>
 </div>
 
+
+
 <div class="outline-2">
-<h2 id="orgheadline19">参考资料</h2>
+<h2 id="orgheadline20">参考资料</h2>
 <div class="outline-text-2" id="text-7">
 <ol class="org-ol">
 <li><a href="http://tutorial.djangogirls.org/zh/installation/">django girls</a></li>

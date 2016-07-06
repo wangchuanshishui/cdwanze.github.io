@@ -160,6 +160,15 @@ div.removeClass('highlight'); // 删除highlight这个class
 
 
 
+** 新建一个dom对象
+这里参考了 [[http://stackoverflow.com/questions/759887/how-to-create-a-dom-node-as-an-object][这个网页]] ，样例如下: 
+#+BEGIN_EXAMPLE
+var e = $("<ul><li><div class='bar'>bla</div></li></ul>");
+$('li', e).attr('id','a1234');  // set the attribute 
+$('body').append(e); // put it into the DOM 
+#+END_EXAMPLE
+
+其中第一句是创建一个对应结构的dom元素，第二句也很重要，实际上可以取代find方法，也就是在对应的dom元素上执行进一步的查找操作。
 
 * ajax
 ** GET
