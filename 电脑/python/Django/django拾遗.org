@@ -17,6 +17,11 @@
 model_instance._meta.db_table
 #+END_EXAMPLE
 
+* 如何使用好django的ImageField
+参考了 [[http://gregblogs.com/django-saving-an-image-using-imagefield-explain-a-little/][这篇文章]] 。
+
+ImageField和FileField很类似，除了还多了 ~width~ 和 ~height~ 属性，然后就是在上传的时候确保文件是图片文件。
+
 
 
 

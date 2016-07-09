@@ -1,0 +1,142 @@
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:[11pt,oneside]
+#+LATEX_HEADER: \usepackage{article}
+
+
+#+TITLE: ansible学习笔记
+#+AUTHOR: 万泽(德山书生)
+#+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
+#+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
+
+
+* 前言
+ansible是一个自动部署工具，当我们学习到后面之后，就会发现只写一个简单的web app是不够的，常常远程计算机那边的环境需要很多配置，比如后台脚本的执行啊，nginx配置来服务静态文件啊等等。而每个任务都手工用 ~ssh~ 端来操作的将是非常低效率的了，尤其到后面各个任务繁多，环境需要重复部署的时候。ansible就是解决这一问题的。
+
+** 安装
+其似乎可以通过pip来安装，但其就是一个应用工具罢了，并没有打算将其作为一个python模块来看待，所以就直接利用ubuntu的apt-get工具来安装了。
+
+#+BEGIN_EXAMPLE
+## 一般应该都已经装上了 sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
+#+END_EXAMPLE
+
+其他安装方式请参看 [[http://docs.ansible.com/ansible/intro_installation.html][官方文档]] 。
+
+** 免密钥ssh登录
+参看了 [[http://liluo.org/blog/2011/05/ssh-automatic-login/][这个网页]] 。
+
+具体就是在该用户的主文件夹里面的 ~.ssh~ 文件夹里面有些文件吧，比如 ~id_rsa.pub~ 是本用户的公钥， ~id_rsa~ 是本用户的私钥。如果你在本机上运行:
+
+#+BEGIN_EXAMPLE
+ssh-keygen -t rsa
+#+END_EXAMPLE
+
+就会生成这两个文件，免密钥ssh登录的设置就是把你的 公钥 放入到 ~authorized_keys~ 这个文件里面去，所以我们可以理解为 ~.ssh~ 文件夹的 ~authorized_keys~ 文件就是用来管理谁谁的公钥在里面就可以直接登录本机了。
+
+具体要做的就是登录到远程主机，然后把你的公钥加进去即可。
+
+
+** 第一个例子
+假设你现在可以免密钥登录某一个远程服务器了，然后你在 ~/etc/ansible/hosts~ 这个文件里面把你的服务器名字加进去，然后执行:
+#+BEGIN_EXAMPLE
+ansible all -m ping
+#+END_EXAMPLE
+
+如果一切正常的话其将返回 SUCESS 信息，证明现在你已经通过ansible正常连通你的远程服务器了。
+
+
+* hosts文件配置
+现在继续深入上面提及的那个hosts文件的配置。这里推荐阅读参考资料提及的官方文档的中文版，因为我对这一块很多术语不是很熟悉，阅读英文还是有点吃力的。比如说这里讨论的 ~/etc/ansible/hosts~ 这个文件是所谓的默认 ~inventory~ 文件，除了这个默认inventory配置文件之外，还可以写很多其他的配置文件的。而这些配置文件内容大体如下:
+
+#+BEGIN_EXAMPLE
+[webservers]
+foo.example.com
+bar.example.com
+#+END_EXAMPLE
+
+~[webservers]~ 这个字段定义的是所谓的主机组的概念，之前我们随便写上去的那个主机没属于任何主机组，然后一个主机组似乎还可以属于另外一个主机组等，这个有点复杂了。似乎主机组里面的主机可以怎么统一管理，这个后面再说。
+
+
+
+** 写上多个主机组
+额，这个简单了解下吧，就是写一句话对应多个主机吧，感觉好高端离我们这些平民好远了啊。
+
+#+BEGIN_EXAMPLE
+[webservers]
+www[01:50].example.com
+
+[databases]
+db-[a:f].example.com
+#+END_EXAMPLE
+
+** 主机变量设置
+组的变量情况请看文档下面，主机变量大体就是后面写上一些值就是了，因为这些变量在定义后playbooks也是可以使用的，而playbooks无疑是后面的重头戏，所以这还是值得提一下的。
+
+#+BEGIN_EXAMPLE
+[atlanta]
+host1 http_port=80 maxRequestsPerChild=808
+host2 http_port=303 maxRequestsPerChild=909
+#+END_EXAMPLE
+
+
+** 主机的其他参数控制
+应该大多和具体ssh连接的配置有关吧，比如:
+#+BEGIN_EXAMPLE
+some_host         ansible_ssh_port=2222     ansible_ssh_user=manager
+#+END_EXAMPLE
+
+- ~ansible_ssh_host~ :: 这个一般没啥好设置的，不过可能你的主机名很长，则通过这个设置一下作为具体连接的主机名。而前面写的 ~some_host~ 只是作为主机别名。如果你的ansible版本号大于2了，那么推荐使用 ~ansible_host~ 。
+
+- ~ansible_ssh_port~ :: 端口号，默认不需要配置。如果你的ansible版本号大于2了，那么推荐使用 ~ansible_port~ 。
+
+- ~ansible_ssh_user~ :: ssh登录用户名，默认是你当前电脑的当前登录用户名，这个可能在某些情况下需要配置。如果你的ansible版本号大于2了，那么推荐使用 ~ansible_user~ 。
+
+- ~ansible_ssh_pass~ :: 免密钥登录不需要配置。文档说不推荐使用。
+
+后面一些感觉更不常用了，不过这个似乎有时会有用:
+
+- ~ansible_python_interpreter~ :: 设置python编译器的路径，但实际操作用处也不大，一般推荐用virtualenv来管理python的模块吧。
+
+
+* ansible的配置文件
+这个应该是关于整个ansible环境的配置，有需要的看下吧。
+
+* playbooks
+感觉实际操作playbooks才是应该好好熟悉的一部分，所以什么 ad-hoc 命令，也就是通过ansible单刷某个命令的方式跳过去了，直接进入正题吧。playbooks内容很多，当然首先需要简单了解下yaml语法，但这连门都还没进去，慢慢来吧。
+
+
+http://ansible-tran.readthedocs.io/en/latest/docs/playbooks_intro.html
+
+* 附录
+** yaml语法
+一个简单例子如下:
+#+BEGIN_SRC yaml
+---
+# 一位职工记录
+name: Example Developer
+job: Developer
+skill: Elite
+employed: True
+foods:
+    - Apple
+    - Orange
+    - Strawberry
+    - Mango
+languages:
+    ruby: Elite
+    python: Elite
+    dotnet: Lame
+#+END_SRC
+
+yaml文件一开始都要加上这个:  ~---~ 。
+
+注释是 ~#~
+
+然后相同缩进级别 ~-~ 开头的表示一个列表，然后其他键值对表示字典，大体就是这样。
+
+
+
+** 参考资料
+1. 官方 [[http://docs.ansible.com/ansible/index.html][英文文档]] ，这里有个翻译的 [[http://ansible-tran.readthedocs.io/en/latest/index.html][中文文档]] 。

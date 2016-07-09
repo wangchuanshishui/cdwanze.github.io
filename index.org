@@ -248,6 +248,8 @@
 5. [[file:电脑/linux/Subversion Quick Reference Card.pdf][Subversion Quick Reference Card.pdf]]
 6. [[file:电脑/linux/UNIX网络编程卷1：套接字联网API.pdf][UNIX网络编程卷1：套接字联网API.pdf]]
 7. [[file:电脑/linux/mastering-regular-expressions.pdf][mastering-regular-expressions.pdf]]
+*** ansible
+1. [[file:电脑/linux/ansible/ansible学习笔记.html][ansible学习笔记.html]]
 *** apache2
 1. [[file:电脑/linux/apache2/apache2学习笔记.html][apache2学习笔记.html]]
 *** bash编程

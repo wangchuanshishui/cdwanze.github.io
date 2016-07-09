@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-07-06 三 17:27 -->
+<!-- 2016-07-09 六 15:01 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
-<title>django拾遗</title>
+<title>ansible学习笔记</title>
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="万泽(德山书生)">
 <meta  name="description" content="制作者邮箱：a358003542@gmail.com"
@@ -972,40 +972,267 @@ h2.footnotes{
 <body>
 <div id="content">
 <header>
-<h1 class="title">django拾遗</h1>
+<h1 class="title">ansible学习笔记</h1>
 </header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. 如何根据django的模型对象来获取其对应的表格的名字</a></li>
-<li><a href="#orgheadline2">2. 如何使用好django的ImageField</a></li>
+<li><a href="#orgheadline4">1. 前言</a>
+<ul>
+<li><a href="#orgheadline1">1.1. 安装</a></li>
+<li><a href="#orgheadline2">1.2. 免密钥ssh登录</a></li>
+<li><a href="#orgheadline3">1.3. 第一个例子</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline8">2. hosts文件配置</a>
+<ul>
+<li><a href="#orgheadline5">2.1. 写上多个主机组</a></li>
+<li><a href="#orgheadline6">2.2. 主机变量设置</a></li>
+<li><a href="#orgheadline7">2.3. 主机的其他参数控制</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline9">3. ansible的配置文件</a></li>
+<li><a href="#orgheadline10">4. playbooks</a></li>
+<li><a href="#orgheadline13">5. 附录</a>
+<ul>
+<li><a href="#orgheadline11">5.1. yaml语法</a></li>
+<li><a href="#orgheadline12">5.2. 参考资料</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </nav>
 
 
 <div class="outline-2">
-<h2 id="orgheadline1">如何根据django的模型对象来获取其对应的表格的名字</h2>
+<h2 id="orgheadline4">前言</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-参看 <a href="http://stackoverflow.com/questions/233045/how-to-read-the-database-table-name-of-a-model-instance">这个网页</a> 。
+ansible是一个自动部署工具，当我们学习到后面之后，就会发现只写一个简单的web app是不够的，常常远程计算机那边的环境需要很多配置，比如后台脚本的执行啊，nginx配置来服务静态文件啊等等。而每个任务都手工用 <code>ssh</code> 端来操作的将是非常低效率的了，尤其到后面各个任务繁多，环境需要重复部署的时候。ansible就是解决这一问题的。
+</p>
+</div>
+
+<div class="outline-3">
+<h3 id="orgheadline1">安装</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+其似乎可以通过pip来安装，但其就是一个应用工具罢了，并没有打算将其作为一个python模块来看待，所以就直接利用ubuntu的apt-get工具来安装了。
+</p>
+
+<pre>
+## 一般应该都已经装上了 sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
+</pre>
+
+<p>
+其他安装方式请参看 <a href="http://docs.ansible.com/ansible/intro_installation.html">官方文档</a> 。
+</p>
+</div>
+</div>
+
+<div class="outline-3">
+<h3 id="orgheadline2">免密钥ssh登录</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+参看了 <a href="http://liluo.org/blog/2011/05/ssh-automatic-login/">这个网页</a> 。
 </p>
 
 <p>
-答: 
+具体就是在该用户的主文件夹里面的 <code>.ssh</code> 文件夹里面有些文件吧，比如 <code>id_rsa.pub</code> 是本用户的公钥， <code>id_rsa</code> 是本用户的私钥。如果你在本机上运行:
+</p>
+
+<pre>
+ssh-keygen -t rsa
+</pre>
+
+<p>
+就会生成这两个文件，免密钥ssh登录的设置就是把你的 公钥 放入到 <code>authorized_keys</code> 这个文件里面去，所以我们可以理解为 <code>.ssh</code> 文件夹的 <code>authorized_keys</code> 文件就是用来管理谁谁的公钥在里面就可以直接登录本机了。
+</p>
+
+<p>
+具体要做的就是登录到远程主机，然后把你的公钥加进去即可。
+</p>
+</div>
+</div>
+
+
+<div class="outline-3">
+<h3 id="orgheadline3">第一个例子</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+假设你现在可以免密钥登录某一个远程服务器了，然后你在 <code>/etc/ansible/hosts</code> 这个文件里面把你的服务器名字加进去，然后执行:
 </p>
 <pre>
-model_instance._meta.db_table
+ansible all -m ping
+</pre>
+
+<p>
+如果一切正常的话其将返回 SUCESS 信息，证明现在你已经通过ansible正常连通你的远程服务器了。
+</p>
+</div>
+</div>
+</div>
+
+
+<div class="outline-2">
+<h2 id="orgheadline8">hosts文件配置</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+现在继续深入上面提及的那个hosts文件的配置。这里推荐阅读参考资料提及的官方文档的中文版，因为我对这一块很多术语不是很熟悉，阅读英文还是有点吃力的。比如说这里讨论的 <code>/etc/ansible/hosts</code> 这个文件是所谓的默认 <code>inventory</code> 文件，除了这个默认inventory配置文件之外，还可以写很多其他的配置文件的。而这些配置文件内容大体如下:
+</p>
+
+<pre>
+[webservers]
+foo.example.com
+bar.example.com
+</pre>
+
+<p>
+<code>[webservers]</code> 这个字段定义的是所谓的主机组的概念，之前我们随便写上去的那个主机没属于任何主机组，然后一个主机组似乎还可以属于另外一个主机组等，这个有点复杂了。似乎主机组里面的主机可以怎么统一管理，这个后面再说。
+</p>
+</div>
+
+
+
+<div class="outline-3">
+<h3 id="orgheadline5">写上多个主机组</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+额，这个简单了解下吧，就是写一句话对应多个主机吧，感觉好高端离我们这些平民好远了啊。
+</p>
+
+<pre>
+[webservers]
+www[01:50].example.com
+
+[databases]
+db-[a:f].example.com
 </pre>
 </div>
 </div>
 
-<div class="outline-2">
-<h2 id="orgheadline2">如何使用好django的ImageField</h2>
-<div class="outline-text-2" id="text-2">
+<div class="outline-3">
+<h3 id="orgheadline6">主机变量设置</h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
-参考了 <a href="http://gregblogs.com/django-saving-an-image-using-imagefield-explain-a-little/">这篇文章</a> 。
+组的变量情况请看文档下面，主机变量大体就是后面写上一些值就是了，因为这些变量在定义后playbooks也是可以使用的，而playbooks无疑是后面的重头戏，所以这还是值得提一下的。
 </p>
+
+<pre>
+[atlanta]
+host1 http_port=80 maxRequestsPerChild=808
+host2 http_port=303 maxRequestsPerChild=909
+</pre>
+</div>
+</div>
+
+
+<div class="outline-3">
+<h3 id="orgheadline7">主机的其他参数控制</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+应该大多和具体ssh连接的配置有关吧，比如:
+</p>
+<pre>
+some_host         ansible_ssh_port=2222     ansible_ssh_user=manager
+</pre>
+
+<dl class="org-dl">
+<dt><code>ansible_ssh_host</code></dt><dd>这个一般没啥好设置的，不过可能你的主机名很长，则通过这个设置一下作为具体连接的主机名。而前面写的 <code>some_host</code> 只是作为主机别名。如果你的ansible版本号大于2了，那么推荐使用 <code>ansible_host</code> 。</dd>
+
+<dt><code>ansible_ssh_port</code></dt><dd>端口号，默认不需要配置。如果你的ansible版本号大于2了，那么推荐使用 <code>ansible_port</code> 。</dd>
+
+<dt><code>ansible_ssh_user</code></dt><dd>ssh登录用户名，默认是你当前电脑的当前登录用户名，这个可能在某些情况下需要配置。如果你的ansible版本号大于2了，那么推荐使用 <code>ansible_user</code> 。</dd>
+
+<dt><code>ansible_ssh_pass</code></dt><dd>免密钥登录不需要配置。文档说不推荐使用。</dd>
+</dl>
+
+<p>
+后面一些感觉更不常用了，不过这个似乎有时会有用:
+</p>
+
+<dl class="org-dl">
+<dt><code>ansible_python_interpreter</code></dt><dd>设置python编译器的路径，但实际操作用处也不大，一般推荐用virtualenv来管理python的模块吧。</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+<div class="outline-2">
+<h2 id="orgheadline9">ansible的配置文件</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+这个应该是关于整个ansible环境的配置，有需要的看下吧。
+</p>
+</div>
+</div>
+
+<div class="outline-2">
+<h2 id="orgheadline10">playbooks</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+感觉实际操作playbooks才是应该好好熟悉的一部分，所以什么 ad-hoc 命令，也就是通过ansible单刷某个命令的方式跳过去了，直接进入正题吧。playbooks内容很多，当然首先需要简单了解下yaml语法，但这连门都还没进去，慢慢来吧。
+</p>
+
+
+<p>
+<a href="http://ansible-tran.readthedocs.io/en/latest/docs/playbooks_intro.html">http://ansible-tran.readthedocs.io/en/latest/docs/playbooks_intro.html</a>
+</p>
+</div>
+</div>
+
+<div class="outline-2">
+<h2 id="orgheadline13">附录</h2>
+<div class="outline-text-2" id="text-5">
+</div><div class="outline-3">
+<h3 id="orgheadline11">yaml语法</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+一个简单例子如下:
+</p>
+<div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="c1"># 一位职工记录</span>
+<span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Example Developer</span>
+<span class="l l-Scalar l-Scalar-Plain">job</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Developer</span>
+<span class="l l-Scalar l-Scalar-Plain">skill</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Elite</span>
+<span class="l l-Scalar l-Scalar-Plain">employed</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="l l-Scalar l-Scalar-Plain">foods</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Apple</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Orange</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Strawberry</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Mango</span>
+<span class="l l-Scalar l-Scalar-Plain">languages</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">ruby</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Elite</span>
+    <span class="l l-Scalar l-Scalar-Plain">python</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Elite</span>
+    <span class="l l-Scalar l-Scalar-Plain">dotnet</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Lame</span>
+</pre></div>
+
+<p>
+yaml文件一开始都要加上这个:  <code>---</code> 。
+</p>
+
+<p>
+注释是 <code>#</code>
+</p>
+
+<p>
+然后相同缩进级别 <code>-</code> 开头的表示一个列表，然后其他键值对表示字典，大体就是这样。
+</p>
+</div>
+</div>
+
+
+
+<div class="outline-3">
+<h3 id="orgheadline12">参考资料</h3>
+<div class="outline-text-3" id="text-5-2">
+<ol class="org-ol">
+<li>官方 <a href="http://docs.ansible.com/ansible/index.html">英文文档</a> ，这里有个翻译的 <a href="http://ansible-tran.readthedocs.io/en/latest/index.html">中文文档</a> 。</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
