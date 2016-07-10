@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-07-06 三 15:49 -->
+<!-- 2016-07-10 日 19:26 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>django学习笔记</title>
@@ -988,27 +988,32 @@ h2.footnotes{
 <li><a href="#orgheadline7">2.6. 运行网络服务器</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline9">3. url分发</a></li>
-<li><a href="#orgheadline16">4. 模型</a>
+<li><a href="#orgheadline10">3. url分发</a>
 <ul>
-<li><a href="#orgheadline10">4.1. 默认创建的表格</a></li>
-<li><a href="#orgheadline11">4.2. 字段类型</a></li>
-<li><a href="#orgheadline12">4.3. 通用可选项</a></li>
-<li><a href="#orgheadline13">4.4. 数据库中的关系</a></li>
-<li><a href="#orgheadline15">4.5. ORM层的使用方法</a>
+<li><a href="#orgheadline9">3.1. 获取full-url</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline17">4. 模型</a>
 <ul>
-<li><a href="#orgheadline14">4.5.1. 去重</a></li>
+<li><a href="#orgheadline11">4.1. 默认创建的表格</a></li>
+<li><a href="#orgheadline12">4.2. 字段类型</a></li>
+<li><a href="#orgheadline13">4.3. 通用可选项</a></li>
+<li><a href="#orgheadline14">4.4. 数据库中的关系</a></li>
+<li><a href="#orgheadline16">4.5. ORM层的使用方法</a>
+<ul>
+<li><a href="#orgheadline15">4.5.1. 去重</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline17">5. 国际化</a></li>
-<li><a href="#orgheadline19">6. 表单</a>
+<li><a href="#orgheadline18">5. 配置</a></li>
+<li><a href="#orgheadline19">6. 国际化</a></li>
+<li><a href="#orgheadline21">7. 表单</a>
 <ul>
-<li><a href="#orgheadline18">6.1. 表单的css样式控制</a></li>
+<li><a href="#orgheadline20">7.1. 表单的css样式控制</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline20">7. 参考资料</a></li>
+<li><a href="#orgheadline22">8. 参考资料</a></li>
 </ul>
 </div>
 </nav>
@@ -1121,7 +1126,7 @@ python manage.py runserver
 
 
 <div class="outline-2">
-<h2 id="orgheadline9">url分发</h2>
+<h2 id="orgheadline10">url分发</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 web框架的一个核心功能就是完成url分发工作，我们先来看下django的这块内容。
@@ -1218,12 +1223,22 @@ reverse('add',args=(1,2))
 &lt;a href="{% url 'add' 1 2 %}"&gt;link&lt;/a&gt;
 </pre>
 </div>
+
+
+<div class="outline-3">
+<h3 id="orgheadline9">获取full-url</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+上面提到的reverse函数返回的url字符串还不是完整的url，如果我们要获取全站的完整url则可以使用 <code>request.build_absolute_uri(location)</code> ，如果不指定location则是当前的url。
+</p>
+</div>
+</div>
 </div>
 
 
 
 <div class="outline-2">
-<h2 id="orgheadline16">模型</h2>
+<h2 id="orgheadline17">模型</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 django的模板和sqlalchemy还是有很多地方类似的，不过还是有一些区别吧。在项目文件夹的 <code>settings.py</code> 文件里面现在有些配置需要了解了:
@@ -1248,7 +1263,7 @@ DATABASES = {
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline10">默认创建的表格</h3>
+<h3 id="orgheadline11">默认创建的表格</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 什么模型定义都不写，django大概就会创建十个表格，简单了解一下这些表格还是很有用的。比如说:
@@ -1281,7 +1296,7 @@ class Question(models.Model):
 
 
 <div class="outline-3">
-<h3 id="orgheadline11">字段类型</h3>
+<h3 id="orgheadline12">字段类型</h3>
 <div class="outline-text-3" id="text-4-2">
 <dl class="org-dl">
 <dt>IntegerField</dt><dd>整型</dd>
@@ -1339,7 +1354,7 @@ class Question(models.Model):
 
 
 <div class="outline-3">
-<h3 id="orgheadline12">通用可选项</h3>
+<h3 id="orgheadline13">通用可选项</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 字段声明控制中有一些通用可选项参量:
@@ -1386,7 +1401,7 @@ unique_for_date="pub_date"
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline13">数据库中的关系</h3>
+<h3 id="orgheadline14">数据库中的关系</h3>
 <div class="outline-text-3" id="text-4-4">
 <dl class="org-dl">
 <dt>ForeignKey</dt><dd>外键引用，如果该字段的名字是user，那么实际存储在表格中的名字是user_id，然后你可以以ORM风格设置该字段如:</dd>
@@ -1404,7 +1419,7 @@ user = User(...)
 
 
 <div class="outline-3">
-<h3 id="orgheadline15">ORM层的使用方法</h3>
+<h3 id="orgheadline16">ORM层的使用方法</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 不废话，上代码，看一下就清楚了。
@@ -1453,7 +1468,7 @@ Author.objects.order_by('-id')[:20] # 反向索引
 </div>
 
 <div class="outline-4">
-<h4 id="orgheadline14">去重</h4>
+<h4 id="orgheadline15">去重</h4>
 <div class="outline-text-4" id="text-4-5-1">
 <pre>
 qs1 = Pathway.objects.filter(label__name='x')
@@ -1474,8 +1489,26 @@ qs = qs.distinct()
 
 
 <div class="outline-2">
-<h2 id="orgheadline17">国际化</h2>
+<h2 id="orgheadline18">配置</h2>
 <div class="outline-text-2" id="text-5">
+<p>
+获取django的配置:
+</p>
+<pre>
+from django.conf import settings
+</pre>
+
+<p>
+配置里面有一些东西下面慢慢讲解之。
+</p>
+</div>
+</div>
+
+
+
+<div class="outline-2">
+<h2 id="orgheadline19">国际化</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 国际化或者说一些语言地区的配置。
 </p>
@@ -1502,8 +1535,8 @@ POST 某个方法之后 redirect ，然后需要显示某个动作
 
 
 <div class="outline-2">
-<h2 id="orgheadline19">表单</h2>
-<div class="outline-text-2" id="text-6">
+<h2 id="orgheadline21">表单</h2>
+<div class="outline-text-2" id="text-7">
 <p>
 首先定义一个表单对象，如下面这种写法很是简洁，但不清楚和 <code>forms.Form</code> 那种写法比较起来有何局限。
 </p>
@@ -1579,8 +1612,8 @@ form = Game2048InfoForm(
 
 
 <div class="outline-3">
-<h3 id="orgheadline18">表单的css样式控制</h3>
-<div class="outline-text-3" id="text-6-1">
+<h3 id="orgheadline20">表单的css样式控制</h3>
+<div class="outline-text-3" id="text-7-1">
 <p>
 主要参考了 <a href="http://stackoverflow.com/questions/5827590/css-styling-in-django-forms">这个网页</a> ，该网页介绍了几种风格吧，我更喜欢下面这种写法:
 </p>
@@ -1608,8 +1641,8 @@ form = Game2048InfoForm(
 
 
 <div class="outline-2">
-<h2 id="orgheadline20">参考资料</h2>
-<div class="outline-text-2" id="text-7">
+<h2 id="orgheadline22">参考资料</h2>
+<div class="outline-text-2" id="text-8">
 <ol class="org-ol">
 <li><a href="http://tutorial.djangogirls.org/zh/installation/">django girls</a></li>
 <li><a href="http://www.ziqiangxuetang.com/django/django-tutorial.html">django基础教程</a></li>

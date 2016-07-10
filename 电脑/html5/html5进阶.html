@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-06-23 四 13:37 -->
+<!-- 2016-07-10 日 19:33 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>html5进阶</title>
@@ -874,11 +874,6 @@ h2.footnotes{
     display:none;
 }
 
-.footnum, .footref{
-    color: #2980b9;
-    font-size: 170%;
-    font-family:"Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
-}
 
 .footnum:before, .footref:before{
     content:"[";
@@ -1027,7 +1022,8 @@ h2.footnotes{
 <li><a href="#orgheadline32">14.1. pill形状tabs制作</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline34">15. 参考资料</a></li>
+<li><a href="#orgheadline34">15. 如何制作一个 <code>Bootstrap</code> 风格的带链接的按钮</a></li>
+<li><a href="#orgheadline35">16. 参考资料</a></li>
 </ul>
 </div>
 </nav>
@@ -1761,8 +1757,26 @@ kbd标签用来显示按键组合: &lt;kbd&gt;Ctrl+X&lt;/kbd&gt;
 
 
 <div class="outline-2">
-<h2 id="orgheadline34">参考资料</h2>
+<h2 id="orgheadline34">如何制作一个 <code>Bootstrap</code> 风格的带链接的按钮</h2>
 <div class="outline-text-2" id="text-15">
+<p>
+参看 <a href="http://stackoverflow.com/questions/19981949/how-to-make-a-button-in-bootstrap-look-like-a-normal-link-in-nav-tabs">这个网页</a> 。
+</p>
+
+<p>
+我更喜欢这种写法:
+</p>
+<pre>
+&lt;a href="{{ message["body"] }}" target="_blank"  role="button" class="btn btn-success btn-large"&gt;Click here!&lt;/a&gt;
+</pre>
+</div>
+</div>
+
+
+
+<div class="outline-2">
+<h2 id="orgheadline35">参考资料</h2>
+<div class="outline-text-2" id="text-16">
 <ol class="org-ol">
 <li><a href="http://www.w3school.com.cn/">w3school cn</a></li>
 <li><a href="https://www.codecademy.com/"><a href="https://www.codecademy.com/">https://www.codecademy.com/</a></a></li>

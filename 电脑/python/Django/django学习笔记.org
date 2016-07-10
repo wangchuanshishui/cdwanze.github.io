@@ -141,6 +141,10 @@ reverse('add',args=(1,2))
 #+END_EXAMPLE
 
 
+** 获取full-url
+上面提到的reverse函数返回的url字符串还不是完整的url，如果我们要获取全站的完整url则可以使用 ~request.build_absolute_uri(location)~ ，如果不指定location则是当前的url。
+
+
 
 * 模型
 django的模板和sqlalchemy还是有很多地方类似的，不过还是有一些区别吧。在项目文件夹的 ~settings.py~ 文件里面现在有些配置需要了解了:
@@ -326,6 +330,16 @@ qs = qs1 | qs2 | qs3
 # 去重方法
 qs = qs.distinct()
 #+END_EXAMPLE
+
+
+* 配置
+获取django的配置:
+#+BEGIN_EXAMPLE
+from django.conf import settings
+#+END_EXAMPLE
+
+配置里面有一些东西下面慢慢讲解之。
+
 
 
 * 国际化

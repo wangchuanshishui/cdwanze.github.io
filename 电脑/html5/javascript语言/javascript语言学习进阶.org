@@ -37,3 +37,18 @@ JSON.parse('[1,2,3,true]');
 
 
 
+
+
+
+* 用javascript改变网页全局的css设置
+参考了 [[http://stackoverflow.com/questions/566203/changing-css-values-with-javascript][这个网页]] 。
+
+#+BEGIN_SRC js
+function change_general_css(selector, property, value) {
+    for (var i=0; i<document.styleSheets.length;i++) {//Loop through all styles
+        //Try add rule
+        try { document.styleSheets[i].insertRule(selector+ ' {'+property+':'+value+'}', document.styleSheets[i].cssRules.length);
+        } catch(err) {try { document.styleSheets[i].addRule(selector, property+':'+value);} catch(err) {}}//IE
+    }
+}
+#+END_SRC
