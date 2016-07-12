@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-07-10 日 19:36 -->
+<!-- 2016-07-11 一 16:06 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>html5网页规范</title>
@@ -978,6 +978,14 @@ h2.footnotes{
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgheadline1">1. 前言</a></li>
+<li><a href="#orgheadline2">2. <code>no-js</code> class</a></li>
+<li><a href="#orgheadline3">3. 强制IE浏览器用更高的可用模式渲染网页</a></li>
+<li><a href="#orgheadline4">4. 设置viewport设置</a></li>
+<li><a href="#orgheadline5">5. modernizr</a></li>
+<li><a href="#orgheadline6">6. jquery</a></li>
+<li><a href="#orgheadline7">7. Google Universal Analytics</a></li>
+<li><a href="#orgheadline8">8. Normalize.css</a></li>
+<li><a href="#orgheadline9">9. initializr</a></li>
 </ul>
 </div>
 </nav>
@@ -988,6 +996,95 @@ h2.footnotes{
 <div class="outline-text-2" id="text-1">
 <p>
 本文是由对 <a href="https://github.com/h5bp/html5-boilerplate">html5-boilerplate</a> 这个项目代码的分析而来。
+</p>
+</div>
+</div>
+
+<div class="outline-2">
+<h2 id="orgheadline2"><code>no-js</code> class</h2>
+<div class="outline-text-2" id="text-2">
+<pre>
+&lt;html class="no-js" lang="zh"&gt;
+</pre>
+<p>
+他们说这个class可以用来设置某些情况下javascript被禁用之后的css。
+</p>
+</div>
+</div>
+
+
+<div class="outline-2">
+<h2 id="orgheadline3">强制IE浏览器用更高的可用模式渲染网页</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+这个后续可能不需要考虑了。
+</p>
+<pre>
+&lt;meta http-equiv="x-ua-compatible" content="ie=edge"&gt;
+</pre>
+</div>
+</div>
+
+
+<div class="outline-2">
+<h2 id="orgheadline4">设置viewport设置</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+这个在自适应布局中已经有所接触。
+</p>
+<pre>
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+</pre>
+</div>
+</div>
+
+<div class="outline-2">
+<h2 id="orgheadline5">modernizr</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+这个需要放在head标签部分预先加载，因为其和网页具体显示的html5兼容性有关。
+</p>
+</div>
+</div>
+
+<div class="outline-2">
+<h2 id="orgheadline6">jquery</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+这里代码的意思应该是先网络加载jquery，如果没有则本地找找看。
+</p>
+<pre>
+&lt;script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;window.jQuery || document.write('&lt;script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;
+</pre>
+</div>
+</div>
+
+
+<div class="outline-2">
+<h2 id="orgheadline7">Google Universal Analytics</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+关于google analytics的site id，了解更多，请点击 <a href="https://analytics.google.com/">这里</a> 。
+</p>
+</div>
+</div>
+
+
+<div class="outline-2">
+<h2 id="orgheadline8">Normalize.css</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+似乎bootstrap也是基于Normalize.css的。
+</p>
+</div>
+</div>
+
+<div class="outline-2">
+<h2 id="orgheadline9">initializr</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+<a href="http://www.initializr.com/">initializr这个项目</a> 很有意思，可以方便我们更快速地生成html5小应用蓝图。其还有bootstrap支持。
 </p>
 </div>
 </div>

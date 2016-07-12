@@ -103,11 +103,87 @@ some_host         ansible_ssh_port=2222     ansible_ssh_user=manager
 * ansible的配置文件
 这个应该是关于整个ansible环境的配置，有需要的看下吧。
 
+
 * playbooks
 感觉实际操作playbooks才是应该好好熟悉的一部分，所以什么 ad-hoc 命令，也就是通过ansible单刷某个命令的方式跳过去了，直接进入正题吧。playbooks内容很多，当然首先需要简单了解下yaml语法，但这连门都还没进去，慢慢来吧。
 
+下面是最简单的一个例子，新建这么一个 ~first.yaml~ 文件:
+#+BEGIN_SRC yaml
+---
+- hosts: work
+  tasks:
+  - name : ping and pong
+    ping : 
+#+END_SRC
 
-http://ansible-tran.readthedocs.io/en/latest/docs/playbooks_intro.html
+然后执行是:
+#+BEGIN_EXAMPLE
+ansible-playbook first.yaml
+#+END_EXAMPLE
+
+这里只是简单的ping pong 了一下，这个配置简单的内容就是主机 ~work~ ，这个是在之前提到的 ~/etc/ansible/hosts~ 那个文件里定义的。然后对这个主机执行某个任务 ~tasks~ 。这是一个任务列表清单，name 描述了该任务，文字随意。然后执行了 ~ping~ 模块。
+
+这个任务确保nginx重启了一次:
+#+BEGIN_EXAMPLE
+- name: make sure nginx restarted
+  service: name=nginx state=restarted
+#+END_EXAMPLE
+
+
+这个任务是确保nginx服务是运行着的:
+#+BEGIN_EXAMPLE
+- name: make sure nginx is running
+  service: name=nginx state=running
+#+END_EXAMPLE
+
+
+** ansible其内的模块
+我们看到ansible-playbook就最基本的配置编写和使用还是很简单的，关键是具体任务那边要熟悉好一些特定的模块，ansible其内的模块可以用海量还形容，而且你还可以编写自己的模块。核心模块可以参看这个 [[https://github.com/ansible/ansible-modules-core][项目]] 。下面先简要介绍一些应该是很常用的模块。
+
+
+*** ping模块
+试着连接主机，然后确认一个可用的python环境，然后返回pong。
+
+
+*** service模块
+控制远程主机的后台服务。
+
+- name :: 具体服务名。
+- state :: 有四个选项: started, stoped, restarted, reloaded。具体是启动，停止，重启，重新加载。 
+- enabled :: 是否开机启动。
+- args :: 额外的参数。
+
+ 
+
+
+*** command模块
+在远程主机执行一个shell命令，重要级别不言而喻。
+
+关机
+#+BEGIN_EXAMPLE
+- command: /sbin/shutdown -t now
+#+END_EXAMPLE
+
+*** copy模块
+复制本机文件到远程主机。
+
+- backup :: 在覆盖前备份原文件
+- src :: 本地源文件
+- dest :: 远程主机目标文件
+- owner :: 文件的所有者
+- mode :: 文件的模式
+- group :: 文件的所有群
+- force :: 强制文件替换，若为no则不替换
+
+*** cron模块
+
+*** get_url模块
+
+
+*** git模块
+
+
+
 
 * 附录
 ** yaml语法
