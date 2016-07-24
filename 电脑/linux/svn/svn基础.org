@@ -3,8 +3,6 @@
 #+LATEX_HEADER: \usepackage{article}
 
 
-#+HTML_HEAD: <link rel="stylesheet"  href="http://www.cdwanze.org/templates/main.css"/>
-
 #+TITLE: svn基础
 #+AUTHOR: 万泽(德山书生)
 #+CREATOR: 编者:wanze(<a href="mailto:a358003542@163.com">a358003542@163.com</a>)
@@ -23,6 +21,11 @@ svn版本控制是一种基于client/server模型很自然的发展，其中serv
 在ubuntu下则是:
 #+BEGIN_EXAMPLE
 sudo apt-get install subversion
+#+END_EXAMPLE
+
+centos下是:
+#+BEGIN_EXAMPLE
+sudo yum install subversion
 #+END_EXAMPLE
 
 一般用户就使用svn命令，读者可以使用 ~svn --help~ 来简单看一下用法。和管理员操作相关的还有两个命令 ~svnadmin~ 和 ~svnserve~ ，同样可用 ~--help~ 来看一下用法。
@@ -50,7 +53,7 @@ svn add doc
 #+END_EXAMPLE
 这里将文件夹doc里面的所有内容加入索引。
 
-** --force
+** ~--force~
 如果某个文件夹内某些文件已经add了某些文件还没有add，然后你希望这个文件夹里面所有的文件都add进去，那么可以通过加上选项 ~--force~ 来达到这个目的。
 
 #+BEGIN_EXAMPLE
@@ -77,9 +80,7 @@ svn update
 
 * 一般客户端的工作流程
 1. svn update ，将服务器端的最新内容更新到本地
-2. 本地修改项目文件，此外还有svn add；svn delete；svn copy；svn move。
-
-
+2. 本地修改项目文件，此外还有 ~svn add；svn delete；svn copy；svn move~ 。
 3. 检视你的修改，svn status ； svn diff。
 4. 撤消你的修改，svn revert 
 5. 发布你的更改，svn commit。

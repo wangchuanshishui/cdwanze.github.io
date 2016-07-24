@@ -1,0 +1,27 @@
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:[11pt,oneside]
+#+LATEX_HEADER: \usepackage{article}
+
+
+#+TITLE: GFW带来的一些问题
+#+AUTHOR: 万泽(德山书生)
+#+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
+#+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
+
+
+* pypi下载用国内源
+#+BEGIN_EXAMPLE
+pip install --trusted-host pypi.douban.com -i http://pypi.douban.com/simple carbon 
+#+END_EXAMPLE
+
+或者修改本机的pypi配置，在当前用户主文件夹下的 ~.pip/pip.conf~ 下加入内容:
+#+BEGIN_EXAMPLE
+[global] 
+index-url = http://pypi.douban.com/simple 
+#+END_EXAMPLE
+
+windows下是 ~%HOMEPATH%\pip\pip.ini~ 。
+
+
+* js 用国内cdn源
+推荐 [[http://www.bootcdn.cn/][这个网站]] 。

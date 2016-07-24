@@ -8,7 +8,8 @@
 
 ----------------------
 * 其他
-1. [[file:其他/gfm简介.html][gfm简介.html]]
+1. [[file:其他/GFW带来的一些问题.html][GFW带来的一些问题.html]]
+2. [[file:其他/gfm简介.html][gfm简介.html]]
 * 化学
 ** 化学信息学
 1. [[file:化学/化学信息学/化学信息学简介.html][化学信息学简介.html]]
@@ -203,6 +204,7 @@
 *** javascript库
 1. [[file:电脑/html5/javascript库/FileSaver库.html][FileSaver库.html]]
 2. [[file:电脑/html5/javascript库/jquery学习笔记.html][jquery学习笔记.html]]
+3. [[file:电脑/html5/javascript库/jscolor颜色选择器.html][jscolor颜色选择器.html]]
 *** javascript语言
 1. [[file:电脑/html5/javascript语言/javascript语言学习进阶.html][javascript语言学习进阶.html]]
 2. [[file:电脑/html5/javascript语言/javascript语言学习基础篇.html][javascript语言学习基础篇.html]]
@@ -276,6 +278,8 @@
 1. [[file:电脑/linux/makefile/makefile学习笔记.html][makefile学习笔记.html]]
 *** nginx
 1. [[file:电脑/linux/nginx/nginx学习笔记.html][nginx学习笔记.html]]
+*** supervisor
+1. [[file:电脑/linux/supervisor/supervisor学习笔记.html][supervisor学习笔记.html]]
 *** svn
 1. [[file:电脑/linux/svn/svn基础.html][svn基础.html]]
 *** ubuntu
@@ -303,6 +307,8 @@
 6. [[file:电脑/python/Flask/flask-wtf.html][flask-wtf.html]]
 7. [[file:电脑/python/Flask/Werkzeug模块.html][Werkzeug模块.html]]
 8. [[file:电脑/python/Flask/flask-restful.html][flask-restful.html]]
+*** Graphite
+1. [[file:电脑/python/Graphite/Graphite系统监控.html][Graphite系统监控.html]]
 *** Odoo
 1. [[file:电脑/python/Odoo/OpenERP 应用和开发基础.pdf][OpenERP 应用和开发基础.pdf]]
 2. [[file:电脑/python/Odoo/OpenERP不花钱.pdf][OpenERP不花钱.pdf]]

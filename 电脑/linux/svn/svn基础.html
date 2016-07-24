@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-06-23 四 13:36 -->
+<!-- 2016-07-24 日 13:08 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>svn基础</title>
@@ -874,11 +874,6 @@ h2.footnotes{
     display:none;
 }
 
-.footnum, .footref{
-    color: #2980b9;
-    font-size: 170%;
-    font-family:"Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
-}
 
 .footnum:before, .footref:before{
     content:"[";
@@ -973,7 +968,6 @@ h2.footnotes{
 .highlight .vi { color: #000000 } /* Name.Variable.Instance */
 .highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
 </style>
-<link rel="stylesheet"  href="http://www.cdwanze.org/templates/main.css"/>
 </head>
 <body>
 <div id="content">
@@ -992,7 +986,7 @@ h2.footnotes{
 <li><a href="#orgheadline4">3. 客户端检出仓库</a></li>
 <li><a href="#orgheadline6">4. 客户端将某个文件或文件夹加入索引</a>
 <ul>
-<li><a href="#orgheadline5">4.1. &#x2013;force</a></li>
+<li><a href="#orgheadline5">4.1. <code>--force</code></a></li>
 </ul>
 </li>
 <li><a href="#orgheadline7">5. 客户端提交本地修改</a></li>
@@ -1030,6 +1024,13 @@ svn版本控制是一种基于client/server模型很自然的发展，其中serv
 </p>
 <pre>
 sudo apt-get install subversion
+</pre>
+
+<p>
+centos下是:
+</p>
+<pre>
+sudo yum install subversion
 </pre>
 
 <p>
@@ -1080,7 +1081,7 @@ svn add doc
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline5">&#x2013;force</h3>
+<h3 id="orgheadline5"><code>--force</code></h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 如果某个文件夹内某些文件已经add了某些文件还没有add，然后你希望这个文件夹里面所有的文件都add进去，那么可以通过加上选项 <code>--force</code> 来达到这个目的。
@@ -1134,11 +1135,7 @@ svn update
 <div class="outline-text-2" id="text-8">
 <ol class="org-ol">
 <li>svn update ，将服务器端的最新内容更新到本地</li>
-<li>本地修改项目文件，此外还有svn add；svn delete；svn copy；svn move。</li>
-</ol>
-
-
-<ol class="org-ol">
+<li>本地修改项目文件，此外还有 <code>svn add；svn delete；svn copy；svn move</code> 。</li>
 <li>检视你的修改，svn status ； svn diff。</li>
 <li>撤消你的修改，svn revert</li>
 <li>发布你的更改，svn commit。</li>

@@ -26,3 +26,12 @@ The commands that output paths (e.g. ls-files, diff), when not given the -z opti
 
 
 
+
+* github走ssh通道
+github走ssh通道。之前我都不在意，都是勤快的手工输入密码的。。github那边把你的ssh密钥加进去，然后你的项目 ~.git/config~ 那个文件的 url 设置为git连接即可，
+
+首先测试一下连通性吧:
+
+#+BEGIN_EXAMPLE
+bash>>> ssh git@github.com﻿
+#+END_EXAMPLE

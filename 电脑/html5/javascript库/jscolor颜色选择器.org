@@ -1,0 +1,21 @@
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:[11pt,oneside]
+#+LATEX_HEADER: \usepackage{article}
+
+
+#+TITLE: jscolor颜色选择器
+#+AUTHOR: 万泽(德山书生)
+#+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
+#+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
+
+
+#+BEGIN_EXAMPLE
+<script src="jscolor.js"></script>
+
+Color: <input class="jscolor" value="ab2567">
+#+END_EXAMPLE
+
+更多信息请参看 [[http://jscolor.com/][官网]] 。
+
+
+

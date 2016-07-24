@@ -442,6 +442,9 @@ class Game2048InfoForm(ModelForm):
 
 
 
+* 部署
+
+
 * 参考资料
 1. [[http://tutorial.djangogirls.org/zh/installation/][django girls]]
 2. [[http://www.ziqiangxuetang.com/django/django-tutorial.html][django基础教程]] 
