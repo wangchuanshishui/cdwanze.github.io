@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-06-23 四 13:35 -->
+<!-- 2016-07-31 日 10:37 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>hacker修道院入门</title>
@@ -874,11 +874,6 @@ h2.footnotes{
     display:none;
 }
 
-.footnum, .footref{
-    color: #2980b9;
-    font-size: 170%;
-    font-family:"Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
-}
 
 .footnum:before, .footref:before{
     content:"[";
@@ -982,49 +977,82 @@ h2.footnotes{
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline2">1. 成为hacker大神的必备技能</a>
+<li><a href="#orgheadline1">1. 前言</a></li>
+<li><a href="#orgheadline3">2. how to 成为hacker大神</a>
 <ul>
-<li><a href="#orgheadline1">1.1. 基本技能</a></li>
+<li><a href="#orgheadline2">2.1. 理解下列网络术语</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline4">2. 如何监听网络: wireshark和OSI模型简介</a>
+<li><a href="#orgheadline5">3. 如何监听网络: wireshark和OSI模型简介</a>
 <ul>
-<li><a href="#orgheadline3">2.1. wireshark</a></li>
+<li><a href="#orgheadline4">3.1. wireshark</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline5">3. hacker基础: 双标记</a></li>
+<li><a href="#orgheadline6">4. hacker基础: 双标记</a></li>
+<li><a href="#orgheadline7">5. 参考资料</a></li>
 </ul>
 </div>
 </nav>
 
+
 <div class="outline-2">
-<h2 id="orgheadline2">成为hacker大神的必备技能</h2>
+<h2 id="orgheadline1">前言</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+本文的内容主要和网络相关，更加偏底层hacker的那种性质。
+</p>
+
+<p>
+本文的写作没有特别阅读某个书籍，主要来自互联网。由于较为散乱，某些知识点可能在互联网上是到处都是，那么读者请认为该知识点来自互联网。其中某些我觉得写的很好的文章会另外单独写出来的。
+</p>
+</div>
+</div>
+
+
+<div class="outline-2">
+<h2 id="orgheadline3">how to 成为hacker大神</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 本小节主要参看了 <a href="http://null-byte.wonderhowto.com/how-to/essential-skills-becoming-master-hacker-0154509/">这个网页</a> 。
 </p>
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline1">基本技能</h3>
-<div class="outline-text-3" id="text-1-1">
+<h3 id="orgheadline2">理解下列网络术语</h3>
+<div class="outline-text-3" id="text-2-1">
+<dl class="org-dl">
+<dt>NAT</dt><dd>网络地址转换协议，内网里面的计算机通过一个公共网关访问Internet，内网里面的计算机可以向Internet上的其他计算机发送请求，但是Internet上的其他计算机不能向内网的计算机发送连接请求。</dd>
+</dl>
+
 <p>
-理解下列网络术语:
+我们通常设置本地连接使用 静态IP地址 时遇到的 IP地址，子网掩码，默认网关这些概念就和这个NAT协议相关。
 </p>
-<ul class="org-ul">
-<li>DHCP（Dynamic Host Configuration Protocol）</li>
-<li>NAT</li>
-<li>Subnetting</li>
-<li>IPv4</li>
-<li>Ipv6</li>
-<li>Public v Private IP</li>
-<li>DNS</li>
-<li>Routers Switches</li>
-<li>VLANS</li>
-<li>OSI model</li>
-<li>MAC addressing</li>
-<li>ARP</li>
-</ul>
+
+
+
+<dl class="org-dl">
+<dt>DHCP</dt><dd>Dynamic Host Configuration Protocol</dd>
+
+<dt>Subnetting</dt><dd></dd>
+
+<dt>IPv4</dt><dd></dd>
+
+<dt>Ipv6</dt><dd></dd>
+
+<dt>Public v Private IP</dt><dd></dd>
+
+<dt>DNS</dt><dd></dd>
+
+<dt>Routers Switches</dt><dd></dd>
+
+<dt>VLANS</dt><dd></dd>
+
+<dt>OSI model</dt><dd></dd>
+
+<dt>MAC addressing</dt><dd></dd>
+
+<dt>ARP</dt><dd></dd>
+</dl>
 
 <p>
 提升你的linux技能
@@ -1051,8 +1079,8 @@ h2.footnotes{
 
 
 <div class="outline-2">
-<h2 id="orgheadline4">如何监听网络: wireshark和OSI模型简介</h2>
-<div class="outline-text-2" id="text-2">
+<h2 id="orgheadline5">如何监听网络: wireshark和OSI模型简介</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 本小节主要参看了 <a href="http://null-byte.wonderhowto.com/how-to/spy-your-buddys-network-traffic-intro-wireshark-and-osi-model-0133807/">这个网页</a> 。
 </p>
@@ -1086,8 +1114,8 @@ h2.footnotes{
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline3">wireshark</h3>
-<div class="outline-text-3" id="text-2-1">
+<h3 id="orgheadline4">wireshark</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 在ubuntu下安装wireshark很简单:
 </p>
@@ -1114,10 +1142,21 @@ sudo apt-get install wireshark
 
 
 <div class="outline-2">
-<h2 id="orgheadline5">hacker基础: 双标记</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="orgheadline6">hacker基础: 双标记</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 本小节主要参看了 <a href="http://null-byte.wonderhowto.com/inspiration/hacker-fundamentals-tale-two-standards-0133727/">这个网页</a> 。
+</p>
+</div>
+</div>
+
+
+
+<div class="outline-2">
+<h2 id="orgheadline7">参考资料</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+互联网，并没有特别阅读某个书籍。
 </p>
 </div>
 </div>
