@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-06-23 四 13:36 -->
+<!-- 2016-07-30 六 23:07 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>git知识补充</title>
@@ -874,11 +874,6 @@ h2.footnotes{
     display:none;
 }
 
-.footnum, .footref{
-    color: #2980b9;
-    font-size: 170%;
-    font-family:"Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
-}
 
 .footnum:before, .footref:before{
     content:"[";
@@ -983,6 +978,7 @@ h2.footnotes{
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgheadline1">1. 输入 <code>git status</code> 中文路径名是乱码</a></li>
+<li><a href="#orgheadline2">2. github走ssh通道</a></li>
 </ul>
 </div>
 </nav>
@@ -1015,6 +1011,26 @@ core.quotePath
 The commands that output paths (e.g. ls-files, diff), when not given the -z option, will quote "unusual" characters in the pathname by enclosing the pathname in a double-quote pair and with backslashes the same way strings in C source code are quoted. If this variable is set to false, the bytes higher than 0x80 are not quoted but output as verbatim. Note that double quote, backslash and control characters are always quoted without -z regardless of the setting of this variable.
 </p>
 </blockquote>
+</div>
+</div>
+
+
+
+
+<div class="outline-2">
+<h2 id="orgheadline2">github走ssh通道</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+github走ssh通道。之前我都不在意，都是勤快的手工输入密码的。。github那边把你的ssh密钥加进去，然后你的项目 <code>.git/config</code> 那个文件的 url 设置为git连接即可，
+</p>
+
+<p>
+首先测试一下连通性吧:
+</p>
+
+<pre>
+bash&gt;&gt;&gt; ssh git@github.com﻿
+</pre>
 </div>
 </div>
 </div>
