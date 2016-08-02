@@ -294,8 +294,8 @@
 1. [[file:电脑/python/Python Projects.pdf][Python Projects.pdf]]
 2. [[file:电脑/python/Testing Python.pdf][Testing Python.pdf]]
 *** Django
-1. [[file:电脑/python/Django/Django_REST_framework学习笔记.html][Django_REST_framework学习笔记.html]]
-2. [[file:电脑/python/Django/django拾遗.html][django拾遗.html]]
+1. [[file:电脑/python/Django/django学习笔记补充.html][django学习笔记补充.html]]
+2. [[file:电脑/python/Django/Django_REST_framework学习笔记.html][Django_REST_framework学习笔记.html]]
 3. [[file:电脑/python/Django/django学习笔记.html][django学习笔记.html]]
 *** Flask
 1. [[file:电脑/python/Flask/精通flask.html][精通flask.html]]
