@@ -134,8 +134,11 @@ python3 setup.py register
 python3 setup.py sdist upload 
 #+END_SRC
 
-* 一个项目模板
-我在github上创建了一个小项目，这个小项目支持快速新建一个项目。
 
-[[https://github.com/a358003542/skeleton][https://github.com/a358003542/skeleton]] 
+* 下载安装源文件
+参考了 [[http://stackoverflow.com/questions/7300321/how-to-use-pythons-pip-to-download-and-keep-the-zipped-files-for-a-package][这个网页]] 。
+
+#+BEGIN_EXAMPLE
+pip install --download="/pth/to/downloaded/files" package_name
+#+END_EXAMPLE
 

@@ -1,8 +1,3 @@
-#+LATEX_CLASS: article
-#+LATEX_CLASS_OPTIONS:[11pt,oneside]
-#+LATEX_HEADER: \usepackage{article}
-
-
 #+TITLE: django学习笔记
 #+AUTHOR: 万泽(德山书生)
 #+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
@@ -442,7 +437,6 @@ class Game2048InfoForm(ModelForm):
 
 
 
-* 部署
 
 
 * 参考资料

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-07-30 六 23:06 -->
+<!-- 2016-08-14 日 22:48 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
-<title>django拾遗</title>
+<title>ubuntu学习笔记</title>
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="万泽(德山书生)">
 <meta  name="description" content="制作者邮箱：a358003542@gmail.com"
@@ -972,118 +972,54 @@ h2.footnotes{
 <body>
 <div id="content">
 <header>
-<h1 class="title">django拾遗</h1>
+<h1 class="title">ubuntu学习笔记</h1>
 </header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. 如何根据django的模型对象来获取其对应的表格的名字</a></li>
-<li><a href="#orgheadline2">2. 如何使用好django的ImageField</a></li>
+<li><a href="#orgheadline1">1. 找不到ffi.h</a></li>
+<li><a href="#orgheadline2">2. 访问局域网其他电脑</a></li>
 </ul>
 </div>
 </nav>
 
 
 <div class="outline-2">
-<h2 id="orgheadline1">如何根据django的模型对象来获取其对应的表格的名字</h2>
+<h2 id="orgheadline1">找不到ffi.h</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-参看 <a href="http://stackoverflow.com/questions/233045/how-to-read-the-database-table-name-of-a-model-instance">这个网页</a> 。
+参考了 <a href="http://stackoverflow.com/questions/12982486/glib-compile-error-ffi-h-but-libffi-is-installed">这个网页</a> 。
 </p>
 
+<pre>
+fatal error: ffi.h: No such file or directory
+</pre>
+
 <p>
-答: 
+解决方案:
 </p>
 <pre>
-model_instance._meta.db_table
+sudo apt-get install libffi-dev
 </pre>
 </div>
 </div>
-
 
 <div class="outline-2">
-<h2 id="orgheadline2">如何使用好django的ImageField</h2>
+<h2 id="orgheadline2">访问局域网其他电脑</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-参考了 <a href="http://gregblogs.com/django-saving-an-image-using-imagefield-explain-a-little/">这篇文章</a> 。
-</p>
-
-<p>
-ImageField和FileField很类似，除了还多了 <code>width</code> 和 <code>height</code> 属性，然后就是在上传的时候确保文件是图片文件。
-</p>
-
-<p>
-具体在模型文件中的定义如下:
+需要安装samba服务
 </p>
 <pre>
-banner = models.ImageField(upload_to=game_2048_images, blank=True,
-                           storage=OverwriteStorage(), default="placeholder.jpg")
-</pre>
-<p>
-上面的 <code>upload_to</code> 是控制图片在计算机中的保存路径，可以直接指定一个文件夹路径，但这通常不够灵活，这里通过一个函数来实现更加灵活的路径指定:
-</p>
-<pre>
-def game_2048_images(instance, filename):
-    """
-    where image upload to.
-    """
-    return 'game/2048/images/{}/{}'.format(instance.user.username, filename)
+sudo apt-get install samba
 </pre>
 
 <p>
-这里具体路径是根据你在 <code>settings</code> 里面指定的 <code>MEDIA_ROOT</code> 而来，然后再指定里面的具体的文件夹路径。我们看到函数还可以接受具体模型对应的实例，从而建立自动根据user用户名来分配不同的文件夹路径。
-</p>
-
-<p>
-<code>storage=OverwriteStorage()</code> 实现了如果文件名重复则覆盖的逻辑:
+你也可以新建一个共享文件夹，推荐使用图形管理界面：
 </p>
 <pre>
-class OverwriteStorage(FileSystemStorage):
-    '''
-    存储文件或图片，如果文件名重复则覆盖。
-    '''
-
-    def get_available_name(self, name):
-        if self.exists(name):
-            os.remove(os.path.join(settings.MEDIA_ROOT, name))
-        return name
+sudo apt-get install system-config-samba
 </pre>
-
-
-<p>
-ImageField 可以和rest_framework的序列化类形成很好的联动，最后序列化之后返回的是文件路径url字符串，测试的时候我们可以如下用django来挂载这些静态资源文件，实际运营的时候则推荐用nginx怎么设置一下url分发。
-</p>
-<pre>
-from django.conf.urls.static import static
-from django.conf import settings
-
-if settings.DEBUG:
-    urlpatterns += static('/data/', document_root=settings.MEDIA_ROOT)
-</pre>
-
-<p>
-在保存传过来的图片文件的时候，常规构建form对象也是可行的:
-</p>
-<pre>
-form = Game2048InfoForm(
-    request.POST, request.FILES, instance=target_info)
-
-if form.is_valid():
-    new_game_info = form.save()
-else:
-    logger.warning('form invalid')
-</pre>
-
-<p>
-否则你需要通过:
-</p>
-<pre>
-request.FILES['imgfield']
-</pre>
-
-<p>
-这样的语法来获取图片内容。
-</p>
 </div>
 </div>
 </div>
