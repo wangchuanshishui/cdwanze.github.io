@@ -22,6 +22,11 @@ index-url = http://pypi.douban.com/simple
 
 windows下是 ~%HOMEPATH%\pip\pip.ini~ 。
 
+如果你遇到提示说要加入参数 ~--trusted-host pypi.douban.com~ ，你可以加上这个选项，或者在pypi配置里面加上：
+#+BEGIN_EXAMPLE
+[install]
+trusted-host = pypi.douban.com
+#+END_EXAMPLE
 
 * js 用国内cdn源
 推荐 [[http://www.bootcdn.cn/][这个网站]] 。

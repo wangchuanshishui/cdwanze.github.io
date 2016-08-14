@@ -256,10 +256,12 @@
 *** ansible
 1. [[file:电脑/linux/ansible/ansible学习笔记.html][ansible学习笔记.html]]
 *** apache2
-1. [[file:电脑/linux/apache2/apache2学习笔记.html][apache2学习笔记.html]]
+1. [[file:电脑/linux/apache2/apache2学习笔记-ubuntu下.html][apache2学习笔记-ubuntu下.html]]
 *** bash编程
 1. [[file:电脑/linux/bash编程/bash编程123.html][bash编程123.html]]
 2. [[file:电脑/linux/bash编程/bash编程高级篇.html][bash编程高级篇.html]]
+*** centos
+1. [[file:电脑/linux/centos/centos入门.html][centos入门.html]]
 *** gcc
 1. [[file:电脑/linux/gcc/gcc手册.html][gcc手册.html]]
 2. [[file:电脑/linux/gcc/gcc参考.html][gcc参考.html]]
@@ -285,9 +287,8 @@
 *** svn
 1. [[file:电脑/linux/svn/svn基础.html][svn基础.html]]
 *** ubuntu
-1. [[file:电脑/linux/ubuntu/ubuntu找不到软件包.html][ubuntu找不到软件包.html]]
-2. [[file:电脑/linux/ubuntu/ubuntu下玩暴雪游戏.html][ubuntu下玩暴雪游戏.html]]
-3. [[file:电脑/linux/ubuntu/ubuntu入门.html][ubuntu入门.html]]
+1. [[file:电脑/linux/ubuntu/ubuntu下玩暴雪游戏.html][ubuntu下玩暴雪游戏.html]]
+2. [[file:电脑/linux/ubuntu/ubuntu入门.html][ubuntu入门.html]]
 *** 正则表达式
 1. [[file:电脑/linux/正则表达式/正则表达式入门.html][正则表达式入门.html]]
 ** python

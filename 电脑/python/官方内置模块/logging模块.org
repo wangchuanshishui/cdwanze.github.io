@@ -70,6 +70,9 @@ logger = logging.getLogger(__name__)
 
 记录器通过 `setLevel()` 方法来设置最小记录级别，这个和后面的Handler级别是协作关系。
 
+*** propagate参数
+记录器的propagate参数这里值得详细说下，记录器的名字自己定义也好，还是用 ~__name__~ 这样python自带的模块结构语法也好，其有个上层和下层的关系，比如说 ~main.test~ 这个记录器是属于 ~main~ 这个记录器的。而这里讨论的 ~propagate~ 参数，默认是True，也就是发送给 ~main.test~ 记录器的信息也会传递给其上层 ~main~ 记录器上去。如果设置为False则不会往上传递了。
+
 
 ** handlers 
 处理器负责分发日志信息到目标地去。这里主要介绍这几个Handler类：

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-08-02 二 16:32 -->
+<!-- 2016-08-14 日 22:48 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>logging模块</title>
@@ -983,16 +983,20 @@ h2.footnotes{
 <li><a href="#orgheadline2">1.2. 将日志信息输出到文件中</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline9">2. logging模块中级教程</a>
+<li><a href="#orgheadline10">2. logging模块中级教程</a>
 <ul>
-<li><a href="#orgheadline4">2.1. loggers</a></li>
-<li><a href="#orgheadline5">2.2. handlers</a></li>
-<li><a href="#orgheadline6">2.3. filters</a></li>
-<li><a href="#orgheadline7">2.4. formatters</a></li>
-<li><a href="#orgheadline8">2.5. 字典统一配置</a></li>
+<li><a href="#orgheadline5">2.1. loggers</a>
+<ul>
+<li><a href="#orgheadline4">2.1.1. propagate参数</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline10">3. 参考资料</a></li>
+<li><a href="#orgheadline6">2.2. handlers</a></li>
+<li><a href="#orgheadline7">2.3. filters</a></li>
+<li><a href="#orgheadline8">2.4. formatters</a></li>
+<li><a href="#orgheadline9">2.5. 字典统一配置</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline11">3. 参考资料</a></li>
 </ul>
 </div>
 </nav>
@@ -1074,7 +1078,7 @@ h2.footnotes{
 
 
 <div class="outline-2">
-<h2 id="orgheadline9">logging模块中级教程</h2>
+<h2 id="orgheadline10">logging模块中级教程</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 logging模块的中级使用需要了解如下几个词汇：loggers, handlers, filters, and formatters。
@@ -1082,7 +1086,7 @@ logging模块的中级使用需要了解如下几个词汇：loggers, handlers, 
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline4">loggers</h3>
+<h3 id="orgheadline5">loggers</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 记录器 之前我们运行logging.info，就是调用的默认的记录器，然后一般我们会针对每个python的模块文件创建一个记录器。
@@ -1113,11 +1117,20 @@ logger = logging.getLogger(__name__)
 记录器通过 `setLevel()` 方法来设置最小记录级别，这个和后面的Handler级别是协作关系。
 </p>
 </div>
+
+<div class="outline-4">
+<h4 id="orgheadline4">propagate参数</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+记录器的propagate参数这里值得详细说下，记录器的名字自己定义也好，还是用 <code>__name__</code> 这样python自带的模块结构语法也好，其有个上层和下层的关系，比如说 <code>main.test</code> 这个记录器是属于 <code>main</code> 这个记录器的。而这里讨论的 <code>propagate</code> 参数，默认是True，也就是发送给 <code>main.test</code> 记录器的信息也会传递给其上层 <code>main</code> 记录器上去。如果设置为False则不会往上传递了。
+</p>
+</div>
+</div>
 </div>
 
 
 <div class="outline-3">
-<h3 id="orgheadline5">handlers</h3>
+<h3 id="orgheadline6">handlers</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 处理器负责分发日志信息到目标地去。这里主要介绍这几个Handler类：
@@ -1149,7 +1162,7 @@ logger = logging.getLogger(__name__)
 
 
 <div class="outline-3">
-<h3 id="orgheadline6">filters</h3>
+<h3 id="orgheadline7">filters</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 过滤器
@@ -1158,7 +1171,7 @@ logger = logging.getLogger(__name__)
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline7">formatters</h3>
+<h3 id="orgheadline8">formatters</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 格式器，具体信息的格式定义。
@@ -1188,7 +1201,7 @@ logger = logging.getLogger(__name__)
 
 
 <div class="outline-3">
-<h3 id="orgheadline8">字典统一配置</h3>
+<h3 id="orgheadline9">字典统一配置</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 django的setting.py就会有这样的配置，具体含义还是很明显的，就是定义处理器，格式器，记录器等。
@@ -1231,7 +1244,7 @@ LOGGING = {
 
 
 <div class="outline-2">
-<h2 id="orgheadline10">参考资料</h2>
+<h2 id="orgheadline11">参考资料</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li><a href="https://docs.python.org/3.4/howto/logging.html">官方文档logging how to</a> ，然后 <a href="https://chareice.com/articles/2014/11/24/python-logging%E5%BA%93%E8%AF%A6%E8%A7%A3.html">这个网页</a> 相当于官方文档logging how to 的中文版。</li>

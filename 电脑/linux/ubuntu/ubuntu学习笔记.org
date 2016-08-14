@@ -3,7 +3,7 @@
 #+LATEX_HEADER: \usepackage{article}
 
 
-#+TITLE: ubuntu找不到软件包
+#+TITLE: ubuntu学习笔记
 #+AUTHOR: 万泽(德山书生)
 #+CREATOR: wanze(<a href="mailto:a358003542@gmail.com">a358003542@gmail.com</a>)
 #+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
@@ -21,5 +21,15 @@ fatal error: ffi.h: No such file or directory
 sudo apt-get install libffi-dev
 #+END_EXAMPLE
 
+* 访问局域网其他电脑
+需要安装samba服务
+#+BEGIN_EXAMPLE
+sudo apt-get install samba
+#+END_EXAMPLE
+
+你也可以新建一个共享文件夹，推荐使用图形管理界面：
+#+BEGIN_EXAMPLE
+sudo apt-get install system-config-samba
+#+END_EXAMPLE
 
 

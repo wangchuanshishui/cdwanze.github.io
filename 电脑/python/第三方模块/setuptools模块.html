@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-07-30 六 23:04 -->
+<!-- 2016-08-14 日 22:47 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>setuptools模块</title>
@@ -982,7 +982,7 @@ h2.footnotes{
 <li><a href="#orgheadline3">3. pkg_resources模块来管理读取资源文件</a></li>
 <li><a href="#orgheadline4">4. 在pypi上注册你的软件</a></li>
 <li><a href="#orgheadline5">5. 在pypi上上传你的软件</a></li>
-<li><a href="#orgheadline6">6. 一个项目模板</a></li>
+<li><a href="#orgheadline6">6. 下载安装源文件</a></li>
 </ul>
 </div>
 </nav>
@@ -1171,16 +1171,17 @@ resource_stream('wise','icos/Folder-Documents.ico')
 </div>
 </div>
 
+
 <div class="outline-2">
-<h2 id="orgheadline6">一个项目模板</h2>
+<h2 id="orgheadline6">下载安装源文件</h2>
 <div class="outline-text-2" id="text-6">
 <p>
-我在github上创建了一个小项目，这个小项目支持快速新建一个项目。
+参考了 <a href="http://stackoverflow.com/questions/7300321/how-to-use-pythons-pip-to-download-and-keep-the-zipped-files-for-a-package">这个网页</a> 。
 </p>
 
-<p>
-<a href="https://github.com/a358003542/skeleton"><a href="https://github.com/a358003542/skeleton">https://github.com/a358003542/skeleton</a></a> 
-</p>
+<pre>
+pip install --download="/pth/to/downloaded/files" package_name
+</pre>
 </div>
 </div>
 <div id="footnotes">

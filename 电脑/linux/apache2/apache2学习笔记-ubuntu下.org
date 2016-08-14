@@ -2,7 +2,7 @@
 #+LATEX_CLASS_OPTIONS:[11pt,oneside]
 #+LATEX_HEADER: \usepackage{article}
 
-#+TITLE: apache2学习笔记
+#+TITLE: apache2学习笔记-ubuntu下
 #+AUTHOR: 万泽(德山书生)
 #+CREATOR: wanze(<a href="mailto:a358003542@163.com">a358003542@163.com</a>)
 #+DESCRIPTION: 制作者邮箱：a358003542@gmail.com
