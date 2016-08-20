@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-07-30 六 23:08 -->
+<!-- 2016-08-20 六 22:49 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>小分子结构显示</title>
@@ -968,28 +968,24 @@ h2.footnotes{
 .highlight .vi { color: #000000 } /* Name.Variable.Instance */
 .highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
 </style>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+
+<script type="text/javascript">
+  window.MathJax = {
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    },
+        TeX: {
+               extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js","mhchem.js"]
              }
-});
+  };
 </script>
-<script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
 </head>
 <body>
 <div id="content">
@@ -1008,11 +1004,7 @@ h2.footnotes{
 <li><a href="#orgheadline5">1.5. 上下箭头</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline9">2. org模式的问题讨论</a>
-<ul>
-<li><a href="#orgheadline7">2.1. 引用网络CDN服务的mathjax</a></li>
-<li><a href="#orgheadline8">2.2. mathjax加载其他扩展</a></li>
-</ul>
+<li><a href="#orgheadline9">2. mathjax简介</a>
 </li>
 <li><a href="#orgheadline10">3. 参考资料</a></li>
 </ul>
@@ -1020,11 +1012,12 @@ h2.footnotes{
 </nav>
 
 
+
 <div class="outline-2">
 <h2 id="orgheadline6">使用mhchem宏包</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-latex可以用基于tikz的chemfig宏包来处理小分子结构显示问题，包括大型有机分子的结构显示问题，但考虑到后面和html的协调性，这里推荐使用 <strong>mhchem</strong> 宏包来生成小分子结构。
+latex可以用基于tikz的chemfig宏包来处理小分子结构显示问题，包括大型有机分子的结构显示问题，然后一些简单的小分子显示推荐 <strong>mhchem</strong> 宏包。
 </p>
 
 <p>
@@ -1043,11 +1036,11 @@ mhchem看得出来是通过latex的数学环境来显示小分子结构的，所
 </p>
 
 <p>
-比如 <code>$\ce{H_2O}$</code> 将显示为 \(\ce{H_2O}\) ，然后 <code>$\ce{AgCl_2^-}$</code> 将显示为 \(\ce{AgCl_2^-}\) 。
+比如 <code>$\ce{H_2O}$</code> 将显示为 $\ce{H_2O}$ ，然后 <code>$\ce{AgCl_2^-}$</code> 将显示为 $\ce{AgCl_2^-}$ 。
 </p>
 
 <p>
-此外还有一种简写写法：比如 <code>$\ce{H2O}$</code> 将显示为 \(\ce{H2O}\) ，然后 <code>$\ce{AgCl2-}$</code> 将显示为 \(\ce{AgCl2-}\) 。
+此外还有一种简写写法：比如 <code>$\ce{H2O}$</code> 将显示为 $\ce{H2O}$ ，然后 <code>$\ce{AgCl2-}$</code> 将显示为 $\ce{AgCl2-}$ 。
 </p>
 
 <p>
@@ -1067,12 +1060,13 @@ mhchem看得出来是通过latex的数学环境来显示小分子结构的，所
 <h3 id="orgheadline1">数字</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-数字就直接写上即可 <code>$\ce{0.5H2O}$</code>  \(\ce{0.5H2O}\) ，值得一提的是，前面的数字分数形式会自动处理： <code>$\ce{1/2 H2O}$</code> \(\ce{1/2 H2O}\) 。 你会看到带上小数点的数字显示有点古怪。之前小数点会被解释成为配位化合物和结晶水中间的那个分隔点。如 <code>$\ce{KCr(SO4)2.12H2O}$</code> \(\ce{KCr(SO4)2.12H2O}\) 。为了正确显示前面的例子，如果是在大数学环境下，把这个0.5放入数学环境中即可： <code>$$\ce{$0.5$H2O}$$</code> \($\ce{$0.5$H2O}$\) 
+数字就直接写上即可 <code>$\ce{0.5H2O}$</code>  \(\ce{0.5H2O}\) ，值得一提的是，前面的数字分数形式会自动处理： <code>$\ce{1/2 H2O}$</code> \(\ce{1/2 H2O}\) 。 你会看到带上小数点的数字显示有点古怪。之前小数点会被解释成为配位化合物和结晶水中间的那个分隔点。如 <code>$\ce{KCr(SO4)2.12H2O}$</code> \(\ce{KCr(SO4)2.12H2O}\) 。为了正确显示前面的例子，把这个0.5放入数学环境中即可： <code>$\ce{$0.5$H2O}$</code>
+
+$
+\ce{$0.5$H2O}
+$
 </p>
 
-<p>
-而对于段落内数学环境，暂时类似的处理只能在 <code>\( \)</code> 环境下如上处理，即 <code>\(\ce{$0.5$H2O}\)</code>  \(\ce{$0.5$H2O}\) ，而对于 <code>$ $</code> 这样的段落内数学环境表达则不行了。
-</p>
 </div>
 </div>
 
@@ -1080,7 +1074,7 @@ mhchem看得出来是通过latex的数学环境来显示小分子结构的，所
 <h3 id="orgheadline2">数学环境</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-同样，如上所示，mathjax目前是支持ce命令里面再加入数学环境 <code>$ $</code> 的，但外部的段落内数学环境需要使用 <code>\( \)</code> 这样的形式。
+同样，如上所示，mathjax目前是支持ce命令里面再加入数学环境 <code>$ $</code> 的。
 </p>
 </div>
 </div>
@@ -1089,7 +1083,9 @@ mhchem看得出来是通过latex的数学环境来显示小分子结构的，所
 <h3 id="orgheadline3">键</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-<code>- = #</code> 分别表示单键，双键和三键。 \(\ce{A-A B=B C#C}\) 然后使用 \bond命令还可以加入其他一些额外的键，其中 <code>$\ce{\bond{</code>}}$~ 对应 \(\ce{\bond{~}}\) ，然后 <code>$\ce{\bond{</code>-}}$~ 对应 \(\ce{\bond{~-}}\) ，其他类推。 
+<code>- = #</code> 分别表示单键，双键和三键。 \(\ce{A-A B=B C#C}\) 然后使用 \bond命令还可以加入其他一些额外的键，其中 <code>$\ce{\bond{~}}$ </code> 对应
+$\ce{\bond{~}}$
+，然后 <code>$\ce{\bond{~-}}$</code> 对应 \(\ce{\bond{~-}}\) ，其他类推。
 </p>
 </div>
 </div>
@@ -1098,27 +1094,34 @@ mhchem看得出来是通过latex的数学环境来显示小分子结构的，所
 <h3 id="orgheadline4">化学反应式</h3>
 <div class="outline-text-3" id="text-1-4">
 <pre>
+$$
 \ce{CO2 + C &lt;- 2CO}
+$$
 </pre>
 
 <p>
-\($\ce{CO2 + C <- 2CO}$\)
+$$
+\ce{CO2 + C <- 2CO}
+$$
 </p>
 
 <pre>
+$$
 \ce{CO2 + C -&gt;[\text{加入text命令}] 2CO}
 \ce{CO2 + C -&gt;T[是支持][中文的] 2CO}
+$$
 </pre>
 
 <p>
-\($
-\ce{CO2 + C ->[\text{加入text命令}] 2CO}$\)
+$$
+\ce{CO2 + C ->[\text{加入text命令}] 2CO}
+$$
 </p>
 
 <p>
-\($
+$$
 \ce{CO2 + C ->T[是支持][中文的] 2CO}
-$\)
+$$
 </p>
 
 <p>
@@ -1131,13 +1134,15 @@ $\)
 <h3 id="orgheadline5">上下箭头</h3>
 <div class="outline-text-3" id="text-1-5">
 <pre>
+$$
 \ce{SO4^2- + Ba^2+ -&gt; BaSO4 v ^}
+$$
 </pre>
 
 <p>
-\($
+$$
 \ce{SO4^2- + Ba^2+ -> BaSO4 v ^}
-$\)
+$$
 </p>
 
 <p>
@@ -1149,79 +1154,34 @@ $\)
 
 
 <div class="outline-2">
-<h2 id="orgheadline9">org模式的问题讨论</h2>
+<h2 id="orgheadline9">mathjax简介</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-在emacs的org模式下，因为能够对数学环境正确解析，所以常规操作即可。这里主要的问题还是org模式需要加入mhchem.js这个插件。
+网页之所以能够显示数学公式就是利用的mathjax这个javascript库，然后这里之所以能够显示一些简单的化学是因为mathjax还引入了mhchem.js这个插件。
 </p>
 
 <p>
-你可以重新定义org-html-mathjax-template这个变量，主要是extensions那里加入Tex的mhchem.js扩展即可，然后我把mathjax的源修改为了官方源。
+简单的引入代码如下所示：
 </p>
+<pre>
+&lt;script type="text/javascript">
+  window.MathJax = {
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    },
+        TeX: {
+               extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js","mhchem.js"]
+             }
+};
+&lt;/script>
 
-<div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defcustom</span> <span class="nv">org-html-mathjax-template</span>
-  <span class="s">&quot;&lt;script type=\&quot;text/javascript\&quot; src=\&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML\&quot;&gt;&lt;/script&gt;</span>
-<span class="s">&lt;script type=\&quot;text/javascript\&quot;&gt;</span>
-<span class="s">&lt;!--/*--&gt;&lt;![CDATA[/*&gt;&lt;!--*/</span>
-<span class="s">    MathJax.Hub.Config({</span>
-<span class="s">        // Only one of the two following lines, depending on user settings</span>
-<span class="s">        // First allows browser-native MathML display, second forces HTML/CSS</span>
-<span class="s">        :MMLYES: config: [\&quot;MMLorHTML.js\&quot;], jax: [\&quot;input/TeX\&quot;],</span>
-<span class="s">        :MMLNO: jax: [\&quot;input/TeX\&quot;, \&quot;output/HTML-CSS\&quot;],</span>
-<span class="s">        extensions: [\&quot;tex2jax.js\&quot;,\&quot;TeX/AMSmath.js\&quot;,\&quot;TeX/AMSsymbols.js\&quot;,</span>
-<span class="s">                     \&quot;TeX/noUndefined.js\&quot;,\&quot;TeX/mhchem.js\&quot;],</span>
-
-<span class="s">................same as the origin ox-html.el file</span>
-</pre></div>
-</div>
-
-
-<div class="outline-3">
-<h3 id="orgheadline7">引用网络CDN服务的mathjax</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-网页中加上如下代码即可：
-</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span>
-   <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js&quot;</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</pre></div>
+&lt;script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_CHTML">&lt;/script>
+</pre>
 
 <p>
-然后org模式下一般要使用latex，推荐后面跟上配置：
+    最关键的配置就是 TeX 的 extensions 哪里要引入 mhchem.js 。
 </p>
-
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span>
-   <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=Tex-AMS_HTML&quot;</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</pre></div>
-
-
-<p>
-这里的TeX-AMS_HTML的意思是：允许使用 TeX 或者 LaTeX 符号书写公式。使用Html和Css渲染。
-</p>
-
-<p>
-更多信息请参考 <a href="https://mathjax-chinese-doc.readthedocs.org/en/latest/configuration.html">这个网页</a> 。
-</p>
-</div>
-</div>
-
-<div class="outline-3">
-<h3 id="orgheadline8">mathjax加载其他扩展</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-如下语法在extensions里面加载一些扩展，其中mhchem在 <code>TeX/mhchem.js</code> 那里。
-</p>
-<div class="highlight"><pre><span></span>MathJax.Hub.Config({
-  jax: [&quot;input/TeX&quot;,&quot;output/HTML-CSS&quot;],
-  extensions: [&quot;tex2jax.js&quot;,&quot;MathMenu.js&quot;,&quot;MathZoom.js&quot;],
-  TeX: {
-    extensions: [&quot;AMSmath.js&quot;,&quot;AMSsymbols.js&quot;,&quot;noErrors.js&quot;,&quot;noUndefined.js&quot;]
-  }
-});
-</pre></div>
-</div>
 </div>
 </div>
 

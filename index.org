@@ -257,6 +257,7 @@
 1. [[file:电脑/linux/ansible/ansible学习笔记.html][ansible学习笔记.html]]
 *** apache2
 1. [[file:电脑/linux/apache2/apache2学习笔记-ubuntu下.html][apache2学习笔记-ubuntu下.html]]
+2. [[file:电脑/linux/apache2/apache2学习笔记-centos下.html][apache2学习笔记-centos下.html]]
 *** bash编程
 1. [[file:电脑/linux/bash编程/bash编程123.html][bash编程123.html]]
 2. [[file:电脑/linux/bash编程/bash编程高级篇.html][bash编程高级篇.html]]
@@ -288,7 +289,8 @@
 1. [[file:电脑/linux/svn/svn基础.html][svn基础.html]]
 *** ubuntu
 1. [[file:电脑/linux/ubuntu/ubuntu下玩暴雪游戏.html][ubuntu下玩暴雪游戏.html]]
-2. [[file:电脑/linux/ubuntu/ubuntu入门.html][ubuntu入门.html]]
+2. [[file:电脑/linux/ubuntu/ubuntu学习笔记.html][ubuntu学习笔记.html]]
+3. [[file:电脑/linux/ubuntu/ubuntu入门.html][ubuntu入门.html]]
 *** 正则表达式
 1. [[file:电脑/linux/正则表达式/正则表达式入门.html][正则表达式入门.html]]
 ** python
