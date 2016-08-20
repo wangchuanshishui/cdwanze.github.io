@@ -1,7 +1,3 @@
-#+LATEX_CLASS: article
-#+LATEX_CLASS_OPTIONS:[11pt,oneside]
-#+LATEX_HEADER: \usepackage{article}
-
 
 #+TITLE: ansible学习笔记
 #+AUTHOR: 万泽(德山书生)
@@ -179,8 +175,149 @@ ansible-playbook first.yaml
 
 *** get_url模块
 
-
+    
 *** git模块
+
+
+* playbook最佳实践
+** hosts文件
+在项目的文件夹下新建一个hosts文件，其类似之前讨论的 ~/etc/ansible/hosts~ 文件，然后在本地通过如下语法引入：
+
+#+BEGIN_EXAMPLE
+ansible-playbook -i hosts site.yml
+#+END_EXAMPLE
+
+** site.yml
+刷脚本的主入口
+
+** tags单独运行子任务用法
+在roles文件夹里面新建一个common文件夹，然后common文件夹里面新建一个tasks文件夹，tasks文件夹里面定义一个main.yml，该文件内容大体如下:
+#+BEGIN_EXAMPLE
+---
+
+- name: task的名字
+  command: ...
+#+END_EXAMPLE
+
+然后site.yml里面如下定义：
+#+BEGIN_EXAMPLE
+---
+
+- name: ansible 必要参数侦测
+  hosts: all
+  remote_user: root
+  
+  roles:
+    - {role: common, tags: ['common']}
+#+END_EXAMPLE
+
+然后只运行某个子任务如下利用tags来完成。
+#+BEGIN_EXAMPLE
+ansible-playbook -i hosts site.yml --tags=common
+#+END_EXAMPLE
+
+** role的全局参数
+全局参数放在 group_vars 文件夹的 all 文件里面，其也是一个简单的yaml问加。
+
+** role里的局部参数
+这些参数推荐在site.yml文件对应的role哪里定义，如下所示定义了一个 ~folder_name~ 变量 ：
+
+#+BEGIN_EXAMPLE
+  roles:
+    - {role: update-sdsomweb, folder_name: "resource/install_venv", tags:  ['update-sdsomweb']}
+#+END_EXAMPLE
+
+
+** common role
+common role的角色通常在完成某个单独子任务的时候也推荐将其加上，其一般完成某些任务必要的依赖安装和某些后续任务必要的远程机器环境参数的侦测工作。
+
+** debug role
+我们在debug role里面主要检测目标机器的一些参数看是不是符合我们的预期方便后续子任务的编写工作。如下所示:
+
+#+BEGIN_EXAMPLE
+---
+
+- name: debug for ansible_distribution
+  debug: msg="{{ ansible_distribution }}"
+  
+- name: debug for ansible_distribution_version
+  debug: msg="{{ ansible_distribution_version }}"
+  
+#+END_EXAMPLE
+
+** begin role
+某些工作很特殊，最后放在最前面先做，那么推荐放在begin role里面。
+
+** end
+某些工作很特殊，最后安装配置的最后最后再做，那么这些内容就放在end role里面。
+
+
+
+* how to do it
+** 将压缩包解压包远程机器目标点
+值得一提是unarchive模块最近才支持remote_src模式，所以推荐还是采用本地压缩包源然后解压过去的方式。
+#+BEGIN_EXAMPLE
+- name: 解压 apr 
+  unarchive:
+    src: "{{folder_name}}/apr-1.5.2.tar.gz"
+    dest: /root
+#+END_EXAMPLE
+
+
+** rsync风格的将某个文件夹复制过去
+为什么不利用copy模块，那就是scp如果文件夹里面结构稍微复杂点就会很慢，这时推荐使用 synchronize 模块：
+
+#+BEGIN_EXAMPLE
+- name: 上传源
+  synchronize: src=resource/winstore dest=/root mode=push
+#+END_EXAMPLE
+
+值得一提的是，rsync那边如果远程机器不是免密码ssh连接的话，这时又要输入密码，所以推荐common
+ role里面一开始就将pub密钥传过去，然后这个功能需要远程机装了libselinux-python和 rsync 这两个软件包。
+
+
+#+BEGIN_EXAMPLE
+- name: 上传ssh key
+  authorized_key: user=root key="{{ lookup('file', '/home/what/.ssh/id_rsa.pub') }}"
+#+END_EXAMPLE
+这里的user是登录远程机器的用户名。
+
+** 如何获得远程机器的更多参数信息
+ansible的 setup 模块能够获得远程机器很多有用的信息，甚至能够知道远程机器运行的虚拟机软件是什么。不过你可能需要一些更多信息，比如远程机器默认的python版本是多少，这个时候我们可以用如下方式来获得：
+
+#+BEGIN_EXAMPLE
+- name: get python version
+  command: python -c 'import sys;print("{0}.{1}".format(sys.version_info.major,sys.version_info.minor))'
+  register: python_version_check
+#+END_EXAMPLE
+
+这里的register注册的是执行上述命令command之后的返回结果，在ansible整个运行时里都是可以用，具体结果你可能还需要通过 ~python_version_check.stdout~ 这样的方式获得。
+
+** command和 shell的区别
+command和shell在很多情况下似乎都没有区别，shell严格意义上来讲就类似于你在shell中执行了某个命令，其可以使用bash的一些环境变量等，后面应该没事会优先考虑使用shell模块吧。
+
+
+--------------------------
+
+
+
+
+** 如何在pip的虚拟环境下工作
+
+
+** 如何安装本地的rpm包
+
+
+** 用户用户组权限管理
+
+** 删除文件或文件夹
+
+** 如何微调配置文件
+
+
+
+
+
 
 
 
