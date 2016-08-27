@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-08-20 六 23:42 -->
+<!-- 2016-08-27 六 19:44 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>ansible学习笔记</title>
@@ -1020,7 +1020,7 @@ h2.footnotes{
 <li><a href="#orgheadline27">5.9. end</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline38">6. how to do it</a>
+<li><a href="#orgheadline40">6. how to do it</a>
 <ul>
 <li><a href="#orgheadline29">6.1. 将压缩包解压包远程机器目标点</a></li>
 <li><a href="#orgheadline30">6.2. rsync风格的将某个文件夹复制过去</a></li>
@@ -1030,13 +1030,18 @@ h2.footnotes{
 <li><a href="#orgheadline34">6.6. 如何安装本地的rpm包</a></li>
 <li><a href="#orgheadline35">6.7. 用户用户组权限管理</a></li>
 <li><a href="#orgheadline36">6.8. 删除文件或文件夹</a></li>
-<li><a href="#orgheadline37">6.9. 如何微调配置文件</a></li>
+<li><a href="#orgheadline38">6.9. 如何微调配置文件</a>
+<ul>
+<li><a href="#orgheadline37">6.9.1. 用lineinfile模块微调</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline41">7. 附录</a>
+<li><a href="#orgheadline39">6.10. 只在某个版本的操作系统下才执行某个动作</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline43">7. 附录</a>
 <ul>
-<li><a href="#orgheadline39">7.1. yaml语法</a></li>
-<li><a href="#orgheadline40">7.2. 参考资料</a></li>
+<li><a href="#orgheadline41">7.1. yaml语法</a></li>
+<li><a href="#orgheadline42">7.2. 参考资料</a></li>
 </ul>
 </li>
 </ul>
@@ -1482,7 +1487,7 @@ common role的角色通常在完成某个单独子任务的时候也推荐将其
 
 
 <div class="outline-2">
-<h2 id="orgheadline38">how to do it</h2>
+<h2 id="orgheadline40">how to do it</h2>
 <div class="outline-text-2" id="text-6">
 </div><div class="outline-3">
 <h3 id="orgheadline29">将压缩包解压包远程机器目标点</h3>
@@ -1576,28 +1581,97 @@ command和shell在很多情况下似乎都没有区别，shell严格意义上来
 <h3 id="orgheadline35">用户用户组权限管理</h3>
 </div>
 
+
 <div class="outline-3">
 <h3 id="orgheadline36">删除文件或文件夹</h3>
+<div class="outline-text-3" id="text-6-8">
+<p>
+删除文件或文件夹推荐使用 file 模块而不是调用rm命令，如下所示：
+</p>
+
+<pre>
+- name: 确保目标venv文件夹不存在
+  file: path=/opt/sdsom/venv state=absent
+</pre>
+</div>
 </div>
 
 <div class="outline-3">
-<h3 id="orgheadline37">如何微调配置文件</h3>
+<h3 id="orgheadline38">如何微调配置文件</h3>
+<div class="outline-text-3" id="text-6-9">
+</div><div class="outline-4">
+<h4 id="orgheadline37">用lineinfile模块微调</h4>
+<div class="outline-text-4" id="text-6-9-1">
+<p>
+一般配置文件在远程机器上已经有个原样了，只是某几行需要修改一下，这个时候用lineinfile模块来微调这些配置很是适宜的。
+</p>
+
+<pre>
+- name: 调配apache的 httpd.conf 
+  lineinfile: 
+    dest: /etc/apache/conf/httpd.conf 
+    regexp: "{{item.regexp}}" 
+    insertafter: "{{item.insertafter}}"
+    line: "{{item.line}}"
+  with_items:
+    - {regexp: "^Listen ", insertafter: "^#Listen ", line: "Listen 8880"}
+    - {regexp: "^User ", insertafter: "^#User ",line: "User sdsadmin"}
+    - {regexp: "^Group ", insertafter: "^#Group ",line: "Group sdsadmin"}
+    - {regexp: "^ServerName ", insertafter: "^#ServerName ",line: "ServerName {{server_name}}"}
+</pre>
+
+<p>
+上面这个例子的意思就是用 regexp 来匹配目标行， 然后替换为内容 line 。insertafter是如果匹配到那个了，则将line插入到该行的后面。
+</p>
+
+<p>
+下面这个例子是插入一行new line：
+</p>
+<pre>
+- name: Load config files from the config directory conf.d/*.conf
+  lineinfile:
+    dest: /etc/apache/conf/httpd.conf
+    line: "{{item.line}}"
+  with_items:
+    - {line: "Include conf.d/*.conf"}
+</pre>
+
+<p>
+此外template模块可以利用本地的模板文件（jinja2模块系统）来生成一个配置文件。
+</p>
 </div>
 </div>
+</div>
 
 
 
 
+<div class="outline-3">
+<h3 id="orgheadline39">只在某个版本的操作系统下才执行某个动作</h3>
+<div class="outline-text-3" id="text-6-10">
+<p>
+用 <code>when</code> 语句来表达，下面的意思是只在远程机器操作系统是CentOS而且版本号是7.2时才执行某个动作（参考了 <a href="https://raymii.org/s/tutorials/Ansible_-_Only_if_on_specific_distribution_or_distribution_version.html">这个网页</a> ）。
+</p>
+<pre>
+- name: only for centos7.2 do some tweak
+  command: ...
+  when: ansible_distribution == 'CentOS' and ansible_distribution_version.startswith('7.2')
+</pre>
 
-
+<p>
+ansible_distribution 还可能是 Ubuntu ，Debian ， Red Hat Enterprise Linux 等。
+</p>
+</div>
+</div>
+</div>
 
 
 
 <div class="outline-2">
-<h2 id="orgheadline41">附录</h2>
+<h2 id="orgheadline43">附录</h2>
 <div class="outline-text-2" id="text-7">
 </div><div class="outline-3">
-<h3 id="orgheadline39">yaml语法</h3>
+<h3 id="orgheadline41">yaml语法</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 一个简单例子如下:
@@ -1636,7 +1710,7 @@ yaml文件一开始都要加上这个:  <code>---</code> 。
 
 
 <div class="outline-3">
-<h3 id="orgheadline40">参考资料</h3>
+<h3 id="orgheadline42">参考资料</h3>
 <div class="outline-text-3" id="text-7-2">
 <ol class="org-ol">
 <li>官方 <a href="http://docs.ansible.com/ansible/index.html">英文文档</a> ，这里有个翻译的 <a href="http://ansible-tran.readthedocs.io/en/latest/index.html">中文文档</a> 。</li>

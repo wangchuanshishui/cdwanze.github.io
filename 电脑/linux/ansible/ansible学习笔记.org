@@ -310,15 +310,59 @@ command和shell在很多情况下似乎都没有区别，shell严格意义上来
 
 ** 用户用户组权限管理
 
+
 ** 删除文件或文件夹
+删除文件或文件夹推荐使用 file 模块而不是调用rm命令，如下所示：
+
+#+BEGIN_EXAMPLE
+- name: 确保目标venv文件夹不存在
+  file: path=/opt/sdsom/venv state=absent
+#+END_EXAMPLE
 
 ** 如何微调配置文件
+*** 用lineinfile模块微调
+一般配置文件在远程机器上已经有个原样了，只是某几行需要修改一下，这个时候用lineinfile模块来微调这些配置很是适宜的。
+
+#+BEGIN_EXAMPLE
+- name: 调配apache的 httpd.conf 
+  lineinfile: 
+    dest: /etc/apache/conf/httpd.conf 
+    regexp: "{{item.regexp}}" 
+    insertafter: "{{item.insertafter}}"
+    line: "{{item.line}}"
+  with_items:
+    - {regexp: "^Listen ", insertafter: "^#Listen ", line: "Listen 8880"}
+    - {regexp: "^User ", insertafter: "^#User ",line: "User sdsadmin"}
+    - {regexp: "^Group ", insertafter: "^#Group ",line: "Group sdsadmin"}
+    - {regexp: "^ServerName ", insertafter: "^#ServerName ",line: "ServerName {{server_name}}"}
+#+END_EXAMPLE
+
+上面这个例子的意思就是用 regexp 来匹配目标行， 然后替换为内容 line 。insertafter是如果匹配到那个了，则将line插入到该行的后面。
+
+下面这个例子是插入一行new line：
+#+BEGIN_EXAMPLE
+- name: Load config files from the config directory conf.d/*.conf
+  lineinfile:
+    dest: /etc/apache/conf/httpd.conf
+    line: "{{item.line}}"
+  with_items:
+    - {line: "Include conf.d/*.conf"}
+#+END_EXAMPLE
+
+此外template模块可以利用本地的模板文件（jinja2模块系统）来生成一个配置文件。
 
 
 
 
+** 只在某个版本的操作系统下才执行某个动作
+用 ~when~ 语句来表达，下面的意思是只在远程机器操作系统是CentOS而且版本号是7.2时才执行某个动作（参考了 [[https://raymii.org/s/tutorials/Ansible_-_Only_if_on_specific_distribution_or_distribution_version.html][这个网页]] ）。
+#+BEGIN_EXAMPLE
+- name: only for centos7.2 do some tweak
+  command: ...
+  when: ansible_distribution == 'CentOS' and ansible_distribution_version.startswith('7.2') 
+#+END_EXAMPLE
 
-
+ansible_distribution 还可能是 Ubuntu ，Debian ， Red Hat Enterprise Linux 等。
 
 
 
