@@ -58,6 +58,8 @@
 2. [[file:思想/德山书生/2016/成就还是自由.html][成就还是自由.html]]
 3. [[file:思想/德山书生/2016/穷人的国和富人的国.html][穷人的国和富人的国.html]]
 4. [[file:思想/德山书生/2016/新变革.html][新变革.html]]
+** 我们时代的神经症人格
+1. [[file:思想/我们时代的神经症人格/我们时代的神经症人格.pdf][我们时代的神经症人格.pdf]]
 ** 新阶级
 1. [[file:思想/新阶级/新阶级.html][新阶级.html]]
 2. [[file:思想/新阶级/新阶级.pdf][新阶级.pdf]]
@@ -248,11 +250,12 @@
 1. [[file:电脑/latex/xelatex指南/xelatex指南.pdf][xelatex指南.pdf]]
 2. [[file:电脑/latex/xelatex指南/xelatex指南.html][xelatex指南.html]]
 ** linux
-1. [[file:电脑/linux/linux shell实例精解.pdf][linux shell实例精解.pdf]]
-2. [[file:电脑/linux/advanced programingm in the unix environment.pdf][advanced programingm in the unix environment.pdf]]
-3. [[file:电脑/linux/mastering-regular-expressions.pdf][mastering-regular-expressions.pdf]]
-4. [[file:电脑/linux/鸟哥的linux私房菜.pdf][鸟哥的linux私房菜.pdf]]
-5. [[file:电脑/linux/UNIX网络编程卷1：套接字联网API.pdf][UNIX网络编程卷1：套接字联网API.pdf]]
+1. [[file:电脑/linux/鸟哥的私房菜学习笔记.html][鸟哥的私房菜学习笔记.html]]
+2. [[file:电脑/linux/linux shell实例精解.pdf][linux shell实例精解.pdf]]
+3. [[file:电脑/linux/advanced programingm in the unix environment.pdf][advanced programingm in the unix environment.pdf]]
+4. [[file:电脑/linux/mastering-regular-expressions.pdf][mastering-regular-expressions.pdf]]
+5. [[file:电脑/linux/鸟哥的linux私房菜.pdf][鸟哥的linux私房菜.pdf]]
+6. [[file:电脑/linux/UNIX网络编程卷1：套接字联网API.pdf][UNIX网络编程卷1：套接字联网API.pdf]]
 *** ansible
 1. [[file:电脑/linux/ansible/ansible学习笔记.html][ansible学习笔记.html]]
 *** apache2
@@ -291,6 +294,8 @@
 1. [[file:电脑/linux/ubuntu/ubuntu下玩暴雪游戏.html][ubuntu下玩暴雪游戏.html]]
 2. [[file:电脑/linux/ubuntu/ubuntu学习笔记.html][ubuntu学习笔记.html]]
 3. [[file:电脑/linux/ubuntu/ubuntu入门.html][ubuntu入门.html]]
+*** vi编辑器
+1. [[file:电脑/linux/vi编辑器/vi编辑器.html][vi编辑器.html]]
 *** 正则表达式
 1. [[file:电脑/linux/正则表达式/正则表达式入门.html][正则表达式入门.html]]
 ** python
