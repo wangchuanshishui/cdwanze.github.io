@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-08-14 日 22:48 -->
+<!-- 2016-08-28 日 17:21 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>linux系统进阶2</title>
@@ -979,6 +979,7 @@ h2.footnotes{
 <ul>
 <li><a href="#orgheadline1">1. 实时监控某个远程日志文件动态</a></li>
 <li><a href="#orgheadline2">2. 制作服务脚本并让其自启动</a></li>
+<li><a href="#orgheadline3">3. diff和patch命令</a></li>
 </ul>
 </div>
 </nav>
@@ -1082,6 +1083,47 @@ exit 0
 
 <pre>
 chkconfig --level 35 what on
+</pre>
+</div>
+</div>
+
+<div class="outline-2">
+<h2 id="orgheadline3">diff和patch命令</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+下面只讨论针对文件的对比。
+</p>
+
+<pre>
+diff -u 源文件 目标文件 &gt; test.patch
+</pre>
+
+<p>
+diff命令得出从源文件到目标文件的修改路径。一般加上 <code>-u</code> 来输出patch文件。
+</p>
+
+<p>
+patch文件 <code>---</code> 表示源文件， <code>+++</code> 表示目标文件。
+</p>
+
+<p>
+然后应用patch命令可以实现从源文件和patch文件来得到目标文件。
+</p>
+
+<pre>
+patch -p0 test2.txt test.patch -o new_test2.txt
+</pre>
+
+<p>
+这里的 <code>new_test2.txt</code> 是test2.txt打上补丁文件之后的结果。
+</p>
+
+<p>
+还可以取消补丁，或者说从目标文件得到源文件。
+</p>
+
+<pre>
+patch -p0 -R test3.txt test.patch -o ori_test3.txt
 </pre>
 </div>
 </div>

@@ -82,3 +82,28 @@ exit 0
 #+BEGIN_EXAMPLE
 chkconfig --level 35 what on
 #+END_EXAMPLE
+
+* diff和patch命令
+下面只讨论针对文件的对比。
+
+#+BEGIN_EXAMPLE
+diff -u 源文件 目标文件 > test.patch
+#+END_EXAMPLE
+
+diff命令得出从源文件到目标文件的修改路径。一般加上 ~-u~ 来输出patch文件。
+
+patch文件 ~---~ 表示源文件， ~+++~ 表示目标文件。
+
+然后应用patch命令可以实现从源文件和patch文件来得到目标文件。
+
+#+BEGIN_EXAMPLE
+patch -p0 test2.txt test.patch -o new_test2.txt
+#+END_EXAMPLE
+
+这里的 ~new_test2.txt~ 是test2.txt打上补丁文件之后的结果。
+
+还可以取消补丁，或者说从目标文件得到源文件。
+
+#+BEGIN_EXAMPLE
+patch -p0 -R test3.txt test.patch -o ori_test3.txt
+#+END_EXAMPLE
