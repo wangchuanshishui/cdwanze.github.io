@@ -45,7 +45,7 @@
 <li><a href="#orgheadline27">5.9. end</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline38">6. how to do it</a>
+<li><a href="#orgheadline40">6. how to do it</a>
 <ul>
 <li><a href="#orgheadline29">6.1. 将压缩包解压包远程机器目标点</a></li>
 <li><a href="#orgheadline30">6.2. rsync风格的将某个文件夹复制过去</a></li>
@@ -55,13 +55,18 @@
 <li><a href="#orgheadline34">6.6. 如何安装本地的rpm包</a></li>
 <li><a href="#orgheadline35">6.7. 用户用户组权限管理</a></li>
 <li><a href="#orgheadline36">6.8. 删除文件或文件夹</a></li>
-<li><a href="#orgheadline37">6.9. 如何微调配置文件</a></li>
+<li><a href="#orgheadline38">6.9. 如何微调配置文件</a>
+<ul>
+<li><a href="#orgheadline37">6.9.1. 用lineinfile模块微调</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline41">7. 附录</a>
+<li><a href="#orgheadline39">6.10. 只在某个版本的操作系统下才执行某个动作</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline43">7. 附录</a>
 <ul>
-<li><a href="#orgheadline39">7.1. yaml语法</a></li>
-<li><a href="#orgheadline40">7.2. 参考资料</a></li>
+<li><a href="#orgheadline41">7.1. yaml语法</a></li>
+<li><a href="#orgheadline42">7.2. 参考资料</a></li>
 </ul>
 </li>
 </ul>
@@ -298,7 +303,7 @@ common role的角色通常在完成某个单独子任务的时候也推荐将其
 
 某些工作很特殊，最后安装配置的最后最后再做，那么这些内容就放在end role里面。
 
-# how to do it<a id="orgheadline38"></a>
+# how to do it<a id="orgheadline40"></a>
 
 ## 将压缩包解压包远程机器目标点<a id="orgheadline29"></a>
 
@@ -342,17 +347,69 @@ command和shell在很多情况下似乎都没有区别，shell严格意义上来
 
 ## 如何在pip的虚拟环境下工作<a id="orgheadline33"></a>
 
+参考了 [这个网页](http://stackoverflow.com/questions/26402123/ansible-creating-a-virtualenv) ，如下所示是在目标虚拟环境文件夹下根据requirements.txt文件夹描述来安装那些目标python模块到虚拟环境中。
+
+    - name: Install requirements
+      pip: 
+        requirements: /my_app/requirements.txt
+        virtualenv: /user/home/venvs/myenv
+        virtualenv_python: python3.4
+
 ## 如何安装本地的rpm包<a id="orgheadline34"></a>
 
 ## 用户用户组权限管理<a id="orgheadline35"></a>
 
 ## 删除文件或文件夹<a id="orgheadline36"></a>
 
-## 如何微调配置文件<a id="orgheadline37"></a>
+删除文件或文件夹推荐使用 file 模块而不是调用rm命令，如下所示：
 
-# 附录<a id="orgheadline41"></a>
+    - name: 确保目标venv文件夹不存在
+      file: path=/opt/sdsom/venv state=absent
 
-## yaml语法<a id="orgheadline39"></a>
+## 如何微调配置文件<a id="orgheadline38"></a>
+
+### 用lineinfile模块微调<a id="orgheadline37"></a>
+
+一般配置文件在远程机器上已经有个原样了，只是某几行需要修改一下，这个时候用lineinfile模块来微调这些配置很是适宜的。
+
+    - name: 调配apache的 httpd.conf 
+      lineinfile: 
+        dest: /etc/apache/conf/httpd.conf 
+        regexp: "{{item.regexp}}" 
+        insertafter: "{{item.insertafter}}"
+        line: "{{item.line}}"
+      with_items:
+        - {regexp: "^Listen ", insertafter: "^#Listen ", line: "Listen 8880"}
+        - {regexp: "^User ", insertafter: "^#User ",line: "User sdsadmin"}
+        - {regexp: "^Group ", insertafter: "^#Group ",line: "Group sdsadmin"}
+        - {regexp: "^ServerName ", insertafter: "^#ServerName ",line: "ServerName {{server_name}}"}
+
+上面这个例子的意思就是用 regexp 来匹配目标行， 然后替换为内容 line 。insertafter是如果匹配到那个了，则将line插入到该行的后面。
+
+下面这个例子是插入一行new line：
+
+    - name: Load config files from the config directory conf.d/*.conf
+      lineinfile:
+        dest: /etc/apache/conf/httpd.conf
+        line: "{{item.line}}"
+      with_items:
+        - {line: "Include conf.d/*.conf"}
+
+此外template模块可以利用本地的模板文件（jinja2模块系统）来生成一个配置文件。
+
+## 只在某个版本的操作系统下才执行某个动作<a id="orgheadline39"></a>
+
+用 `when` 语句来表达，下面的意思是只在远程机器操作系统是CentOS而且版本号是7.2时才执行某个动作（参考了 [这个网页](https://raymii.org/s/tutorials/Ansible_-_Only_if_on_specific_distribution_or_distribution_version.html) ）。
+
+    - name: only for centos7.2 do some tweak
+      command: ...
+      when: ansible_distribution == 'CentOS' and ansible_distribution_version.startswith('7.2')
+
+ansible\_distribution 还可能是 Ubuntu ，Debian ， Red Hat Enterprise Linux 等。
+
+# 附录<a id="orgheadline43"></a>
+
+## yaml语法<a id="orgheadline41"></a>
 
 一个简单例子如下:
 
@@ -380,6 +437,6 @@ yaml文件一开始都要加上这个:  `---` 。
 
 然后相同缩进级别 `-` 开头的表示一个列表，然后其他键值对表示字典，大体就是这样。
 
-## 参考资料<a id="orgheadline40"></a>
+## 参考资料<a id="orgheadline42"></a>
 
 1.  官方 [英文文档](http://docs.ansible.com/ansible/index.html) ，这里有个翻译的 [中文文档](http://ansible-tran.readthedocs.io/en/latest/index.html) 。

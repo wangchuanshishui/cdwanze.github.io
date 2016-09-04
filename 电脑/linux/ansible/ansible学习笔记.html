@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-08-27 六 19:44 -->
+<!-- 2016-08-28 日 17:21 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>ansible学习笔记</title>
@@ -1569,6 +1569,19 @@ command和shell在很多情况下似乎都没有区别，shell严格意义上来
 
 <div class="outline-3">
 <h3 id="orgheadline33">如何在pip的虚拟环境下工作</h3>
+<div class="outline-text-3" id="text-6-5">
+<p>
+参考了 <a href="http://stackoverflow.com/questions/26402123/ansible-creating-a-virtualenv">这个网页</a> ，如下所示是在目标虚拟环境文件夹下根据requirements.txt文件夹描述来安装那些目标python模块到虚拟环境中。
+</p>
+
+<pre>
+- name: Install requirements
+  pip: 
+    requirements: /my_app/requirements.txt
+    virtualenv: /user/home/venvs/myenv
+    virtualenv_python: python3.4
+</pre>
+</div>
 </div>
 
 

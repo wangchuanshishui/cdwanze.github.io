@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-07-30 六 23:04 -->
+<!-- 2016-08-28 日 17:21 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>pytest模块</title>
@@ -977,15 +977,95 @@ h2.footnotes{
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. 捕捉异常</a></li>
+<li><a href="#orgheadline1">1. 简介</a></li>
+<li><a href="#orgheadline2">2. 第一个例子</a></li>
+<li><a href="#orgheadline3">3. 捕捉异常</a></li>
 </ul>
 </div>
 </nav>
 
+<div class="outline-2">
+<h2 id="orgheadline1">简介</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+pytest是一个流行的python测试开发框架，很多python模块都将其作为标配。
+</p>
+
+<p>
+安装就用pip install pytest 即可，然后看下安装情况：
+</p>
+<pre>
+pytest --version
+</pre>
+
+<p>
+pytest可以很好的和setuptools模块集成起来，具体设置方法请参看我写的这个python小项目 <a href="https://github.com/a358003542/pyskeleton">pyskeleton</a> 。
+</p>
+
+<p>
+其重要利用了 pytest-runner 这个模块来实现了：
+</p>
+<pre>
+python setup.py test
+</pre>
+
+<p>
+这个的输入。
+</p>
+
+<p>
+当然你可以安装pytest之后直接下模块文件夹下运行：
+</p>
+<pre>
+pytest
+</pre>
+
+<p>
+那么用上面的那种输入风格有什么好处呢，好处就是你直接修改模块和测试就行了，不仅不用安装该模块到系统里面，甚至连build操作都可以不用做:
+</p>
+<pre>
+python setup.py build
+</pre>
+
+<p>
+这确实很方便，那么pytest的一些参数怎么传递进去了，如下所示是利用 <code>--addopts</code> 这个选项传递进去的:
+</p>
+<pre>
+python setup.py test --addopts '-v tests/test_pytest.py'
+</pre>
+</div>
+</div>
+
 
 <div class="outline-2">
-<h2 id="orgheadline1">捕捉异常</h2>
-<div class="outline-text-2" id="text-1">
+<h2 id="orgheadline2">第一个例子</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+在tests文件夹下新建一个文件test_pytest.py，然后写入内容如下：
+</p>
+
+<pre>
+def addone(x):
+    return x + 1
+
+def test_answer():
+    assert addone(3) == 4
+</pre>
+
+<p>
+然后你可以运行pytest来测试看看。
+</p>
+</div>
+</div>
+
+
+
+<div class="outline-2">
+<h2 id="orgheadline3">捕捉异常</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+如何捕捉期待的异常呢？如下所示：
+</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytest</span> <span class="kn">import</span> <span class="n">raises</span>
 
 <span class="k">class</span> <span class="nc">MyException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>

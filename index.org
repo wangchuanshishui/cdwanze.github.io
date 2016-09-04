@@ -260,7 +260,6 @@
 1. [[file:电脑/linux/ansible/ansible学习笔记.html][ansible学习笔记.html]]
 *** apache2
 1. [[file:电脑/linux/apache2/apache2学习笔记-ubuntu下.html][apache2学习笔记-ubuntu下.html]]
-2. [[file:电脑/linux/apache2/apache2学习笔记-centos下.html][apache2学习笔记-centos下.html]]
 *** bash编程
 1. [[file:电脑/linux/bash编程/bash编程123.html][bash编程123.html]]
 2. [[file:电脑/linux/bash编程/bash编程高级篇.html][bash编程高级篇.html]]
